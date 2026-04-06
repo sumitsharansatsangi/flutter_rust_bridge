@@ -2665,7 +2665,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   DateTime dco_decode_Chrono_Local(dynamic raw);
 
   @protected
-  DateTime dco_decode_Chrono_Naive(dynamic raw);
+  DateTime dco_decode_Chrono_NaiveDate(dynamic raw);
+
+  @protected
+  DateTime dco_decode_Chrono_NaiveDateTime(dynamic raw);
 
   @protected
   DateTime dco_decode_Chrono_Utc(dynamic raw);
@@ -4282,6 +4285,16 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   RustStreamSink<String> dco_decode_StreamSink_String_Sse(dynamic raw);
 
   @protected
+  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
+      dco_decode_StreamSink___record__application_settings_raw_string_enum_mirrored_Dco(
+          dynamic raw);
+
+  @protected
+  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
+      dco_decode_StreamSink___record__application_settings_raw_string_enum_mirrored_Sse(
+          dynamic raw);
+
+  @protected
   RustStreamSink<ApplicationMode> dco_decode_StreamSink_application_mode_Dco(
       dynamic raw);
 
@@ -4433,16 +4446,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       dco_decode_StreamSink_opt_box_autoadd_application_mode_Sse(dynamic raw);
 
   @protected
-  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
-      dco_decode_StreamSink_record_application_settings_raw_string_enum_mirrored_Dco(
-          dynamic raw);
-
-  @protected
-  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
-      dco_decode_StreamSink_record_application_settings_raw_string_enum_mirrored_Sse(
-          dynamic raw);
-
-  @protected
   RustStreamSink<int> dco_decode_StreamSink_u_32_Dco(dynamic raw);
 
   @protected
@@ -4537,6 +4540,290 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   UuidValue dco_decode_Uuid(dynamic raw);
+
+  @protected
+  (ApplicationSettings, RawStringEnumMirrored)
+      dco_decode___record__application_settings_raw_string_enum_mirrored(
+          dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinMoi,
+    OpaqueTwoTwinMoi
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinNormal,
+    OpaqueTwoTwinNormal
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsync,
+    OpaqueTwoTwinRustAsync
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsyncMoi,
+    OpaqueTwoTwinRustAsyncMoi
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsyncSse,
+    OpaqueTwoTwinRustAsyncSse
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsyncSseMoi,
+    OpaqueTwoTwinRustAsyncSseMoi
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse_moi(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinSse,
+    OpaqueTwoTwinSse
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinSseMoi,
+    OpaqueTwoTwinSseMoi
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse_moi(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinSync,
+    OpaqueTwoTwinSync
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinSyncMoi,
+    OpaqueTwoTwinSyncMoi
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinSyncSse,
+    OpaqueTwoTwinSyncSse
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse(
+      dynamic raw);
+
+  @protected
+  (
+    OpaqueOneTwinSyncSseMoi,
+    OpaqueTwoTwinSyncSseMoi
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse_moi(
+      dynamic raw);
+
+  @protected
+  (int, BasicGeneralEnumTwinNormal)
+      dco_decode___record__i_32_basic_general_enum_twin_normal(dynamic raw);
+
+  @protected
+  (int, BasicGeneralEnumTwinRustAsync)
+      dco_decode___record__i_32_basic_general_enum_twin_rust_async(dynamic raw);
+
+  @protected
+  (int, BasicGeneralEnumTwinRustAsyncSse)
+      dco_decode___record__i_32_basic_general_enum_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  (int, BasicGeneralEnumTwinSse)
+      dco_decode___record__i_32_basic_general_enum_twin_sse(dynamic raw);
+
+  @protected
+  (int, BasicGeneralEnumTwinSync)
+      dco_decode___record__i_32_basic_general_enum_twin_sync(dynamic raw);
+
+  @protected
+  (int, BasicGeneralEnumTwinSyncSse)
+      dco_decode___record__i_32_basic_general_enum_twin_sync_sse(dynamic raw);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinNormal)
+      dco_decode___record__i_32_basic_primitive_enum_twin_normal(dynamic raw);
+
+  @protected
+  (
+    int,
+    BasicPrimitiveEnumTwinRustAsync
+  ) dco_decode___record__i_32_basic_primitive_enum_twin_rust_async(dynamic raw);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinRustAsyncSse)
+      dco_decode___record__i_32_basic_primitive_enum_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinSse)
+      dco_decode___record__i_32_basic_primitive_enum_twin_sse(dynamic raw);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinSync)
+      dco_decode___record__i_32_basic_primitive_enum_twin_sync(dynamic raw);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinSyncSse)
+      dco_decode___record__i_32_basic_primitive_enum_twin_sync_sse(dynamic raw);
+
+  @protected
+  (int, BasicStructTwinNormal)
+      dco_decode___record__i_32_basic_struct_twin_normal(dynamic raw);
+
+  @protected
+  (int, BasicStructTwinRustAsync)
+      dco_decode___record__i_32_basic_struct_twin_rust_async(dynamic raw);
+
+  @protected
+  (int, BasicStructTwinRustAsyncSse)
+      dco_decode___record__i_32_basic_struct_twin_rust_async_sse(dynamic raw);
+
+  @protected
+  (int, BasicStructTwinSse) dco_decode___record__i_32_basic_struct_twin_sse(
+      dynamic raw);
+
+  @protected
+  (int, BasicStructTwinSync) dco_decode___record__i_32_basic_struct_twin_sync(
+      dynamic raw);
+
+  @protected
+  (int, BasicStructTwinSyncSse)
+      dco_decode___record__i_32_basic_struct_twin_sync_sse(dynamic raw);
+
+  @protected
+  (int, bool) dco_decode___record__i_32_bool(dynamic raw);
+
+  @protected
+  (int, double) dco_decode___record__i_32_f_32(dynamic raw);
+
+  @protected
+  (int, double) dco_decode___record__i_32_f_64(dynamic raw);
+
+  @protected
+  (int, BigInt) dco_decode___record__i_32_i_128(dynamic raw);
+
+  @protected
+  (int, int) dco_decode___record__i_32_i_16(dynamic raw);
+
+  @protected
+  (int, int) dco_decode___record__i_32_i_32(dynamic raw);
+
+  @protected
+  (int, PlatformInt64) dco_decode___record__i_32_i_64(dynamic raw);
+
+  @protected
+  (int, int) dco_decode___record__i_32_i_8(dynamic raw);
+
+  @protected
+  (int, PlatformInt64) dco_decode___record__i_32_isize(dynamic raw);
+
+  @protected
+  (int, Uint8List) dco_decode___record__i_32_list_prim_u_8_strict(dynamic raw);
+
+  @protected
+  (int, String) dco_decode___record__i_32_string(dynamic raw);
+
+  @protected
+  (int, BigInt) dco_decode___record__i_32_u_128(dynamic raw);
+
+  @protected
+  (int, int) dco_decode___record__i_32_u_16(dynamic raw);
+
+  @protected
+  (int, int) dco_decode___record__i_32_u_32(dynamic raw);
+
+  @protected
+  (int, BigInt) dco_decode___record__i_32_u_64(dynamic raw);
+
+  @protected
+  (int, int) dco_decode___record__i_32_u_8(dynamic raw);
+
+  @protected
+  (int, BigInt) dco_decode___record__i_32_usize(dynamic raw);
+
+  @protected
+  (String, EnumSimpleTwinNormal)
+      dco_decode___record__string_enum_simple_twin_normal(dynamic raw);
+
+  @protected
+  (String, EnumSimpleTwinRustAsync)
+      dco_decode___record__string_enum_simple_twin_rust_async(dynamic raw);
+
+  @protected
+  (String, EnumSimpleTwinRustAsyncSse)
+      dco_decode___record__string_enum_simple_twin_rust_async_sse(dynamic raw);
+
+  @protected
+  (String, EnumSimpleTwinSse) dco_decode___record__string_enum_simple_twin_sse(
+      dynamic raw);
+
+  @protected
+  (String, EnumSimpleTwinSync)
+      dco_decode___record__string_enum_simple_twin_sync(dynamic raw);
+
+  @protected
+  (String, EnumSimpleTwinSyncSse)
+      dco_decode___record__string_enum_simple_twin_sync_sse(dynamic raw);
+
+  @protected
+  (String, HashMapValue) dco_decode___record__string_hash_map_value(
+      dynamic raw);
+
+  @protected
+  (String, int) dco_decode___record__string_i_32(dynamic raw);
+
+  @protected
+  (String, KitchenSinkTwinNormal)
+      dco_decode___record__string_kitchen_sink_twin_normal(dynamic raw);
+
+  @protected
+  (String, KitchenSinkTwinRustAsync)
+      dco_decode___record__string_kitchen_sink_twin_rust_async(dynamic raw);
+
+  @protected
+  (String, KitchenSinkTwinRustAsyncSse)
+      dco_decode___record__string_kitchen_sink_twin_rust_async_sse(dynamic raw);
+
+  @protected
+  (String, KitchenSinkTwinSse)
+      dco_decode___record__string_kitchen_sink_twin_sse(dynamic raw);
+
+  @protected
+  (String, KitchenSinkTwinSync)
+      dco_decode___record__string_kitchen_sink_twin_sync(dynamic raw);
+
+  @protected
+  (String, KitchenSinkTwinSyncSse)
+      dco_decode___record__string_kitchen_sink_twin_sync_sse(dynamic raw);
+
+  @protected
+  (String, Uint8List) dco_decode___record__string_list_prim_u_8_strict(
+      dynamic raw);
+
+  @protected
+  (String, MySize) dco_decode___record__string_my_size(dynamic raw);
+
+  @protected
+  (String, String) dco_decode___record__string_string(dynamic raw);
+
+  @protected
+  (int, ApplicationMode) dco_decode___record__u_8_application_mode(dynamic raw);
 
   @protected
   ATwinNormal dco_decode_a_twin_normal(dynamic raw);
@@ -4872,7 +5159,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   Duration dco_decode_box_autoadd_Chrono_Duration(dynamic raw);
 
   @protected
-  DateTime dco_decode_box_autoadd_Chrono_Naive(dynamic raw);
+  DateTime dco_decode_box_autoadd_Chrono_NaiveDate(dynamic raw);
+
+  @protected
+  DateTime dco_decode_box_autoadd_Chrono_NaiveDateTime(dynamic raw);
 
   @protected
   DateTime dco_decode_box_autoadd_Chrono_Utc(dynamic raw);
@@ -4944,6 +5234,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   HideDataTwinSyncSseMoi
       dco_decode_box_autoadd_RustOpaque_HideDataTwinSyncSseMoi(dynamic raw);
+
+  @protected
+  (String, int) dco_decode_box_autoadd___record__string_i_32(dynamic raw);
 
   @protected
   ATwinNormal dco_decode_box_autoadd_a_twin_normal(dynamic raw);
@@ -6048,9 +6341,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   RawStringMirrored dco_decode_box_autoadd_raw_string_mirrored(dynamic raw);
-
-  @protected
-  (String, int) dco_decode_box_autoadd_record_string_i_32(dynamic raw);
 
   @protected
   Sequences dco_decode_box_autoadd_sequences(dynamic raw);
@@ -7719,7 +8009,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   List<DateTime> dco_decode_list_Chrono_Local(dynamic raw);
 
   @protected
-  List<DateTime> dco_decode_list_Chrono_Naive(dynamic raw);
+  List<DateTime> dco_decode_list_Chrono_NaiveDateTime(dynamic raw);
 
   @protected
   List<Object> dco_decode_list_DartOpaque(dynamic raw);
@@ -7781,6 +8071,212 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<UuidValue> dco_decode_list_Uuid(dynamic raw);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinNormal)>
+      dco_decode_list___record__i_32_basic_general_enum_twin_normal(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinRustAsync)>
+      dco_decode_list___record__i_32_basic_general_enum_twin_rust_async(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinRustAsyncSse)>
+      dco_decode_list___record__i_32_basic_general_enum_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinSse)>
+      dco_decode_list___record__i_32_basic_general_enum_twin_sse(dynamic raw);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinSync)>
+      dco_decode_list___record__i_32_basic_general_enum_twin_sync(dynamic raw);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinSyncSse)>
+      dco_decode_list___record__i_32_basic_general_enum_twin_sync_sse(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinNormal)>
+      dco_decode_list___record__i_32_basic_primitive_enum_twin_normal(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinRustAsync)>
+      dco_decode_list___record__i_32_basic_primitive_enum_twin_rust_async(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinRustAsyncSse)>
+      dco_decode_list___record__i_32_basic_primitive_enum_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinSse)>
+      dco_decode_list___record__i_32_basic_primitive_enum_twin_sse(dynamic raw);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinSync)>
+      dco_decode_list___record__i_32_basic_primitive_enum_twin_sync(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinSyncSse)>
+      dco_decode_list___record__i_32_basic_primitive_enum_twin_sync_sse(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicStructTwinNormal)>
+      dco_decode_list___record__i_32_basic_struct_twin_normal(dynamic raw);
+
+  @protected
+  List<(int, BasicStructTwinRustAsync)>
+      dco_decode_list___record__i_32_basic_struct_twin_rust_async(dynamic raw);
+
+  @protected
+  List<(int, BasicStructTwinRustAsyncSse)>
+      dco_decode_list___record__i_32_basic_struct_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  List<(int, BasicStructTwinSse)>
+      dco_decode_list___record__i_32_basic_struct_twin_sse(dynamic raw);
+
+  @protected
+  List<(int, BasicStructTwinSync)>
+      dco_decode_list___record__i_32_basic_struct_twin_sync(dynamic raw);
+
+  @protected
+  List<(int, BasicStructTwinSyncSse)>
+      dco_decode_list___record__i_32_basic_struct_twin_sync_sse(dynamic raw);
+
+  @protected
+  List<(int, bool)> dco_decode_list___record__i_32_bool(dynamic raw);
+
+  @protected
+  List<(int, double)> dco_decode_list___record__i_32_f_32(dynamic raw);
+
+  @protected
+  List<(int, double)> dco_decode_list___record__i_32_f_64(dynamic raw);
+
+  @protected
+  List<(int, BigInt)> dco_decode_list___record__i_32_i_128(dynamic raw);
+
+  @protected
+  List<(int, int)> dco_decode_list___record__i_32_i_16(dynamic raw);
+
+  @protected
+  List<(int, int)> dco_decode_list___record__i_32_i_32(dynamic raw);
+
+  @protected
+  List<(int, PlatformInt64)> dco_decode_list___record__i_32_i_64(dynamic raw);
+
+  @protected
+  List<(int, int)> dco_decode_list___record__i_32_i_8(dynamic raw);
+
+  @protected
+  List<(int, PlatformInt64)> dco_decode_list___record__i_32_isize(dynamic raw);
+
+  @protected
+  List<(int, Uint8List)> dco_decode_list___record__i_32_list_prim_u_8_strict(
+      dynamic raw);
+
+  @protected
+  List<(int, String)> dco_decode_list___record__i_32_string(dynamic raw);
+
+  @protected
+  List<(int, BigInt)> dco_decode_list___record__i_32_u_128(dynamic raw);
+
+  @protected
+  List<(int, int)> dco_decode_list___record__i_32_u_16(dynamic raw);
+
+  @protected
+  List<(int, int)> dco_decode_list___record__i_32_u_32(dynamic raw);
+
+  @protected
+  List<(int, BigInt)> dco_decode_list___record__i_32_u_64(dynamic raw);
+
+  @protected
+  List<(int, int)> dco_decode_list___record__i_32_u_8(dynamic raw);
+
+  @protected
+  List<(int, BigInt)> dco_decode_list___record__i_32_usize(dynamic raw);
+
+  @protected
+  List<(String, EnumSimpleTwinNormal)>
+      dco_decode_list___record__string_enum_simple_twin_normal(dynamic raw);
+
+  @protected
+  List<(String, EnumSimpleTwinRustAsync)>
+      dco_decode_list___record__string_enum_simple_twin_rust_async(dynamic raw);
+
+  @protected
+  List<(String, EnumSimpleTwinRustAsyncSse)>
+      dco_decode_list___record__string_enum_simple_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  List<(String, EnumSimpleTwinSse)>
+      dco_decode_list___record__string_enum_simple_twin_sse(dynamic raw);
+
+  @protected
+  List<(String, EnumSimpleTwinSync)>
+      dco_decode_list___record__string_enum_simple_twin_sync(dynamic raw);
+
+  @protected
+  List<(String, EnumSimpleTwinSyncSse)>
+      dco_decode_list___record__string_enum_simple_twin_sync_sse(dynamic raw);
+
+  @protected
+  List<(String, HashMapValue)> dco_decode_list___record__string_hash_map_value(
+      dynamic raw);
+
+  @protected
+  List<(String, int)> dco_decode_list___record__string_i_32(dynamic raw);
+
+  @protected
+  List<(String, KitchenSinkTwinNormal)>
+      dco_decode_list___record__string_kitchen_sink_twin_normal(dynamic raw);
+
+  @protected
+  List<(String, KitchenSinkTwinRustAsync)>
+      dco_decode_list___record__string_kitchen_sink_twin_rust_async(
+          dynamic raw);
+
+  @protected
+  List<(String, KitchenSinkTwinRustAsyncSse)>
+      dco_decode_list___record__string_kitchen_sink_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  List<(String, KitchenSinkTwinSse)>
+      dco_decode_list___record__string_kitchen_sink_twin_sse(dynamic raw);
+
+  @protected
+  List<(String, KitchenSinkTwinSync)>
+      dco_decode_list___record__string_kitchen_sink_twin_sync(dynamic raw);
+
+  @protected
+  List<(String, KitchenSinkTwinSyncSse)>
+      dco_decode_list___record__string_kitchen_sink_twin_sync_sse(dynamic raw);
+
+  @protected
+  List<(String, Uint8List)>
+      dco_decode_list___record__string_list_prim_u_8_strict(dynamic raw);
+
+  @protected
+  List<(String, MySize)> dco_decode_list___record__string_my_size(dynamic raw);
+
+  @protected
+  List<(String, String)> dco_decode_list___record__string_string(dynamic raw);
+
+  @protected
+  List<(int, ApplicationMode)> dco_decode_list___record__u_8_application_mode(
+      dynamic raw);
 
   @protected
   List<ApplicationEnvVar> dco_decode_list_application_env_var(dynamic raw);
@@ -8126,206 +8622,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<RawStringMirrored> dco_decode_list_raw_string_mirrored(dynamic raw);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinNormal)>
-      dco_decode_list_record_i_32_basic_general_enum_twin_normal(dynamic raw);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinRustAsync)>
-      dco_decode_list_record_i_32_basic_general_enum_twin_rust_async(
-          dynamic raw);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinRustAsyncSse)>
-      dco_decode_list_record_i_32_basic_general_enum_twin_rust_async_sse(
-          dynamic raw);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinSse)>
-      dco_decode_list_record_i_32_basic_general_enum_twin_sse(dynamic raw);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinSync)>
-      dco_decode_list_record_i_32_basic_general_enum_twin_sync(dynamic raw);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinSyncSse)>
-      dco_decode_list_record_i_32_basic_general_enum_twin_sync_sse(dynamic raw);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinNormal)>
-      dco_decode_list_record_i_32_basic_primitive_enum_twin_normal(dynamic raw);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinRustAsync)>
-      dco_decode_list_record_i_32_basic_primitive_enum_twin_rust_async(
-          dynamic raw);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinRustAsyncSse)>
-      dco_decode_list_record_i_32_basic_primitive_enum_twin_rust_async_sse(
-          dynamic raw);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinSse)>
-      dco_decode_list_record_i_32_basic_primitive_enum_twin_sse(dynamic raw);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinSync)>
-      dco_decode_list_record_i_32_basic_primitive_enum_twin_sync(dynamic raw);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinSyncSse)>
-      dco_decode_list_record_i_32_basic_primitive_enum_twin_sync_sse(
-          dynamic raw);
-
-  @protected
-  List<(int, BasicStructTwinNormal)>
-      dco_decode_list_record_i_32_basic_struct_twin_normal(dynamic raw);
-
-  @protected
-  List<(int, BasicStructTwinRustAsync)>
-      dco_decode_list_record_i_32_basic_struct_twin_rust_async(dynamic raw);
-
-  @protected
-  List<(int, BasicStructTwinRustAsyncSse)>
-      dco_decode_list_record_i_32_basic_struct_twin_rust_async_sse(dynamic raw);
-
-  @protected
-  List<(int, BasicStructTwinSse)>
-      dco_decode_list_record_i_32_basic_struct_twin_sse(dynamic raw);
-
-  @protected
-  List<(int, BasicStructTwinSync)>
-      dco_decode_list_record_i_32_basic_struct_twin_sync(dynamic raw);
-
-  @protected
-  List<(int, BasicStructTwinSyncSse)>
-      dco_decode_list_record_i_32_basic_struct_twin_sync_sse(dynamic raw);
-
-  @protected
-  List<(int, bool)> dco_decode_list_record_i_32_bool(dynamic raw);
-
-  @protected
-  List<(int, double)> dco_decode_list_record_i_32_f_32(dynamic raw);
-
-  @protected
-  List<(int, double)> dco_decode_list_record_i_32_f_64(dynamic raw);
-
-  @protected
-  List<(int, BigInt)> dco_decode_list_record_i_32_i_128(dynamic raw);
-
-  @protected
-  List<(int, int)> dco_decode_list_record_i_32_i_16(dynamic raw);
-
-  @protected
-  List<(int, int)> dco_decode_list_record_i_32_i_32(dynamic raw);
-
-  @protected
-  List<(int, PlatformInt64)> dco_decode_list_record_i_32_i_64(dynamic raw);
-
-  @protected
-  List<(int, int)> dco_decode_list_record_i_32_i_8(dynamic raw);
-
-  @protected
-  List<(int, PlatformInt64)> dco_decode_list_record_i_32_isize(dynamic raw);
-
-  @protected
-  List<(int, Uint8List)> dco_decode_list_record_i_32_list_prim_u_8_strict(
-      dynamic raw);
-
-  @protected
-  List<(int, String)> dco_decode_list_record_i_32_string(dynamic raw);
-
-  @protected
-  List<(int, BigInt)> dco_decode_list_record_i_32_u_128(dynamic raw);
-
-  @protected
-  List<(int, int)> dco_decode_list_record_i_32_u_16(dynamic raw);
-
-  @protected
-  List<(int, int)> dco_decode_list_record_i_32_u_32(dynamic raw);
-
-  @protected
-  List<(int, BigInt)> dco_decode_list_record_i_32_u_64(dynamic raw);
-
-  @protected
-  List<(int, int)> dco_decode_list_record_i_32_u_8(dynamic raw);
-
-  @protected
-  List<(int, BigInt)> dco_decode_list_record_i_32_usize(dynamic raw);
-
-  @protected
-  List<(String, EnumSimpleTwinNormal)>
-      dco_decode_list_record_string_enum_simple_twin_normal(dynamic raw);
-
-  @protected
-  List<(String, EnumSimpleTwinRustAsync)>
-      dco_decode_list_record_string_enum_simple_twin_rust_async(dynamic raw);
-
-  @protected
-  List<(String, EnumSimpleTwinRustAsyncSse)>
-      dco_decode_list_record_string_enum_simple_twin_rust_async_sse(
-          dynamic raw);
-
-  @protected
-  List<(String, EnumSimpleTwinSse)>
-      dco_decode_list_record_string_enum_simple_twin_sse(dynamic raw);
-
-  @protected
-  List<(String, EnumSimpleTwinSync)>
-      dco_decode_list_record_string_enum_simple_twin_sync(dynamic raw);
-
-  @protected
-  List<(String, EnumSimpleTwinSyncSse)>
-      dco_decode_list_record_string_enum_simple_twin_sync_sse(dynamic raw);
-
-  @protected
-  List<(String, HashMapValue)> dco_decode_list_record_string_hash_map_value(
-      dynamic raw);
-
-  @protected
-  List<(String, int)> dco_decode_list_record_string_i_32(dynamic raw);
-
-  @protected
-  List<(String, KitchenSinkTwinNormal)>
-      dco_decode_list_record_string_kitchen_sink_twin_normal(dynamic raw);
-
-  @protected
-  List<(String, KitchenSinkTwinRustAsync)>
-      dco_decode_list_record_string_kitchen_sink_twin_rust_async(dynamic raw);
-
-  @protected
-  List<(String, KitchenSinkTwinRustAsyncSse)>
-      dco_decode_list_record_string_kitchen_sink_twin_rust_async_sse(
-          dynamic raw);
-
-  @protected
-  List<(String, KitchenSinkTwinSse)>
-      dco_decode_list_record_string_kitchen_sink_twin_sse(dynamic raw);
-
-  @protected
-  List<(String, KitchenSinkTwinSync)>
-      dco_decode_list_record_string_kitchen_sink_twin_sync(dynamic raw);
-
-  @protected
-  List<(String, KitchenSinkTwinSyncSse)>
-      dco_decode_list_record_string_kitchen_sink_twin_sync_sse(dynamic raw);
-
-  @protected
-  List<(String, Uint8List)> dco_decode_list_record_string_list_prim_u_8_strict(
-      dynamic raw);
-
-  @protected
-  List<(String, MySize)> dco_decode_list_record_string_my_size(dynamic raw);
-
-  @protected
-  List<(String, String)> dco_decode_list_record_string_string(dynamic raw);
-
-  @protected
-  List<(int, ApplicationMode)> dco_decode_list_record_u_8_application_mode(
-      dynamic raw);
 
   @protected
   List<SimpleStructTwinNormal> dco_decode_list_simple_struct_twin_normal(
@@ -8817,7 +9113,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   Duration? dco_decode_opt_box_autoadd_Chrono_Duration(dynamic raw);
 
   @protected
-  DateTime? dco_decode_opt_box_autoadd_Chrono_Naive(dynamic raw);
+  DateTime? dco_decode_opt_box_autoadd_Chrono_NaiveDate(dynamic raw);
+
+  @protected
+  DateTime? dco_decode_opt_box_autoadd_Chrono_NaiveDateTime(dynamic raw);
 
   @protected
   DateTime? dco_decode_opt_box_autoadd_Chrono_Utc(dynamic raw);
@@ -8893,6 +9192,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   HideDataTwinSyncSseMoi?
       dco_decode_opt_box_autoadd_RustOpaque_HideDataTwinSyncSseMoi(dynamic raw);
+
+  @protected
+  (String, int)? dco_decode_opt_box_autoadd___record__string_i_32(dynamic raw);
 
   @protected
   ApplicationEnv? dco_decode_opt_box_autoadd_application_env(dynamic raw);
@@ -9116,9 +9418,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   NewTypeIntTwinSyncSse? dco_decode_opt_box_autoadd_new_type_int_twin_sync_sse(
       dynamic raw);
-
-  @protected
-  (String, int)? dco_decode_opt_box_autoadd_record_string_i_32(dynamic raw);
 
   @protected
   int? dco_decode_opt_box_autoadd_u_16(dynamic raw);
@@ -9416,288 +9715,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   RawStringMirrored dco_decode_raw_string_mirrored(dynamic raw);
-
-  @protected
-  (ApplicationSettings, RawStringEnumMirrored)
-      dco_decode_record_application_settings_raw_string_enum_mirrored(
-          dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinMoi,
-    OpaqueTwoTwinMoi
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinNormal,
-    OpaqueTwoTwinNormal
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsync,
-    OpaqueTwoTwinRustAsync
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsyncMoi,
-    OpaqueTwoTwinRustAsyncMoi
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsyncSse,
-    OpaqueTwoTwinRustAsyncSse
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsyncSseMoi,
-    OpaqueTwoTwinRustAsyncSseMoi
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse_moi(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinSse,
-    OpaqueTwoTwinSse
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinSseMoi,
-    OpaqueTwoTwinSseMoi
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse_moi(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinSync,
-    OpaqueTwoTwinSync
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinSyncMoi,
-    OpaqueTwoTwinSyncMoi
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinSyncSse,
-    OpaqueTwoTwinSyncSse
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse(
-      dynamic raw);
-
-  @protected
-  (
-    OpaqueOneTwinSyncSseMoi,
-    OpaqueTwoTwinSyncSseMoi
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse_moi(
-      dynamic raw);
-
-  @protected
-  (int, BasicGeneralEnumTwinNormal)
-      dco_decode_record_i_32_basic_general_enum_twin_normal(dynamic raw);
-
-  @protected
-  (int, BasicGeneralEnumTwinRustAsync)
-      dco_decode_record_i_32_basic_general_enum_twin_rust_async(dynamic raw);
-
-  @protected
-  (
-    int,
-    BasicGeneralEnumTwinRustAsyncSse
-  ) dco_decode_record_i_32_basic_general_enum_twin_rust_async_sse(dynamic raw);
-
-  @protected
-  (int, BasicGeneralEnumTwinSse)
-      dco_decode_record_i_32_basic_general_enum_twin_sse(dynamic raw);
-
-  @protected
-  (int, BasicGeneralEnumTwinSync)
-      dco_decode_record_i_32_basic_general_enum_twin_sync(dynamic raw);
-
-  @protected
-  (int, BasicGeneralEnumTwinSyncSse)
-      dco_decode_record_i_32_basic_general_enum_twin_sync_sse(dynamic raw);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinNormal)
-      dco_decode_record_i_32_basic_primitive_enum_twin_normal(dynamic raw);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinRustAsync)
-      dco_decode_record_i_32_basic_primitive_enum_twin_rust_async(dynamic raw);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinRustAsyncSse)
-      dco_decode_record_i_32_basic_primitive_enum_twin_rust_async_sse(
-          dynamic raw);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinSse)
-      dco_decode_record_i_32_basic_primitive_enum_twin_sse(dynamic raw);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinSync)
-      dco_decode_record_i_32_basic_primitive_enum_twin_sync(dynamic raw);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinSyncSse)
-      dco_decode_record_i_32_basic_primitive_enum_twin_sync_sse(dynamic raw);
-
-  @protected
-  (int, BasicStructTwinNormal) dco_decode_record_i_32_basic_struct_twin_normal(
-      dynamic raw);
-
-  @protected
-  (int, BasicStructTwinRustAsync)
-      dco_decode_record_i_32_basic_struct_twin_rust_async(dynamic raw);
-
-  @protected
-  (int, BasicStructTwinRustAsyncSse)
-      dco_decode_record_i_32_basic_struct_twin_rust_async_sse(dynamic raw);
-
-  @protected
-  (int, BasicStructTwinSse) dco_decode_record_i_32_basic_struct_twin_sse(
-      dynamic raw);
-
-  @protected
-  (int, BasicStructTwinSync) dco_decode_record_i_32_basic_struct_twin_sync(
-      dynamic raw);
-
-  @protected
-  (int, BasicStructTwinSyncSse)
-      dco_decode_record_i_32_basic_struct_twin_sync_sse(dynamic raw);
-
-  @protected
-  (int, bool) dco_decode_record_i_32_bool(dynamic raw);
-
-  @protected
-  (int, double) dco_decode_record_i_32_f_32(dynamic raw);
-
-  @protected
-  (int, double) dco_decode_record_i_32_f_64(dynamic raw);
-
-  @protected
-  (int, BigInt) dco_decode_record_i_32_i_128(dynamic raw);
-
-  @protected
-  (int, int) dco_decode_record_i_32_i_16(dynamic raw);
-
-  @protected
-  (int, int) dco_decode_record_i_32_i_32(dynamic raw);
-
-  @protected
-  (int, PlatformInt64) dco_decode_record_i_32_i_64(dynamic raw);
-
-  @protected
-  (int, int) dco_decode_record_i_32_i_8(dynamic raw);
-
-  @protected
-  (int, PlatformInt64) dco_decode_record_i_32_isize(dynamic raw);
-
-  @protected
-  (int, Uint8List) dco_decode_record_i_32_list_prim_u_8_strict(dynamic raw);
-
-  @protected
-  (int, String) dco_decode_record_i_32_string(dynamic raw);
-
-  @protected
-  (int, BigInt) dco_decode_record_i_32_u_128(dynamic raw);
-
-  @protected
-  (int, int) dco_decode_record_i_32_u_16(dynamic raw);
-
-  @protected
-  (int, int) dco_decode_record_i_32_u_32(dynamic raw);
-
-  @protected
-  (int, BigInt) dco_decode_record_i_32_u_64(dynamic raw);
-
-  @protected
-  (int, int) dco_decode_record_i_32_u_8(dynamic raw);
-
-  @protected
-  (int, BigInt) dco_decode_record_i_32_usize(dynamic raw);
-
-  @protected
-  (String, EnumSimpleTwinNormal)
-      dco_decode_record_string_enum_simple_twin_normal(dynamic raw);
-
-  @protected
-  (String, EnumSimpleTwinRustAsync)
-      dco_decode_record_string_enum_simple_twin_rust_async(dynamic raw);
-
-  @protected
-  (String, EnumSimpleTwinRustAsyncSse)
-      dco_decode_record_string_enum_simple_twin_rust_async_sse(dynamic raw);
-
-  @protected
-  (String, EnumSimpleTwinSse) dco_decode_record_string_enum_simple_twin_sse(
-      dynamic raw);
-
-  @protected
-  (String, EnumSimpleTwinSync) dco_decode_record_string_enum_simple_twin_sync(
-      dynamic raw);
-
-  @protected
-  (String, EnumSimpleTwinSyncSse)
-      dco_decode_record_string_enum_simple_twin_sync_sse(dynamic raw);
-
-  @protected
-  (String, HashMapValue) dco_decode_record_string_hash_map_value(dynamic raw);
-
-  @protected
-  (String, int) dco_decode_record_string_i_32(dynamic raw);
-
-  @protected
-  (String, KitchenSinkTwinNormal)
-      dco_decode_record_string_kitchen_sink_twin_normal(dynamic raw);
-
-  @protected
-  (String, KitchenSinkTwinRustAsync)
-      dco_decode_record_string_kitchen_sink_twin_rust_async(dynamic raw);
-
-  @protected
-  (String, KitchenSinkTwinRustAsyncSse)
-      dco_decode_record_string_kitchen_sink_twin_rust_async_sse(dynamic raw);
-
-  @protected
-  (String, KitchenSinkTwinSse) dco_decode_record_string_kitchen_sink_twin_sse(
-      dynamic raw);
-
-  @protected
-  (String, KitchenSinkTwinSync) dco_decode_record_string_kitchen_sink_twin_sync(
-      dynamic raw);
-
-  @protected
-  (String, KitchenSinkTwinSyncSse)
-      dco_decode_record_string_kitchen_sink_twin_sync_sse(dynamic raw);
-
-  @protected
-  (String, Uint8List) dco_decode_record_string_list_prim_u_8_strict(
-      dynamic raw);
-
-  @protected
-  (String, MySize) dco_decode_record_string_my_size(dynamic raw);
-
-  @protected
-  (String, String) dco_decode_record_string_string(dynamic raw);
-
-  @protected
-  (int, ApplicationMode) dco_decode_record_u_8_application_mode(dynamic raw);
 
   @protected
   Sequences dco_decode_sequences(dynamic raw);
@@ -11913,7 +11930,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   DateTime sse_decode_Chrono_Local(SseDeserializer deserializer);
 
   @protected
-  DateTime sse_decode_Chrono_Naive(SseDeserializer deserializer);
+  DateTime sse_decode_Chrono_NaiveDate(SseDeserializer deserializer);
+
+  @protected
+  DateTime sse_decode_Chrono_NaiveDateTime(SseDeserializer deserializer);
 
   @protected
   DateTime sse_decode_Chrono_Utc(SseDeserializer deserializer);
@@ -13532,6 +13552,16 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       SseDeserializer deserializer);
 
   @protected
+  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
+      sse_decode_StreamSink___record__application_settings_raw_string_enum_mirrored_Dco(
+          SseDeserializer deserializer);
+
+  @protected
+  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
+      sse_decode_StreamSink___record__application_settings_raw_string_enum_mirrored_Sse(
+          SseDeserializer deserializer);
+
+  @protected
   RustStreamSink<ApplicationMode> sse_decode_StreamSink_application_mode_Dco(
       SseDeserializer deserializer);
 
@@ -13710,16 +13740,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           SseDeserializer deserializer);
 
   @protected
-  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
-      sse_decode_StreamSink_record_application_settings_raw_string_enum_mirrored_Dco(
-          SseDeserializer deserializer);
-
-  @protected
-  RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)>
-      sse_decode_StreamSink_record_application_settings_raw_string_enum_mirrored_Sse(
-          SseDeserializer deserializer);
-
-  @protected
   RustStreamSink<int> sse_decode_StreamSink_u_32_Dco(
       SseDeserializer deserializer);
 
@@ -13743,6 +13763,319 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   UuidValue sse_decode_Uuid(SseDeserializer deserializer);
+
+  @protected
+  (ApplicationSettings, RawStringEnumMirrored)
+      sse_decode___record__application_settings_raw_string_enum_mirrored(
+          SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinMoi,
+    OpaqueTwoTwinMoi
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinNormal,
+    OpaqueTwoTwinNormal
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsync,
+    OpaqueTwoTwinRustAsync
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsyncMoi,
+    OpaqueTwoTwinRustAsyncMoi
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsyncSse,
+    OpaqueTwoTwinRustAsyncSse
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinRustAsyncSseMoi,
+    OpaqueTwoTwinRustAsyncSseMoi
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse_moi(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinSse,
+    OpaqueTwoTwinSse
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinSseMoi,
+    OpaqueTwoTwinSseMoi
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse_moi(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinSync,
+    OpaqueTwoTwinSync
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinSyncMoi,
+    OpaqueTwoTwinSyncMoi
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinSyncSse,
+    OpaqueTwoTwinSyncSse
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  (
+    OpaqueOneTwinSyncSseMoi,
+    OpaqueTwoTwinSyncSseMoi
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse_moi(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, BasicGeneralEnumTwinNormal)
+      sse_decode___record__i_32_basic_general_enum_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicGeneralEnumTwinRustAsync)
+      sse_decode___record__i_32_basic_general_enum_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicGeneralEnumTwinRustAsyncSse)
+      sse_decode___record__i_32_basic_general_enum_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicGeneralEnumTwinSse)
+      sse_decode___record__i_32_basic_general_enum_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicGeneralEnumTwinSync)
+      sse_decode___record__i_32_basic_general_enum_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicGeneralEnumTwinSyncSse)
+      sse_decode___record__i_32_basic_general_enum_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinNormal)
+      sse_decode___record__i_32_basic_primitive_enum_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinRustAsync)
+      sse_decode___record__i_32_basic_primitive_enum_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinRustAsyncSse)
+      sse_decode___record__i_32_basic_primitive_enum_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinSse)
+      sse_decode___record__i_32_basic_primitive_enum_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinSync)
+      sse_decode___record__i_32_basic_primitive_enum_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicPrimitiveEnumTwinSyncSse)
+      sse_decode___record__i_32_basic_primitive_enum_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicStructTwinNormal)
+      sse_decode___record__i_32_basic_struct_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicStructTwinRustAsync)
+      sse_decode___record__i_32_basic_struct_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicStructTwinRustAsyncSse)
+      sse_decode___record__i_32_basic_struct_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, BasicStructTwinSse) sse_decode___record__i_32_basic_struct_twin_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, BasicStructTwinSync) sse_decode___record__i_32_basic_struct_twin_sync(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, BasicStructTwinSyncSse)
+      sse_decode___record__i_32_basic_struct_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (int, bool) sse_decode___record__i_32_bool(SseDeserializer deserializer);
+
+  @protected
+  (int, double) sse_decode___record__i_32_f_32(SseDeserializer deserializer);
+
+  @protected
+  (int, double) sse_decode___record__i_32_f_64(SseDeserializer deserializer);
+
+  @protected
+  (int, BigInt) sse_decode___record__i_32_i_128(SseDeserializer deserializer);
+
+  @protected
+  (int, int) sse_decode___record__i_32_i_16(SseDeserializer deserializer);
+
+  @protected
+  (int, int) sse_decode___record__i_32_i_32(SseDeserializer deserializer);
+
+  @protected
+  (int, PlatformInt64) sse_decode___record__i_32_i_64(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, int) sse_decode___record__i_32_i_8(SseDeserializer deserializer);
+
+  @protected
+  (int, PlatformInt64) sse_decode___record__i_32_isize(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, Uint8List) sse_decode___record__i_32_list_prim_u_8_strict(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, String) sse_decode___record__i_32_string(SseDeserializer deserializer);
+
+  @protected
+  (int, BigInt) sse_decode___record__i_32_u_128(SseDeserializer deserializer);
+
+  @protected
+  (int, int) sse_decode___record__i_32_u_16(SseDeserializer deserializer);
+
+  @protected
+  (int, int) sse_decode___record__i_32_u_32(SseDeserializer deserializer);
+
+  @protected
+  (int, BigInt) sse_decode___record__i_32_u_64(SseDeserializer deserializer);
+
+  @protected
+  (int, int) sse_decode___record__i_32_u_8(SseDeserializer deserializer);
+
+  @protected
+  (int, BigInt) sse_decode___record__i_32_usize(SseDeserializer deserializer);
+
+  @protected
+  (String, EnumSimpleTwinNormal)
+      sse_decode___record__string_enum_simple_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, EnumSimpleTwinRustAsync)
+      sse_decode___record__string_enum_simple_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, EnumSimpleTwinRustAsyncSse)
+      sse_decode___record__string_enum_simple_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, EnumSimpleTwinSse) sse_decode___record__string_enum_simple_twin_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  (String, EnumSimpleTwinSync)
+      sse_decode___record__string_enum_simple_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, EnumSimpleTwinSyncSse)
+      sse_decode___record__string_enum_simple_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, HashMapValue) sse_decode___record__string_hash_map_value(
+      SseDeserializer deserializer);
+
+  @protected
+  (String, int) sse_decode___record__string_i_32(SseDeserializer deserializer);
+
+  @protected
+  (String, KitchenSinkTwinNormal)
+      sse_decode___record__string_kitchen_sink_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, KitchenSinkTwinRustAsync)
+      sse_decode___record__string_kitchen_sink_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, KitchenSinkTwinRustAsyncSse)
+      sse_decode___record__string_kitchen_sink_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, KitchenSinkTwinSse)
+      sse_decode___record__string_kitchen_sink_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, KitchenSinkTwinSync)
+      sse_decode___record__string_kitchen_sink_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, KitchenSinkTwinSyncSse)
+      sse_decode___record__string_kitchen_sink_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  (String, Uint8List) sse_decode___record__string_list_prim_u_8_strict(
+      SseDeserializer deserializer);
+
+  @protected
+  (String, MySize) sse_decode___record__string_my_size(
+      SseDeserializer deserializer);
+
+  @protected
+  (String, String) sse_decode___record__string_string(
+      SseDeserializer deserializer);
+
+  @protected
+  (int, ApplicationMode) sse_decode___record__u_8_application_mode(
+      SseDeserializer deserializer);
 
   @protected
   ATwinNormal sse_decode_a_twin_normal(SseDeserializer deserializer);
@@ -14116,7 +14449,12 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   Duration sse_decode_box_autoadd_Chrono_Duration(SseDeserializer deserializer);
 
   @protected
-  DateTime sse_decode_box_autoadd_Chrono_Naive(SseDeserializer deserializer);
+  DateTime sse_decode_box_autoadd_Chrono_NaiveDate(
+      SseDeserializer deserializer);
+
+  @protected
+  DateTime sse_decode_box_autoadd_Chrono_NaiveDateTime(
+      SseDeserializer deserializer);
 
   @protected
   DateTime sse_decode_box_autoadd_Chrono_Utc(SseDeserializer deserializer);
@@ -14195,6 +14533,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   HideDataTwinSyncSseMoi
       sse_decode_box_autoadd_RustOpaque_HideDataTwinSyncSseMoi(
           SseDeserializer deserializer);
+
+  @protected
+  (String, int) sse_decode_box_autoadd___record__string_i_32(
+      SseDeserializer deserializer);
 
   @protected
   ATwinNormal sse_decode_box_autoadd_a_twin_normal(
@@ -15451,10 +15793,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   RawStringMirrored sse_decode_box_autoadd_raw_string_mirrored(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, int) sse_decode_box_autoadd_record_string_i_32(
       SseDeserializer deserializer);
 
   @protected
@@ -17339,7 +17677,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   List<DateTime> sse_decode_list_Chrono_Local(SseDeserializer deserializer);
 
   @protected
-  List<DateTime> sse_decode_list_Chrono_Naive(SseDeserializer deserializer);
+  List<DateTime> sse_decode_list_Chrono_NaiveDateTime(
+      SseDeserializer deserializer);
 
   @protected
   List<Object> sse_decode_list_DartOpaque(SseDeserializer deserializer);
@@ -17409,6 +17748,249 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<UuidValue> sse_decode_list_Uuid(SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinNormal)>
+      sse_decode_list___record__i_32_basic_general_enum_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinRustAsync)>
+      sse_decode_list___record__i_32_basic_general_enum_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinRustAsyncSse)>
+      sse_decode_list___record__i_32_basic_general_enum_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinSse)>
+      sse_decode_list___record__i_32_basic_general_enum_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinSync)>
+      sse_decode_list___record__i_32_basic_general_enum_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicGeneralEnumTwinSyncSse)>
+      sse_decode_list___record__i_32_basic_general_enum_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinNormal)>
+      sse_decode_list___record__i_32_basic_primitive_enum_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinRustAsync)>
+      sse_decode_list___record__i_32_basic_primitive_enum_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinRustAsyncSse)>
+      sse_decode_list___record__i_32_basic_primitive_enum_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinSse)>
+      sse_decode_list___record__i_32_basic_primitive_enum_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinSync)>
+      sse_decode_list___record__i_32_basic_primitive_enum_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicPrimitiveEnumTwinSyncSse)>
+      sse_decode_list___record__i_32_basic_primitive_enum_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicStructTwinNormal)>
+      sse_decode_list___record__i_32_basic_struct_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicStructTwinRustAsync)>
+      sse_decode_list___record__i_32_basic_struct_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicStructTwinRustAsyncSse)>
+      sse_decode_list___record__i_32_basic_struct_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicStructTwinSse)>
+      sse_decode_list___record__i_32_basic_struct_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicStructTwinSync)>
+      sse_decode_list___record__i_32_basic_struct_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, BasicStructTwinSyncSse)>
+      sse_decode_list___record__i_32_basic_struct_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(int, bool)> sse_decode_list___record__i_32_bool(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, double)> sse_decode_list___record__i_32_f_32(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, double)> sse_decode_list___record__i_32_f_64(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, BigInt)> sse_decode_list___record__i_32_i_128(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, int)> sse_decode_list___record__i_32_i_16(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, int)> sse_decode_list___record__i_32_i_32(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, PlatformInt64)> sse_decode_list___record__i_32_i_64(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, int)> sse_decode_list___record__i_32_i_8(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, PlatformInt64)> sse_decode_list___record__i_32_isize(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, Uint8List)> sse_decode_list___record__i_32_list_prim_u_8_strict(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, String)> sse_decode_list___record__i_32_string(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, BigInt)> sse_decode_list___record__i_32_u_128(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, int)> sse_decode_list___record__i_32_u_16(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, int)> sse_decode_list___record__i_32_u_32(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, BigInt)> sse_decode_list___record__i_32_u_64(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, int)> sse_decode_list___record__i_32_u_8(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, BigInt)> sse_decode_list___record__i_32_usize(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(String, EnumSimpleTwinNormal)>
+      sse_decode_list___record__string_enum_simple_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, EnumSimpleTwinRustAsync)>
+      sse_decode_list___record__string_enum_simple_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, EnumSimpleTwinRustAsyncSse)>
+      sse_decode_list___record__string_enum_simple_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, EnumSimpleTwinSse)>
+      sse_decode_list___record__string_enum_simple_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, EnumSimpleTwinSync)>
+      sse_decode_list___record__string_enum_simple_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, EnumSimpleTwinSyncSse)>
+      sse_decode_list___record__string_enum_simple_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, HashMapValue)> sse_decode_list___record__string_hash_map_value(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(String, int)> sse_decode_list___record__string_i_32(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(String, KitchenSinkTwinNormal)>
+      sse_decode_list___record__string_kitchen_sink_twin_normal(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, KitchenSinkTwinRustAsync)>
+      sse_decode_list___record__string_kitchen_sink_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, KitchenSinkTwinRustAsyncSse)>
+      sse_decode_list___record__string_kitchen_sink_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, KitchenSinkTwinSse)>
+      sse_decode_list___record__string_kitchen_sink_twin_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, KitchenSinkTwinSync)>
+      sse_decode_list___record__string_kitchen_sink_twin_sync(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, KitchenSinkTwinSyncSse)>
+      sse_decode_list___record__string_kitchen_sink_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, Uint8List)>
+      sse_decode_list___record__string_list_prim_u_8_strict(
+          SseDeserializer deserializer);
+
+  @protected
+  List<(String, MySize)> sse_decode_list___record__string_my_size(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(String, String)> sse_decode_list___record__string_string(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(int, ApplicationMode)> sse_decode_list___record__u_8_application_mode(
+      SseDeserializer deserializer);
 
   @protected
   List<ApplicationEnvVar> sse_decode_list_application_env_var(
@@ -17799,248 +18381,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<RawStringMirrored> sse_decode_list_raw_string_mirrored(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinNormal)>
-      sse_decode_list_record_i_32_basic_general_enum_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinRustAsync)>
-      sse_decode_list_record_i_32_basic_general_enum_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinRustAsyncSse)>
-      sse_decode_list_record_i_32_basic_general_enum_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinSse)>
-      sse_decode_list_record_i_32_basic_general_enum_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinSync)>
-      sse_decode_list_record_i_32_basic_general_enum_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicGeneralEnumTwinSyncSse)>
-      sse_decode_list_record_i_32_basic_general_enum_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinNormal)>
-      sse_decode_list_record_i_32_basic_primitive_enum_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinRustAsync)>
-      sse_decode_list_record_i_32_basic_primitive_enum_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinRustAsyncSse)>
-      sse_decode_list_record_i_32_basic_primitive_enum_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinSse)>
-      sse_decode_list_record_i_32_basic_primitive_enum_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinSync)>
-      sse_decode_list_record_i_32_basic_primitive_enum_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicPrimitiveEnumTwinSyncSse)>
-      sse_decode_list_record_i_32_basic_primitive_enum_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicStructTwinNormal)>
-      sse_decode_list_record_i_32_basic_struct_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicStructTwinRustAsync)>
-      sse_decode_list_record_i_32_basic_struct_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicStructTwinRustAsyncSse)>
-      sse_decode_list_record_i_32_basic_struct_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicStructTwinSse)>
-      sse_decode_list_record_i_32_basic_struct_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicStructTwinSync)>
-      sse_decode_list_record_i_32_basic_struct_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, BasicStructTwinSyncSse)>
-      sse_decode_list_record_i_32_basic_struct_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(int, bool)> sse_decode_list_record_i_32_bool(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, double)> sse_decode_list_record_i_32_f_32(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, double)> sse_decode_list_record_i_32_f_64(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, BigInt)> sse_decode_list_record_i_32_i_128(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, int)> sse_decode_list_record_i_32_i_16(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, int)> sse_decode_list_record_i_32_i_32(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, PlatformInt64)> sse_decode_list_record_i_32_i_64(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, int)> sse_decode_list_record_i_32_i_8(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, PlatformInt64)> sse_decode_list_record_i_32_isize(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, Uint8List)> sse_decode_list_record_i_32_list_prim_u_8_strict(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, String)> sse_decode_list_record_i_32_string(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, BigInt)> sse_decode_list_record_i_32_u_128(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, int)> sse_decode_list_record_i_32_u_16(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, int)> sse_decode_list_record_i_32_u_32(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, BigInt)> sse_decode_list_record_i_32_u_64(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, int)> sse_decode_list_record_i_32_u_8(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, BigInt)> sse_decode_list_record_i_32_usize(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(String, EnumSimpleTwinNormal)>
-      sse_decode_list_record_string_enum_simple_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, EnumSimpleTwinRustAsync)>
-      sse_decode_list_record_string_enum_simple_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, EnumSimpleTwinRustAsyncSse)>
-      sse_decode_list_record_string_enum_simple_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, EnumSimpleTwinSse)>
-      sse_decode_list_record_string_enum_simple_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, EnumSimpleTwinSync)>
-      sse_decode_list_record_string_enum_simple_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, EnumSimpleTwinSyncSse)>
-      sse_decode_list_record_string_enum_simple_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, HashMapValue)> sse_decode_list_record_string_hash_map_value(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(String, int)> sse_decode_list_record_string_i_32(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(String, KitchenSinkTwinNormal)>
-      sse_decode_list_record_string_kitchen_sink_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, KitchenSinkTwinRustAsync)>
-      sse_decode_list_record_string_kitchen_sink_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, KitchenSinkTwinRustAsyncSse)>
-      sse_decode_list_record_string_kitchen_sink_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, KitchenSinkTwinSse)>
-      sse_decode_list_record_string_kitchen_sink_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, KitchenSinkTwinSync)>
-      sse_decode_list_record_string_kitchen_sink_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, KitchenSinkTwinSyncSse)>
-      sse_decode_list_record_string_kitchen_sink_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  List<(String, Uint8List)> sse_decode_list_record_string_list_prim_u_8_strict(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(String, MySize)> sse_decode_list_record_string_my_size(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(String, String)> sse_decode_list_record_string_string(
-      SseDeserializer deserializer);
-
-  @protected
-  List<(int, ApplicationMode)> sse_decode_list_record_u_8_application_mode(
       SseDeserializer deserializer);
 
   @protected
@@ -18606,7 +18946,11 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       SseDeserializer deserializer);
 
   @protected
-  DateTime? sse_decode_opt_box_autoadd_Chrono_Naive(
+  DateTime? sse_decode_opt_box_autoadd_Chrono_NaiveDate(
+      SseDeserializer deserializer);
+
+  @protected
+  DateTime? sse_decode_opt_box_autoadd_Chrono_NaiveDateTime(
       SseDeserializer deserializer);
 
   @protected
@@ -18689,6 +19033,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   HideDataTwinSyncSseMoi?
       sse_decode_opt_box_autoadd_RustOpaque_HideDataTwinSyncSseMoi(
           SseDeserializer deserializer);
+
+  @protected
+  (String, int)? sse_decode_opt_box_autoadd___record__string_i_32(
+      SseDeserializer deserializer);
 
   @protected
   ApplicationEnv? sse_decode_opt_box_autoadd_application_env(
@@ -18936,10 +19284,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   NewTypeIntTwinSyncSse? sse_decode_opt_box_autoadd_new_type_int_twin_sync_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, int)? sse_decode_opt_box_autoadd_record_string_i_32(
       SseDeserializer deserializer);
 
   @protected
@@ -19277,315 +19621,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   RawStringMirrored sse_decode_raw_string_mirrored(
-      SseDeserializer deserializer);
-
-  @protected
-  (ApplicationSettings, RawStringEnumMirrored)
-      sse_decode_record_application_settings_raw_string_enum_mirrored(
-          SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinMoi,
-    OpaqueTwoTwinMoi
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinNormal,
-    OpaqueTwoTwinNormal
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsync,
-    OpaqueTwoTwinRustAsync
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsyncMoi,
-    OpaqueTwoTwinRustAsyncMoi
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsyncSse,
-    OpaqueTwoTwinRustAsyncSse
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinRustAsyncSseMoi,
-    OpaqueTwoTwinRustAsyncSseMoi
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse_moi(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinSse,
-    OpaqueTwoTwinSse
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinSseMoi,
-    OpaqueTwoTwinSseMoi
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse_moi(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinSync,
-    OpaqueTwoTwinSync
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinSyncMoi,
-    OpaqueTwoTwinSyncMoi
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinSyncSse,
-    OpaqueTwoTwinSyncSse
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    OpaqueOneTwinSyncSseMoi,
-    OpaqueTwoTwinSyncSseMoi
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse_moi(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, BasicGeneralEnumTwinNormal)
-      sse_decode_record_i_32_basic_general_enum_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicGeneralEnumTwinRustAsync)
-      sse_decode_record_i_32_basic_general_enum_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicGeneralEnumTwinRustAsyncSse)
-      sse_decode_record_i_32_basic_general_enum_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicGeneralEnumTwinSse)
-      sse_decode_record_i_32_basic_general_enum_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicGeneralEnumTwinSync)
-      sse_decode_record_i_32_basic_general_enum_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicGeneralEnumTwinSyncSse)
-      sse_decode_record_i_32_basic_general_enum_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinNormal)
-      sse_decode_record_i_32_basic_primitive_enum_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinRustAsync)
-      sse_decode_record_i_32_basic_primitive_enum_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinRustAsyncSse)
-      sse_decode_record_i_32_basic_primitive_enum_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinSse)
-      sse_decode_record_i_32_basic_primitive_enum_twin_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinSync)
-      sse_decode_record_i_32_basic_primitive_enum_twin_sync(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicPrimitiveEnumTwinSyncSse)
-      sse_decode_record_i_32_basic_primitive_enum_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicStructTwinNormal) sse_decode_record_i_32_basic_struct_twin_normal(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, BasicStructTwinRustAsync)
-      sse_decode_record_i_32_basic_struct_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicStructTwinRustAsyncSse)
-      sse_decode_record_i_32_basic_struct_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, BasicStructTwinSse) sse_decode_record_i_32_basic_struct_twin_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, BasicStructTwinSync) sse_decode_record_i_32_basic_struct_twin_sync(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, BasicStructTwinSyncSse)
-      sse_decode_record_i_32_basic_struct_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (int, bool) sse_decode_record_i_32_bool(SseDeserializer deserializer);
-
-  @protected
-  (int, double) sse_decode_record_i_32_f_32(SseDeserializer deserializer);
-
-  @protected
-  (int, double) sse_decode_record_i_32_f_64(SseDeserializer deserializer);
-
-  @protected
-  (int, BigInt) sse_decode_record_i_32_i_128(SseDeserializer deserializer);
-
-  @protected
-  (int, int) sse_decode_record_i_32_i_16(SseDeserializer deserializer);
-
-  @protected
-  (int, int) sse_decode_record_i_32_i_32(SseDeserializer deserializer);
-
-  @protected
-  (int, PlatformInt64) sse_decode_record_i_32_i_64(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, int) sse_decode_record_i_32_i_8(SseDeserializer deserializer);
-
-  @protected
-  (int, PlatformInt64) sse_decode_record_i_32_isize(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, Uint8List) sse_decode_record_i_32_list_prim_u_8_strict(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, String) sse_decode_record_i_32_string(SseDeserializer deserializer);
-
-  @protected
-  (int, BigInt) sse_decode_record_i_32_u_128(SseDeserializer deserializer);
-
-  @protected
-  (int, int) sse_decode_record_i_32_u_16(SseDeserializer deserializer);
-
-  @protected
-  (int, int) sse_decode_record_i_32_u_32(SseDeserializer deserializer);
-
-  @protected
-  (int, BigInt) sse_decode_record_i_32_u_64(SseDeserializer deserializer);
-
-  @protected
-  (int, int) sse_decode_record_i_32_u_8(SseDeserializer deserializer);
-
-  @protected
-  (int, BigInt) sse_decode_record_i_32_usize(SseDeserializer deserializer);
-
-  @protected
-  (String, EnumSimpleTwinNormal)
-      sse_decode_record_string_enum_simple_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, EnumSimpleTwinRustAsync)
-      sse_decode_record_string_enum_simple_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, EnumSimpleTwinRustAsyncSse)
-      sse_decode_record_string_enum_simple_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, EnumSimpleTwinSse) sse_decode_record_string_enum_simple_twin_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, EnumSimpleTwinSync) sse_decode_record_string_enum_simple_twin_sync(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, EnumSimpleTwinSyncSse)
-      sse_decode_record_string_enum_simple_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, HashMapValue) sse_decode_record_string_hash_map_value(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, int) sse_decode_record_string_i_32(SseDeserializer deserializer);
-
-  @protected
-  (String, KitchenSinkTwinNormal)
-      sse_decode_record_string_kitchen_sink_twin_normal(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, KitchenSinkTwinRustAsync)
-      sse_decode_record_string_kitchen_sink_twin_rust_async(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, KitchenSinkTwinRustAsyncSse)
-      sse_decode_record_string_kitchen_sink_twin_rust_async_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, KitchenSinkTwinSse) sse_decode_record_string_kitchen_sink_twin_sse(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, KitchenSinkTwinSync) sse_decode_record_string_kitchen_sink_twin_sync(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, KitchenSinkTwinSyncSse)
-      sse_decode_record_string_kitchen_sink_twin_sync_sse(
-          SseDeserializer deserializer);
-
-  @protected
-  (String, Uint8List) sse_decode_record_string_list_prim_u_8_strict(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, MySize) sse_decode_record_string_my_size(
-      SseDeserializer deserializer);
-
-  @protected
-  (String, String) sse_decode_record_string_string(
-      SseDeserializer deserializer);
-
-  @protected
-  (int, ApplicationMode) sse_decode_record_u_8_application_mode(
       SseDeserializer deserializer);
 
   @protected
@@ -20581,7 +20616,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
-  JSAny cst_encode_Chrono_Naive(DateTime raw) {
+  JSAny cst_encode_Chrono_NaiveDate(DateTime raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_i_64(BigInt.from(raw.millisecondsSinceEpoch));
+  }
+
+  @protected
+  JSAny cst_encode_Chrono_NaiveDateTime(DateTime raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_i_64(BigInt.from(raw.millisecondsSinceEpoch));
   }
@@ -20618,7 +20659,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       cst_encode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
           Map<String, String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_string(
+    return cst_encode_list___record__string_string(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20627,7 +20668,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       cst_encode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
           Map<String, String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_string(
+    return cst_encode_list___record__string_string(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20636,14 +20677,14 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       cst_encode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
           Map<String, String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_string(
+    return cst_encode_list___record__string_string(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_String_String_None(Map<String, String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_string(
+    return cst_encode_list___record__string_string(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20651,7 +20692,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_enum_simple_twin_normal_None(
       Map<String, EnumSimpleTwinNormal> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_enum_simple_twin_normal(
+    return cst_encode_list___record__string_enum_simple_twin_normal(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20659,7 +20700,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_enum_simple_twin_rust_async_None(
       Map<String, EnumSimpleTwinRustAsync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_enum_simple_twin_rust_async(
+    return cst_encode_list___record__string_enum_simple_twin_rust_async(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20667,7 +20708,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_enum_simple_twin_sync_None(
       Map<String, EnumSimpleTwinSync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_enum_simple_twin_sync(
+    return cst_encode_list___record__string_enum_simple_twin_sync(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20675,7 +20716,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_hash_map_value_None(
       Map<String, HashMapValue> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_hash_map_value(
+    return cst_encode_list___record__string_hash_map_value(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20683,7 +20724,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_kitchen_sink_twin_normal_None(
       Map<String, KitchenSinkTwinNormal> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_kitchen_sink_twin_normal(
+    return cst_encode_list___record__string_kitchen_sink_twin_normal(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20691,7 +20732,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_kitchen_sink_twin_rust_async_None(
       Map<String, KitchenSinkTwinRustAsync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_kitchen_sink_twin_rust_async(
+    return cst_encode_list___record__string_kitchen_sink_twin_rust_async(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20699,7 +20740,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_kitchen_sink_twin_sync_None(
       Map<String, KitchenSinkTwinSync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_kitchen_sink_twin_sync(
+    return cst_encode_list___record__string_kitchen_sink_twin_sync(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20707,35 +20748,35 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_String_list_prim_u_8_strict_None(
       Map<String, Uint8List> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_list_prim_u_8_strict(
+    return cst_encode_list___record__string_list_prim_u_8_strict(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_String_my_size_None(Map<String, MySize> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_string_my_size(
+    return cst_encode_list___record__string_my_size(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_I128_None(Map<int, BigInt> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_i_128(
+    return cst_encode_list___record__i_32_i_128(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_String_None(Map<int, String> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_string(
+    return cst_encode_list___record__i_32_string(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_U128_None(Map<int, BigInt> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_u_128(
+    return cst_encode_list___record__i_32_u_128(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20743,7 +20784,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_general_enum_twin_normal_None(
       Map<int, BasicGeneralEnumTwinNormal> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_general_enum_twin_normal(
+    return cst_encode_list___record__i_32_basic_general_enum_twin_normal(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20751,7 +20792,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_general_enum_twin_rust_async_None(
       Map<int, BasicGeneralEnumTwinRustAsync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_general_enum_twin_rust_async(
+    return cst_encode_list___record__i_32_basic_general_enum_twin_rust_async(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20759,7 +20800,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_general_enum_twin_sync_None(
       Map<int, BasicGeneralEnumTwinSync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_general_enum_twin_sync(
+    return cst_encode_list___record__i_32_basic_general_enum_twin_sync(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20767,7 +20808,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_primitive_enum_twin_normal_None(
       Map<int, BasicPrimitiveEnumTwinNormal> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_primitive_enum_twin_normal(
+    return cst_encode_list___record__i_32_basic_primitive_enum_twin_normal(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20775,7 +20816,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_primitive_enum_twin_rust_async_None(
       Map<int, BasicPrimitiveEnumTwinRustAsync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_primitive_enum_twin_rust_async(
+    return cst_encode_list___record__i_32_basic_primitive_enum_twin_rust_async(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20783,7 +20824,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_primitive_enum_twin_sync_None(
       Map<int, BasicPrimitiveEnumTwinSync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_primitive_enum_twin_sync(
+    return cst_encode_list___record__i_32_basic_primitive_enum_twin_sync(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20791,7 +20832,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_struct_twin_normal_None(
       Map<int, BasicStructTwinNormal> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_struct_twin_normal(
+    return cst_encode_list___record__i_32_basic_struct_twin_normal(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20799,7 +20840,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_struct_twin_rust_async_None(
       Map<int, BasicStructTwinRustAsync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_struct_twin_rust_async(
+    return cst_encode_list___record__i_32_basic_struct_twin_rust_async(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20807,105 +20848,105 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_i_32_basic_struct_twin_sync_None(
       Map<int, BasicStructTwinSync> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_basic_struct_twin_sync(
+    return cst_encode_list___record__i_32_basic_struct_twin_sync(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_bool_None(Map<int, bool> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_bool(
+    return cst_encode_list___record__i_32_bool(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_f_32_None(Map<int, double> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_f_32(
+    return cst_encode_list___record__i_32_f_32(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_f_64_None(Map<int, double> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_f_64(
+    return cst_encode_list___record__i_32_f_64(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_i_16_None(Map<int, int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_i_16(
+    return cst_encode_list___record__i_32_i_16(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_i_32_None(Map<int, int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_i_32(
+    return cst_encode_list___record__i_32_i_32(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_i_64_None(Map<int, PlatformInt64> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_i_64(
+    return cst_encode_list___record__i_32_i_64(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_i_8_None(Map<int, int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_i_8(
+    return cst_encode_list___record__i_32_i_8(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_isize_None(Map<int, PlatformInt64> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_isize(
+    return cst_encode_list___record__i_32_isize(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_list_prim_u_8_strict_None(Map<int, Uint8List> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_list_prim_u_8_strict(
+    return cst_encode_list___record__i_32_list_prim_u_8_strict(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_u_16_None(Map<int, int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_u_16(
+    return cst_encode_list___record__i_32_u_16(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_u_32_None(Map<int, int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_u_32(
+    return cst_encode_list___record__i_32_u_32(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_u_64_None(Map<int, BigInt> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_u_64(
+    return cst_encode_list___record__i_32_u_64(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_u_8_None(Map<int, int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_u_8(
+    return cst_encode_list___record__i_32_u_8(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
   @protected
   JSAny cst_encode_Map_i_32_usize_None(Map<int, BigInt> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_i_32_usize(
+    return cst_encode_list___record__i_32_usize(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -20913,7 +20954,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Map_u_8_application_mode_None(
       Map<int, ApplicationMode> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_list_record_u_8_application_mode(
+    return cst_encode_list___record__u_8_application_mode(
         raw.entries.map((e) => (e.key, e.value)).toList());
   }
 
@@ -21107,6 +21148,19 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     return cst_encode_String(raw.setupAndSerialize(
         codec: DcoCodec(
       decodeSuccessData: dco_decode_String,
+      decodeErrorData: dco_decode_AnyhowException,
+    )));
+  }
+
+  @protected
+  String
+      cst_encode_StreamSink___record__application_settings_raw_string_enum_mirrored_Dco(
+          RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_String(raw.setupAndSerialize(
+        codec: DcoCodec(
+      decodeSuccessData:
+          dco_decode___record__application_settings_raw_string_enum_mirrored,
       decodeErrorData: dco_decode_AnyhowException,
     )));
   }
@@ -21320,19 +21374,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
-  String
-      cst_encode_StreamSink_record_application_settings_raw_string_enum_mirrored_Dco(
-          RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_String(raw.setupAndSerialize(
-        codec: DcoCodec(
-      decodeSuccessData:
-          dco_decode_record_application_settings_raw_string_enum_mirrored,
-      decodeErrorData: dco_decode_AnyhowException,
-    )));
-  }
-
-  @protected
   String cst_encode_StreamSink_u_32_Dco(RustStreamSink<int> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_String(raw.setupAndSerialize(
@@ -21368,6 +21409,383 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_Uuid(UuidValue raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_list_prim_u_8_strict(raw.toBytes());
+  }
+
+  @protected
+  JSAny cst_encode___record__application_settings_raw_string_enum_mirrored(
+      (ApplicationSettings, RawStringEnumMirrored) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_application_settings(raw.$1),
+      cst_encode_raw_string_enum_mirrored(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny
+      cst_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
+          (OpaqueOneTwinMoi, OpaqueTwoTwinMoi) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinMoi(
+          raw.$1),
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinMoi(
+          raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny
+      cst_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
+          (OpaqueOneTwinNormal, OpaqueTwoTwinNormal) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinNormal(
+          raw.$1),
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinNormal(
+          raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny
+      cst_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
+          (OpaqueOneTwinRustAsync, OpaqueTwoTwinRustAsync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinRustAsync(
+          raw.$1),
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinRustAsync(
+          raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny
+      cst_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
+          (OpaqueOneTwinRustAsyncMoi, OpaqueTwoTwinRustAsyncMoi) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinRustAsyncMoi(
+          raw.$1),
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinRustAsyncMoi(
+          raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny
+      cst_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
+          (OpaqueOneTwinSync, OpaqueTwoTwinSync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinSync(
+          raw.$1),
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinSync(
+          raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny
+      cst_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
+          (OpaqueOneTwinSyncMoi, OpaqueTwoTwinSyncMoi) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinSyncMoi(
+          raw.$1),
+      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinSyncMoi(
+          raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_general_enum_twin_normal(
+      (int, BasicGeneralEnumTwinNormal) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_general_enum_twin_normal(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_general_enum_twin_rust_async(
+      (int, BasicGeneralEnumTwinRustAsync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_general_enum_twin_rust_async(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_general_enum_twin_sync(
+      (int, BasicGeneralEnumTwinSync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_general_enum_twin_sync(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_primitive_enum_twin_normal(
+      (int, BasicPrimitiveEnumTwinNormal) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_primitive_enum_twin_normal(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_primitive_enum_twin_rust_async(
+      (int, BasicPrimitiveEnumTwinRustAsync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_primitive_enum_twin_rust_async(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_primitive_enum_twin_sync(
+      (int, BasicPrimitiveEnumTwinSync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_primitive_enum_twin_sync(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_struct_twin_normal(
+      (int, BasicStructTwinNormal) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_struct_twin_normal(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_struct_twin_rust_async(
+      (int, BasicStructTwinRustAsync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_i_32(raw.$1),
+      cst_encode_basic_struct_twin_rust_async(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_basic_struct_twin_sync(
+      (int, BasicStructTwinSync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_basic_struct_twin_sync(raw.$2)]
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_bool((int, bool) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_bool(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_f_32((int, double) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_f_32(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_f_64((int, double) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_f_64(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_i_128((int, BigInt) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_I128(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_i_16((int, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_i_16(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_i_32((int, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_i_32(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_i_64((int, PlatformInt64) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_i_64(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_i_8((int, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_i_8(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_isize((int, PlatformInt64) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_isize(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_list_prim_u_8_strict((int, Uint8List) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_list_prim_u_8_strict(raw.$2)]
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_string((int, String) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_String(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_u_128((int, BigInt) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_U128(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_u_16((int, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_u_16(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_u_32((int, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_u_32(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_u_64((int, BigInt) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_u_64(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_u_8((int, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_u_8(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__i_32_usize((int, BigInt) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_i_32(raw.$1), cst_encode_usize(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_enum_simple_twin_normal(
+      (String, EnumSimpleTwinNormal) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_String(raw.$1),
+      cst_encode_enum_simple_twin_normal(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_enum_simple_twin_rust_async(
+      (String, EnumSimpleTwinRustAsync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_String(raw.$1),
+      cst_encode_enum_simple_twin_rust_async(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_enum_simple_twin_sync(
+      (String, EnumSimpleTwinSync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_enum_simple_twin_sync(raw.$2)]
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_hash_map_value((String, HashMapValue) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_hash_map_value(raw.$2)]
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_i_32((String, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_i_32(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_kitchen_sink_twin_normal(
+      (String, KitchenSinkTwinNormal) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_String(raw.$1),
+      cst_encode_kitchen_sink_twin_normal(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_kitchen_sink_twin_rust_async(
+      (String, KitchenSinkTwinRustAsync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_String(raw.$1),
+      cst_encode_kitchen_sink_twin_rust_async(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_kitchen_sink_twin_sync(
+      (String, KitchenSinkTwinSync) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [
+      cst_encode_String(raw.$1),
+      cst_encode_kitchen_sink_twin_sync(raw.$2)
+    ].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_list_prim_u_8_strict(
+      (String, Uint8List) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_list_prim_u_8_strict(raw.$2)]
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_my_size((String, MySize) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_my_size(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_string((String, String) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_String(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__u_8_application_mode((int, ApplicationMode) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_u_8(raw.$1), cst_encode_application_mode(raw.$2)]
+        .jsify()!;
   }
 
   @protected
@@ -21836,9 +22254,15 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
-  JSAny cst_encode_box_autoadd_Chrono_Naive(DateTime raw) {
+  JSAny cst_encode_box_autoadd_Chrono_NaiveDate(DateTime raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_Chrono_Naive(raw);
+    return cst_encode_Chrono_NaiveDate(raw);
+  }
+
+  @protected
+  JSAny cst_encode_box_autoadd_Chrono_NaiveDateTime(DateTime raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_Chrono_NaiveDateTime(raw);
   }
 
   @protected
@@ -21905,6 +22329,12 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       HideDataTwinSyncMoi raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_RustOpaque_HideDataTwinSyncMoi(raw);
+  }
+
+  @protected
+  JSAny cst_encode_box_autoadd___record__string_i_32((String, int) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode___record__string_i_32(raw);
   }
 
   @protected
@@ -22940,12 +23370,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_box_autoadd_raw_string_mirrored(RawStringMirrored raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_raw_string_mirrored(raw);
-  }
-
-  @protected
-  JSAny cst_encode_box_autoadd_record_string_i_32((String, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return cst_encode_record_string_i_32(raw);
   }
 
   @protected
@@ -24915,7 +25339,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       cst_encode_Chrono_Utc(raw.utc),
       cst_encode_Chrono_Local(raw.local),
       cst_encode_Chrono_Duration(raw.duration),
-      cst_encode_Chrono_Naive(raw.naive)
+      cst_encode_Chrono_NaiveDate(raw.naiveDate),
+      cst_encode_Chrono_NaiveDateTime(raw.naiveDateTime)
     ].jsify()!;
   }
 
@@ -24927,7 +25352,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       cst_encode_Chrono_Utc(raw.utc),
       cst_encode_Chrono_Local(raw.local),
       cst_encode_Chrono_Duration(raw.duration),
-      cst_encode_Chrono_Naive(raw.naive)
+      cst_encode_Chrono_NaiveDate(raw.naiveDate),
+      cst_encode_Chrono_NaiveDateTime(raw.naiveDateTime)
     ].jsify()!;
   }
 
@@ -24938,7 +25364,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       cst_encode_Chrono_Utc(raw.utc),
       cst_encode_Chrono_Local(raw.local),
       cst_encode_Chrono_Duration(raw.duration),
-      cst_encode_Chrono_Naive(raw.naive)
+      cst_encode_Chrono_NaiveDate(raw.naiveDate),
+      cst_encode_Chrono_NaiveDateTime(raw.naiveDateTime)
     ].jsify()!;
   }
 
@@ -25236,9 +25663,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
-  JSAny cst_encode_list_Chrono_Naive(List<DateTime> raw) {
+  JSAny cst_encode_list_Chrono_NaiveDateTime(List<DateTime> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_Chrono_Naive).toList().jsify()!;
+    return raw.map(cst_encode_Chrono_NaiveDateTime).toList().jsify()!;
   }
 
   @protected
@@ -25310,6 +25737,307 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_list_Uuid(List<UuidValue> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw.map(cst_encode_Uuid).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_general_enum_twin_normal(
+      List<(int, BasicGeneralEnumTwinNormal)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_general_enum_twin_normal)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_general_enum_twin_rust_async(
+      List<(int, BasicGeneralEnumTwinRustAsync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_general_enum_twin_rust_async)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_general_enum_twin_sync(
+      List<(int, BasicGeneralEnumTwinSync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_general_enum_twin_sync)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_primitive_enum_twin_normal(
+      List<(int, BasicPrimitiveEnumTwinNormal)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_primitive_enum_twin_normal)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_primitive_enum_twin_rust_async(
+      List<(int, BasicPrimitiveEnumTwinRustAsync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_primitive_enum_twin_rust_async)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_primitive_enum_twin_sync(
+      List<(int, BasicPrimitiveEnumTwinSync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_primitive_enum_twin_sync)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_struct_twin_normal(
+      List<(int, BasicStructTwinNormal)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_struct_twin_normal)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_struct_twin_rust_async(
+      List<(int, BasicStructTwinRustAsync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_struct_twin_rust_async)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_basic_struct_twin_sync(
+      List<(int, BasicStructTwinSync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_basic_struct_twin_sync)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_bool(List<(int, bool)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_bool).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_f_32(List<(int, double)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_f_32).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_f_64(List<(int, double)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_f_64).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_i_128(List<(int, BigInt)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_i_128).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_i_16(List<(int, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_i_16).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_i_32(List<(int, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_i_32).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_i_64(List<(int, PlatformInt64)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_i_64).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_i_8(List<(int, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_i_8).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_isize(List<(int, PlatformInt64)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_isize).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_list_prim_u_8_strict(
+      List<(int, Uint8List)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__i_32_list_prim_u_8_strict)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_string(List<(int, String)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_string).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_u_128(List<(int, BigInt)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_u_128).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_u_16(List<(int, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_u_16).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_u_32(List<(int, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_u_32).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_u_64(List<(int, BigInt)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_u_64).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_u_8(List<(int, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_u_8).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__i_32_usize(List<(int, BigInt)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__i_32_usize).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_enum_simple_twin_normal(
+      List<(String, EnumSimpleTwinNormal)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_enum_simple_twin_normal)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_enum_simple_twin_rust_async(
+      List<(String, EnumSimpleTwinRustAsync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_enum_simple_twin_rust_async)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_enum_simple_twin_sync(
+      List<(String, EnumSimpleTwinSync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_enum_simple_twin_sync)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_hash_map_value(
+      List<(String, HashMapValue)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_hash_map_value)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_i_32(List<(String, int)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__string_i_32).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_kitchen_sink_twin_normal(
+      List<(String, KitchenSinkTwinNormal)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_kitchen_sink_twin_normal)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_kitchen_sink_twin_rust_async(
+      List<(String, KitchenSinkTwinRustAsync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_kitchen_sink_twin_rust_async)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_kitchen_sink_twin_sync(
+      List<(String, KitchenSinkTwinSync)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_kitchen_sink_twin_sync)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_list_prim_u_8_strict(
+      List<(String, Uint8List)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_list_prim_u_8_strict)
+        .toList()
+        .jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_my_size(List<(String, MySize)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__string_my_size).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_string(List<(String, String)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__string_string).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__u_8_application_mode(
+      List<(int, ApplicationMode)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode___record__u_8_application_mode).toList().jsify()!;
   }
 
   @protected
@@ -25794,304 +26522,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_list_raw_string_mirrored(List<RawStringMirrored> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw.map(cst_encode_raw_string_mirrored).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_general_enum_twin_normal(
-      List<(int, BasicGeneralEnumTwinNormal)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_general_enum_twin_normal)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_general_enum_twin_rust_async(
-      List<(int, BasicGeneralEnumTwinRustAsync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_general_enum_twin_rust_async)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_general_enum_twin_sync(
-      List<(int, BasicGeneralEnumTwinSync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_general_enum_twin_sync)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_primitive_enum_twin_normal(
-      List<(int, BasicPrimitiveEnumTwinNormal)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_primitive_enum_twin_normal)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_primitive_enum_twin_rust_async(
-      List<(int, BasicPrimitiveEnumTwinRustAsync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_primitive_enum_twin_rust_async)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_primitive_enum_twin_sync(
-      List<(int, BasicPrimitiveEnumTwinSync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_primitive_enum_twin_sync)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_struct_twin_normal(
-      List<(int, BasicStructTwinNormal)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_struct_twin_normal)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_struct_twin_rust_async(
-      List<(int, BasicStructTwinRustAsync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_struct_twin_rust_async)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_basic_struct_twin_sync(
-      List<(int, BasicStructTwinSync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_basic_struct_twin_sync)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_bool(List<(int, bool)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_bool).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_f_32(List<(int, double)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_f_32).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_f_64(List<(int, double)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_f_64).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_i_128(List<(int, BigInt)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_i_128).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_i_16(List<(int, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_i_16).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_i_32(List<(int, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_i_32).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_i_64(List<(int, PlatformInt64)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_i_64).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_i_8(List<(int, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_i_8).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_isize(List<(int, PlatformInt64)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_isize).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_list_prim_u_8_strict(
-      List<(int, Uint8List)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_i_32_list_prim_u_8_strict)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_string(List<(int, String)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_string).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_u_128(List<(int, BigInt)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_u_128).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_u_16(List<(int, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_u_16).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_u_32(List<(int, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_u_32).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_u_64(List<(int, BigInt)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_u_64).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_u_8(List<(int, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_u_8).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_i_32_usize(List<(int, BigInt)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_i_32_usize).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_enum_simple_twin_normal(
-      List<(String, EnumSimpleTwinNormal)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_enum_simple_twin_normal)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_enum_simple_twin_rust_async(
-      List<(String, EnumSimpleTwinRustAsync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_enum_simple_twin_rust_async)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_enum_simple_twin_sync(
-      List<(String, EnumSimpleTwinSync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_enum_simple_twin_sync)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_hash_map_value(
-      List<(String, HashMapValue)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_string_hash_map_value).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_i_32(List<(String, int)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_string_i_32).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_kitchen_sink_twin_normal(
-      List<(String, KitchenSinkTwinNormal)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_kitchen_sink_twin_normal)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_kitchen_sink_twin_rust_async(
-      List<(String, KitchenSinkTwinRustAsync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_kitchen_sink_twin_rust_async)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_kitchen_sink_twin_sync(
-      List<(String, KitchenSinkTwinSync)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_kitchen_sink_twin_sync)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_list_prim_u_8_strict(
-      List<(String, Uint8List)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw
-        .map(cst_encode_record_string_list_prim_u_8_strict)
-        .toList()
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_my_size(List<(String, MySize)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_string_my_size).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_string_string(List<(String, String)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_string_string).toList().jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_list_record_u_8_application_mode(
-      List<(int, ApplicationMode)> raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw.map(cst_encode_record_u_8_application_mode).toList().jsify()!;
   }
 
   @protected
@@ -26723,9 +27153,17 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
-  JSAny? cst_encode_opt_box_autoadd_Chrono_Naive(DateTime? raw) {
+  JSAny? cst_encode_opt_box_autoadd_Chrono_NaiveDate(DateTime? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw == null ? null : cst_encode_box_autoadd_Chrono_Naive(raw);
+    return raw == null ? null : cst_encode_box_autoadd_Chrono_NaiveDate(raw);
+  }
+
+  @protected
+  JSAny? cst_encode_opt_box_autoadd_Chrono_NaiveDateTime(DateTime? raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw == null
+        ? null
+        : cst_encode_box_autoadd_Chrono_NaiveDateTime(raw);
   }
 
   @protected
@@ -26810,6 +27248,14 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     return raw == null
         ? null
         : cst_encode_box_autoadd_RustOpaque_HideDataTwinSyncMoi(raw);
+  }
+
+  @protected
+  JSAny? cst_encode_opt_box_autoadd___record__string_i_32((String, int)? raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw == null
+        ? null
+        : cst_encode_box_autoadd___record__string_i_32(raw);
   }
 
   @protected
@@ -27074,12 +27520,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     return raw == null
         ? null
         : cst_encode_box_autoadd_new_type_int_twin_sync(raw);
-  }
-
-  @protected
-  JSAny? cst_encode_opt_box_autoadd_record_string_i_32((String, int)? raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return raw == null ? null : cst_encode_box_autoadd_record_string_i_32(raw);
   }
 
   @protected
@@ -27521,382 +27961,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_raw_string_mirrored(RawStringMirrored raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_String(raw.value), cst_encode_String(raw.type)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_application_settings_raw_string_enum_mirrored(
-      (ApplicationSettings, RawStringEnumMirrored) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_application_settings(raw.$1),
-      cst_encode_raw_string_enum_mirrored(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny
-      cst_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
-          (OpaqueOneTwinMoi, OpaqueTwoTwinMoi) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinMoi(
-          raw.$1),
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinMoi(
-          raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny
-      cst_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
-          (OpaqueOneTwinNormal, OpaqueTwoTwinNormal) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinNormal(
-          raw.$1),
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinNormal(
-          raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny
-      cst_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
-          (OpaqueOneTwinRustAsync, OpaqueTwoTwinRustAsync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinRustAsync(
-          raw.$1),
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinRustAsync(
-          raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny
-      cst_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
-          (OpaqueOneTwinRustAsyncMoi, OpaqueTwoTwinRustAsyncMoi) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinRustAsyncMoi(
-          raw.$1),
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinRustAsyncMoi(
-          raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny
-      cst_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
-          (OpaqueOneTwinSync, OpaqueTwoTwinSync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinSync(
-          raw.$1),
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinSync(
-          raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny
-      cst_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
-          (OpaqueOneTwinSyncMoi, OpaqueTwoTwinSyncMoi) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueOneTwinSyncMoi(
-          raw.$1),
-      cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerOpaqueTwoTwinSyncMoi(
-          raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_general_enum_twin_normal(
-      (int, BasicGeneralEnumTwinNormal) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_general_enum_twin_normal(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_general_enum_twin_rust_async(
-      (int, BasicGeneralEnumTwinRustAsync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_general_enum_twin_rust_async(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_general_enum_twin_sync(
-      (int, BasicGeneralEnumTwinSync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_general_enum_twin_sync(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_primitive_enum_twin_normal(
-      (int, BasicPrimitiveEnumTwinNormal) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_primitive_enum_twin_normal(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_primitive_enum_twin_rust_async(
-      (int, BasicPrimitiveEnumTwinRustAsync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_primitive_enum_twin_rust_async(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_primitive_enum_twin_sync(
-      (int, BasicPrimitiveEnumTwinSync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_primitive_enum_twin_sync(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_struct_twin_normal(
-      (int, BasicStructTwinNormal) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_struct_twin_normal(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_struct_twin_rust_async(
-      (int, BasicStructTwinRustAsync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_i_32(raw.$1),
-      cst_encode_basic_struct_twin_rust_async(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_basic_struct_twin_sync(
-      (int, BasicStructTwinSync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_basic_struct_twin_sync(raw.$2)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_bool((int, bool) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_bool(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_f_32((int, double) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_f_32(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_f_64((int, double) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_f_64(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_i_128((int, BigInt) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_I128(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_i_16((int, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_i_16(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_i_32((int, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_i_32(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_i_64((int, PlatformInt64) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_i_64(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_i_8((int, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_i_8(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_isize((int, PlatformInt64) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_isize(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_list_prim_u_8_strict((int, Uint8List) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_list_prim_u_8_strict(raw.$2)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_string((int, String) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_String(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_u_128((int, BigInt) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_U128(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_u_16((int, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_u_16(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_u_32((int, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_u_32(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_u_64((int, BigInt) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_u_64(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_u_8((int, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_u_8(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_i_32_usize((int, BigInt) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_i_32(raw.$1), cst_encode_usize(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_enum_simple_twin_normal(
-      (String, EnumSimpleTwinNormal) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.$1),
-      cst_encode_enum_simple_twin_normal(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_enum_simple_twin_rust_async(
-      (String, EnumSimpleTwinRustAsync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.$1),
-      cst_encode_enum_simple_twin_rust_async(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_enum_simple_twin_sync(
-      (String, EnumSimpleTwinSync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.$1), cst_encode_enum_simple_twin_sync(raw.$2)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_hash_map_value((String, HashMapValue) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.$1), cst_encode_hash_map_value(raw.$2)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_i_32((String, int) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.$1), cst_encode_i_32(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_kitchen_sink_twin_normal(
-      (String, KitchenSinkTwinNormal) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.$1),
-      cst_encode_kitchen_sink_twin_normal(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_kitchen_sink_twin_rust_async(
-      (String, KitchenSinkTwinRustAsync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.$1),
-      cst_encode_kitchen_sink_twin_rust_async(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_kitchen_sink_twin_sync(
-      (String, KitchenSinkTwinSync) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [
-      cst_encode_String(raw.$1),
-      cst_encode_kitchen_sink_twin_sync(raw.$2)
-    ].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_list_prim_u_8_strict((String, Uint8List) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.$1), cst_encode_list_prim_u_8_strict(raw.$2)]
-        .jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_my_size((String, MySize) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.$1), cst_encode_my_size(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_string_string((String, String) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_String(raw.$1), cst_encode_String(raw.$2)].jsify()!;
-  }
-
-  @protected
-  JSAny cst_encode_record_u_8_application_mode((int, ApplicationMode) raw) {
-    // Codec=Cst (C-struct based), see doc to use other codecs
-    return [cst_encode_u_8(raw.$1), cst_encode_application_mode(raw.$2)]
-        .jsify()!;
   }
 
   @protected
@@ -28490,7 +28554,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
       cst_encode_opt_box_autoadd_Chrono_Utc(raw.dt),
-      cst_encode_opt_box_autoadd_Chrono_Naive(raw.dt2),
+      cst_encode_opt_box_autoadd_Chrono_NaiveDateTime(raw.dt2),
+      cst_encode_opt_box_autoadd_Chrono_NaiveDate(raw.da),
       cst_encode_opt_box_autoadd_Chrono_Duration(raw.du)
     ].jsify()!;
   }
@@ -28500,7 +28565,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
       cst_encode_opt_box_autoadd_Chrono_Utc(raw.dt),
-      cst_encode_opt_box_autoadd_Chrono_Naive(raw.dt2),
+      cst_encode_opt_box_autoadd_Chrono_NaiveDateTime(raw.dt2),
+      cst_encode_opt_box_autoadd_Chrono_NaiveDate(raw.da),
       cst_encode_opt_box_autoadd_Chrono_Duration(raw.du)
     ].jsify()!;
   }
@@ -28510,7 +28576,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
       cst_encode_opt_box_autoadd_Chrono_Utc(raw.dt),
-      cst_encode_opt_box_autoadd_Chrono_Naive(raw.dt2),
+      cst_encode_opt_box_autoadd_Chrono_NaiveDateTime(raw.dt2),
+      cst_encode_opt_box_autoadd_Chrono_NaiveDate(raw.da),
       cst_encode_opt_box_autoadd_Chrono_Duration(raw.du)
     ].jsify()!;
   }
@@ -31676,7 +31743,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void sse_encode_Chrono_Local(DateTime self, SseSerializer serializer);
 
   @protected
-  void sse_encode_Chrono_Naive(DateTime self, SseSerializer serializer);
+  void sse_encode_Chrono_NaiveDate(DateTime self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_Chrono_NaiveDateTime(DateTime self, SseSerializer serializer);
 
   @protected
   void sse_encode_Chrono_Utc(DateTime self, SseSerializer serializer);
@@ -33381,6 +33451,18 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       RustStreamSink<String> self, SseSerializer serializer);
 
   @protected
+  void
+      sse_encode_StreamSink___record__application_settings_raw_string_enum_mirrored_Dco(
+          RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)> self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode_StreamSink___record__application_settings_raw_string_enum_mirrored_Sse(
+          RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)> self,
+          SseSerializer serializer);
+
+  @protected
   void sse_encode_StreamSink_application_mode_Dco(
       RustStreamSink<ApplicationMode> self, SseSerializer serializer);
 
@@ -33536,18 +33618,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       RustStreamSink<ApplicationMode?> self, SseSerializer serializer);
 
   @protected
-  void
-      sse_encode_StreamSink_record_application_settings_raw_string_enum_mirrored_Dco(
-          RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)> self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_StreamSink_record_application_settings_raw_string_enum_mirrored_Sse(
-          RustStreamSink<(ApplicationSettings, RawStringEnumMirrored)> self,
-          SseSerializer serializer);
-
-  @protected
   void sse_encode_StreamSink_u_32_Dco(
       RustStreamSink<int> self, SseSerializer serializer);
 
@@ -33571,6 +33641,291 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_Uuid(UuidValue self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__application_settings_raw_string_enum_mirrored(
+      (ApplicationSettings, RawStringEnumMirrored) self,
+      SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
+          (OpaqueOneTwinMoi, OpaqueTwoTwinMoi) self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
+          (OpaqueOneTwinNormal, OpaqueTwoTwinNormal) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
+          (OpaqueOneTwinRustAsync, OpaqueTwoTwinRustAsync) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
+          (OpaqueOneTwinRustAsyncMoi, OpaqueTwoTwinRustAsyncMoi) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse(
+          (OpaqueOneTwinRustAsyncSse, OpaqueTwoTwinRustAsyncSse) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse_moi(
+          (OpaqueOneTwinRustAsyncSseMoi, OpaqueTwoTwinRustAsyncSseMoi) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse(
+          (OpaqueOneTwinSse, OpaqueTwoTwinSse) self, SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse_moi(
+          (OpaqueOneTwinSseMoi, OpaqueTwoTwinSseMoi) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
+          (OpaqueOneTwinSync, OpaqueTwoTwinSync) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
+          (OpaqueOneTwinSyncMoi, OpaqueTwoTwinSyncMoi) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse(
+          (OpaqueOneTwinSyncSse, OpaqueTwoTwinSyncSse) self,
+          SseSerializer serializer);
+
+  @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse_moi(
+          (OpaqueOneTwinSyncSseMoi, OpaqueTwoTwinSyncSseMoi) self,
+          SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_general_enum_twin_normal(
+      (int, BasicGeneralEnumTwinNormal) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_general_enum_twin_rust_async(
+      (int, BasicGeneralEnumTwinRustAsync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_general_enum_twin_rust_async_sse(
+      (int, BasicGeneralEnumTwinRustAsyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_general_enum_twin_sse(
+      (int, BasicGeneralEnumTwinSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_general_enum_twin_sync(
+      (int, BasicGeneralEnumTwinSync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_general_enum_twin_sync_sse(
+      (int, BasicGeneralEnumTwinSyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_primitive_enum_twin_normal(
+      (int, BasicPrimitiveEnumTwinNormal) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_primitive_enum_twin_rust_async(
+      (int, BasicPrimitiveEnumTwinRustAsync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_primitive_enum_twin_rust_async_sse(
+      (int, BasicPrimitiveEnumTwinRustAsyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_primitive_enum_twin_sse(
+      (int, BasicPrimitiveEnumTwinSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_primitive_enum_twin_sync(
+      (int, BasicPrimitiveEnumTwinSync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_primitive_enum_twin_sync_sse(
+      (int, BasicPrimitiveEnumTwinSyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_struct_twin_normal(
+      (int, BasicStructTwinNormal) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_struct_twin_rust_async(
+      (int, BasicStructTwinRustAsync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_struct_twin_rust_async_sse(
+      (int, BasicStructTwinRustAsyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_struct_twin_sse(
+      (int, BasicStructTwinSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_struct_twin_sync(
+      (int, BasicStructTwinSync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_basic_struct_twin_sync_sse(
+      (int, BasicStructTwinSyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_bool(
+      (int, bool) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_f_32(
+      (int, double) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_f_64(
+      (int, double) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_i_128(
+      (int, BigInt) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_i_16(
+      (int, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_i_32(
+      (int, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_i_64(
+      (int, PlatformInt64) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_i_8((int, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_isize(
+      (int, PlatformInt64) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_list_prim_u_8_strict(
+      (int, Uint8List) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_string(
+      (int, String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_u_128(
+      (int, BigInt) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_u_16(
+      (int, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_u_32(
+      (int, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_u_64(
+      (int, BigInt) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_u_8((int, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__i_32_usize(
+      (int, BigInt) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_enum_simple_twin_normal(
+      (String, EnumSimpleTwinNormal) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_enum_simple_twin_rust_async(
+      (String, EnumSimpleTwinRustAsync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_enum_simple_twin_rust_async_sse(
+      (String, EnumSimpleTwinRustAsyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_enum_simple_twin_sse(
+      (String, EnumSimpleTwinSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_enum_simple_twin_sync(
+      (String, EnumSimpleTwinSync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_enum_simple_twin_sync_sse(
+      (String, EnumSimpleTwinSyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_hash_map_value(
+      (String, HashMapValue) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_i_32(
+      (String, int) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_kitchen_sink_twin_normal(
+      (String, KitchenSinkTwinNormal) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_kitchen_sink_twin_rust_async(
+      (String, KitchenSinkTwinRustAsync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_kitchen_sink_twin_rust_async_sse(
+      (String, KitchenSinkTwinRustAsyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_kitchen_sink_twin_sse(
+      (String, KitchenSinkTwinSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_kitchen_sink_twin_sync(
+      (String, KitchenSinkTwinSync) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_kitchen_sink_twin_sync_sse(
+      (String, KitchenSinkTwinSyncSse) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_list_prim_u_8_strict(
+      (String, Uint8List) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_my_size(
+      (String, MySize) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_string(
+      (String, String) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__u_8_application_mode(
+      (int, ApplicationMode) self, SseSerializer serializer);
 
   @protected
   void sse_encode_a_twin_normal(ATwinNormal self, SseSerializer serializer);
@@ -33953,7 +34308,11 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       Duration self, SseSerializer serializer);
 
   @protected
-  void sse_encode_box_autoadd_Chrono_Naive(
+  void sse_encode_box_autoadd_Chrono_NaiveDate(
+      DateTime self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_Chrono_NaiveDateTime(
       DateTime self, SseSerializer serializer);
 
   @protected
@@ -34026,6 +34385,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_box_autoadd_RustOpaque_HideDataTwinSyncSseMoi(
       HideDataTwinSyncSseMoi self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd___record__string_i_32(
+      (String, int) self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_a_twin_normal(
@@ -35182,10 +35545,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_box_autoadd_raw_string_mirrored(
       RawStringMirrored self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_box_autoadd_record_string_i_32(
-      (String, int) self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_sequences(
@@ -36967,7 +37326,7 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       List<DateTime> self, SseSerializer serializer);
 
   @protected
-  void sse_encode_list_Chrono_Naive(
+  void sse_encode_list_Chrono_NaiveDateTime(
       List<DateTime> self, SseSerializer serializer);
 
   @protected
@@ -37034,6 +37393,225 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_list_Uuid(List<UuidValue> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_general_enum_twin_normal(
+      List<(int, BasicGeneralEnumTwinNormal)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_general_enum_twin_rust_async(
+      List<(int, BasicGeneralEnumTwinRustAsync)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_general_enum_twin_rust_async_sse(
+      List<(int, BasicGeneralEnumTwinRustAsyncSse)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_general_enum_twin_sse(
+      List<(int, BasicGeneralEnumTwinSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_general_enum_twin_sync(
+      List<(int, BasicGeneralEnumTwinSync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_general_enum_twin_sync_sse(
+      List<(int, BasicGeneralEnumTwinSyncSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_primitive_enum_twin_normal(
+      List<(int, BasicPrimitiveEnumTwinNormal)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_primitive_enum_twin_rust_async(
+      List<(int, BasicPrimitiveEnumTwinRustAsync)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_primitive_enum_twin_rust_async_sse(
+      List<(int, BasicPrimitiveEnumTwinRustAsyncSse)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_primitive_enum_twin_sse(
+      List<(int, BasicPrimitiveEnumTwinSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_primitive_enum_twin_sync(
+      List<(int, BasicPrimitiveEnumTwinSync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_primitive_enum_twin_sync_sse(
+      List<(int, BasicPrimitiveEnumTwinSyncSse)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_struct_twin_normal(
+      List<(int, BasicStructTwinNormal)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_struct_twin_rust_async(
+      List<(int, BasicStructTwinRustAsync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_struct_twin_rust_async_sse(
+      List<(int, BasicStructTwinRustAsyncSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_struct_twin_sse(
+      List<(int, BasicStructTwinSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_struct_twin_sync(
+      List<(int, BasicStructTwinSync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_basic_struct_twin_sync_sse(
+      List<(int, BasicStructTwinSyncSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_bool(
+      List<(int, bool)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_f_32(
+      List<(int, double)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_f_64(
+      List<(int, double)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_i_128(
+      List<(int, BigInt)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_i_16(
+      List<(int, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_i_32(
+      List<(int, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_i_64(
+      List<(int, PlatformInt64)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_i_8(
+      List<(int, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_isize(
+      List<(int, PlatformInt64)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_list_prim_u_8_strict(
+      List<(int, Uint8List)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_string(
+      List<(int, String)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_u_128(
+      List<(int, BigInt)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_u_16(
+      List<(int, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_u_32(
+      List<(int, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_u_64(
+      List<(int, BigInt)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_u_8(
+      List<(int, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__i_32_usize(
+      List<(int, BigInt)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_enum_simple_twin_normal(
+      List<(String, EnumSimpleTwinNormal)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_enum_simple_twin_rust_async(
+      List<(String, EnumSimpleTwinRustAsync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_enum_simple_twin_rust_async_sse(
+      List<(String, EnumSimpleTwinRustAsyncSse)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_enum_simple_twin_sse(
+      List<(String, EnumSimpleTwinSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_enum_simple_twin_sync(
+      List<(String, EnumSimpleTwinSync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_enum_simple_twin_sync_sse(
+      List<(String, EnumSimpleTwinSyncSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_hash_map_value(
+      List<(String, HashMapValue)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_i_32(
+      List<(String, int)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_kitchen_sink_twin_normal(
+      List<(String, KitchenSinkTwinNormal)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_kitchen_sink_twin_rust_async(
+      List<(String, KitchenSinkTwinRustAsync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_kitchen_sink_twin_rust_async_sse(
+      List<(String, KitchenSinkTwinRustAsyncSse)> self,
+      SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_kitchen_sink_twin_sse(
+      List<(String, KitchenSinkTwinSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_kitchen_sink_twin_sync(
+      List<(String, KitchenSinkTwinSync)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_kitchen_sink_twin_sync_sse(
+      List<(String, KitchenSinkTwinSyncSse)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_list_prim_u_8_strict(
+      List<(String, Uint8List)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_my_size(
+      List<(String, MySize)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_string(
+      List<(String, String)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__u_8_application_mode(
+      List<(int, ApplicationMode)> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_application_env_var(
@@ -37419,225 +37997,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_list_raw_string_mirrored(
       List<RawStringMirrored> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_general_enum_twin_normal(
-      List<(int, BasicGeneralEnumTwinNormal)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_general_enum_twin_rust_async(
-      List<(int, BasicGeneralEnumTwinRustAsync)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_general_enum_twin_rust_async_sse(
-      List<(int, BasicGeneralEnumTwinRustAsyncSse)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_general_enum_twin_sse(
-      List<(int, BasicGeneralEnumTwinSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_general_enum_twin_sync(
-      List<(int, BasicGeneralEnumTwinSync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_general_enum_twin_sync_sse(
-      List<(int, BasicGeneralEnumTwinSyncSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_primitive_enum_twin_normal(
-      List<(int, BasicPrimitiveEnumTwinNormal)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_primitive_enum_twin_rust_async(
-      List<(int, BasicPrimitiveEnumTwinRustAsync)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_primitive_enum_twin_rust_async_sse(
-      List<(int, BasicPrimitiveEnumTwinRustAsyncSse)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_primitive_enum_twin_sse(
-      List<(int, BasicPrimitiveEnumTwinSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_primitive_enum_twin_sync(
-      List<(int, BasicPrimitiveEnumTwinSync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_primitive_enum_twin_sync_sse(
-      List<(int, BasicPrimitiveEnumTwinSyncSse)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_struct_twin_normal(
-      List<(int, BasicStructTwinNormal)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_struct_twin_rust_async(
-      List<(int, BasicStructTwinRustAsync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_struct_twin_rust_async_sse(
-      List<(int, BasicStructTwinRustAsyncSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_struct_twin_sse(
-      List<(int, BasicStructTwinSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_struct_twin_sync(
-      List<(int, BasicStructTwinSync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_basic_struct_twin_sync_sse(
-      List<(int, BasicStructTwinSyncSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_bool(
-      List<(int, bool)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_f_32(
-      List<(int, double)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_f_64(
-      List<(int, double)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_i_128(
-      List<(int, BigInt)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_i_16(
-      List<(int, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_i_32(
-      List<(int, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_i_64(
-      List<(int, PlatformInt64)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_i_8(
-      List<(int, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_isize(
-      List<(int, PlatformInt64)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_list_prim_u_8_strict(
-      List<(int, Uint8List)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_string(
-      List<(int, String)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_u_128(
-      List<(int, BigInt)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_u_16(
-      List<(int, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_u_32(
-      List<(int, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_u_64(
-      List<(int, BigInt)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_u_8(
-      List<(int, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_i_32_usize(
-      List<(int, BigInt)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_enum_simple_twin_normal(
-      List<(String, EnumSimpleTwinNormal)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_enum_simple_twin_rust_async(
-      List<(String, EnumSimpleTwinRustAsync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_enum_simple_twin_rust_async_sse(
-      List<(String, EnumSimpleTwinRustAsyncSse)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_enum_simple_twin_sse(
-      List<(String, EnumSimpleTwinSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_enum_simple_twin_sync(
-      List<(String, EnumSimpleTwinSync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_enum_simple_twin_sync_sse(
-      List<(String, EnumSimpleTwinSyncSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_hash_map_value(
-      List<(String, HashMapValue)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_i_32(
-      List<(String, int)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_kitchen_sink_twin_normal(
-      List<(String, KitchenSinkTwinNormal)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_kitchen_sink_twin_rust_async(
-      List<(String, KitchenSinkTwinRustAsync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_kitchen_sink_twin_rust_async_sse(
-      List<(String, KitchenSinkTwinRustAsyncSse)> self,
-      SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_kitchen_sink_twin_sse(
-      List<(String, KitchenSinkTwinSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_kitchen_sink_twin_sync(
-      List<(String, KitchenSinkTwinSync)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_kitchen_sink_twin_sync_sse(
-      List<(String, KitchenSinkTwinSyncSse)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_list_prim_u_8_strict(
-      List<(String, Uint8List)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_my_size(
-      List<(String, MySize)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_string_string(
-      List<(String, String)> self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_list_record_u_8_application_mode(
-      List<(int, ApplicationMode)> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_simple_struct_twin_normal(
@@ -38199,7 +38558,11 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       Duration? self, SseSerializer serializer);
 
   @protected
-  void sse_encode_opt_box_autoadd_Chrono_Naive(
+  void sse_encode_opt_box_autoadd_Chrono_NaiveDate(
+      DateTime? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_opt_box_autoadd_Chrono_NaiveDateTime(
       DateTime? self, SseSerializer serializer);
 
   @protected
@@ -38273,6 +38636,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_opt_box_autoadd_RustOpaque_HideDataTwinSyncSseMoi(
       HideDataTwinSyncSseMoi? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_opt_box_autoadd___record__string_i_32(
+      (String, int)? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_application_env(
@@ -38499,10 +38866,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_opt_box_autoadd_new_type_int_twin_sync_sse(
       NewTypeIntTwinSyncSse? self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_opt_box_autoadd_record_string_i_32(
-      (String, int)? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_box_autoadd_u_16(int? self, SseSerializer serializer);
@@ -38826,286 +39189,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_raw_string_mirrored(
       RawStringMirrored self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_application_settings_raw_string_enum_mirrored(
-      (ApplicationSettings, RawStringEnumMirrored) self,
-      SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_moi(
-          (OpaqueOneTwinMoi, OpaqueTwoTwinMoi) self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_normal_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_normal(
-          (OpaqueOneTwinNormal, OpaqueTwoTwinNormal) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async(
-          (OpaqueOneTwinRustAsync, OpaqueTwoTwinRustAsync) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_moi(
-          (OpaqueOneTwinRustAsyncMoi, OpaqueTwoTwinRustAsyncMoi) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse(
-          (OpaqueOneTwinRustAsyncSse, OpaqueTwoTwinRustAsyncSse) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_rust_async_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_rust_async_sse_moi(
-          (OpaqueOneTwinRustAsyncSseMoi, OpaqueTwoTwinRustAsyncSseMoi) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse(
-          (OpaqueOneTwinSse, OpaqueTwoTwinSse) self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sse_moi(
-          (OpaqueOneTwinSseMoi, OpaqueTwoTwinSseMoi) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync(
-          (OpaqueOneTwinSync, OpaqueTwoTwinSync) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_moi(
-          (OpaqueOneTwinSyncMoi, OpaqueTwoTwinSyncMoi) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse(
-          (OpaqueOneTwinSyncSse, OpaqueTwoTwinSyncSse) self,
-          SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_one_twin_sync_sse_moi_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_opaque_two_twin_sync_sse_moi(
-          (OpaqueOneTwinSyncSseMoi, OpaqueTwoTwinSyncSseMoi) self,
-          SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_general_enum_twin_normal(
-      (int, BasicGeneralEnumTwinNormal) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_general_enum_twin_rust_async(
-      (int, BasicGeneralEnumTwinRustAsync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_general_enum_twin_rust_async_sse(
-      (int, BasicGeneralEnumTwinRustAsyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_general_enum_twin_sse(
-      (int, BasicGeneralEnumTwinSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_general_enum_twin_sync(
-      (int, BasicGeneralEnumTwinSync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_general_enum_twin_sync_sse(
-      (int, BasicGeneralEnumTwinSyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_primitive_enum_twin_normal(
-      (int, BasicPrimitiveEnumTwinNormal) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_primitive_enum_twin_rust_async(
-      (int, BasicPrimitiveEnumTwinRustAsync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_primitive_enum_twin_rust_async_sse(
-      (int, BasicPrimitiveEnumTwinRustAsyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_primitive_enum_twin_sse(
-      (int, BasicPrimitiveEnumTwinSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_primitive_enum_twin_sync(
-      (int, BasicPrimitiveEnumTwinSync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_primitive_enum_twin_sync_sse(
-      (int, BasicPrimitiveEnumTwinSyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_struct_twin_normal(
-      (int, BasicStructTwinNormal) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_struct_twin_rust_async(
-      (int, BasicStructTwinRustAsync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_struct_twin_rust_async_sse(
-      (int, BasicStructTwinRustAsyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_struct_twin_sse(
-      (int, BasicStructTwinSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_struct_twin_sync(
-      (int, BasicStructTwinSync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_basic_struct_twin_sync_sse(
-      (int, BasicStructTwinSyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_bool((int, bool) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_f_32(
-      (int, double) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_f_64(
-      (int, double) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_i_128(
-      (int, BigInt) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_i_16((int, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_i_32((int, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_i_64(
-      (int, PlatformInt64) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_i_8((int, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_isize(
-      (int, PlatformInt64) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_list_prim_u_8_strict(
-      (int, Uint8List) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_string(
-      (int, String) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_u_128(
-      (int, BigInt) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_u_16((int, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_u_32((int, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_u_64(
-      (int, BigInt) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_u_8((int, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_i_32_usize(
-      (int, BigInt) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_enum_simple_twin_normal(
-      (String, EnumSimpleTwinNormal) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_enum_simple_twin_rust_async(
-      (String, EnumSimpleTwinRustAsync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_enum_simple_twin_rust_async_sse(
-      (String, EnumSimpleTwinRustAsyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_enum_simple_twin_sse(
-      (String, EnumSimpleTwinSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_enum_simple_twin_sync(
-      (String, EnumSimpleTwinSync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_enum_simple_twin_sync_sse(
-      (String, EnumSimpleTwinSyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_hash_map_value(
-      (String, HashMapValue) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_i_32(
-      (String, int) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_kitchen_sink_twin_normal(
-      (String, KitchenSinkTwinNormal) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_kitchen_sink_twin_rust_async(
-      (String, KitchenSinkTwinRustAsync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_kitchen_sink_twin_rust_async_sse(
-      (String, KitchenSinkTwinRustAsyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_kitchen_sink_twin_sse(
-      (String, KitchenSinkTwinSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_kitchen_sink_twin_sync(
-      (String, KitchenSinkTwinSync) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_kitchen_sink_twin_sync_sse(
-      (String, KitchenSinkTwinSyncSse) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_list_prim_u_8_strict(
-      (String, Uint8List) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_my_size(
-      (String, MySize) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_string_string(
-      (String, String) self, SseSerializer serializer);
-
-  @protected
-  void sse_encode_record_u_8_application_mode(
-      (int, ApplicationMode) self, SseSerializer serializer);
 
   @protected
   void sse_encode_sequences(Sequences self, SseSerializer serializer);
@@ -53528,6 +53611,50 @@ class RustLibWire implements BaseWire {
       wasmModule
           .wire__crate__api__misc_no_twin_example_a__my_struct_with_sync_sync(
               port_, that);
+
+  void wire__crate__api__chrono_type__naivedate_twin_normal(
+          NativePortType port_, JSAny d) =>
+      wasmModule.wire__crate__api__chrono_type__naivedate_twin_normal(port_, d);
+
+  void wire__crate__api__pseudo_manual__chrono_type_twin_rust_async__naivedate_twin_rust_async(
+          NativePortType port_, JSAny d) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__chrono_type_twin_rust_async__naivedate_twin_rust_async(
+              port_, d);
+
+  void wire__crate__api__pseudo_manual__chrono_type_twin_rust_async_sse__naivedate_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__chrono_type_twin_rust_async_sse__naivedate_twin_rust_async_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__pseudo_manual__chrono_type_twin_sse__naivedate_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__chrono_type_twin_sse__naivedate_twin_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__chrono_type_twin_sync__naivedate_twin_sync(
+              JSAny d) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__chrono_type_twin_sync__naivedate_twin_sync(
+                  d);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__chrono_type_twin_sync_sse__naivedate_twin_sync_sse(
+              PlatformGeneralizedUint8ListPtr ptr_,
+              int rust_vec_len_,
+              int data_len_) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__chrono_type_twin_sync_sse__naivedate_twin_sync_sse(
+                  ptr_, rust_vec_len_, data_len_);
 
   void wire__crate__api__chrono_type__naivedatetime_twin_normal(
           NativePortType port_, JSAny d) =>
@@ -73042,6 +73169,37 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
   external void
       wire__crate__api__misc_no_twin_example_a__my_struct_with_sync_sync(
           NativePortType port_, JSAny that);
+
+  external void wire__crate__api__chrono_type__naivedate_twin_normal(
+      NativePortType port_, JSAny d);
+
+  external void
+      wire__crate__api__pseudo_manual__chrono_type_twin_rust_async__naivedate_twin_rust_async(
+          NativePortType port_, JSAny d);
+
+  external void
+      wire__crate__api__pseudo_manual__chrono_type_twin_rust_async_sse__naivedate_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
+      wire__crate__api__pseudo_manual__chrono_type_twin_sse__naivedate_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__chrono_type_twin_sync__naivedate_twin_sync(
+          JSAny d);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__chrono_type_twin_sync_sse__naivedate_twin_sync_sse(
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
 
   external void wire__crate__api__chrono_type__naivedatetime_twin_normal(
       NativePortType port_, JSAny d);

@@ -88,9 +88,9 @@ impl WireDartCodecDcoGeneratorDecoderTrait for DelegateWireDartCodecDcoGenerator
             MirTypeDelegate::RustAutoOpaqueExplicit(mir) => format!(r"return dco_decode_{}(raw);", mir.inner.safe_ident()),
             MirTypeDelegate::CustomSerDes(inner) => {
                 let body = inner.info.rust2dart.dart_code.replace(
-                    "{}", 
+                    "{}",
                 &format!(
-                        "dco_decode_{}(raw)", 
+                        "dco_decode_{}(raw)",
                         inner.info.inner_type.safe_ident()
                     )
                 );

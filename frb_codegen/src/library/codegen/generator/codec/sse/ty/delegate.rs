@@ -97,7 +97,7 @@ impl CodecSseTyTrait for DelegateCodecSseTy<'_> {
                     MirTypeDelegateTime::Utc | MirTypeDelegateTime::Local => {
                         "self.timestamp_micros()".to_owned()
                     }
-                     MirTypeDelegateTime::NaiveDate => {
+                    MirTypeDelegateTime::NaiveDate => {
                         "self.and_hms_opt(0, 0, 0).expect(\"Out of range time\").and_utc().timestamp_micros()".to_owned()
                     }
                     MirTypeDelegateTime::NaiveDateTime => {

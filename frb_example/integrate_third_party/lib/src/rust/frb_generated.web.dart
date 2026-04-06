@@ -1363,6 +1363,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   WaveShaperNodeMiscExt dco_decode_TraitDef_WaveShaperNodeMiscExt(dynamic raw);
 
   @protected
+  (
+    AudioParam,
+    AudioParamId
+  ) dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
+      dynamic raw);
+
+  @protected
   AnalyserOptions dco_decode_analyser_options(dynamic raw);
 
   @protected
@@ -1569,13 +1576,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   PeriodicWaveOptions dco_decode_periodic_wave_options(dynamic raw);
-
-  @protected
-  (
-    AudioParam,
-    AudioParamId
-  ) dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
-      dynamic raw);
 
   @protected
   StereoPannerOptions dco_decode_stereo_panner_options(dynamic raw);
@@ -2608,6 +2608,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   String sse_decode_String(SseDeserializer deserializer);
 
   @protected
+  (
+    AudioParam,
+    AudioParamId
+  ) sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
+      SseDeserializer deserializer);
+
+  @protected
   AnalyserOptions sse_decode_analyser_options(SseDeserializer deserializer);
 
   @protected
@@ -2834,13 +2841,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   PeriodicWaveOptions sse_decode_periodic_wave_options(
-      SseDeserializer deserializer);
-
-  @protected
-  (
-    AudioParam,
-    AudioParamId
-  ) sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
       SseDeserializer deserializer);
 
   @protected
@@ -3898,6 +3898,11 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void sse_encode_String(String self, SseSerializer serializer);
 
   @protected
+  void
+      sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
+          (AudioParam, AudioParamId) self, SseSerializer serializer);
+
+  @protected
   void sse_encode_analyser_options(
       AnalyserOptions self, SseSerializer serializer);
 
@@ -4143,11 +4148,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_periodic_wave_options(
       PeriodicWaveOptions self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
-          (AudioParam, AudioParamId) self, SseSerializer serializer);
 
   @protected
   void sse_encode_stereo_panner_options(

@@ -1,4 +1,4 @@
-name: REPLACE_ME_RUST_CRATE_NAME
+name: rust_builder
 description: "Utility to build Rust code"
 version: 0.0.1
 publish_to: none
@@ -17,7 +17,7 @@ dev_dependencies:
   ffigen: ^20.1.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   plugin:
