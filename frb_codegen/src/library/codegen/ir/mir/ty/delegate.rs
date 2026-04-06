@@ -150,16 +150,11 @@ impl MirTypeTrait for MirTypeDelegate {
                 mir.inner_ok.visit_types(f, mir_context);
                 mir.inner_err.visit_types(f, mir_context);
             }
-            Self::Map(MirTypeDelegateMap {
-                hasher: Some(hasher),
-                ..
-            })
-            | Self::Set(MirTypeDelegateSet {
-                hasher: Some(hasher),
-                ..
-            }) => {
-                hasher.visit_types(f, mir_context);
-            }
+            // HashMap/HashSet hashers are part of Rust type signatures, but are not
+            // serialized across FFI. Traversing them here makes codegen try to emit
+            // translatable codecs/bindings for hasher types (e.g. custom BuildHasher),
+            // which is invalid.
+            Self::Map(_) | Self::Set(_) => {}
             // ... others
             _ => {}
         }

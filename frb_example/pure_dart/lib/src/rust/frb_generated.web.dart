@@ -257,6 +257,7 @@ import 'api/raw_string.dart';
 import 'api/rust_auto_opaque.dart';
 import 'api/rust_opaque.dart';
 import 'api/rust_opaque_sync.dart';
+import 'api/serde_json_type.dart';
 import 'api/simple.dart';
 import 'api/stream.dart';
 import 'api/stream_misc.dart';
@@ -666,30 +667,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   CrossPlatformFinalizerArg
       get rust_arc_decrement_strong_count_ConstructorOpaqueSyncStructTwinNormalPtr =>
           wire.rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerConstructorOpaqueSyncStructTwinNormal;
-
-  CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_CustomHasherTwinNormalPtr => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal;
-
-  CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_CustomHasherTwinRustAsyncPtr => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync;
-
-  CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_CustomHasherTwinRustAsyncSsePtr => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse;
-
-  CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_CustomHasherTwinSsePtr => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse;
-
-  CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_CustomHasherTwinSyncPtr => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync;
-
-  CrossPlatformFinalizerArg
-      get rust_arc_decrement_strong_count_CustomHasherTwinSyncSsePtr => wire
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse;
 
   CrossPlatformFinalizerArg
       get rust_arc_decrement_strong_count_DeliberateFailSanityCheckTwinNormalPtr =>
@@ -1398,36 +1375,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   ConstructorOpaqueSyncStructTwinNormal
       dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerConstructorOpaqueSyncStructTwinNormal(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinNormal
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinRustAsync
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinRustAsyncSse
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinSse
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinSync
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinSyncSse
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
           dynamic raw);
 
   @protected
@@ -2831,6 +2778,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           dynamic raw);
 
   @protected
+  Map<String, Object?> dco_decode_Map_String_SerdeJsonValue_None(dynamic raw);
+
+  @protected
   Map<String, String>
       dco_decode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
           dynamic raw);
@@ -3503,36 +3453,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           dynamic raw);
 
   @protected
-  CustomHasherTwinNormal
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinRustAsync
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinRustAsyncSse
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinSse
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinSync
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          dynamic raw);
-
-  @protected
-  CustomHasherTwinSyncSse
-      dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          dynamic raw);
-
-  @protected
   DeliberateFailSanityCheckTwinNormal
       dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
           dynamic raw);
@@ -4162,6 +4082,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   I32 dco_decode_RustOpaque_i32(dynamic raw);
+
+  @protected
+  Object? dco_decode_SerdeJsonValue(dynamic raw);
 
   @protected
   Set<String>
@@ -4818,6 +4741,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   (String, MySize) dco_decode___record__string_my_size(dynamic raw);
+
+  @protected
+  (String, Object?) dco_decode___record__string_serde_json_value(dynamic raw);
 
   @protected
   (String, String) dco_decode___record__string_string(dynamic raw);
@@ -5975,6 +5901,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   FeatureChronoTwinSyncSse dco_decode_box_autoadd_feature_chrono_twin_sync_sse(
       dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinNormal
+      dco_decode_box_autoadd_feature_serde_json_twin_normal(dynamic raw);
 
   @protected
   FeatureUuidTwinNormal dco_decode_box_autoadd_feature_uuid_twin_normal(
@@ -7852,6 +7782,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   FeatureChronoTwinSyncSse dco_decode_feature_chrono_twin_sync_sse(dynamic raw);
 
   @protected
+  FeatureSerdeJsonTwinNormal dco_decode_feature_serde_json_twin_normal(
+      dynamic raw);
+
+  @protected
   FeatureUuidTwinNormal dco_decode_feature_uuid_twin_normal(dynamic raw);
 
   @protected
@@ -8059,6 +7993,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   List<HideDataTwinSyncSseMoi>
       dco_decode_list_RustOpaque_HideDataTwinSyncSseMoi(dynamic raw);
+
+  @protected
+  List<Object?> dco_decode_list_SerdeJsonValue(dynamic raw);
 
   @protected
   List<RustStreamSink<int>> dco_decode_list_StreamSink_i_32_Dco(dynamic raw);
@@ -8270,6 +8207,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<(String, MySize)> dco_decode_list___record__string_my_size(dynamic raw);
+
+  @protected
+  List<(String, Object?)> dco_decode_list___record__string_serde_json_value(
+      dynamic raw);
 
   @protected
   List<(String, String)> dco_decode_list___record__string_string(dynamic raw);
@@ -9042,6 +8983,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   BigInt? dco_decode_opt_I128(dynamic raw);
+
+  @protected
+  Object? dco_decode_opt_SerdeJsonValue(dynamic raw);
 
   @protected
   String? dco_decode_opt_String(dynamic raw);
@@ -10666,36 +10610,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           SseDeserializer deserializer);
 
   @protected
-  CustomHasherTwinNormal
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinRustAsync
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinRustAsyncSse
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinSse
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinSync
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinSyncSse
-      sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          SseDeserializer deserializer);
-
-  @protected
   DeliberateFailSanityCheckTwinNormal
       sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
           SseDeserializer deserializer);
@@ -12021,6 +11935,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           SseDeserializer deserializer);
 
   @protected
+  Map<String, Object?> sse_decode_Map_String_SerdeJsonValue_None(
+      SseDeserializer deserializer);
+
+  @protected
   Map<String, String>
       sse_decode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
           SseDeserializer deserializer);
@@ -12763,36 +12681,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           SseDeserializer deserializer);
 
   @protected
-  CustomHasherTwinNormal
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinRustAsync
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinRustAsyncSse
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinSse
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinSync
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          SseDeserializer deserializer);
-
-  @protected
-  CustomHasherTwinSyncSse
-      sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          SseDeserializer deserializer);
-
-  @protected
   DeliberateFailSanityCheckTwinNormal
       sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
           SseDeserializer deserializer);
@@ -13422,6 +13310,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   I32 sse_decode_RustOpaque_i32(SseDeserializer deserializer);
+
+  @protected
+  Object? sse_decode_SerdeJsonValue(SseDeserializer deserializer);
 
   @protected
   Set<String>
@@ -14067,6 +13958,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   (String, MySize) sse_decode___record__string_my_size(
+      SseDeserializer deserializer);
+
+  @protected
+  (String, Object?) sse_decode___record__string_serde_json_value(
       SseDeserializer deserializer);
 
   @protected
@@ -15384,6 +15279,11 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   FeatureChronoTwinSyncSse sse_decode_box_autoadd_feature_chrono_twin_sync_sse(
       SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinNormal
+      sse_decode_box_autoadd_feature_serde_json_twin_normal(
+          SseDeserializer deserializer);
 
   @protected
   FeatureUuidTwinNormal sse_decode_box_autoadd_feature_uuid_twin_normal(
@@ -17506,6 +17406,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       SseDeserializer deserializer);
 
   @protected
+  FeatureSerdeJsonTwinNormal sse_decode_feature_serde_json_twin_normal(
+      SseDeserializer deserializer);
+
+  @protected
   FeatureUuidTwinNormal sse_decode_feature_uuid_twin_normal(
       SseDeserializer deserializer);
 
@@ -17734,6 +17638,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   List<HideDataTwinSyncSseMoi>
       sse_decode_list_RustOpaque_HideDataTwinSyncSseMoi(
           SseDeserializer deserializer);
+
+  @protected
+  List<Object?> sse_decode_list_SerdeJsonValue(SseDeserializer deserializer);
 
   @protected
   List<RustStreamSink<int>> sse_decode_list_StreamSink_i_32_Dco(
@@ -17982,6 +17889,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<(String, MySize)> sse_decode_list___record__string_my_size(
+      SseDeserializer deserializer);
+
+  @protected
+  List<(String, Object?)> sse_decode_list___record__string_serde_json_value(
       SseDeserializer deserializer);
 
   @protected
@@ -18874,6 +18785,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   BigInt? sse_decode_opt_I128(SseDeserializer deserializer);
+
+  @protected
+  Object? sse_decode_opt_SerdeJsonValue(SseDeserializer deserializer);
 
   @protected
   String? sse_decode_opt_String(SseDeserializer deserializer);
@@ -20655,6 +20569,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
+  JSAny cst_encode_Map_String_SerdeJsonValue_None(Map<String, Object?> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_list___record__string_serde_json_value(
+        raw.entries.map((e) => (e.key, e.value)).toList());
+  }
+
+  @protected
   JSAny
       cst_encode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
           Map<String, String> raw) {
@@ -20998,6 +20919,12 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       HideDataTwinSyncArray2 raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_list_RustOpaque_HideDataTwinSync(raw);
+  }
+
+  @protected
+  String cst_encode_SerdeJsonValue(Object? raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_String(jsonEncode(raw));
   }
 
   @protected
@@ -21773,6 +21700,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode___record__string_my_size((String, MySize) raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_String(raw.$1), cst_encode_my_size(raw.$2)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode___record__string_serde_json_value((String, Object?) raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_String(raw.$1), cst_encode_SerdeJsonValue(raw.$2)]
+        .jsify()!;
   }
 
   @protected
@@ -22999,6 +22933,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       FeatureChronoTwinSync raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return cst_encode_feature_chrono_twin_sync(raw);
+  }
+
+  @protected
+  JSAny cst_encode_box_autoadd_feature_serde_json_twin_normal(
+      FeatureSerdeJsonTwinNormal raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_feature_serde_json_twin_normal(raw);
   }
 
   @protected
@@ -25370,6 +25311,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
+  JSAny cst_encode_feature_serde_json_twin_normal(
+      FeatureSerdeJsonTwinNormal raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_SerdeJsonValue(raw.data)].jsify()!;
+  }
+
+  @protected
   JSAny cst_encode_feature_uuid_twin_normal(FeatureUuidTwinNormal raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_Uuid(raw.one)].jsify()!;
@@ -25722,6 +25670,12 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
+  JSAny cst_encode_list_SerdeJsonValue(List<Object?> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw.map(cst_encode_SerdeJsonValue).toList().jsify()!;
+  }
+
+  @protected
   JSAny cst_encode_list_StreamSink_i_32_Dco(List<RustStreamSink<int>> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw.map(cst_encode_StreamSink_i_32_Dco).toList().jsify()!;
@@ -26025,6 +25979,16 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   JSAny cst_encode_list___record__string_my_size(List<(String, MySize)> raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw.map(cst_encode___record__string_my_size).toList().jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_list___record__string_serde_json_value(
+      List<(String, Object?)> raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw
+        .map(cst_encode___record__string_serde_json_value)
+        .toList()
+        .jsify()!;
   }
 
   @protected
@@ -27066,6 +27030,12 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   String? cst_encode_opt_I128(BigInt? raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return raw == null ? null : cst_encode_I128(raw);
+  }
+
+  @protected
+  String? cst_encode_opt_SerdeJsonValue(Object? raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return raw == null ? null : cst_encode_SerdeJsonValue(raw);
   }
 
   @protected
@@ -28878,18 +28848,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       ConstructorOpaqueSyncStructTwinNormal raw);
 
   @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-      CustomHasherTwinNormal raw);
-
-  @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-      CustomHasherTwinRustAsync raw);
-
-  @protected
-  int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-      CustomHasherTwinSync raw);
-
-  @protected
   int cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
       DeliberateFailSanityCheckTwinNormal raw);
 
@@ -29806,18 +29764,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       ConstructorOpaqueSyncStructTwinNormal raw);
 
   @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-      CustomHasherTwinNormal raw);
-
-  @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-      CustomHasherTwinRustAsync raw);
-
-  @protected
-  int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-      CustomHasherTwinSync raw);
-
-  @protected
   int cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
       DeliberateFailSanityCheckTwinNormal raw);
 
@@ -30428,36 +30374,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void
       sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerConstructorOpaqueSyncStructTwinNormal(
           ConstructorOpaqueSyncStructTwinNormal self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          CustomHasherTwinNormal self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          CustomHasherTwinRustAsync self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          CustomHasherTwinRustAsyncSse self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          CustomHasherTwinSse self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          CustomHasherTwinSync self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          CustomHasherTwinSyncSse self, SseSerializer serializer);
 
   @protected
   void
@@ -31928,6 +31844,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           LtTypeWithMultiDepTwinSync self, SseSerializer serializer);
 
   @protected
+  void sse_encode_Map_String_SerdeJsonValue_None(
+      Map<String, Object?> self, SseSerializer serializer);
+
+  @protected
   void
       sse_encode_Map_String_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
           Map<String, String> self, SseSerializer serializer);
@@ -32632,36 +32552,6 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          CustomHasherTwinNormal self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          CustomHasherTwinRustAsync self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          CustomHasherTwinRustAsyncSse self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          CustomHasherTwinSse self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          CustomHasherTwinSync self, SseSerializer serializer);
-
-  @protected
-  void
-      sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          CustomHasherTwinSyncSse self, SseSerializer serializer);
-
-  @protected
-  void
       sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
           DeliberateFailSanityCheckTwinNormal self, SseSerializer serializer);
 
@@ -33317,6 +33207,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void sse_encode_RustOpaque_i32(I32 self, SseSerializer serializer);
 
   @protected
+  void sse_encode_SerdeJsonValue(Object? self, SseSerializer serializer);
+
+  @protected
   void
       sse_encode_Set_String_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
           Set<String> self, SseSerializer serializer);
@@ -33918,6 +33811,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode___record__string_my_size(
       (String, MySize) self, SseSerializer serializer);
+
+  @protected
+  void sse_encode___record__string_serde_json_value(
+      (String, Object?) self, SseSerializer serializer);
 
   @protected
   void sse_encode___record__string_string(
@@ -35152,6 +35049,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_box_autoadd_feature_chrono_twin_sync_sse(
       FeatureChronoTwinSyncSse self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_normal(
+      FeatureSerdeJsonTwinNormal self, SseSerializer serializer);
 
   @protected
   void sse_encode_box_autoadd_feature_uuid_twin_normal(
@@ -37150,6 +37051,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       FeatureChronoTwinSyncSse self, SseSerializer serializer);
 
   @protected
+  void sse_encode_feature_serde_json_twin_normal(
+      FeatureSerdeJsonTwinNormal self, SseSerializer serializer);
+
+  @protected
   void sse_encode_feature_uuid_twin_normal(
       FeatureUuidTwinNormal self, SseSerializer serializer);
 
@@ -37381,6 +37286,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       List<HideDataTwinSyncSseMoi> self, SseSerializer serializer);
 
   @protected
+  void sse_encode_list_SerdeJsonValue(
+      List<Object?> self, SseSerializer serializer);
+
+  @protected
   void sse_encode_list_StreamSink_i_32_Dco(
       List<RustStreamSink<int>> self, SseSerializer serializer);
 
@@ -37604,6 +37513,10 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_list___record__string_my_size(
       List<(String, MySize)> self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list___record__string_serde_json_value(
+      List<(String, Object?)> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list___record__string_string(
@@ -38486,6 +38399,9 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_opt_I128(BigInt? self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_opt_SerdeJsonValue(Object? self, SseSerializer serializer);
 
   @protected
   void sse_encode_opt_String(String? self, SseSerializer serializer);
@@ -51565,6 +51481,18 @@ class RustLibWire implements BaseWire {
               .wire__crate__api__pseudo_manual__misc_type_twin_sync_sse__handle_list_of_struct_twin_sync_sse(
                   ptr_, rust_vec_len_, data_len_);
 
+  void wire__crate__api__serde_json_type__handle_map_serde_json_value_twin_normal(
+          NativePortType port_, JSAny val) =>
+      wasmModule
+          .wire__crate__api__serde_json_type__handle_map_serde_json_value_twin_normal(
+              port_, val);
+
+  void wire__crate__api__serde_json_type__handle_nested_serde_json_value_twin_normal(
+          NativePortType port_, JSAny wrapper) =>
+      wasmModule
+          .wire__crate__api__serde_json_type__handle_nested_serde_json_value_twin_normal(
+              port_, wrapper);
+
   void wire__crate__api__misc_example__handle_nested_struct_twin_normal(
           NativePortType port_, JSAny s) =>
       wasmModule
@@ -51767,6 +51695,12 @@ class RustLibWire implements BaseWire {
               .wire__crate__api__pseudo_manual__optional_twin_sync_sse__handle_option_box_arguments_twin_sync_sse(
                   ptr_, rust_vec_len_, data_len_);
 
+  void wire__crate__api__serde_json_type__handle_option_serde_json_value_twin_normal(
+          NativePortType port_, String? val) =>
+      wasmModule
+          .wire__crate__api__serde_json_type__handle_option_serde_json_value_twin_normal(
+              port_, val);
+
   void wire__crate__api__optional__handle_optional_increment_twin_normal(
           NativePortType port_, JSAny? opt) =>
       wasmModule
@@ -51947,6 +51881,12 @@ class RustLibWire implements BaseWire {
           wasmModule
               .wire__crate__api__pseudo_manual__enumeration_twin_sync_sse__handle_return_enum_twin_sync_sse(
                   ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__serde_json_type__handle_serde_json_value_twin_normal(
+          NativePortType port_, String val) =>
+      wasmModule
+          .wire__crate__api__serde_json_type__handle_serde_json_value_twin_normal(
+              port_, val);
 
   void wire__crate__api__stream__handle_stream_of_struct_twin_normal(
           NativePortType port_, String _sink) =>
@@ -52561,6 +52501,12 @@ class RustLibWire implements BaseWire {
           wasmModule
               .wire__crate__api__pseudo_manual__primitive_list_misc_twin_sync_sse__handle_vec_of_primitive_twin_sync_sse(
                   ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__serde_json_type__handle_vec_serde_json_value_twin_normal(
+          NativePortType port_, JSAny val) =>
+      wasmModule
+          .wire__crate__api__serde_json_type__handle_vec_serde_json_value_twin_normal(
+              port_, val);
 
   void wire__crate__api__misc_example__handle_vec_u8_twin_normal(
           NativePortType port_, JSAny v) =>
@@ -62165,78 +62111,6 @@ class RustLibWire implements BaseWire {
           .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerConstructorOpaqueSyncStructTwinNormal(
               ptr);
 
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-              ptr);
-
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-              ptr);
-
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-              ptr);
-
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-              ptr);
-
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-              ptr);
-
-  void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          int ptr) =>
-      wasmModule
-          .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-              ptr);
-
-  void rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          int ptr) =>
-      wasmModule
-          .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-              ptr);
-
   void rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDeliberateFailSanityCheckTwinNormal(
           int ptr) =>
       wasmModule
@@ -71746,6 +71620,14 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
           int data_len_);
 
   external void
+      wire__crate__api__serde_json_type__handle_map_serde_json_value_twin_normal(
+          NativePortType port_, JSAny val);
+
+  external void
+      wire__crate__api__serde_json_type__handle_nested_serde_json_value_twin_normal(
+          NativePortType port_, JSAny wrapper);
+
+  external void
       wire__crate__api__misc_example__handle_nested_struct_twin_normal(
           NativePortType port_, JSAny s);
 
@@ -71892,6 +71774,10 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
           int data_len_);
 
   external void
+      wire__crate__api__serde_json_type__handle_option_serde_json_value_twin_normal(
+          NativePortType port_, String? val);
+
+  external void
       wire__crate__api__optional__handle_optional_increment_twin_normal(
           NativePortType port_, JSAny? opt);
 
@@ -72015,6 +71901,10 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
           PlatformGeneralizedUint8ListPtr ptr_,
           int rust_vec_len_,
           int data_len_);
+
+  external void
+      wire__crate__api__serde_json_type__handle_serde_json_value_twin_normal(
+          NativePortType port_, String val);
 
   external void wire__crate__api__stream__handle_stream_of_struct_twin_normal(
       NativePortType port_, String _sink);
@@ -72443,6 +72333,10 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
           PlatformGeneralizedUint8ListPtr ptr_,
           int rust_vec_len_,
           int data_len_);
+
+  external void
+      wire__crate__api__serde_json_type__handle_vec_serde_json_value_twin_normal(
+          NativePortType port_, JSAny val);
 
   external void wire__crate__api__misc_example__handle_vec_u8_twin_normal(
       NativePortType port_, JSAny v);
@@ -79096,54 +78990,6 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
 
   external void
       rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerConstructorOpaqueSyncStructTwinNormal(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinNormal(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsync(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinRustAsyncSse(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSse(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSync(
-          int ptr);
-
-  external void
-      rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
-          int ptr);
-
-  external void
-      rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomHasherTwinSyncSse(
           int ptr);
 
   external void
