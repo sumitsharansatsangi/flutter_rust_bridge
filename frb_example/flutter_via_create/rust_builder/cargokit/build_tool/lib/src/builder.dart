@@ -1,6 +1,3 @@
-/// This is copied from Cargokit (which is the official way to use it currently)
-/// Details: https://fzyzcjy.github.io/flutter_rust_bridge/manual/integrate/builtin
-
 import 'package:collection/collection.dart';
 import 'package:logging/logging.dart';
 import 'package:path/path.dart' as path;
@@ -112,7 +109,6 @@ class BuildEnvironment {
 class RustBuilder {
   final Target target;
   final BuildEnvironment environment;
-  String? _resolvedToolchain;
 
   RustBuilder({
     required this.target,
@@ -123,28 +119,24 @@ class RustBuilder {
     Rustup rustup,
   ) {
     final toolchain = _toolchain;
-    var resolvedToolchain = rustup.resolveToolchain(toolchain);
     if (rustup.installedTargets(toolchain) == null) {
       rustup.installToolchain(toolchain);
-      resolvedToolchain = rustup.resolveToolchain(toolchain);
     }
     if (toolchain == 'nightly') {
-      rustup.installRustSrcForNightly(toolchain: resolvedToolchain);
+      rustup.installRustSrcForNightly();
     }
     if (!rustup.installedTargets(toolchain)!.contains(target.rust)) {
-      rustup.installTarget(target.rust, toolchain: resolvedToolchain);
+      rustup.installTarget(target.rust, toolchain: toolchain);
     }
     if (environment.glibcVersion != null) {
-      rustup.installZigBuild(resolvedToolchain);
+      rustup.installZigBuild(toolchain);
     }
-    _resolvedToolchain = resolvedToolchain;
   }
 
   CargoBuildOptions? get _buildOptions =>
       environment.crateOptions.cargo[environment.configuration];
 
   String get _toolchain => _buildOptions?.toolchain.name ?? 'stable';
-  String get _effectiveToolchain => _resolvedToolchain ?? _toolchain;
 
   /// Returns the path of directory containing build artifacts.
   Future<String> build() async {
@@ -154,7 +146,7 @@ class RustBuilder {
       'rustup',
       [
         'run',
-        _effectiveToolchain,
+        _toolchain,
         'cargo',
         (target.android == null && environment.glibcVersion != null)
             ? 'zigbuild'

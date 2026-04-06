@@ -71,13 +71,14 @@ Future<void> executeTestWeb(TestWebConfig config) async {
 Handler _createWebSocketHandler({
   required Future<void> Function() closeBrowser,
 }) {
-  return webSocketHandler((channel) async {
+  return webSocketHandler((channel, _) async {
     await for (final mes in channel.stream) {
       try {
         final data = jsonDecode(mes);
         if (data is Map && data.containsKey(kTestResultKey)) {
+          final testResult = data[kTestResultKey];
           await closeBrowser();
-          exit(data[kTestResultKey] ? 0 : 1);
+          exit(testResult == true ? 0 : 1);
         } else {
           print(data);
         }

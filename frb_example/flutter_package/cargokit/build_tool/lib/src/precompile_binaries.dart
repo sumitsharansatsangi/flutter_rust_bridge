@@ -1,6 +1,3 @@
-/// This is copied from Cargokit (which is the official way to use it currently)
-/// Details: https://fzyzcjy.github.io/flutter_rust_bridge/manual/integrate/builtin
-
 import 'dart:io';
 
 import 'package:ed25519_edwards/ed25519_edwards.dart';
@@ -12,6 +9,7 @@ import 'artifacts_provider.dart';
 import 'builder.dart';
 import 'cargo.dart';
 import 'crate_hash.dart';
+import 'exceptions.dart';
 import 'options.dart';
 import 'rustup.dart';
 import 'target.dart';
@@ -129,7 +127,9 @@ class PrecompileBinaries {
       for (final name in artifactNames) {
         final file = File(path.join(res, name));
         if (!file.existsSync()) {
-          throw Exception('Missing artifact: ${file.path}');
+          throw ArtifactException(
+            'Expected build output is missing: "${file.path}".',
+          );
         }
 
         final data = file.readAsBytesSync();
@@ -144,9 +144,11 @@ class PrecompileBinaries {
           contentType: "application/octet-stream",
           assetData: signature,
         );
-        bool verified = verify(public(privateKey), data, signature);
+        final verified = verify(public(privateKey), data, signature);
         if (!verified) {
-          throw Exception('Signature verification failed');
+          throw SigningException(
+            'Generated signature verification failed for "${file.path}".',
+          );
         }
         assets.add(create);
         assets.add(signatureCreate);
