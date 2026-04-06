@@ -7,10 +7,10 @@ use crate::library::commands::dart_fix::dart_fix;
 use crate::library::commands::dart_format::dart_format;
 use crate::utils::dart_repository::dart_repo::{DartDependencyMode, DartRepository};
 use anyhow::Context;
+use cargo_metadata::semver::VersionReq;
 use itertools::Itertools;
 use lazy_static::lazy_static;
 use log::warn;
-use cargo_metadata::semver::VersionReq;
 use std::fs;
 use std::path::{Path, PathBuf};
 

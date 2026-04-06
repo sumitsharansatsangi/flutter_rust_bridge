@@ -40,15 +40,13 @@ class ArtifactException extends CargokitException {
 }
 
 class ConfigurationException extends CargokitException {
-  ConfigurationException(this.details)
-      : super('Configuration error. $details');
+  ConfigurationException(this.details) : super('Configuration error. $details');
 
   final String details;
 }
 
 class SigningException extends CargokitException {
-  SigningException(this.details)
-      : super('Artifact signing failed. $details');
+  SigningException(this.details) : super('Artifact signing failed. $details');
 
   final String details;
 }

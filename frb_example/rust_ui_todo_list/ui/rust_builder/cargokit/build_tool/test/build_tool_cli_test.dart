@@ -61,10 +61,13 @@ edition = "2021"
 
 Future<ProcessResult> _runCli(List<String> args) {
   final dartExecutable = _dartExecutable();
-  return Process.run('/bin/zsh', [
-    '-lc',
-    [_shellQuote(dartExecutable), ...args.map(_shellQuote)].join(' '),
-  ], workingDirectory: Directory.current.path);
+  return Process.run(
+      '/bin/zsh',
+      [
+        '-lc',
+        [_shellQuote(dartExecutable), ...args.map(_shellQuote)].join(' '),
+      ],
+      workingDirectory: Directory.current.path);
 }
 
 String _shellQuote(String value) {
