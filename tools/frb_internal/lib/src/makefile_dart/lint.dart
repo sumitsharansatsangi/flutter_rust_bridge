@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'dart:io' show File;
+import 'dart:io' show Directory, File;
 
 import 'package:args/command_runner.dart';
 import 'package:build_cli_annotations/build_cli_annotations.dart';
@@ -162,10 +162,23 @@ Future<void> lintDartVersion() async {
 }
 
 Future<void> lintDartFormat(LintConfig config) async {
+  const candidateDirs = [
+    'lib',
+    'test',
+    'benchmark',
+    'bin',
+    'tool',
+    'example',
+    'integration_test',
+    'web',
+  ];
   for (final package in kDartPackages) {
     await runPubGetIfNotRunYet(package);
+    final existingDirs = candidateDirs
+        .where((dir) => Directory('${exec.pwd}/$package/$dir').existsSync())
+        .toList();
     await exec(
-      'dart format ${config.fix ? "" : "--set-exit-if-changed"} .',
+      'dart format ${config.fix ? "" : "--set-exit-if-changed"} ${existingDirs.join(" ")}',
       relativePwd: package,
     );
   }

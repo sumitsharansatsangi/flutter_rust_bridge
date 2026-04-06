@@ -12,103 +12,162 @@ import 'dart:ffi' as ffi;
 import 'frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated_io.dart';
 
+abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
+  RustLibApiImplPlatform({
+    required super.handler,
+    required super.wire,
+    required super.generalizedFrbRustBinding,
+    required super.portManager,
+  });
 
+  @protected
+  String dco_decode_String(dynamic raw);
 
+  @protected
+  bool dco_decode_bool(dynamic raw);
 
-                abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
-                  RustLibApiImplPlatform({
-                    required super.handler,
-                    required super.wire,
-                    required super.generalizedFrbRustBinding,
-                    required super.portManager,
-                  });
+  @protected
+  Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
 
-                  
+  @protected
+  MoreThanJustOneRawStringStructTwinNormal
+      dco_decode_more_than_just_one_raw_string_struct_twin_normal(dynamic raw);
 
-                  @protected String dco_decode_String(dynamic raw);
+  @protected
+  RawStringItemEnumTwinNormal dco_decode_raw_string_item_enum_twin_normal(
+      dynamic raw);
 
-@protected bool dco_decode_bool(dynamic raw);
+  @protected
+  RawStringItemStructTwinNormal dco_decode_raw_string_item_struct_twin_normal(
+      dynamic raw);
 
-@protected Uint8List dco_decode_list_prim_u_8_strict(dynamic raw);
+  @protected
+  int dco_decode_u_8(dynamic raw);
 
-@protected MoreThanJustOneRawStringStructTwinNormal dco_decode_more_than_just_one_raw_string_struct_twin_normal(dynamic raw);
+  @protected
+  void dco_decode_unit(dynamic raw);
 
-@protected RawStringItemEnumTwinNormal dco_decode_raw_string_item_enum_twin_normal(dynamic raw);
+  @protected
+  String sse_decode_String(SseDeserializer deserializer);
 
-@protected RawStringItemStructTwinNormal dco_decode_raw_string_item_struct_twin_normal(dynamic raw);
+  @protected
+  bool sse_decode_bool(SseDeserializer deserializer);
 
-@protected int dco_decode_u_8(dynamic raw);
+  @protected
+  Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
 
-@protected void dco_decode_unit(dynamic raw);
+  @protected
+  MoreThanJustOneRawStringStructTwinNormal
+      sse_decode_more_than_just_one_raw_string_struct_twin_normal(
+          SseDeserializer deserializer);
 
-@protected String sse_decode_String(SseDeserializer deserializer);
+  @protected
+  RawStringItemEnumTwinNormal sse_decode_raw_string_item_enum_twin_normal(
+      SseDeserializer deserializer);
 
-@protected bool sse_decode_bool(SseDeserializer deserializer);
+  @protected
+  RawStringItemStructTwinNormal sse_decode_raw_string_item_struct_twin_normal(
+      SseDeserializer deserializer);
 
-@protected Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer);
+  @protected
+  int sse_decode_u_8(SseDeserializer deserializer);
 
-@protected MoreThanJustOneRawStringStructTwinNormal sse_decode_more_than_just_one_raw_string_struct_twin_normal(SseDeserializer deserializer);
+  @protected
+  void sse_decode_unit(SseDeserializer deserializer);
 
-@protected RawStringItemEnumTwinNormal sse_decode_raw_string_item_enum_twin_normal(SseDeserializer deserializer);
+  @protected
+  int sse_decode_i_32(SseDeserializer deserializer);
 
-@protected RawStringItemStructTwinNormal sse_decode_raw_string_item_struct_twin_normal(SseDeserializer deserializer);
+  @protected
+  ffi.Pointer<wire_cst_list_prim_u_8_strict> cst_encode_String(String raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_list_prim_u_8_strict(utf8.encoder.convert(raw));
+  }
 
-@protected int sse_decode_u_8(SseDeserializer deserializer);
+  @protected
+  ffi.Pointer<wire_cst_list_prim_u_8_strict> cst_encode_list_prim_u_8_strict(
+      Uint8List raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    final ans = wire.cst_new_list_prim_u_8_strict(raw.length);
+    ans.ref.ptr.asTypedList(raw.length).setAll(0, raw);
+    return ans;
+  }
 
-@protected void sse_decode_unit(SseDeserializer deserializer);
+  @protected
+  void cst_api_fill_to_wire_more_than_just_one_raw_string_struct_twin_normal(
+      MoreThanJustOneRawStringStructTwinNormal apiObj,
+      wire_cst_more_than_just_one_raw_string_struct_twin_normal wireObj) {
+    wireObj.regular = cst_encode_String(apiObj.regular);
+    wireObj.type = cst_encode_String(apiObj.type);
+    wireObj.async = cst_encode_bool(apiObj.async_);
+    wireObj.another = cst_encode_String(apiObj.another);
+  }
 
-@protected int sse_decode_i_32(SseDeserializer deserializer);
+  @protected
+  void cst_api_fill_to_wire_raw_string_item_enum_twin_normal(
+      RawStringItemEnumTwinNormal apiObj,
+      wire_cst_raw_string_item_enum_twin_normal wireObj) {
+    if (apiObj is RawStringItemEnumTwinNormal_Regular) {
+      var pre_regular = cst_encode_String(apiObj.regular);
+      wireObj.tag = 0;
+      wireObj.kind.Regular.regular = pre_regular;
+      return;
+    }
+    if (apiObj is RawStringItemEnumTwinNormal_Raw) {
+      var pre_type = cst_encode_String(apiObj.type);
+      wireObj.tag = 1;
+      wireObj.kind.Raw.type = pre_type;
+      return;
+    }
+  }
 
-@protected ffi.Pointer<wire_cst_list_prim_u_8_strict> cst_encode_String(String raw){ // Codec=Cst (C-struct based), see doc to use other codecs
-return cst_encode_list_prim_u_8_strict(utf8.encoder.convert(raw)); }
+  @protected
+  void cst_api_fill_to_wire_raw_string_item_struct_twin_normal(
+      RawStringItemStructTwinNormal apiObj,
+      wire_cst_raw_string_item_struct_twin_normal wireObj) {
+    wireObj.type = cst_encode_String(apiObj.type);
+  }
 
-@protected ffi.Pointer<wire_cst_list_prim_u_8_strict> cst_encode_list_prim_u_8_strict(Uint8List raw){ // Codec=Cst (C-struct based), see doc to use other codecs
-final ans = wire.cst_new_list_prim_u_8_strict(raw.length);
-                ans.ref.ptr.asTypedList(raw.length).setAll(0, raw);
-                return ans; }
+  @protected
+  bool cst_encode_bool(bool raw);
 
-@protected void cst_api_fill_to_wire_more_than_just_one_raw_string_struct_twin_normal(MoreThanJustOneRawStringStructTwinNormal apiObj, wire_cst_more_than_just_one_raw_string_struct_twin_normal wireObj){ wireObj.regular = cst_encode_String(apiObj.regular);
-wireObj.type = cst_encode_String(apiObj.type);
-wireObj.async = cst_encode_bool(apiObj.async_);
-wireObj.another = cst_encode_String(apiObj.another); }
+  @protected
+  int cst_encode_u_8(int raw);
 
-@protected void cst_api_fill_to_wire_raw_string_item_enum_twin_normal(RawStringItemEnumTwinNormal apiObj, wire_cst_raw_string_item_enum_twin_normal wireObj){ if (apiObj is RawStringItemEnumTwinNormal_Regular) {
-                var pre_regular = cst_encode_String(apiObj.regular);wireObj.tag = 0;wireObj.kind.Regular.regular = pre_regular;
-                return;
-            }
-if (apiObj is RawStringItemEnumTwinNormal_Raw) {
-                var pre_type = cst_encode_String(apiObj.type);wireObj.tag = 1;wireObj.kind.Raw.type = pre_type;
-                return;
-            } }
+  @protected
+  void cst_encode_unit(void raw);
 
-@protected void cst_api_fill_to_wire_raw_string_item_struct_twin_normal(RawStringItemStructTwinNormal apiObj, wire_cst_raw_string_item_struct_twin_normal wireObj){ wireObj.type = cst_encode_String(apiObj.type); }
+  @protected
+  void sse_encode_String(String self, SseSerializer serializer);
 
-@protected bool cst_encode_bool(bool raw);
+  @protected
+  void sse_encode_bool(bool self, SseSerializer serializer);
 
-@protected int cst_encode_u_8(int raw);
+  @protected
+  void sse_encode_list_prim_u_8_strict(
+      Uint8List self, SseSerializer serializer);
 
-@protected void cst_encode_unit(void raw);
+  @protected
+  void sse_encode_more_than_just_one_raw_string_struct_twin_normal(
+      MoreThanJustOneRawStringStructTwinNormal self, SseSerializer serializer);
 
-@protected void sse_encode_String(String self, SseSerializer serializer);
+  @protected
+  void sse_encode_raw_string_item_enum_twin_normal(
+      RawStringItemEnumTwinNormal self, SseSerializer serializer);
 
-@protected void sse_encode_bool(bool self, SseSerializer serializer);
+  @protected
+  void sse_encode_raw_string_item_struct_twin_normal(
+      RawStringItemStructTwinNormal self, SseSerializer serializer);
 
-@protected void sse_encode_list_prim_u_8_strict(Uint8List self, SseSerializer serializer);
+  @protected
+  void sse_encode_u_8(int self, SseSerializer serializer);
 
-@protected void sse_encode_more_than_just_one_raw_string_struct_twin_normal(MoreThanJustOneRawStringStructTwinNormal self, SseSerializer serializer);
+  @protected
+  void sse_encode_unit(void self, SseSerializer serializer);
 
-@protected void sse_encode_raw_string_item_enum_twin_normal(RawStringItemEnumTwinNormal self, SseSerializer serializer);
-
-@protected void sse_encode_raw_string_item_struct_twin_normal(RawStringItemStructTwinNormal self, SseSerializer serializer);
-
-@protected void sse_encode_u_8(int self, SseSerializer serializer);
-
-@protected void sse_encode_unit(void self, SseSerializer serializer);
-
-@protected void sse_encode_i_32(int self, SseSerializer serializer);
-                }
-                
-
+  @protected
+  void sse_encode_i_32(int self, SseSerializer serializer);
+}
 
 // Section: wire_class
 
@@ -120,17 +179,16 @@ if (apiObj is RawStringItemEnumTwinNormal_Raw) {
 
 /// generated by flutter_rust_bridge
 class RustLibWire implements BaseWire {
+  factory RustLibWire.fromExternalLibrary(ExternalLibrary lib) =>
+      RustLibWire(lib.ffiDynamicLibrary);
 
-            factory RustLibWire.fromExternalLibrary(ExternalLibrary lib) =>
-              RustLibWire(lib.ffiDynamicLibrary);
-        
   /// Holds the symbol lookup function.
   final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
-  _lookup;
+      _lookup;
 
   /// The symbols are looked up in [dynamicLibrary].
   RustLibWire(ffi.DynamicLibrary dynamicLibrary)
-    : _lookup = dynamicLibrary.lookup;
+      : _lookup = dynamicLibrary.lookup;
 
   /// The symbols are looked up with [lookup].
   RustLibWire.fromLookup(
@@ -143,8 +201,8 @@ class RustLibWire implements BaseWire {
 
   late final _store_dart_post_cobjectPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>(
-        'store_dart_post_cobject',
-      );
+    'store_dart_post_cobject',
+  );
   late final _store_dart_post_cobject = _store_dart_post_cobjectPtr
       .asFunction<void Function(DartPostCObjectFnType)>();
 
@@ -154,19 +212,18 @@ class RustLibWire implements BaseWire {
 
   late final _benchmark_raw_void_syncPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function()>>(
-        'benchmark_raw_void_sync',
-      );
-  late final _benchmark_raw_void_sync = _benchmark_raw_void_syncPtr
-      .asFunction<void Function()>();
+    'benchmark_raw_void_sync',
+  );
+  late final _benchmark_raw_void_sync =
+      _benchmark_raw_void_syncPtr.asFunction<void Function()>();
 
   benchmark_raw_list_prim_u_8 benchmark_raw_new_list_prim_u_8(int len) {
     return _benchmark_raw_new_list_prim_u_8(len);
   }
 
-  late final _benchmark_raw_new_list_prim_u_8Ptr =
-      _lookup<
-        ffi.NativeFunction<benchmark_raw_list_prim_u_8 Function(ffi.Int32)>
-      >('benchmark_raw_new_list_prim_u_8');
+  late final _benchmark_raw_new_list_prim_u_8Ptr = _lookup<
+          ffi.NativeFunction<benchmark_raw_list_prim_u_8 Function(ffi.Int32)>>(
+      'benchmark_raw_new_list_prim_u_8');
   late final _benchmark_raw_new_list_prim_u_8 =
       _benchmark_raw_new_list_prim_u_8Ptr
           .asFunction<benchmark_raw_list_prim_u_8 Function(int)>();
@@ -175,10 +232,9 @@ class RustLibWire implements BaseWire {
     return _benchmark_raw_input_bytes(bytes);
   }
 
-  late final _benchmark_raw_input_bytesPtr =
-      _lookup<
-        ffi.NativeFunction<ffi.Int32 Function(benchmark_raw_list_prim_u_8)>
-      >('benchmark_raw_input_bytes');
+  late final _benchmark_raw_input_bytesPtr = _lookup<
+          ffi.NativeFunction<ffi.Int32 Function(benchmark_raw_list_prim_u_8)>>(
+      'benchmark_raw_input_bytes');
   late final _benchmark_raw_input_bytes = _benchmark_raw_input_bytesPtr
       .asFunction<int Function(benchmark_raw_list_prim_u_8)>();
 
@@ -186,15 +242,15 @@ class RustLibWire implements BaseWire {
     return _benchmark_raw_output_bytes(port, message_id, size);
   }
 
-  late final _benchmark_raw_output_bytesPtr =
-      _lookup<
-        ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int32, ffi.Int32)>
-      >('benchmark_raw_output_bytes');
-  late final _benchmark_raw_output_bytes = _benchmark_raw_output_bytesPtr
-      .asFunction<void Function(int, int, int)>();
+  late final _benchmark_raw_output_bytesPtr = _lookup<
+          ffi
+          .NativeFunction<ffi.Void Function(ffi.Int64, ffi.Int32, ffi.Int32)>>(
+      'benchmark_raw_output_bytes');
+  late final _benchmark_raw_output_bytes =
+      _benchmark_raw_output_bytesPtr.asFunction<void Function(int, int, int)>();
 
   void
-  wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
+      wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
     int port_,
   ) {
     return _wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
@@ -204,8 +260,8 @@ class RustLibWire implements BaseWire {
 
   late final _wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normalPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-        'frbgen_frb_example_pure_dart_wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal',
-      );
+    'frbgen_frb_example_pure_dart_wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal',
+  );
   late final _wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal =
       _wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normalPtr
           .asFunction<void Function(int)>();
@@ -220,8 +276,8 @@ class RustLibWire implements BaseWire {
 
   late final _wire__crate__api__raw_string__test_raw_string_item_enum_twin_normalPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-        'frbgen_frb_example_pure_dart_wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal',
-      );
+    'frbgen_frb_example_pure_dart_wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal',
+  );
   late final _wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal =
       _wire__crate__api__raw_string__test_raw_string_item_enum_twin_normalPtr
           .asFunction<void Function(int)>();
@@ -236,8 +292,8 @@ class RustLibWire implements BaseWire {
 
   late final _wire__crate__api__raw_string__test_raw_string_item_struct_twin_normalPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64)>>(
-        'frbgen_frb_example_pure_dart_wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal',
-      );
+    'frbgen_frb_example_pure_dart_wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal',
+  );
   late final _wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal =
       _wire__crate__api__raw_string__test_raw_string_item_struct_twin_normalPtr
           .asFunction<void Function(int)>();
@@ -248,12 +304,10 @@ class RustLibWire implements BaseWire {
     return _cst_new_list_prim_u_8_strict(len);
   }
 
-  late final _cst_new_list_prim_u_8_strictPtr =
-      _lookup<
-        ffi.NativeFunction<
-          ffi.Pointer<wire_cst_list_prim_u_8_strict> Function(ffi.Int32)
-        >
-      >('frbgen_frb_example_pure_dart_cst_new_list_prim_u_8_strict');
+  late final _cst_new_list_prim_u_8_strictPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Pointer<wire_cst_list_prim_u_8_strict> Function(ffi.Int32)>>(
+      'frbgen_frb_example_pure_dart_cst_new_list_prim_u_8_strict');
   late final _cst_new_list_prim_u_8_strict = _cst_new_list_prim_u_8_strictPtr
       .asFunction<ffi.Pointer<wire_cst_list_prim_u_8_strict> Function(int)>();
 
@@ -263,28 +317,20 @@ class RustLibWire implements BaseWire {
 
   late final _dummy_method_to_enforce_bundlingPtr =
       _lookup<ffi.NativeFunction<ffi.Int64 Function()>>(
-        'dummy_method_to_enforce_bundling',
-      );
+    'dummy_method_to_enforce_bundling',
+  );
   late final _dummy_method_to_enforce_bundling =
       _dummy_method_to_enforce_bundlingPtr.asFunction<int Function()>();
 }
 
-
-
-
-
-
-
 typedef DartPort = ffi.Int64;
 typedef DartDartPort = int;
-typedef DartPostCObjectFnTypeFunction =
-    ffi.Bool Function(DartPort port_id, ffi.Pointer<ffi.Void> message);
-typedef DartDartPostCObjectFnTypeFunction =
-    bool Function(DartDartPort port_id, ffi.Pointer<ffi.Void> message);
-typedef DartPostCObjectFnType =
-    ffi.Pointer<ffi.NativeFunction<DartPostCObjectFnTypeFunction>>;
-
-
+typedef DartPostCObjectFnTypeFunction = ffi.Bool Function(
+    DartPort port_id, ffi.Pointer<ffi.Void> message);
+typedef DartDartPostCObjectFnTypeFunction = bool Function(
+    DartDartPort port_id, ffi.Pointer<ffi.Void> message);
+typedef DartPostCObjectFnType
+    = ffi.Pointer<ffi.NativeFunction<DartPostCObjectFnTypeFunction>>;
 
 final class benchmark_raw_list_prim_u_8 extends ffi.Struct {
   external ffi.Pointer<ffi.Uint8> ptr;

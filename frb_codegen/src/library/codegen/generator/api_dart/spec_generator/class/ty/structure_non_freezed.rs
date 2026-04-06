@@ -154,10 +154,9 @@ fn generate_equals(fields: &[MirField], struct_name: &str) -> String {
 fn needs_deep_equality(ty: &MirType) -> bool {
     match ty {
         MirType::GeneralList(_) => true,
-        MirType::Delegate(delegate) => matches!(
-            delegate,
-            MirTypeDelegate::Map(_) | MirTypeDelegate::Set(_)
-        ),
+        MirType::Delegate(delegate) => {
+            matches!(delegate, MirTypeDelegate::Map(_) | MirTypeDelegate::Set(_))
+        }
         MirType::Optional(opt) => needs_deep_equality(&opt.inner),
         _ => false,
     }

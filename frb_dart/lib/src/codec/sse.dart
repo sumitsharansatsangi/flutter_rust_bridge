@@ -136,9 +136,13 @@ S _decodeObjectOfOtherType<S>(dynamic raw) {
   return decoder.decodeObject(raw);
 }
 
-Result<S, E> _decodeObjectOfOtherTypeAsResult<S, E extends Object>(dynamic raw) {
+Result<S, E> _decodeObjectOfOtherTypeAsResult<S, E extends Object>(
+  dynamic raw,
+) {
   const decoder = DcoCodec<dynamic, Object>(
-      decodeSuccessData: _unimplementedFunction, decodeErrorData: null);
+    decodeSuccessData: _unimplementedFunction,
+    decodeErrorData: null,
+  );
   final result = decoder.decodeObjectAsResult(raw);
   return result.map((v) => v as S).mapErr((e) => e as E);
 }

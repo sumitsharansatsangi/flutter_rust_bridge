@@ -21,7 +21,7 @@ impl TypeParserWithContext<'_, '_, '_> {
 
         // Check if the trait is in the ignored list
         let is_ignored = extract_trait_name_path(type_trait_object)
-            .and_then(|path| path.segments.last().map(|s| ty_to_string(s)))
+            .and_then(|path| path.segments.last().map(ty_to_string))
             .map(|name| self.inner.ignored_trait_names.contains(&name))
             .unwrap_or(false);
 

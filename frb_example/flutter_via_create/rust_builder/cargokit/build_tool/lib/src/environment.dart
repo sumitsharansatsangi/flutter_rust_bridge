@@ -1,14 +1,13 @@
-import 'dart:io';
+/// This is copied from Cargokit (which is the official way to use it currently)
+/// Details: https://fzyzcjy.github.io/flutter_rust_bridge/manual/integrate/builtin
 
-import 'exceptions.dart';
+import 'dart:io';
 
 extension on String {
   String resolveSymlink() => File(this).resolveSymbolicLinksSync();
 }
 
 class Environment {
-  static Map<String, String>? testEnvironment;
-
   /// Current build configuration (debug or release).
   static String get configuration =>
       _getEnv("CARGOKIT_CONFIGURATION").toLowerCase();
@@ -51,12 +50,9 @@ class Environment {
   static String get targetPlatform => _getEnv("CARGOKIT_TARGET_PLATFORM");
 
   static String _getEnv(String key) {
-    final res = (testEnvironment ?? Platform.environment)[key];
+    final res = Platform.environment[key];
     if (res == null) {
-      throw EnvironmentVariableException(
-        name: key,
-        context: 'the current Cargokit build invocation',
-      );
+      throw Exception("Missing environment variable $key");
     }
     return res;
   }

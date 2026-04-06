@@ -21,7 +21,8 @@ class BaseHandler {
   /// Similar to [executeNormal], but returns an oxidized Result instead of throwing on error.
   /// Panics still throw PanicException since they represent bugs, not expected errors.
   Future<Result<S, E>> executeNormalAsResult<S, E extends Object>(
-      NormalTask<S, E> task) {
+    NormalTask<S, E> task,
+  ) {
     final completer = Completer<dynamic>();
     final SendPort sendPort = singleCompletePort(completer);
     task.callFfi(sendPort.nativePort);
@@ -55,7 +56,8 @@ class BaseHandler {
   /// Similar to [executeSync], but returns an oxidized Result instead of throwing on error.
   /// Panics still throw PanicException since they represent bugs, not expected errors.
   Result<S, E> executeSyncAsResult<S, E extends Object, WireSyncType>(
-      SyncTask<S, E, WireSyncType> task) {
+    SyncTask<S, E, WireSyncType> task,
+  ) {
     final WireSyncType syncReturn;
     try {
       syncReturn = task.callFfi();
@@ -67,7 +69,9 @@ class BaseHandler {
       return task.codec.decodeWireSyncTypeAsResult(syncReturn);
     } finally {
       task.codec.freeWireSyncRust2Dart(
-          syncReturn, task.apiImpl.generalizedFrbRustBinding);
+        syncReturn,
+        task.apiImpl.generalizedFrbRustBinding,
+      );
     }
   }
 

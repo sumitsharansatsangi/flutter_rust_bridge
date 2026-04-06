@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.1.8
+  plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
-  ffi: ^2.2.0
+  ffi: ^2.0.2
   ffigen: ^20.1.1
   flutter_test:
     sdk: flutter

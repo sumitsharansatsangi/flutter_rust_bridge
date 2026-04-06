@@ -77,7 +77,10 @@ mod tests {
     #[test]
     fn test_c_style_handles_keywords_consistently() {
         assert_eq!(MirIdent::new("r#async".into(), None).c_style(), "async");
-        assert_eq!(MirIdent::new("interface".into(), None).c_style(), "interface");
+        assert_eq!(
+            MirIdent::new("interface".into(), None).c_style(),
+            "interface"
+        );
         assert_eq!(MirIdent::new("class".into(), None).c_style(), "class_");
     }
 }

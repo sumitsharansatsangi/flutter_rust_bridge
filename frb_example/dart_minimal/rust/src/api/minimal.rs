@@ -17,7 +17,9 @@ pub struct MyError {
 #[frb(oxidized)]
 pub fn fallible_divide(a: i32, b: i32) -> Result<i32, MyError> {
     if b == 0 {
-        Err(MyError { message: "division by zero".to_string() })
+        Err(MyError {
+            message: "division by zero".to_string(),
+        })
     } else {
         Ok(a / b)
     }
@@ -26,7 +28,9 @@ pub fn fallible_divide(a: i32, b: i32) -> Result<i32, MyError> {
 /// This function throws an exception (no #[frb(oxidized)])
 pub fn fallible_divide_throws(a: i32, b: i32) -> Result<i32, MyError> {
     if b == 0 {
-        Err(MyError { message: "division by zero".to_string() })
+        Err(MyError {
+            message: "division by zero".to_string(),
+        })
     } else {
         Ok(a / b)
     }
@@ -37,7 +41,9 @@ pub fn fallible_divide_throws(a: i32, b: i32) -> Result<i32, MyError> {
 #[frb(sync)]
 pub fn fallible_divide_sync(a: i32, b: i32) -> Result<i32, MyError> {
     if b == 0 {
-        Err(MyError { message: "division by zero".to_string() })
+        Err(MyError {
+            message: "division by zero".to_string(),
+        })
     } else {
         Ok(a / b)
     }
@@ -55,7 +61,9 @@ pub type WResult<T> = std::result::Result<T, MyError>;
 #[frb(sync)]
 pub fn test_wresult_alias(a: i32, b: i32) -> WResult<i32> {
     if b == 0 {
-        Err(MyError { message: "division by zero".to_string() })
+        Err(MyError {
+            message: "division by zero".to_string(),
+        })
     } else {
         Ok(a / b)
     }
@@ -72,7 +80,9 @@ pub fn test_wresult_uuid() -> WResult<uuid::Uuid> {
 #[frb(sync)]
 pub fn test_wresult_string(name: String) -> WResult<String> {
     if name.is_empty() {
-        Err(MyError { message: "name cannot be empty".to_string() })
+        Err(MyError {
+            message: "name cannot be empty".to_string(),
+        })
     } else {
         Ok(format!("Hello, {}!", name))
     }
@@ -88,7 +98,9 @@ pub struct UserInfo {
 #[frb(oxidized)]
 pub fn test_wresult_struct(id: i32, name: String) -> WResult<UserInfo> {
     if id < 0 {
-        Err(MyError { message: "id must be non-negative".to_string() })
+        Err(MyError {
+            message: "id must be non-negative".to_string(),
+        })
     } else {
         Ok(UserInfo { id, name })
     }
@@ -98,7 +110,9 @@ pub fn test_wresult_struct(id: i32, name: String) -> WResult<UserInfo> {
 #[frb(oxidized)]
 pub fn test_wresult_vec(count: i32) -> WResult<Vec<i32>> {
     if count < 0 {
-        Err(MyError { message: "count must be non-negative".to_string() })
+        Err(MyError {
+            message: "count must be non-negative".to_string(),
+        })
     } else {
         Ok((0..count).collect())
     }
@@ -108,7 +122,9 @@ pub fn test_wresult_vec(count: i32) -> WResult<Vec<i32>> {
 #[frb(oxidized)]
 pub fn test_wresult_option(value: Option<i32>) -> WResult<Option<String>> {
     match value {
-        Some(v) if v < 0 => Err(MyError { message: "value must be non-negative".to_string() }),
+        Some(v) if v < 0 => Err(MyError {
+            message: "value must be non-negative".to_string(),
+        }),
         Some(v) => Ok(Some(format!("Value: {}", v))),
         None => Ok(None),
     }
@@ -135,7 +151,9 @@ pub fn test_pair_alias(a: i32, b: String) -> MyPair<i32, String> {
 #[frb(oxidized)]
 pub fn test_wresult_nested(items: Vec<String>) -> WResult<Vec<String>> {
     if items.is_empty() {
-        Err(MyError { message: "items cannot be empty".to_string() })
+        Err(MyError {
+            message: "items cannot be empty".to_string(),
+        })
     } else {
         Ok(items.into_iter().map(|s| s.to_uppercase()).collect())
     }
