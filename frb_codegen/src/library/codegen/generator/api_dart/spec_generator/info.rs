@@ -71,6 +71,9 @@ impl ApiDartGeneratorInfoTrait for DelegateApiDartGenerator<'_> {
             // MirTypeDelegate::TimeList(MirTypeDelegateTime::Duration) => "List<Duration>".to_string(),
             MirTypeDelegate::Uuid => "UuidValue".to_owned(),
             // MirTypeDelegate::Uuids => "List<UuidValue>".to_owned(),
+            // Keep this non-nullable here so `Option<serde_json::Value>` maps to `Object?`
+            // instead of invalid double-nullable `Object??`.
+            MirTypeDelegate::SerdeJsonValue => "Object".to_owned(),
             MirTypeDelegate::Backtrace => "String".to_string(),
             MirTypeDelegate::AnyhowException => "AnyhowException".to_string(),
             MirTypeDelegate::Map(mir) => format!(
@@ -117,6 +120,9 @@ impl ApiDartGeneratorInfoTrait for DelegateApiDartGenerator<'_> {
         match &self.mir {
             MirTypeDelegate::Uuid /*| MirTypeDelegate::Uuids*/ => {
                 Some("import 'package:uuid/uuid.dart';".to_owned())
+            }
+            MirTypeDelegate::SerdeJsonValue => {
+                Some("import 'dart:convert';".to_owned())
             }
             _ => None,
         }
@@ -165,7 +171,12 @@ impl ApiDartGeneratorInfoTrait for GeneralListApiDartGenerator<'_> {
 impl ApiDartGeneratorInfoTrait for OptionalApiDartGenerator<'_> {
     fn dart_api_type(&self) -> String {
         let inner = ApiDartGenerator::new(self.mir.inner.clone(), self.context);
-        format!("{}?", inner.dart_api_type())
+        let inner_type = inner.dart_api_type();
+        if inner_type.ends_with('?') {
+            inner_type
+        } else {
+            format!("{inner_type}?")
+        }
     }
 }
 
