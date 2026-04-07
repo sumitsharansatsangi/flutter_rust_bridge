@@ -224,6 +224,11 @@ import 'api/pseudo_manual/rust_opaque_twin_sync.dart';
 import 'api/pseudo_manual/rust_opaque_twin_sync_moi.dart';
 import 'api/pseudo_manual/rust_opaque_twin_sync_sse.dart';
 import 'api/pseudo_manual/rust_opaque_twin_sync_sse_moi.dart';
+import 'api/pseudo_manual/serde_json_type_twin_rust_async.dart';
+import 'api/pseudo_manual/serde_json_type_twin_rust_async_sse.dart';
+import 'api/pseudo_manual/serde_json_type_twin_sse.dart';
+import 'api/pseudo_manual/serde_json_type_twin_sync.dart';
+import 'api/pseudo_manual/serde_json_type_twin_sync_sse.dart';
 import 'api/pseudo_manual/simple_twin_rust_async.dart';
 import 'api/pseudo_manual/simple_twin_rust_async_sse.dart';
 import 'api/pseudo_manual/simple_twin_sse.dart';
@@ -5907,6 +5912,27 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       dco_decode_box_autoadd_feature_serde_json_twin_normal(dynamic raw);
 
   @protected
+  FeatureSerdeJsonTwinRustAsync
+      dco_decode_box_autoadd_feature_serde_json_twin_rust_async(dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsyncSse
+      dco_decode_box_autoadd_feature_serde_json_twin_rust_async_sse(
+          dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSse dco_decode_box_autoadd_feature_serde_json_twin_sse(
+      dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSync dco_decode_box_autoadd_feature_serde_json_twin_sync(
+      dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSyncSse
+      dco_decode_box_autoadd_feature_serde_json_twin_sync_sse(dynamic raw);
+
+  @protected
   FeatureUuidTwinNormal dco_decode_box_autoadd_feature_uuid_twin_normal(
       dynamic raw);
 
@@ -7783,6 +7809,24 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   FeatureSerdeJsonTwinNormal dco_decode_feature_serde_json_twin_normal(
+      dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsync dco_decode_feature_serde_json_twin_rust_async(
+      dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsyncSse
+      dco_decode_feature_serde_json_twin_rust_async_sse(dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSse dco_decode_feature_serde_json_twin_sse(dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSync dco_decode_feature_serde_json_twin_sync(dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSyncSse dco_decode_feature_serde_json_twin_sync_sse(
       dynamic raw);
 
   @protected
@@ -15286,6 +15330,29 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           SseDeserializer deserializer);
 
   @protected
+  FeatureSerdeJsonTwinRustAsync
+      sse_decode_box_autoadd_feature_serde_json_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsyncSse
+      sse_decode_box_autoadd_feature_serde_json_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSse sse_decode_box_autoadd_feature_serde_json_twin_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSync sse_decode_box_autoadd_feature_serde_json_twin_sync(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSyncSse
+      sse_decode_box_autoadd_feature_serde_json_twin_sync_sse(
+          SseDeserializer deserializer);
+
+  @protected
   FeatureUuidTwinNormal sse_decode_box_autoadd_feature_uuid_twin_normal(
       SseDeserializer deserializer);
 
@@ -17407,6 +17474,27 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   FeatureSerdeJsonTwinNormal sse_decode_feature_serde_json_twin_normal(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsync sse_decode_feature_serde_json_twin_rust_async(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsyncSse
+      sse_decode_feature_serde_json_twin_rust_async_sse(
+          SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSse sse_decode_feature_serde_json_twin_sse(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSync sse_decode_feature_serde_json_twin_sync(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSyncSse sse_decode_feature_serde_json_twin_sync_sse(
       SseDeserializer deserializer);
 
   @protected
@@ -22943,6 +23031,20 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   }
 
   @protected
+  JSAny cst_encode_box_autoadd_feature_serde_json_twin_rust_async(
+      FeatureSerdeJsonTwinRustAsync raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_feature_serde_json_twin_rust_async(raw);
+  }
+
+  @protected
+  JSAny cst_encode_box_autoadd_feature_serde_json_twin_sync(
+      FeatureSerdeJsonTwinSync raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return cst_encode_feature_serde_json_twin_sync(raw);
+  }
+
+  @protected
   JSAny cst_encode_box_autoadd_feature_uuid_twin_normal(
       FeatureUuidTwinNormal raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
@@ -25313,6 +25415,19 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   JSAny cst_encode_feature_serde_json_twin_normal(
       FeatureSerdeJsonTwinNormal raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_SerdeJsonValue(raw.data)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_feature_serde_json_twin_rust_async(
+      FeatureSerdeJsonTwinRustAsync raw) {
+    // Codec=Cst (C-struct based), see doc to use other codecs
+    return [cst_encode_SerdeJsonValue(raw.data)].jsify()!;
+  }
+
+  @protected
+  JSAny cst_encode_feature_serde_json_twin_sync(FeatureSerdeJsonTwinSync raw) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_SerdeJsonValue(raw.data)].jsify()!;
   }
@@ -35055,6 +35170,26 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       FeatureSerdeJsonTwinNormal self, SseSerializer serializer);
 
   @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_rust_async(
+      FeatureSerdeJsonTwinRustAsync self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_rust_async_sse(
+      FeatureSerdeJsonTwinRustAsyncSse self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_sse(
+      FeatureSerdeJsonTwinSse self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_sync(
+      FeatureSerdeJsonTwinSync self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_sync_sse(
+      FeatureSerdeJsonTwinSyncSse self, SseSerializer serializer);
+
+  @protected
   void sse_encode_box_autoadd_feature_uuid_twin_normal(
       FeatureUuidTwinNormal self, SseSerializer serializer);
 
@@ -37053,6 +37188,26 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_feature_serde_json_twin_normal(
       FeatureSerdeJsonTwinNormal self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_rust_async(
+      FeatureSerdeJsonTwinRustAsync self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_rust_async_sse(
+      FeatureSerdeJsonTwinRustAsyncSse self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_sse(
+      FeatureSerdeJsonTwinSse self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_sync(
+      FeatureSerdeJsonTwinSync self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_sync_sse(
+      FeatureSerdeJsonTwinSyncSse self, SseSerializer serializer);
 
   @protected
   void sse_encode_feature_uuid_twin_normal(
@@ -51487,11 +51642,91 @@ class RustLibWire implements BaseWire {
           .wire__crate__api__serde_json_type__handle_map_serde_json_value_twin_normal(
               port_, val);
 
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_map_serde_json_value_twin_rust_async(
+          NativePortType port_, JSAny val) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_map_serde_json_value_twin_rust_async(
+              port_, val);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_map_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_map_serde_json_value_twin_rust_async_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_map_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_map_serde_json_value_twin_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_map_serde_json_value_twin_sync(
+              JSAny val) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_map_serde_json_value_twin_sync(
+                  val);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_map_serde_json_value_twin_sync_sse(
+              PlatformGeneralizedUint8ListPtr ptr_,
+              int rust_vec_len_,
+              int data_len_) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_map_serde_json_value_twin_sync_sse(
+                  ptr_, rust_vec_len_, data_len_);
+
   void wire__crate__api__serde_json_type__handle_nested_serde_json_value_twin_normal(
           NativePortType port_, JSAny wrapper) =>
       wasmModule
           .wire__crate__api__serde_json_type__handle_nested_serde_json_value_twin_normal(
               port_, wrapper);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_nested_serde_json_value_twin_rust_async(
+          NativePortType port_, JSAny wrapper) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_nested_serde_json_value_twin_rust_async(
+              port_, wrapper);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_nested_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_nested_serde_json_value_twin_rust_async_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_nested_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_nested_serde_json_value_twin_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_nested_serde_json_value_twin_sync(
+              JSAny wrapper) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_nested_serde_json_value_twin_sync(
+                  wrapper);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_nested_serde_json_value_twin_sync_sse(
+              PlatformGeneralizedUint8ListPtr ptr_,
+              int rust_vec_len_,
+              int data_len_) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_nested_serde_json_value_twin_sync_sse(
+                  ptr_, rust_vec_len_, data_len_);
 
   void wire__crate__api__misc_example__handle_nested_struct_twin_normal(
           NativePortType port_, JSAny s) =>
@@ -51701,6 +51936,46 @@ class RustLibWire implements BaseWire {
           .wire__crate__api__serde_json_type__handle_option_serde_json_value_twin_normal(
               port_, val);
 
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_option_serde_json_value_twin_rust_async(
+          NativePortType port_, String? val) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_option_serde_json_value_twin_rust_async(
+              port_, val);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_option_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_option_serde_json_value_twin_rust_async_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_option_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_option_serde_json_value_twin_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_option_serde_json_value_twin_sync(
+              String? val) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_option_serde_json_value_twin_sync(
+                  val);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_option_serde_json_value_twin_sync_sse(
+              PlatformGeneralizedUint8ListPtr ptr_,
+              int rust_vec_len_,
+              int data_len_) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_option_serde_json_value_twin_sync_sse(
+                  ptr_, rust_vec_len_, data_len_);
+
   void wire__crate__api__optional__handle_optional_increment_twin_normal(
           NativePortType port_, JSAny? opt) =>
       wasmModule
@@ -51887,6 +52162,46 @@ class RustLibWire implements BaseWire {
       wasmModule
           .wire__crate__api__serde_json_type__handle_serde_json_value_twin_normal(
               port_, val);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_serde_json_value_twin_rust_async(
+          NativePortType port_, String val) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_serde_json_value_twin_rust_async(
+              port_, val);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_serde_json_value_twin_rust_async_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_serde_json_value_twin_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_serde_json_value_twin_sync(
+              String val) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_serde_json_value_twin_sync(
+                  val);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_serde_json_value_twin_sync_sse(
+              PlatformGeneralizedUint8ListPtr ptr_,
+              int rust_vec_len_,
+              int data_len_) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_serde_json_value_twin_sync_sse(
+                  ptr_, rust_vec_len_, data_len_);
 
   void wire__crate__api__stream__handle_stream_of_struct_twin_normal(
           NativePortType port_, String _sink) =>
@@ -52507,6 +52822,46 @@ class RustLibWire implements BaseWire {
       wasmModule
           .wire__crate__api__serde_json_type__handle_vec_serde_json_value_twin_normal(
               port_, val);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_vec_serde_json_value_twin_rust_async(
+          NativePortType port_, JSAny val) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_vec_serde_json_value_twin_rust_async(
+              port_, val);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_vec_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_vec_serde_json_value_twin_rust_async_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  void wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_vec_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_) =>
+      wasmModule
+          .wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_vec_serde_json_value_twin_sse(
+              port_, ptr_, rust_vec_len_, data_len_);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_vec_serde_json_value_twin_sync(
+              JSAny val) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_vec_serde_json_value_twin_sync(
+                  val);
+
+  JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_vec_serde_json_value_twin_sync_sse(
+              PlatformGeneralizedUint8ListPtr ptr_,
+              int rust_vec_len_,
+              int data_len_) =>
+          wasmModule
+              .wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_vec_serde_json_value_twin_sync_sse(
+                  ptr_, rust_vec_len_, data_len_);
 
   void wire__crate__api__misc_example__handle_vec_u8_twin_normal(
           NativePortType port_, JSAny v) =>
@@ -71624,8 +71979,64 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
           NativePortType port_, JSAny val);
 
   external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_map_serde_json_value_twin_rust_async(
+          NativePortType port_, JSAny val);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_map_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_map_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_map_serde_json_value_twin_sync(
+          JSAny val);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_map_serde_json_value_twin_sync_sse(
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
       wire__crate__api__serde_json_type__handle_nested_serde_json_value_twin_normal(
           NativePortType port_, JSAny wrapper);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_nested_serde_json_value_twin_rust_async(
+          NativePortType port_, JSAny wrapper);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_nested_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_nested_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_nested_serde_json_value_twin_sync(
+          JSAny wrapper);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_nested_serde_json_value_twin_sync_sse(
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
 
   external void
       wire__crate__api__misc_example__handle_nested_struct_twin_normal(
@@ -71778,6 +72189,34 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
           NativePortType port_, String? val);
 
   external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_option_serde_json_value_twin_rust_async(
+          NativePortType port_, String? val);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_option_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_option_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_option_serde_json_value_twin_sync(
+          String? val);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_option_serde_json_value_twin_sync_sse(
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
       wire__crate__api__optional__handle_optional_increment_twin_normal(
           NativePortType port_, JSAny? opt);
 
@@ -71905,6 +72344,34 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
   external void
       wire__crate__api__serde_json_type__handle_serde_json_value_twin_normal(
           NativePortType port_, String val);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_serde_json_value_twin_rust_async(
+          NativePortType port_, String val);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_serde_json_value_twin_sync(
+          String val);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_serde_json_value_twin_sync_sse(
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
 
   external void wire__crate__api__stream__handle_stream_of_struct_twin_normal(
       NativePortType port_, String _sink);
@@ -72337,6 +72804,34 @@ extension type RustLibWasmModule._(JSObject _) implements JSObject {
   external void
       wire__crate__api__serde_json_type__handle_vec_serde_json_value_twin_normal(
           NativePortType port_, JSAny val);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async__handle_vec_serde_json_value_twin_rust_async(
+          NativePortType port_, JSAny val);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_rust_async_sse__handle_vec_serde_json_value_twin_rust_async_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external void
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sse__handle_vec_serde_json_value_twin_sse(
+          NativePortType port_,
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartDco */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync__handle_vec_serde_json_value_twin_sync(
+          JSAny val);
+
+  external JSAny? /* flutter_rust_bridge::for_generated::WireSyncRust2DartSse */
+      wire__crate__api__pseudo_manual__serde_json_type_twin_sync_sse__handle_vec_serde_json_value_twin_sync_sse(
+          PlatformGeneralizedUint8ListPtr ptr_,
+          int rust_vec_len_,
+          int data_len_);
 
   external void wire__crate__api__misc_example__handle_vec_u8_twin_normal(
       NativePortType port_, JSAny v);

@@ -114,6 +114,8 @@ import 'api/pseudo_manual/rust_auto_opaque_twin_rust_async.dart';
 import 'api/pseudo_manual/rust_auto_opaque_twin_sync.dart';
 import 'api/pseudo_manual/rust_opaque_twin_rust_async.dart';
 import 'api/pseudo_manual/rust_opaque_twin_sync.dart';
+import 'api/pseudo_manual/serde_json_type_twin_rust_async.dart';
+import 'api/pseudo_manual/serde_json_type_twin_sync.dart';
 import 'api/pseudo_manual/simple_twin_rust_async.dart';
 import 'api/pseudo_manual/simple_twin_sync.dart';
 import 'api/pseudo_manual/stream_twin_rust_async.dart';
@@ -2836,6 +2838,14 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       dco_decode_box_autoadd_feature_serde_json_twin_normal(dynamic raw);
 
   @protected
+  FeatureSerdeJsonTwinRustAsync
+      dco_decode_box_autoadd_feature_serde_json_twin_rust_async(dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSync dco_decode_box_autoadd_feature_serde_json_twin_sync(
+      dynamic raw);
+
+  @protected
   FeatureUuidTwinNormal dco_decode_box_autoadd_feature_uuid_twin_normal(
       dynamic raw);
 
@@ -3777,6 +3787,13 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   FeatureSerdeJsonTwinNormal dco_decode_feature_serde_json_twin_normal(
       dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsync dco_decode_feature_serde_json_twin_rust_async(
+      dynamic raw);
+
+  @protected
+  FeatureSerdeJsonTwinSync dco_decode_feature_serde_json_twin_sync(dynamic raw);
 
   @protected
   FeatureUuidTwinNormal dco_decode_feature_uuid_twin_normal(dynamic raw);
@@ -7610,6 +7627,15 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
           SseDeserializer deserializer);
 
   @protected
+  FeatureSerdeJsonTwinRustAsync
+      sse_decode_box_autoadd_feature_serde_json_twin_rust_async(
+          SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSync sse_decode_box_autoadd_feature_serde_json_twin_sync(
+      SseDeserializer deserializer);
+
+  @protected
   FeatureUuidTwinNormal sse_decode_box_autoadd_feature_uuid_twin_normal(
       SseDeserializer deserializer);
 
@@ -8663,6 +8689,14 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   FeatureSerdeJsonTwinNormal sse_decode_feature_serde_json_twin_normal(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinRustAsync sse_decode_feature_serde_json_twin_rust_async(
+      SseDeserializer deserializer);
+
+  @protected
+  FeatureSerdeJsonTwinSync sse_decode_feature_serde_json_twin_sync(
       SseDeserializer deserializer);
 
   @protected
@@ -12744,6 +12778,14 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
       FeatureSerdeJsonTwinNormal self, SseSerializer serializer);
 
   @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_rust_async(
+      FeatureSerdeJsonTwinRustAsync self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_box_autoadd_feature_serde_json_twin_sync(
+      FeatureSerdeJsonTwinSync self, SseSerializer serializer);
+
+  @protected
   void sse_encode_box_autoadd_feature_uuid_twin_normal(
       FeatureUuidTwinNormal self, SseSerializer serializer);
 
@@ -13746,6 +13788,14 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_feature_serde_json_twin_normal(
       FeatureSerdeJsonTwinNormal self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_rust_async(
+      FeatureSerdeJsonTwinRustAsync self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_feature_serde_json_twin_sync(
+      FeatureSerdeJsonTwinSync self, SseSerializer serializer);
 
   @protected
   void sse_encode_feature_uuid_twin_normal(

@@ -123,9 +123,7 @@ impl WorkerPool {
                 }}
             }}",
         );
-        let blob = Blob::new_with_str_sequence(
-            &Array::from_iter([JsValue::from(script)]).into(),
-        )?;
+        let blob = Blob::new_with_str_sequence(&Array::from_iter([JsValue::from(script)]).into())?;
         let url = Url::create_object_url_with_blob(&blob)?;
         let worker: Worker = Worker::new(&url)?;
 

@@ -156,10 +156,6 @@ import 'api/pseudo_manual/rust_opaque_twin_rust_async_test.dart'
     as rust_opaque_twin_rust_async_test;
 import 'api/pseudo_manual/rust_opaque_twin_sync_test.dart'
     as rust_opaque_twin_sync_test;
-import 'api/pseudo_manual/serde_json_type_twin_rust_async_test.dart'
-    as serde_json_type_twin_rust_async_test;
-import 'api/pseudo_manual/serde_json_type_twin_sync_test.dart'
-    as serde_json_type_twin_sync_test;
 import 'api/pseudo_manual/simple_twin_rust_async_test.dart'
     as simple_twin_rust_async_test;
 import 'api/pseudo_manual/simple_twin_sync_test.dart' as simple_twin_sync_test;
@@ -500,12 +496,6 @@ Future<void> callFileEntrypoints() async {
     skipRustLibInit: true,
   );
   await rust_opaque_twin_sync_test.main(
-    skipRustLibInit: true,
-  );
-  await serde_json_type_twin_rust_async_test.main(
-    skipRustLibInit: true,
-  );
-  await serde_json_type_twin_sync_test.main(
     skipRustLibInit: true,
   );
   await simple_twin_rust_async_test.main(
