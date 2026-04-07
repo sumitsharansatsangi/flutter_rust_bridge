@@ -44,7 +44,7 @@ Future<void> executeTestWeb(TestWebConfig config) async {
       dartCompileJsEntrypoint: config.entrypoint,
       wasmPackRustupToolchain:
           Platform.environment[_kWasmPackRustupToolchainEnvKey] ??
-          _kDefaultWasmPackRustupToolchain,
+              _kDefaultWasmPackRustupToolchain,
       wasmPackRustflags: null,
     ),
   );
