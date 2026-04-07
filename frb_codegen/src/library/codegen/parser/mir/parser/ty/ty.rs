@@ -205,6 +205,16 @@ fn substitute_type_params(ty: &Type, param_map: &HashMap<String, &Type>) -> Type
             bracket_token: s.bracket_token,
             elem: Box::new(substitute_type_params(&s.elem, param_map)),
         }),
+        Type::Ptr(p) => Type::Ptr(syn::TypePtr {
+            star_token: p.star_token,
+            const_token: p.const_token,
+            mut_token: p.mut_token,
+            elem: Box::new(substitute_type_params(&p.elem, param_map)),
+        }),
+        Type::Paren(p) => Type::Paren(syn::TypeParen {
+            paren_token: p.paren_token,
+            elem: Box::new(substitute_type_params(&p.elem, param_map)),
+        }),
         // For other types, return as-is
         other => other.clone(),
     }
