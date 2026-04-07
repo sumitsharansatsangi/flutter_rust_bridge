@@ -16,11 +16,17 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf_web_socket/shelf_web_socket.dart';
 
 const kTestResultKey = '__result__';
+const _kDefaultWasmPackRustupToolchain = 'nightly-2025-02-01';
+const _kWasmPackRustupToolchainEnvKey = 'FRB_WASM_PACK_RUSTUP_TOOLCHAIN';
+const _kRustCrateDirEnvKey = 'FRB_TEST_WEB_RUST_CRATE_DIR';
+
 Future<void> executeTestWeb(TestWebConfig config) async {
   final dartRoot = await findDartPackageDirectory(
     path.dirname(config.entrypoint),
   );
   final webRoot = '$dartRoot/web';
+  final rustCrateDir =
+      Platform.environment[_kRustCrateDirEnvKey] ?? '$dartRoot/rust';
   print('executeTestWeb: Pick dartRoot=$dartRoot');
 
   List<String> cargoArgs =
@@ -32,14 +38,13 @@ Future<void> executeTestWeb(TestWebConfig config) async {
       output: webRoot,
       release: false,
       verbose: false,
-      // TODO make these configurable later when it is publicly used
-      //      (now it is only used internally)
-      rustCrateDir: '$dartRoot/rust',
+      rustCrateDir: rustCrateDir,
       cargoBuildArgs: cargoArgs,
       wasmBindgenArgs: [],
       dartCompileJsEntrypoint: config.entrypoint,
-      // TODO make this configurable later
-      wasmPackRustupToolchain: 'nightly-2025-02-01',
+      wasmPackRustupToolchain:
+          Platform.environment[_kWasmPackRustupToolchainEnvKey] ??
+          _kDefaultWasmPackRustupToolchain,
       wasmPackRustflags: null,
     ),
   );

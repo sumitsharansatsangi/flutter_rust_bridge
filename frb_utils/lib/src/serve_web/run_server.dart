@@ -34,24 +34,15 @@ Future<String> runServer(
       return res.change(
         headers: {
           'Cross-Origin-Opener-Policy': 'same-origin',
-          // TODO add back this flag `shouldRelaxCoep` after refactor
-          // See https://github.com/fzyzcjy/flutter_rust_bridge/issues/1618 for details
-          'Cross-Origin-Embedder-Policy': 'require-corp',
-          // shouldRelaxCoep ? 'credentialless' : 'require-corp',
-          // TODO rm
-          // // Disable CORS since this server (hosting JS/WASM) is different from
-          // // the server that `dart test -p chrome` creates.
-          // 'Access-Control-Allow-Origin': '*',
+          'Cross-Origin-Embedder-Policy':
+              _shouldRelaxCoep() ? 'credentialless' : 'require-corp',
         },
       );
     };
   }).addHandler(innerHandler.handler);
 
-  // TODO
-  // final portEnv = Platform.environment['PORT'];
-  // final port = portEnv == null ? config.port : int.parse(portEnv);
-
-  final port = config.port;
+  final portEnv = Platform.environment['PORT'];
+  final port = portEnv == null ? config.port : int.parse(portEnv);
   final addr = 'http://localhost:$port';
   await serve(handler, InternetAddress.anyIPv4, port);
   print('🦀 Server listening on $addr with content from ${config.webRoot} 🎯');
@@ -69,3 +60,9 @@ final _kOpen = const {
       'windows': 'start',
     }[Platform.operatingSystem] ??
     'open';
+
+bool _shouldRelaxCoep() {
+  final raw = Platform.environment['FRB_RELAX_COEP'];
+  if (raw == null) return false;
+  return raw == '1' || raw.toLowerCase() == 'true';
+}

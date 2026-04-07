@@ -357,6 +357,16 @@ import 'api/pseudo_manual/rust_opaque_twin_sync_sse_test.dart'
     as rust_opaque_twin_sync_sse_test;
 import 'api/pseudo_manual/rust_opaque_twin_sync_test.dart'
     as rust_opaque_twin_sync_test;
+import 'api/pseudo_manual/serde_json_type_twin_rust_async_sse_test.dart'
+    as serde_json_type_twin_rust_async_sse_test;
+import 'api/pseudo_manual/serde_json_type_twin_rust_async_test.dart'
+    as serde_json_type_twin_rust_async_test;
+import 'api/pseudo_manual/serde_json_type_twin_sse_test.dart'
+    as serde_json_type_twin_sse_test;
+import 'api/pseudo_manual/serde_json_type_twin_sync_sse_test.dart'
+    as serde_json_type_twin_sync_sse_test;
+import 'api/pseudo_manual/serde_json_type_twin_sync_test.dart'
+    as serde_json_type_twin_sync_test;
 import 'api/pseudo_manual/simple_twin_rust_async_sse_test.dart'
     as simple_twin_rust_async_sse_test;
 import 'api/pseudo_manual/simple_twin_rust_async_test.dart'
@@ -414,6 +424,7 @@ import 'api/raw_string_test.dart' as raw_string_test;
 import 'api/rust_auto_opaque_test.dart' as rust_auto_opaque_test;
 import 'api/rust_opaque_sync_test.dart' as rust_opaque_sync_test;
 import 'api/rust_opaque_test.dart' as rust_opaque_test;
+import 'api/serde_json_type_test.dart' as serde_json_type_test;
 import 'api/simple_test.dart' as simple_test;
 import 'api/stream_misc_test.dart' as stream_misc_test;
 import 'api/stream_test.dart' as stream_test;
@@ -1043,6 +1054,21 @@ Future<void> callFileEntrypoints() async {
   await rust_opaque_twin_sync_test.main(
     skipRustLibInit: true,
   );
+  await serde_json_type_twin_rust_async_sse_test.main(
+    skipRustLibInit: true,
+  );
+  await serde_json_type_twin_rust_async_test.main(
+    skipRustLibInit: true,
+  );
+  await serde_json_type_twin_sse_test.main(
+    skipRustLibInit: true,
+  );
+  await serde_json_type_twin_sync_sse_test.main(
+    skipRustLibInit: true,
+  );
+  await serde_json_type_twin_sync_test.main(
+    skipRustLibInit: true,
+  );
   await simple_twin_rust_async_sse_test.main(
     skipRustLibInit: true,
   );
@@ -1140,6 +1166,9 @@ Future<void> callFileEntrypoints() async {
     skipRustLibInit: true,
   );
   await rust_opaque_test.main(
+    skipRustLibInit: true,
+  );
+  await serde_json_type_test.main(
     skipRustLibInit: true,
   );
   await simple_test.main(
