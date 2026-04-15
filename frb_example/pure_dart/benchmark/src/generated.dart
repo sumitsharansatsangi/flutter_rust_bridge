@@ -617,10 +617,21 @@ class BinaryTree_Json_Output_Sync_Benchmark extends EnhancedBenchmarkBase {
   @override
   void run() {
     final raw = benchmarkBinaryTreeOutputJsonTwinSync(depth: depth);
-    // TODO: Should use json_serialize to further generate Dart objects
-    // Otherwise this comparison is unfair (JSON does fewer amount of work)
-    final json = jsonDecode(raw);
-    dummyValue ^= json.hashCode;
+    final tree = _fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    dummyValue ^= tree.hashCode;
+  }
+
+  static BenchmarkBinaryTreeTwinSync _fromJson(Map<String, dynamic> json) {
+    BenchmarkBinaryTreeTwinSync? childFromJson(dynamic value) {
+      if (value == null) return null;
+      return _fromJson(value as Map<String, dynamic>);
+    }
+
+    return BenchmarkBinaryTreeTwinSync(
+      name: json['name'] as String,
+      left: childFromJson(json['left']),
+      right: childFromJson(json['right']),
+    );
   }
 }
 
@@ -803,9 +814,19 @@ class Blob_Json_Output_Sync_Benchmark extends EnhancedBenchmarkBase {
   @override
   void run() {
     final raw = benchmarkBlobOutputJsonTwinSync(size: len);
-    // TODO: Should use json_serialize to further generate Dart objects
-    // Otherwise this comparison is unfair (JSON does fewer amount of work)
-    final json = jsonDecode(raw);
-    dummyValue ^= json.hashCode;
+    final blob = _fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    dummyValue ^= blob.hashCode;
+  }
+
+  static BenchmarkBlobTwinSync _fromJson(Map<String, dynamic> json) {
+    Uint8List bytesFromJson(dynamic value) {
+      return Uint8List.fromList(List<int>.from(value as List<dynamic>));
+    }
+
+    return BenchmarkBlobTwinSync(
+      first: bytesFromJson(json['first']),
+      second: bytesFromJson(json['second']),
+      third: bytesFromJson(json['third']),
+    );
   }
 }

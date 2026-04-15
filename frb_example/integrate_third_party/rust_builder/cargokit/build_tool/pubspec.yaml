@@ -4,8 +4,7 @@ publish_to: none
 version: 1.0.1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-
+  sdk: ">=3.11.0 <4.0.0"
 # Add regular dependencies here.
 dependencies:
   # these are pinned on purpose because the build_tool_runner doesn't have
