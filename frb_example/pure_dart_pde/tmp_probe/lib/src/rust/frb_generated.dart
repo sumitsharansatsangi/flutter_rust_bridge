@@ -39,12 +39,8 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 
   /// Initialize flutter_rust_bridge in mock mode.
   /// No libraries for FFI are loaded.
-  static void initMock({
-    required RustLibApi api,
-  }) {
-    instance.initMockImpl(
-      api: api,
-    );
+  static void initMock({required RustLibApi api}) {
+    instance.initMockImpl(api: api);
   }
 
   /// Dispose flutter_rust_bridge
@@ -76,22 +72,22 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
-    stem: 'frb_example_pure_dart',
-    ioDirectory: 'rust/target/release/',
-    webPrefix: 'pkg/',
-    wasmBindgenName: 'wasm_bindgen',
-  );
+        stem: 'frb_example_pure_dart',
+        ioDirectory: 'rust/target/release/',
+        webPrefix: 'pkg/',
+        wasmBindgenName: 'wasm_bindgen',
+      );
 }
 
 abstract class RustLibApi extends BaseApi {
   Future<MoreThanJustOneRawStringStructTwinNormal>
-      crateApiRawStringTestMoreThanJustOneRawStringStructTwinNormal();
+  crateApiRawStringTestMoreThanJustOneRawStringStructTwinNormal();
 
   Future<RawStringItemEnumTwinNormal>
-      crateApiRawStringTestRawStringItemEnumTwinNormal();
+  crateApiRawStringTestRawStringItemEnumTwinNormal();
 
   Future<RawStringItemStructTwinNormal>
-      crateApiRawStringTestRawStringItemStructTwinNormal();
+  crateApiRawStringTestRawStringItemStructTwinNormal();
 }
 
 class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
@@ -104,83 +100,92 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @override
   Future<MoreThanJustOneRawStringStructTwinNormal>
-      crateApiRawStringTestMoreThanJustOneRawStringStructTwinNormal() {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        return wire
-            .wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
-                port_);
-      },
-      codec: DcoCodec(
-        decodeSuccessData:
-            dco_decode_more_than_just_one_raw_string_struct_twin_normal,
-        decodeErrorData: null,
+  crateApiRawStringTestMoreThanJustOneRawStringStructTwinNormal() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          return wire
+              .wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
+                port_,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData:
+              dco_decode_more_than_just_one_raw_string_struct_twin_normal,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCrateApiRawStringTestMoreThanJustOneRawStringStructTwinNormalConstMeta,
+        argValues: [],
+        apiImpl: this,
       ),
-      constMeta:
-          kCrateApiRawStringTestMoreThanJustOneRawStringStructTwinNormalConstMeta,
-      argValues: [],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiRawStringTestMoreThanJustOneRawStringStructTwinNormalConstMeta =>
-          const TaskConstMeta(
-            debugName: "test_more_than_just_one_raw_string_struct_twin_normal",
-            argNames: [],
-          );
+  get kCrateApiRawStringTestMoreThanJustOneRawStringStructTwinNormalConstMeta =>
+      const TaskConstMeta(
+        debugName: "test_more_than_just_one_raw_string_struct_twin_normal",
+        argNames: [],
+      );
 
   @override
   Future<RawStringItemEnumTwinNormal>
-      crateApiRawStringTestRawStringItemEnumTwinNormal() {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        return wire
-            .wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
-                port_);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_raw_string_item_enum_twin_normal,
-        decodeErrorData: null,
+  crateApiRawStringTestRawStringItemEnumTwinNormal() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          return wire
+              .wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
+                port_,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_raw_string_item_enum_twin_normal,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiRawStringTestRawStringItemEnumTwinNormalConstMeta,
+        argValues: [],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiRawStringTestRawStringItemEnumTwinNormalConstMeta,
-      argValues: [],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiRawStringTestRawStringItemEnumTwinNormalConstMeta =>
-          const TaskConstMeta(
-            debugName: "test_raw_string_item_enum_twin_normal",
-            argNames: [],
-          );
+  get kCrateApiRawStringTestRawStringItemEnumTwinNormalConstMeta =>
+      const TaskConstMeta(
+        debugName: "test_raw_string_item_enum_twin_normal",
+        argNames: [],
+      );
 
   @override
   Future<RawStringItemStructTwinNormal>
-      crateApiRawStringTestRawStringItemStructTwinNormal() {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        return wire
-            .wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
-                port_);
-      },
-      codec: DcoCodec(
-        decodeSuccessData: dco_decode_raw_string_item_struct_twin_normal,
-        decodeErrorData: null,
+  crateApiRawStringTestRawStringItemStructTwinNormal() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          return wire
+              .wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
+                port_,
+              );
+        },
+        codec: DcoCodec(
+          decodeSuccessData: dco_decode_raw_string_item_struct_twin_normal,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiRawStringTestRawStringItemStructTwinNormalConstMeta,
+        argValues: [],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiRawStringTestRawStringItemStructTwinNormalConstMeta,
-      argValues: [],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta
-      get kCrateApiRawStringTestRawStringItemStructTwinNormalConstMeta =>
-          const TaskConstMeta(
-            debugName: "test_raw_string_item_struct_twin_normal",
-            argNames: [],
-          );
+  get kCrateApiRawStringTestRawStringItemStructTwinNormalConstMeta =>
+      const TaskConstMeta(
+        debugName: "test_raw_string_item_struct_twin_normal",
+        argNames: [],
+      );
 
   @protected
   String dco_decode_String(dynamic raw) {
@@ -202,7 +207,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   MoreThanJustOneRawStringStructTwinNormal
-      dco_decode_more_than_just_one_raw_string_struct_twin_normal(dynamic raw) {
+  dco_decode_more_than_just_one_raw_string_struct_twin_normal(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
     if (arr.length != 4)
@@ -217,7 +222,8 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   RawStringItemEnumTwinNormal dco_decode_raw_string_item_enum_twin_normal(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     switch (raw[0]) {
       case 0:
@@ -225,9 +231,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           regular: dco_decode_String(raw[1]),
         );
       case 1:
-        return RawStringItemEnumTwinNormal_Raw(
-          type: dco_decode_String(raw[1]),
-        );
+        return RawStringItemEnumTwinNormal_Raw(type: dco_decode_String(raw[1]));
       default:
         throw Exception("unreachable");
     }
@@ -235,14 +239,13 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   RawStringItemStructTwinNormal dco_decode_raw_string_item_struct_twin_normal(
-      dynamic raw) {
+    dynamic raw,
+  ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
-    return RawStringItemStructTwinNormal(
-      type: dco_decode_String(arr[0]),
-    );
+    return RawStringItemStructTwinNormal(type: dco_decode_String(arr[0]));
   }
 
   @protected
@@ -279,23 +282,26 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   MoreThanJustOneRawStringStructTwinNormal
-      sse_decode_more_than_just_one_raw_string_struct_twin_normal(
-          SseDeserializer deserializer) {
+  sse_decode_more_than_just_one_raw_string_struct_twin_normal(
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_regular = sse_decode_String(deserializer);
     var var_type = sse_decode_String(deserializer);
     var var_async_ = sse_decode_bool(deserializer);
     var var_another = sse_decode_String(deserializer);
     return MoreThanJustOneRawStringStructTwinNormal(
-        regular: var_regular,
-        type: var_type,
-        async_: var_async_,
-        another: var_another);
+      regular: var_regular,
+      type: var_type,
+      async_: var_async_,
+      another: var_another,
+    );
   }
 
   @protected
   RawStringItemEnumTwinNormal sse_decode_raw_string_item_enum_twin_normal(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
 
     var tag_ = sse_decode_i_32(deserializer);
@@ -313,7 +319,8 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   RawStringItemStructTwinNormal sse_decode_raw_string_item_struct_twin_normal(
-      SseDeserializer deserializer) {
+    SseDeserializer deserializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_type = sse_decode_String(deserializer);
     return RawStringItemStructTwinNormal(type: var_type);
@@ -368,7 +375,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode_list_prim_u_8_strict(
-      Uint8List self, SseSerializer serializer) {
+    Uint8List self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putUint8List(self);
@@ -376,7 +385,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode_more_than_just_one_raw_string_struct_twin_normal(
-      MoreThanJustOneRawStringStructTwinNormal self, SseSerializer serializer) {
+    MoreThanJustOneRawStringStructTwinNormal self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.regular, serializer);
     sse_encode_String(self.type, serializer);
@@ -386,7 +397,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode_raw_string_item_enum_twin_normal(
-      RawStringItemEnumTwinNormal self, SseSerializer serializer) {
+    RawStringItemEnumTwinNormal self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     switch (self) {
       case RawStringItemEnumTwinNormal_Regular(regular: final regular):
@@ -400,7 +413,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode_raw_string_item_struct_twin_normal(
-      RawStringItemStructTwinNormal self, SseSerializer serializer) {
+    RawStringItemStructTwinNormal self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.type, serializer);
   }

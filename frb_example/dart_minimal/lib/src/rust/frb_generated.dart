@@ -36,12 +36,8 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 
   /// Initialize flutter_rust_bridge in mock mode.
   /// No libraries for FFI are loaded.
-  static void initMock({
-    required RustLibApi api,
-  }) {
-    instance.initMockImpl(
-      api: api,
-    );
+  static void initMock({required RustLibApi api}) {
+    instance.initMockImpl(api: api);
   }
 
   /// Dispose flutter_rust_bridge
@@ -75,49 +71,65 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
-    stem: 'frb_example_dart_minimal',
-    ioDirectory: 'rust/target/release/',
-    webPrefix: 'pkg/',
-    wasmBindgenName: 'wasm_bindgen',
-  );
+        stem: 'frb_example_dart_minimal',
+        ioDirectory: 'rust/target/release/',
+        webPrefix: 'pkg/',
+        wasmBindgenName: 'wasm_bindgen',
+      );
 }
 
 abstract class RustLibApi extends BaseApi {
-  Future<Result<int, MyError>> crateApiMinimalFallibleDivide(
-      {required int a, required int b});
+  Future<Result<int, MyError>> crateApiMinimalFallibleDivide({
+    required int a,
+    required int b,
+  });
 
-  Result<int, MyError> crateApiMinimalFallibleDivideSync(
-      {required int a, required int b});
+  Result<int, MyError> crateApiMinimalFallibleDivideSync({
+    required int a,
+    required int b,
+  });
 
-  Future<int> crateApiMinimalFallibleDivideThrows(
-      {required int a, required int b});
+  Future<int> crateApiMinimalFallibleDivideThrows({
+    required int a,
+    required int b,
+  });
 
   Future<void> crateApiMinimalInitApp();
 
   Future<int> crateApiMinimalMinimalAdder({required int a, required int b});
 
-  (int, String) crateApiMinimalTestPairAlias(
-      {required int a, required String b});
+  (int, String) crateApiMinimalTestPairAlias({
+    required int a,
+    required String b,
+  });
 
-  Result<int, MyError> crateApiMinimalTestWresultAlias(
-      {required int a, required int b});
+  Result<int, MyError> crateApiMinimalTestWresultAlias({
+    required int a,
+    required int b,
+  });
 
-  Future<Result<List<String>, MyError>> crateApiMinimalTestWresultNested(
-      {required List<String> items});
+  Future<Result<List<String>, MyError>> crateApiMinimalTestWresultNested({
+    required List<String> items,
+  });
 
-  Future<Result<String?, MyError>> crateApiMinimalTestWresultOption(
-      {int? value});
+  Future<Result<String?, MyError>> crateApiMinimalTestWresultOption({
+    int? value,
+  });
 
-  Result<String, MyError> crateApiMinimalTestWresultString(
-      {required String name});
+  Result<String, MyError> crateApiMinimalTestWresultString({
+    required String name,
+  });
 
-  Future<Result<UserInfo, MyError>> crateApiMinimalTestWresultStruct(
-      {required int id, required String name});
+  Future<Result<UserInfo, MyError>> crateApiMinimalTestWresultStruct({
+    required int id,
+    required String name,
+  });
 
   Future<Result<UuidValue, MyError>> crateApiMinimalTestWresultUuid();
 
-  Future<Result<Int32List, MyError>> crateApiMinimalTestWresultVec(
-      {required int count});
+  Future<Result<Int32List, MyError>> crateApiMinimalTestWresultVec({
+    required int count,
+  });
 }
 
 class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
@@ -129,50 +141,59 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   });
 
   @override
-  Future<Result<int, MyError>> crateApiMinimalFallibleDivide(
-      {required int a, required int b}) {
-    return handler.executeNormalAsResult(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(a, serializer);
-        sse_encode_i_32(b, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 1, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_i_32,
-        decodeErrorData: sse_decode_my_error,
+  Future<Result<int, MyError>> crateApiMinimalFallibleDivide({
+    required int a,
+    required int b,
+  }) {
+    return handler.executeNormalAsResult(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(a, serializer);
+          sse_encode_i_32(b, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 1,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_i_32,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalFallibleDivideConstMeta,
+        argValues: [a, b],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalFallibleDivideConstMeta,
-      argValues: [a, b],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalFallibleDivideConstMeta =>
-      const TaskConstMeta(
-        debugName: "fallible_divide",
-        argNames: ["a", "b"],
-      );
+      const TaskConstMeta(debugName: "fallible_divide", argNames: ["a", "b"]);
 
   @override
-  Result<int, MyError> crateApiMinimalFallibleDivideSync(
-      {required int a, required int b}) {
-    return handler.executeSyncAsResult(SyncTask(
-      callFfi: () {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(a, serializer);
-        sse_encode_i_32(b, serializer);
-        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 2)!;
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_i_32,
-        decodeErrorData: sse_decode_my_error,
+  Result<int, MyError> crateApiMinimalFallibleDivideSync({
+    required int a,
+    required int b,
+  }) {
+    return handler.executeSyncAsResult(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(a, serializer);
+          sse_encode_i_32(b, serializer);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 2)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_i_32,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalFallibleDivideSyncConstMeta,
+        argValues: [a, b],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalFallibleDivideSyncConstMeta,
-      argValues: [a, b],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalFallibleDivideSyncConstMeta =>
@@ -182,24 +203,32 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
-  Future<int> crateApiMinimalFallibleDivideThrows(
-      {required int a, required int b}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(a, serializer);
-        sse_encode_i_32(b, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 3, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_i_32,
-        decodeErrorData: sse_decode_my_error,
+  Future<int> crateApiMinimalFallibleDivideThrows({
+    required int a,
+    required int b,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(a, serializer);
+          sse_encode_i_32(b, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 3,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_i_32,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalFallibleDivideThrowsConstMeta,
+        argValues: [a, b],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalFallibleDivideThrowsConstMeta,
-      argValues: [a, b],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalFallibleDivideThrowsConstMeta =>
@@ -210,97 +239,109 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @override
   Future<void> crateApiMinimalInitApp() {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 4, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_unit,
-        decodeErrorData: null,
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 4,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMinimalInitAppConstMeta,
+        argValues: [],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalInitAppConstMeta,
-      argValues: [],
-      apiImpl: this,
-    ));
+    );
   }
 
-  TaskConstMeta get kCrateApiMinimalInitAppConstMeta => const TaskConstMeta(
-        debugName: "init_app",
-        argNames: [],
-      );
+  TaskConstMeta get kCrateApiMinimalInitAppConstMeta =>
+      const TaskConstMeta(debugName: "init_app", argNames: []);
 
   @override
   Future<int> crateApiMinimalMinimalAdder({required int a, required int b}) {
-    return handler.executeNormal(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(a, serializer);
-        sse_encode_i_32(b, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 5, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_i_32,
-        decodeErrorData: null,
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(a, serializer);
+          sse_encode_i_32(b, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 5,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_i_32,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMinimalMinimalAdderConstMeta,
+        argValues: [a, b],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalMinimalAdderConstMeta,
-      argValues: [a, b],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalMinimalAdderConstMeta =>
-      const TaskConstMeta(
-        debugName: "minimal_adder",
-        argNames: ["a", "b"],
-      );
+      const TaskConstMeta(debugName: "minimal_adder", argNames: ["a", "b"]);
 
   @override
-  (int, String) crateApiMinimalTestPairAlias(
-      {required int a, required String b}) {
-    return handler.executeSync(SyncTask(
-      callFfi: () {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(a, serializer);
-        sse_encode_String(b, serializer);
-        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 6)!;
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode___record__i_32_string,
-        decodeErrorData: null,
+  (int, String) crateApiMinimalTestPairAlias({
+    required int a,
+    required String b,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(a, serializer);
+          sse_encode_String(b, serializer);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 6)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode___record__i_32_string,
+          decodeErrorData: null,
+        ),
+        constMeta: kCrateApiMinimalTestPairAliasConstMeta,
+        argValues: [a, b],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestPairAliasConstMeta,
-      argValues: [a, b],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestPairAliasConstMeta =>
-      const TaskConstMeta(
-        debugName: "test_pair_alias",
-        argNames: ["a", "b"],
-      );
+      const TaskConstMeta(debugName: "test_pair_alias", argNames: ["a", "b"]);
 
   @override
-  Result<int, MyError> crateApiMinimalTestWresultAlias(
-      {required int a, required int b}) {
-    return handler.executeSyncAsResult(SyncTask(
-      callFfi: () {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(a, serializer);
-        sse_encode_i_32(b, serializer);
-        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 7)!;
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_i_32,
-        decodeErrorData: sse_decode_my_error,
+  Result<int, MyError> crateApiMinimalTestWresultAlias({
+    required int a,
+    required int b,
+  }) {
+    return handler.executeSyncAsResult(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(a, serializer);
+          sse_encode_i_32(b, serializer);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 7)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_i_32,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultAliasConstMeta,
+        argValues: [a, b],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultAliasConstMeta,
-      argValues: [a, b],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultAliasConstMeta =>
@@ -310,23 +351,30 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
-  Future<Result<List<String>, MyError>> crateApiMinimalTestWresultNested(
-      {required List<String> items}) {
-    return handler.executeNormalAsResult(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_list_String(items, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 8, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_list_String,
-        decodeErrorData: sse_decode_my_error,
+  Future<Result<List<String>, MyError>> crateApiMinimalTestWresultNested({
+    required List<String> items,
+  }) {
+    return handler.executeNormalAsResult(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_list_String(items, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 8,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_list_String,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultNestedConstMeta,
+        argValues: [items],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultNestedConstMeta,
-      argValues: [items],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultNestedConstMeta =>
@@ -336,23 +384,30 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
-  Future<Result<String?, MyError>> crateApiMinimalTestWresultOption(
-      {int? value}) {
-    return handler.executeNormalAsResult(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_opt_box_autoadd_i_32(value, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 9, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_opt_String,
-        decodeErrorData: sse_decode_my_error,
+  Future<Result<String?, MyError>> crateApiMinimalTestWresultOption({
+    int? value,
+  }) {
+    return handler.executeNormalAsResult(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_opt_box_autoadd_i_32(value, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 9,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_opt_String,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultOptionConstMeta,
+        argValues: [value],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultOptionConstMeta,
-      argValues: [value],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultOptionConstMeta =>
@@ -362,49 +417,57 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
-  Result<String, MyError> crateApiMinimalTestWresultString(
-      {required String name}) {
-    return handler.executeSyncAsResult(SyncTask(
-      callFfi: () {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_String(name, serializer);
-        return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 10)!;
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_String,
-        decodeErrorData: sse_decode_my_error,
+  Result<String, MyError> crateApiMinimalTestWresultString({
+    required String name,
+  }) {
+    return handler.executeSyncAsResult(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_String(name, serializer);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 10)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultStringConstMeta,
+        argValues: [name],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultStringConstMeta,
-      argValues: [name],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultStringConstMeta =>
-      const TaskConstMeta(
-        debugName: "test_wresult_string",
-        argNames: ["name"],
-      );
+      const TaskConstMeta(debugName: "test_wresult_string", argNames: ["name"]);
 
   @override
-  Future<Result<UserInfo, MyError>> crateApiMinimalTestWresultStruct(
-      {required int id, required String name}) {
-    return handler.executeNormalAsResult(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(id, serializer);
-        sse_encode_String(name, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 11, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_user_info,
-        decodeErrorData: sse_decode_my_error,
+  Future<Result<UserInfo, MyError>> crateApiMinimalTestWresultStruct({
+    required int id,
+    required String name,
+  }) {
+    return handler.executeNormalAsResult(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(id, serializer);
+          sse_encode_String(name, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 11,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_user_info,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultStructConstMeta,
+        argValues: [id, name],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultStructConstMeta,
-      argValues: [id, name],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultStructConstMeta =>
@@ -415,53 +478,60 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @override
   Future<Result<UuidValue, MyError>> crateApiMinimalTestWresultUuid() {
-    return handler.executeNormalAsResult(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 12, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_Uuid,
-        decodeErrorData: sse_decode_my_error,
+    return handler.executeNormalAsResult(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 12,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_Uuid,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultUuidConstMeta,
+        argValues: [],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultUuidConstMeta,
-      argValues: [],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultUuidConstMeta =>
-      const TaskConstMeta(
-        debugName: "test_wresult_uuid",
-        argNames: [],
-      );
+      const TaskConstMeta(debugName: "test_wresult_uuid", argNames: []);
 
   @override
-  Future<Result<Int32List, MyError>> crateApiMinimalTestWresultVec(
-      {required int count}) {
-    return handler.executeNormalAsResult(NormalTask(
-      callFfi: (port_) {
-        final serializer = SseSerializer(generalizedFrbRustBinding);
-        sse_encode_i_32(count, serializer);
-        pdeCallFfi(generalizedFrbRustBinding, serializer,
-            funcId: 13, port: port_);
-      },
-      codec: SseCodec(
-        decodeSuccessData: sse_decode_list_prim_i_32_strict,
-        decodeErrorData: sse_decode_my_error,
+  Future<Result<Int32List, MyError>> crateApiMinimalTestWresultVec({
+    required int count,
+  }) {
+    return handler.executeNormalAsResult(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_i_32(count, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 13,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_list_prim_i_32_strict,
+          decodeErrorData: sse_decode_my_error,
+        ),
+        constMeta: kCrateApiMinimalTestWresultVecConstMeta,
+        argValues: [count],
+        apiImpl: this,
       ),
-      constMeta: kCrateApiMinimalTestWresultVecConstMeta,
-      argValues: [count],
-      apiImpl: this,
-    ));
+    );
   }
 
   TaskConstMeta get kCrateApiMinimalTestWresultVecConstMeta =>
-      const TaskConstMeta(
-        debugName: "test_wresult_vec",
-        argNames: ["count"],
-      );
+      const TaskConstMeta(debugName: "test_wresult_vec", argNames: ["count"]);
 
   @protected
   String dco_decode_String(dynamic raw) {
@@ -482,10 +552,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     if (arr.length != 2) {
       throw Exception('Expected 2 elements, got ${arr.length}');
     }
-    return (
-      dco_decode_i_32(arr[0]),
-      dco_decode_String(arr[1]),
-    );
+    return (dco_decode_i_32(arr[0]), dco_decode_String(arr[1]));
   }
 
   @protected
@@ -524,9 +591,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     final arr = raw as List<dynamic>;
     if (arr.length != 1)
       throw Exception('unexpected arr length: expect 1 but see ${arr.length}');
-    return MyError(
-      message: dco_decode_String(arr[0]),
-    );
+    return MyError(message: dco_decode_String(arr[0]));
   }
 
   @protected
@@ -693,7 +758,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode___record__i_32_string(
-      (int, String) self, SseSerializer serializer) {
+    (int, String) self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.$1, serializer);
     sse_encode_String(self.$2, serializer);
@@ -722,7 +789,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode_list_prim_i_32_strict(
-      Int32List self, SseSerializer serializer) {
+    Int32List self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putInt32List(self);
@@ -730,7 +799,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void sse_encode_list_prim_u_8_strict(
-      Uint8List self, SseSerializer serializer) {
+    Uint8List self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_32(self.length, serializer);
     serializer.buffer.putUint8List(self);

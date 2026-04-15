@@ -29,8 +29,9 @@ Future<void> executeTestWeb(TestWebConfig config) async {
       Platform.environment[_kRustCrateDirEnvKey] ?? '$dartRoot/rust';
   print('executeTestWeb: Pick dartRoot=$dartRoot');
 
-  List<String> cargoArgs =
-      config.rustFeatures.expand((x) => ['--features', x]).toList();
+  List<String> cargoArgs = config.rustFeatures
+      .expand((x) => ['--features', x])
+      .toList();
 
   print('executeTestWeb: compile');
   await executeBuildWeb(
@@ -44,7 +45,7 @@ Future<void> executeTestWeb(TestWebConfig config) async {
       dartCompileJsEntrypoint: config.entrypoint,
       wasmPackRustupToolchain:
           Platform.environment[_kWasmPackRustupToolchainEnvKey] ??
-              _kDefaultWasmPackRustupToolchain,
+          _kDefaultWasmPackRustupToolchain,
       wasmPackRustflags: null,
     ),
   );
@@ -97,14 +98,14 @@ Handler _createWebSocketHandler({
 const _kTestEntrypointHttpName = 'test_entrypoint.html';
 
 Handler _createIndexFileHandler() => (request) {
-      if (request.url.path == _kTestEntrypointHttpName) {
-        return Response.ok(
-          kTestEntrypointHtmlContent,
-          headers: {HttpHeaders.contentTypeHeader: 'text/html'},
-        );
-      }
-      return Response.notFound(null);
-    };
+  if (request.url.path == _kTestEntrypointHttpName) {
+    return Response.ok(
+      kTestEntrypointHtmlContent,
+      headers: {HttpHeaders.contentTypeHeader: 'text/html'},
+    );
+  }
+  return Response.notFound(null);
+};
 
 Future<Browser> _launchBrowser({
   required String baseAddr,

@@ -24,22 +24,25 @@ Future<String> runServer(
   }
   innerHandler = innerHandler.add(staticFilesHandler);
 
-  final handler = const Pipeline().addMiddleware((handler) {
-    return (req) async {
-      print('runServer.Request: ${req.method} ${req.requestedUri}');
-      final res = await handler(req);
-      print(
-        'runServer.Response: code=${res.statusCode} mimeType=${res.mimeType}',
-      );
-      return res.change(
-        headers: {
-          'Cross-Origin-Opener-Policy': 'same-origin',
-          'Cross-Origin-Embedder-Policy':
-              _shouldRelaxCoep() ? 'credentialless' : 'require-corp',
-        },
-      );
-    };
-  }).addHandler(innerHandler.handler);
+  final handler = const Pipeline()
+      .addMiddleware((handler) {
+        return (req) async {
+          print('runServer.Request: ${req.method} ${req.requestedUri}');
+          final res = await handler(req);
+          print(
+            'runServer.Response: code=${res.statusCode} mimeType=${res.mimeType}',
+          );
+          return res.change(
+            headers: {
+              'Cross-Origin-Opener-Policy': 'same-origin',
+              'Cross-Origin-Embedder-Policy': _shouldRelaxCoep()
+                  ? 'credentialless'
+                  : 'require-corp',
+            },
+          );
+        };
+      })
+      .addHandler(innerHandler.handler);
 
   final portEnv = Platform.environment['PORT'];
   final port = portEnv == null ? config.port : int.parse(portEnv);
@@ -54,7 +57,8 @@ Future<String> runServer(
   return addr;
 }
 
-final _kOpen = const {
+final _kOpen =
+    const {
       'linux': 'xdg-open',
       'macos': 'open',
       'windows': 'start',

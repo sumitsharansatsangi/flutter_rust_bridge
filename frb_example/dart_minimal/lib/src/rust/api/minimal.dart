@@ -33,9 +33,10 @@ Result<String, MyError> testWresultString({required String name}) =>
     RustLib.instance.api.crateApiMinimalTestWresultString(name: name);
 
 /// Test WResult alias with custom struct type
-Future<Result<UserInfo, MyError>> testWresultStruct(
-        {required int id, required String name}) =>
-    RustLib.instance.api.crateApiMinimalTestWresultStruct(id: id, name: name);
+Future<Result<UserInfo, MyError>> testWresultStruct({
+  required int id,
+  required String name,
+}) => RustLib.instance.api.crateApiMinimalTestWresultStruct(id: id, name: name);
 
 /// Test WResult alias with Vec type
 Future<Result<Int32List, MyError>> testWresultVec({required int count}) =>
@@ -50,16 +51,14 @@ Future<Result<String?, MyError>> testWresultOption({int? value}) =>
     RustLib.instance.api.crateApiMinimalTestPairAlias(a: a, b: b);
 
 /// Nested type alias: WResult containing a Vec
-Future<Result<List<String>, MyError>> testWresultNested(
-        {required List<String> items}) =>
-    RustLib.instance.api.crateApiMinimalTestWresultNested(items: items);
+Future<Result<List<String>, MyError>> testWresultNested({
+  required List<String> items,
+}) => RustLib.instance.api.crateApiMinimalTestWresultNested(items: items);
 
 class MyError implements FrbException {
   final String message;
 
-  const MyError({
-    required this.message,
-  });
+  const MyError({required this.message});
 
   @override
   int get hashCode => message.hashCode;
@@ -77,10 +76,7 @@ class UserInfo {
   final int id;
   final String name;
 
-  const UserInfo({
-    required this.id,
-    required this.name,
-  });
+  const UserInfo({required this.id, required this.name});
 
   @override
   int get hashCode => id.hashCode ^ name.hashCode;

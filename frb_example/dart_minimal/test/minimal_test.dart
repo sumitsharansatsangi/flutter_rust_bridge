@@ -49,10 +49,7 @@ Future<void> main() async {
   });
 
   test('throws - error throws exception', () async {
-    expect(
-      () => fallibleDivideThrows(a: 10, b: 0),
-      throwsA(isA<MyError>()),
-    );
+    expect(() => fallibleDivideThrows(a: 10, b: 0), throwsA(isA<MyError>()));
   });
   print('Action: Configure tests (end)');
 }
