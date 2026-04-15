@@ -12,39 +12,44 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `fmt`
 
 Object? handleSerdeJsonValueTwinSyncSse({required Object? val}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleSerdeJsonValueTwinSyncSse(
-        val: val);
+      val: val,
+    );
 
 Object? handleOptionSerdeJsonValueTwinSyncSse({Object? val}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleOptionSerdeJsonValueTwinSyncSse(
-        val: val);
+      val: val,
+    );
 
-List<Object?> handleVecSerdeJsonValueTwinSyncSse(
-        {required List<Object?> val}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleVecSerdeJsonValueTwinSyncSse(
-            val: val);
+List<Object?> handleVecSerdeJsonValueTwinSyncSse({
+  required List<Object?> val,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleVecSerdeJsonValueTwinSyncSse(
+      val: val,
+    );
 
-Map<String, Object?> handleMapSerdeJsonValueTwinSyncSse(
-        {required Map<String, Object?> val}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleMapSerdeJsonValueTwinSyncSse(
-            val: val);
+Map<String, Object?> handleMapSerdeJsonValueTwinSyncSse({
+  required Map<String, Object?> val,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleMapSerdeJsonValueTwinSyncSse(
+      val: val,
+    );
 
-FeatureSerdeJsonTwinSyncSse handleNestedSerdeJsonValueTwinSyncSse(
-        {required FeatureSerdeJsonTwinSyncSse wrapper}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleNestedSerdeJsonValueTwinSyncSse(
-            wrapper: wrapper);
+FeatureSerdeJsonTwinSyncSse handleNestedSerdeJsonValueTwinSyncSse({
+  required FeatureSerdeJsonTwinSyncSse wrapper,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinSyncSseHandleNestedSerdeJsonValueTwinSyncSse(
+      wrapper: wrapper,
+    );
 
 class FeatureSerdeJsonTwinSyncSse {
   final Object? data;
 
-  const FeatureSerdeJsonTwinSyncSse({
-    required this.data,
-  });
+  const FeatureSerdeJsonTwinSyncSse({required this.data});
 
   @override
   int get hashCode => data.hashCode;

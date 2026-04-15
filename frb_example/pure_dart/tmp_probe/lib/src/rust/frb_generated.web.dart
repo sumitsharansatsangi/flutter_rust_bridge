@@ -33,15 +33,17 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   MoreThanJustOneRawStringStructTwinNormal
-      dco_decode_more_than_just_one_raw_string_struct_twin_normal(dynamic raw);
+  dco_decode_more_than_just_one_raw_string_struct_twin_normal(dynamic raw);
 
   @protected
   RawStringItemEnumTwinNormal dco_decode_raw_string_item_enum_twin_normal(
-      dynamic raw);
+    dynamic raw,
+  );
 
   @protected
   RawStringItemStructTwinNormal dco_decode_raw_string_item_struct_twin_normal(
-      dynamic raw);
+    dynamic raw,
+  );
 
   @protected
   int dco_decode_u_8(dynamic raw);
@@ -60,16 +62,19 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   MoreThanJustOneRawStringStructTwinNormal
-      sse_decode_more_than_just_one_raw_string_struct_twin_normal(
-          SseDeserializer deserializer);
+  sse_decode_more_than_just_one_raw_string_struct_twin_normal(
+    SseDeserializer deserializer,
+  );
 
   @protected
   RawStringItemEnumTwinNormal sse_decode_raw_string_item_enum_twin_normal(
-      SseDeserializer deserializer);
+    SseDeserializer deserializer,
+  );
 
   @protected
   RawStringItemStructTwinNormal sse_decode_raw_string_item_struct_twin_normal(
-      SseDeserializer deserializer);
+    SseDeserializer deserializer,
+  );
 
   @protected
   int sse_decode_u_8(SseDeserializer deserializer);
@@ -94,19 +99,21 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   JSAny cst_encode_more_than_just_one_raw_string_struct_twin_normal(
-      MoreThanJustOneRawStringStructTwinNormal raw) {
+    MoreThanJustOneRawStringStructTwinNormal raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [
       cst_encode_String(raw.regular),
       cst_encode_String(raw.type),
       cst_encode_bool(raw.async_),
-      cst_encode_String(raw.another)
+      cst_encode_String(raw.another),
     ].jsify()!;
   }
 
   @protected
   JSAny cst_encode_raw_string_item_enum_twin_normal(
-      RawStringItemEnumTwinNormal raw) {
+    RawStringItemEnumTwinNormal raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     if (raw is RawStringItemEnumTwinNormal_Regular) {
       return [0, cst_encode_String(raw.regular)].jsify()!;
@@ -120,7 +127,8 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   JSAny cst_encode_raw_string_item_struct_twin_normal(
-      RawStringItemStructTwinNormal raw) {
+    RawStringItemStructTwinNormal raw,
+  ) {
     // Codec=Cst (C-struct based), see doc to use other codecs
     return [cst_encode_String(raw.type)].jsify()!;
   }
@@ -142,19 +150,27 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   void sse_encode_list_prim_u_8_strict(
-      Uint8List self, SseSerializer serializer);
+    Uint8List self,
+    SseSerializer serializer,
+  );
 
   @protected
   void sse_encode_more_than_just_one_raw_string_struct_twin_normal(
-      MoreThanJustOneRawStringStructTwinNormal self, SseSerializer serializer);
+    MoreThanJustOneRawStringStructTwinNormal self,
+    SseSerializer serializer,
+  );
 
   @protected
   void sse_encode_raw_string_item_enum_twin_normal(
-      RawStringItemEnumTwinNormal self, SseSerializer serializer);
+    RawStringItemEnumTwinNormal self,
+    SseSerializer serializer,
+  );
 
   @protected
   void sse_encode_raw_string_item_struct_twin_normal(
-      RawStringItemStructTwinNormal self, SseSerializer serializer);
+    RawStringItemStructTwinNormal self,
+    SseSerializer serializer,
+  );
 
   @protected
   void sse_encode_u_8(int self, SseSerializer serializer);
@@ -171,23 +187,27 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 class RustLibWire implements BaseWire {
   RustLibWire.fromExternalLibrary(ExternalLibrary lib);
 
-  void wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
-          NativePortType port_) =>
-      wasmModule
-          .wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
-              port_);
+  void
+  wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
+    NativePortType port_,
+  ) => wasmModule
+      .wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
+        port_,
+      );
 
   void wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
-          NativePortType port_) =>
-      wasmModule
-          .wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
-              port_);
+    NativePortType port_,
+  ) => wasmModule
+      .wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
+        port_,
+      );
 
   void wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
-          NativePortType port_) =>
-      wasmModule
-          .wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
-              port_);
+    NativePortType port_,
+  ) => wasmModule
+      .wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
+        port_,
+      );
 }
 
 @JS('wasm_bindgen')
@@ -197,14 +217,17 @@ external RustLibWasmModule get wasmModule;
 @anonymous
 extension type RustLibWasmModule._(JSObject _) implements JSObject {
   external void
-      wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
-          NativePortType port_);
+  wire__crate__api__raw_string__test_more_than_just_one_raw_string_struct_twin_normal(
+    NativePortType port_,
+  );
 
   external void
-      wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
-          NativePortType port_);
+  wire__crate__api__raw_string__test_raw_string_item_enum_twin_normal(
+    NativePortType port_,
+  );
 
   external void
-      wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
-          NativePortType port_);
+  wire__crate__api__raw_string__test_raw_string_item_struct_twin_normal(
+    NativePortType port_,
+  );
 }

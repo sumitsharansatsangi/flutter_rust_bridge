@@ -11,41 +11,46 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `fmt`
 
-Future<Object?> handleSerdeJsonValueTwinRustAsyncSse({required Object? val}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleSerdeJsonValueTwinRustAsyncSse(
-            val: val);
+Future<Object?> handleSerdeJsonValueTwinRustAsyncSse({
+  required Object? val,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleSerdeJsonValueTwinRustAsyncSse(
+      val: val,
+    );
 
-Future<Object?> handleOptionSerdeJsonValueTwinRustAsyncSse({Object? val}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleOptionSerdeJsonValueTwinRustAsyncSse(
-            val: val);
+Future<Object?> handleOptionSerdeJsonValueTwinRustAsyncSse({
+  Object? val,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleOptionSerdeJsonValueTwinRustAsyncSse(
+      val: val,
+    );
 
-Future<List<Object?>> handleVecSerdeJsonValueTwinRustAsyncSse(
-        {required List<Object?> val}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleVecSerdeJsonValueTwinRustAsyncSse(
-            val: val);
+Future<List<Object?>> handleVecSerdeJsonValueTwinRustAsyncSse({
+  required List<Object?> val,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleVecSerdeJsonValueTwinRustAsyncSse(
+      val: val,
+    );
 
-Future<Map<String, Object?>> handleMapSerdeJsonValueTwinRustAsyncSse(
-        {required Map<String, Object?> val}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleMapSerdeJsonValueTwinRustAsyncSse(
-            val: val);
+Future<Map<String, Object?>> handleMapSerdeJsonValueTwinRustAsyncSse({
+  required Map<String, Object?> val,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleMapSerdeJsonValueTwinRustAsyncSse(
+      val: val,
+    );
 
-Future<
-    FeatureSerdeJsonTwinRustAsyncSse> handleNestedSerdeJsonValueTwinRustAsyncSse(
-        {required FeatureSerdeJsonTwinRustAsyncSse wrapper}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleNestedSerdeJsonValueTwinRustAsyncSse(
-            wrapper: wrapper);
+Future<FeatureSerdeJsonTwinRustAsyncSse>
+handleNestedSerdeJsonValueTwinRustAsyncSse({
+  required FeatureSerdeJsonTwinRustAsyncSse wrapper,
+}) => RustLib.instance.api
+    .crateApiPseudoManualSerdeJsonTypeTwinRustAsyncSseHandleNestedSerdeJsonValueTwinRustAsyncSse(
+      wrapper: wrapper,
+    );
 
 class FeatureSerdeJsonTwinRustAsyncSse {
   final Object? data;
 
-  const FeatureSerdeJsonTwinRustAsyncSse({
-    required this.data,
-  });
+  const FeatureSerdeJsonTwinRustAsyncSse({required this.data});
 
   @override
   int get hashCode => data.hashCode;

@@ -34,6 +34,7 @@ List<Command<void>> createCommands() {
       _$populateLintConfigParser,
       _$parseLintConfigResult,
     ),
+    SimpleCommand('fmt-rust-nightly', fmtRustNightly),
     SimpleCommand('lint-rust-feature-flag', lintRustFeatureFlag),
     SimpleCommand('lint-dart-ffigen', lintDartFfigen),
   ];
@@ -55,6 +56,12 @@ Future<void> lint(LintConfig config) async {
 Future<void> lintRust(LintConfig config) async {
   await lintRustFormat(config);
   await lintRustClippy(config);
+}
+
+Future<void> fmtRustNightly() async {
+  for (final package in kRustPackages) {
+    await exec('cargo +$kPinnedRustfmtNightly fmt', relativePwd: package);
+  }
 }
 
 Future<void> lintRustFormat(LintConfig config) async {
