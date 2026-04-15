@@ -20,7 +20,6 @@ dependencies:
     path: ../frb_dart
   hooks: ^1.0.2
   code_assets: ^1.0.0
-  js: ^0.7.2
   test_core: ^0.6.8
   path: ^1.8.1
 
