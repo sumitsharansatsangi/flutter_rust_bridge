@@ -183,6 +183,14 @@ impl DartRepository {
                     return Err(error_invalid_dep(package, manager, requirement));
                     // frb-coverage:ignore-end
                 }
+
+                // Skip version check for git/path deps — their versions are often
+                // pre-release (e.g. "4.0.0-dev.3") which Cargo semver won't match
+                // against plain requirements like ">=1.0.0".
+                if matches!(dependency.source.as_deref(), Some("git") | Some("path")) {
+                    return Ok(());
+                }
+
                 DartPackageVersion::try_from(dependency).map_err(|e| {
                     // This will stop the whole generator and tell the users, so we do not care about testing it
                     // frb-coverage:ignore-start
