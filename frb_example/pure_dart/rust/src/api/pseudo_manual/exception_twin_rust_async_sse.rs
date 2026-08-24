@@ -3,7 +3,7 @@
 // Please do not modify manually, but modify the origin and re-run frb_internal generator
 
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use backtrace::Backtrace;
 use flutter_rust_bridge::frb;
 
@@ -34,8 +34,8 @@ pub async fn custom_enum_error_return_ok_twin_rust_async_sse(
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn custom_enum_error_panic_twin_rust_async_sse(
-) -> Result<(), CustomEnumErrorTwinRustAsyncSse> {
+pub async fn custom_enum_error_panic_twin_rust_async_sse()
+-> Result<(), CustomEnumErrorTwinRustAsyncSse> {
     panic!("deliberate panic");
 }
 
@@ -53,8 +53,8 @@ pub enum CustomEnumErrorTwinRustAsyncSse {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn custom_enum_error_return_error_twin_rust_async_sse(
-) -> Result<u32, CustomEnumErrorTwinRustAsyncSse> {
+pub async fn custom_enum_error_return_error_twin_rust_async_sse()
+-> Result<u32, CustomEnumErrorTwinRustAsyncSse> {
     Err(CustomEnumErrorTwinRustAsyncSse::One {
         message: "deliberate error".into(),
         backtrace: Backtrace::new(),
@@ -101,8 +101,8 @@ pub enum CustomErrorTwinRustAsyncSse {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn return_err_custom_error_twin_rust_async_sse(
-) -> Result<u32, CustomErrorTwinRustAsyncSse> {
+pub async fn return_err_custom_error_twin_rust_async_sse()
+-> Result<u32, CustomErrorTwinRustAsyncSse> {
     Err(CustomErrorTwinRustAsyncSse::Error0 {
         e: "".into(),
         backtrace: Backtrace::new(),
@@ -143,8 +143,8 @@ impl SomeStructTwinRustAsyncSse {
     }
 
     #[flutter_rust_bridge::frb(serialize)]
-    pub async fn static_return_err_custom_error_twin_rust_async_sse(
-    ) -> Result<u32, CustomErrorTwinRustAsyncSse> {
+    pub async fn static_return_err_custom_error_twin_rust_async_sse()
+    -> Result<u32, CustomErrorTwinRustAsyncSse> {
         Err(CustomErrorTwinRustAsyncSse::Error1 {
             e: 3,
             backtrace: Backtrace::new(),
@@ -152,8 +152,8 @@ impl SomeStructTwinRustAsyncSse {
     }
 
     #[flutter_rust_bridge::frb(serialize)]
-    pub async fn static_return_ok_custom_error_twin_rust_async_sse(
-    ) -> Result<u32, CustomErrorTwinRustAsyncSse> {
+    pub async fn static_return_ok_custom_error_twin_rust_async_sse()
+    -> Result<u32, CustomErrorTwinRustAsyncSse> {
         Ok(3)
     }
 
@@ -186,24 +186,24 @@ pub enum CustomNestedError2TwinRustAsyncSse {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn return_custom_nested_error_1_twin_rust_async_sse(
-) -> Result<(), CustomNestedError1TwinRustAsyncSse> {
+pub async fn return_custom_nested_error_1_twin_rust_async_sse()
+-> Result<(), CustomNestedError1TwinRustAsyncSse> {
     Err(CustomNestedError1TwinRustAsyncSse::ErrorNested(
         CustomNestedError2TwinRustAsyncSse::CustomNested2Number(3),
     ))
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn return_custom_nested_error_1_variant1_twin_rust_async_sse(
-) -> Result<(), CustomNestedError1TwinRustAsyncSse> {
+pub async fn return_custom_nested_error_1_variant1_twin_rust_async_sse()
+-> Result<(), CustomNestedError1TwinRustAsyncSse> {
     Err(CustomNestedError1TwinRustAsyncSse::CustomNested1(
         "custom".to_string(),
     ))
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn return_custom_nested_error_2_twin_rust_async_sse(
-) -> Result<(), CustomNestedError2TwinRustAsyncSse> {
+pub async fn return_custom_nested_error_2_twin_rust_async_sse()
+-> Result<(), CustomNestedError2TwinRustAsyncSse> {
     Err(CustomNestedError2TwinRustAsyncSse::CustomNested2(
         "custom".to_string(),
     ))
@@ -213,16 +213,16 @@ pub struct CustomStructErrorAnotherTwinRustAsyncSse {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn return_custom_struct_error_twin_rust_async_sse(
-) -> Result<(), CustomStructErrorAnotherTwinRustAsyncSse> {
+pub async fn return_custom_struct_error_twin_rust_async_sse()
+-> Result<(), CustomStructErrorAnotherTwinRustAsyncSse> {
     Err(CustomStructErrorAnotherTwinRustAsyncSse {
         message: "error message".to_string(),
     })
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn return_custom_struct_ok_twin_rust_async_sse(
-) -> Result<u32, CustomStructErrorAnotherTwinRustAsyncSse> {
+pub async fn return_custom_struct_ok_twin_rust_async_sse()
+-> Result<u32, CustomStructErrorAnotherTwinRustAsyncSse> {
     Ok(3)
 }
 
@@ -237,16 +237,16 @@ impl CustomStructTwinRustAsyncSse {
     }
 
     #[flutter_rust_bridge::frb(serialize)]
-    pub async fn static_return_custom_struct_error_twin_rust_async_sse(
-    ) -> Result<(), CustomStructErrorAnotherTwinRustAsyncSse> {
+    pub async fn static_return_custom_struct_error_twin_rust_async_sse()
+    -> Result<(), CustomStructErrorAnotherTwinRustAsyncSse> {
         Err(CustomStructErrorAnotherTwinRustAsyncSse {
             message: "error message".to_string(),
         })
     }
 
     #[flutter_rust_bridge::frb(serialize)]
-    pub async fn static_return_custom_struct_ok_twin_rust_async_sse(
-    ) -> Result<u32, CustomStructErrorAnotherTwinRustAsyncSse> {
+    pub async fn static_return_custom_struct_ok_twin_rust_async_sse()
+    -> Result<u32, CustomStructErrorAnotherTwinRustAsyncSse> {
         Ok(3)
     }
 
@@ -273,8 +273,8 @@ pub async fn throw_anyhow_twin_rust_async_sse() -> Result<(), anyhow::Error> {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn panic_with_custom_result_twin_rust_async_sse(
-) -> Result<(), CustomErrorTwinRustAsyncSse> {
+pub async fn panic_with_custom_result_twin_rust_async_sse()
+-> Result<(), CustomErrorTwinRustAsyncSse> {
     panic!("just a panic");
 }
 

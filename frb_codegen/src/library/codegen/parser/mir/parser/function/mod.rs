@@ -3,10 +3,10 @@ use crate::codegen::ir::hir::flat::function::HirFlatFunction;
 use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatStruct;
 use crate::codegen::ir::mir::func::MirFunc;
 use crate::codegen::ir::misc::skip::{IrSkip, IrValueOrSkip};
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::ty::TypeParser;
-use crate::codegen::parser::mir::ParseMode;
-use itertools::{concat, Itertools};
+use itertools::{Itertools, concat};
 use std::collections::HashMap;
 
 pub(crate) mod auto_accessor;

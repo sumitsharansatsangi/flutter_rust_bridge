@@ -67,14 +67,14 @@ pub fn generic_result_alias_chained_err_twin_sync() -> ChainedAppResultTwinSync<
 pub type FlexibleResultTwinSync<T, E> = std::result::Result<T, E>;
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn generic_result_alias_two_params_ok_twin_sync(
-) -> FlexibleResultTwinSync<i32, GenericAliasErrorTwinSync> {
+pub fn generic_result_alias_two_params_ok_twin_sync()
+-> FlexibleResultTwinSync<i32, GenericAliasErrorTwinSync> {
     Ok(44)
 }
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn generic_result_alias_two_params_err_twin_sync(
-) -> FlexibleResultTwinSync<i32, GenericAliasErrorTwinSync> {
+pub fn generic_result_alias_two_params_err_twin_sync()
+-> FlexibleResultTwinSync<i32, GenericAliasErrorTwinSync> {
     Err(GenericAliasErrorTwinSync::Deliberate)
 }
 
@@ -82,11 +82,7 @@ pub type OptionalAliasTwinSync<T> = Option<T>;
 
 #[flutter_rust_bridge::frb(sync)]
 pub fn generic_option_alias_return_twin_sync(input: i32) -> OptionalAliasTwinSync<i32> {
-    if input >= 0 {
-        Some(input)
-    } else {
-        None
-    }
+    if input >= 0 { Some(input) } else { None }
 }
 
 #[flutter_rust_bridge::frb(sync)]

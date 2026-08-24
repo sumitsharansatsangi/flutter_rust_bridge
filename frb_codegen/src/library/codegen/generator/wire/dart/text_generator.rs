@@ -3,8 +3,8 @@ use crate::codegen::generator::misc::text_generator_utils::{
     generate_text_respecting_web_flag, section_header_comment,
 };
 use crate::codegen::generator::wire::dart::internal_config::GeneratorWireDartInternalConfig;
-use crate::codegen::generator::wire::dart::spec_generator::output_code::WireDartOutputCode;
 use crate::codegen::generator::wire::dart::spec_generator::WireDartOutputSpec;
+use crate::codegen::generator::wire::dart::spec_generator::output_code::WireDartOutputCode;
 use crate::utils::basic_code::general_code::GeneralCode;
 
 pub(super) struct WireDartOutputText {

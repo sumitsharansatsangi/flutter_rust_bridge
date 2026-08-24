@@ -22,8 +22,8 @@ pub struct FrbOpaqueSyncReturnTwinSseMoi;
 #[frb(sync)]
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn sync_option_rust_opaque_twin_sse_moi(
-) -> Result<Option<crate::frb_generated::RustOpaqueMoi<HideDataAnotherTwinSseMoi>>> {
+pub fn sync_option_rust_opaque_twin_sse_moi()
+-> Result<Option<crate::frb_generated::RustOpaqueMoi<HideDataAnotherTwinSseMoi>>> {
     Ok(Some(crate::frb_generated::RustOpaqueMoi::new(
         HideDataAnotherTwinSseMoi(HideDataRaw::new()),
     )))
@@ -32,16 +32,16 @@ pub fn sync_option_rust_opaque_twin_sse_moi(
 #[frb(sync)]
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn sync_create_opaque_twin_sse_moi(
-) -> crate::frb_generated::RustOpaqueMoi<HideDataAnotherTwinSseMoi> {
+pub fn sync_create_opaque_twin_sse_moi()
+-> crate::frb_generated::RustOpaqueMoi<HideDataAnotherTwinSseMoi> {
     crate::frb_generated::RustOpaqueMoi::new(HideDataAnotherTwinSseMoi(HideDataRaw::new()))
 }
 
 #[frb(sync)]
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn sync_create_non_clone_twin_sse_moi(
-) -> crate::frb_generated::RustOpaqueMoi<NonCloneDataTwinSseMoi> {
+pub fn sync_create_non_clone_twin_sse_moi()
+-> crate::frb_generated::RustOpaqueMoi<NonCloneDataTwinSseMoi> {
     crate::frb_generated::RustOpaqueMoi::new(NonCloneDataTwinSseMoi(NonCloneDataRaw::new()))
 }
 
@@ -57,7 +57,7 @@ pub fn sync_create_non_clone_twin_sse_moi(
 #[frb(sync)]
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn frb_sync_generator_test_twin_sse_moi(
-) -> crate::frb_generated::RustOpaqueMoi<FrbOpaqueSyncReturnTwinSseMoi> {
+pub fn frb_sync_generator_test_twin_sse_moi()
+-> crate::frb_generated::RustOpaqueMoi<FrbOpaqueSyncReturnTwinSseMoi> {
     crate::frb_generated::RustOpaqueMoi::new(FrbOpaqueSyncReturnTwinSseMoi)
 }

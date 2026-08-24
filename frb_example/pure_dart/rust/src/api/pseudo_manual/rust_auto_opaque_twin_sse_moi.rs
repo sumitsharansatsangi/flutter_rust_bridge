@@ -293,8 +293,8 @@ pub fn rust_auto_opaque_struct_with_good_and_opaque_field_arg_own_twin_sse_moi(
 
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_sse_moi(
-) -> StructWithGoodAndOpaqueFieldTwinSseMoi {
+pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_sse_moi()
+-> StructWithGoodAndOpaqueFieldTwinSseMoi {
     StructWithGoodAndOpaqueFieldTwinSseMoi {
         good: "hello".to_string(),
         opaque: NonCloneSimpleTwinSseMoi { inner: 42 },
@@ -323,15 +323,15 @@ pub fn rust_auto_opaque_enum_with_good_and_opaque_arg_own_twin_sse_moi(
 
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_sse_moi(
-) -> EnumWithGoodAndOpaqueTwinSseMoi {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_sse_moi()
+-> EnumWithGoodAndOpaqueTwinSseMoi {
     EnumWithGoodAndOpaqueTwinSseMoi::Good("hello".to_owned())
 }
 
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_sse_moi(
-) -> EnumWithGoodAndOpaqueTwinSseMoi {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_sse_moi()
+-> EnumWithGoodAndOpaqueTwinSseMoi {
     EnumWithGoodAndOpaqueTwinSseMoi::Opaque(NonCloneSimpleTwinSseMoi { inner: 42 })
 }
 
@@ -429,8 +429,8 @@ pub fn rust_auto_opaque_explicit_struct_twin_sse_moi(
 
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn rust_auto_opaque_explicit_return_struct_twin_sse_moi(
-) -> StructWithExplicitAutoOpaqueFieldTwinSseMoi {
+pub fn rust_auto_opaque_explicit_return_struct_twin_sse_moi()
+-> StructWithExplicitAutoOpaqueFieldTwinSseMoi {
     StructWithExplicitAutoOpaqueFieldTwinSseMoi {
         normal: 100,
         auto_opaque: crate::frb_generated::RustAutoOpaqueMoi::new(NonCloneSimpleTwinSseMoi {
@@ -475,8 +475,8 @@ pub struct OpaqueTwoTwinSseMoi(PathBuf);
 
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn rust_auto_opaque_return_opaque_one_and_two_twin_sse_moi(
-) -> (OpaqueOneTwinSseMoi, OpaqueTwoTwinSseMoi) {
+pub fn rust_auto_opaque_return_opaque_one_and_two_twin_sse_moi()
+-> (OpaqueOneTwinSseMoi, OpaqueTwoTwinSseMoi) {
     unimplemented!()
 }
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]

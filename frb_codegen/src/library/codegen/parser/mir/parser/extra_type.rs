@@ -3,12 +3,12 @@ use crate::codegen::ir::hir::flat::struct_or_enum::{
 };
 use crate::codegen::ir::hir::misc::syn_item_struct_or_enum::SynItemStructOrEnum;
 use crate::codegen::ir::mir::extra_type::MirExtraType;
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::function::auto_accessor::create_simplified_parsing_context;
 use crate::codegen::parser::mir::parser::function::real::compute_codec_mode_pack;
 use crate::codegen::parser::mir::parser::ty::TypeParser;
-use crate::codegen::parser::mir::ParseMode;
 use itertools::concat;
 use std::collections::HashMap;
 

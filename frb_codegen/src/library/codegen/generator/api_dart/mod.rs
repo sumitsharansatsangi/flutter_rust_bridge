@@ -3,8 +3,8 @@ pub(crate) mod misc;
 pub(crate) mod spec_generator;
 mod text_generator;
 
-use crate::codegen::dumper::internal_config::ConfigDumpContent;
 use crate::codegen::dumper::Dumper;
+use crate::codegen::dumper::internal_config::ConfigDumpContent;
 use crate::codegen::generator::api_dart::internal_config::GeneratorApiDartInternalConfig;
 use crate::codegen::generator::misc::path_texts::PathTexts;
 use crate::codegen::ir::mir::pack::MirPack;
@@ -44,12 +44,12 @@ pub(crate) fn generate(
 
 #[cfg(test)]
 mod tests {
+    use crate::codegen::Config;
     use crate::codegen::config::config::MetaConfig;
     use crate::codegen::config::internal_config::InternalConfig;
     use crate::codegen::dumper::Dumper;
     use crate::codegen::generator::api_dart::generate;
     use crate::codegen::misc::GeneratorProgressBarPack;
-    use crate::codegen::Config;
     use crate::utils::logs::configure_opinionated_test_logging;
     use crate::utils::test_utils::{get_test_fixture_dir, text_golden_test};
     use serial_test::serial;

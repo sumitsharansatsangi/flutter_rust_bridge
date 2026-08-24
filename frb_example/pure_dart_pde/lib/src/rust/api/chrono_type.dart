@@ -22,22 +22,29 @@ Future<DateTime> naivedateTwinNormal({required DateTime d}) =>
 Future<DateTime> naivedatetimeTwinNormal({required DateTime d}) =>
     RustLib.instance.api.crateApiChronoTypeNaivedatetimeTwinNormal(d: d);
 
-Future<DateTime?> optionalEmptyDatetimeUtcTwinNormal({DateTime? d}) =>
-    RustLib.instance.api
-        .crateApiChronoTypeOptionalEmptyDatetimeUtcTwinNormal(d: d);
+Future<DateTime?> optionalEmptyDatetimeUtcTwinNormal({DateTime? d}) => RustLib
+    .instance
+    .api
+    .crateApiChronoTypeOptionalEmptyDatetimeUtcTwinNormal(d: d);
 
 Future<Duration> durationTwinNormal({required Duration d}) =>
     RustLib.instance.api.crateApiChronoTypeDurationTwinNormal(d: d);
 
-Future<List<Duration>> handleTimestampsTwinNormal(
-        {required List<DateTime> timestamps, required DateTime epoch}) =>
-    RustLib.instance.api.crateApiChronoTypeHandleTimestampsTwinNormal(
-        timestamps: timestamps, epoch: epoch);
+Future<List<Duration>> handleTimestampsTwinNormal({
+  required List<DateTime> timestamps,
+  required DateTime epoch,
+}) => RustLib.instance.api.crateApiChronoTypeHandleTimestampsTwinNormal(
+  timestamps: timestamps,
+  epoch: epoch,
+);
 
-Future<List<DateTime>> handleDurationsTwinNormal(
-        {required List<Duration> durations, required DateTime since}) =>
-    RustLib.instance.api.crateApiChronoTypeHandleDurationsTwinNormal(
-        durations: durations, since: since);
+Future<List<DateTime>> handleDurationsTwinNormal({
+  required List<Duration> durations,
+  required DateTime since,
+}) => RustLib.instance.api.crateApiChronoTypeHandleDurationsTwinNormal(
+  durations: durations,
+  since: since,
+);
 
 Future<TestChronoTwinNormal> testChronoTwinNormal() =>
     RustLib.instance.api.crateApiChronoTypeTestChronoTwinNormal();
@@ -45,10 +52,11 @@ Future<TestChronoTwinNormal> testChronoTwinNormal() =>
 Future<TestChronoTwinNormal> testPreciseChronoTwinNormal() =>
     RustLib.instance.api.crateApiChronoTypeTestPreciseChronoTwinNormal();
 
-Future<Duration> howLongDoesItTakeTwinNormal(
-        {required FeatureChronoTwinNormal mine}) =>
-    RustLib.instance.api
-        .crateApiChronoTypeHowLongDoesItTakeTwinNormal(mine: mine);
+Future<Duration> howLongDoesItTakeTwinNormal({
+  required FeatureChronoTwinNormal mine,
+}) => RustLib.instance.api.crateApiChronoTypeHowLongDoesItTakeTwinNormal(
+  mine: mine,
+);
 
 class FeatureChronoTwinNormal {
   final DateTime utc;
@@ -91,12 +99,7 @@ class TestChronoTwinNormal {
   final DateTime? da;
   final Duration? du;
 
-  const TestChronoTwinNormal({
-    this.dt,
-    this.dt2,
-    this.da,
-    this.du,
-  });
+  const TestChronoTwinNormal({this.dt, this.dt2, this.da, this.du});
 
   @override
   int get hashCode => dt.hashCode ^ dt2.hashCode ^ da.hashCode ^ du.hashCode;

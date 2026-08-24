@@ -9,7 +9,7 @@
 // event listener test
 
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use flutter_rust_bridge::frb;
 use lazy_static::lazy_static;
 use std::sync::Mutex;

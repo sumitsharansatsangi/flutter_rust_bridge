@@ -6,9 +6,9 @@ use crate::codegen::generator::api_dart::spec_generator::misc::{
     generate_dart_comments, generate_dart_maybe_implements_exception,
 };
 use crate::codegen::ir::mir::field::MirField;
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::structure::MirStruct;
-use crate::codegen::ir::mir::ty::MirType;
 use crate::library::codegen::generator::api_dart::spec_generator::base::*;
 use crate::library::codegen::generator::api_dart::spec_generator::info::ApiDartGeneratorInfoTrait;
 use itertools::Itertools;

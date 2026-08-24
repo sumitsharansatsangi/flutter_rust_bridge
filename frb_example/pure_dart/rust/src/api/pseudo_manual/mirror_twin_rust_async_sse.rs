@@ -227,8 +227,8 @@ pub async fn test_raw_string_enum_mirrored_twin_rust_async_sse(
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn test_list_of_raw_nested_string_mirrored_twin_rust_async_sse(
-) -> ListOfNestedRawStringMirrored {
+pub async fn test_list_of_raw_nested_string_mirrored_twin_rust_async_sse()
+-> ListOfNestedRawStringMirrored {
     ListOfNestedRawStringMirrored {
         raw: vec![NestedRawStringMirrored {
             raw: RawStringMirrored {
@@ -240,8 +240,8 @@ pub async fn test_list_of_raw_nested_string_mirrored_twin_rust_async_sse(
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn test_fallible_of_raw_string_mirrored_twin_rust_async_sse(
-) -> anyhow::Result<Vec<RawStringMirrored>> {
+pub async fn test_fallible_of_raw_string_mirrored_twin_rust_async_sse()
+-> anyhow::Result<Vec<RawStringMirrored>> {
     Ok(vec![RawStringMirrored {
         r#value: "test".to_owned(),
         r#type: "".to_string(),
@@ -280,8 +280,8 @@ pub struct ContainsMirroredSubStructTwinRustAsyncSse {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn test_contains_mirrored_sub_struct_twin_rust_async_sse(
-) -> ContainsMirroredSubStructTwinRustAsyncSse {
+pub async fn test_contains_mirrored_sub_struct_twin_rust_async_sse()
+-> ContainsMirroredSubStructTwinRustAsyncSse {
     ContainsMirroredSubStructTwinRustAsyncSse {
         test: RawStringMirrored {
             r#value: "test".to_owned(),

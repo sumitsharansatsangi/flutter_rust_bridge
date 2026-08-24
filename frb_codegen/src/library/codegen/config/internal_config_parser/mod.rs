@@ -204,9 +204,9 @@ fn generate_default_rust_opaque_codec(full_dep: bool) -> RustOpaqueCodecMode {
 
 #[cfg(test)]
 mod tests {
+    use crate::codegen::Config;
     use crate::codegen::config::config::MetaConfig;
     use crate::codegen::config::internal_config::InternalConfig;
-    use crate::codegen::Config;
     use crate::utils::logs::configure_opinionated_test_logging;
     use crate::utils::test_utils::{
         create_path_sanitizers, get_test_fixture_dir, json_golden_test,
@@ -258,9 +258,11 @@ mod tests {
 
         assert!(result.is_err());
         let error = result.err().unwrap();
-        assert!(error
-            .to_string()
-            .contains("Rust output path needs to include the file name."));
+        assert!(
+            error
+                .to_string()
+                .contains("Rust output path needs to include the file name.")
+        );
         Ok(())
     }
 }

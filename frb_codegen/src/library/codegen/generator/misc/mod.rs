@@ -1,6 +1,6 @@
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::boxed::MirTypeBoxed;
 use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
-use crate::codegen::ir::mir::ty::MirType;
 
 pub(crate) mod comments;
 pub(crate) mod path_texts;

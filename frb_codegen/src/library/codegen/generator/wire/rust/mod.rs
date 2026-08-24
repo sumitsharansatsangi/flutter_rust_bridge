@@ -1,5 +1,5 @@
-use crate::codegen::dumper::internal_config::ConfigDumpContent;
 use crate::codegen::dumper::Dumper;
+use crate::codegen::dumper::internal_config::ConfigDumpContent;
 use crate::codegen::generator::misc::path_texts::{PathText, PathTexts};
 use crate::codegen::generator::wire::rust::spec_generator::base::WireRustGeneratorContext;
 use crate::codegen::generator::wire::rust::spec_generator::extern_func::ExternFunc;

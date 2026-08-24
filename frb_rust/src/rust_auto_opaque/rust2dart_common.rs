@@ -1,6 +1,6 @@
 use crate::generalized_arc::base_arc::BaseArc;
 use crate::platform_types::DartAbi;
-use crate::rust_auto_opaque::{inner::RustAutoOpaqueInner, RustAutoOpaqueBase};
+use crate::rust_auto_opaque::{RustAutoOpaqueBase, inner::RustAutoOpaqueInner};
 
 impl<T, A: BaseArc<RustAutoOpaqueInner<T>>> From<RustAutoOpaqueBase<T, A>> for DartAbi {
     fn from(value: RustAutoOpaqueBase<T, A>) -> Self {

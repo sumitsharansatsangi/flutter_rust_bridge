@@ -1,6 +1,6 @@
 use crate::codegen::ir::early_generator::pack::IrEarlyGeneratorPack;
 use crate::codegen::parser::hir::flat::extra_code_injector::{
-    inject_extra_codes, InjectExtraCodeBlock,
+    InjectExtraCodeBlock, inject_extra_codes,
 };
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;

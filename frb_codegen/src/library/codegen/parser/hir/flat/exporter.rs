@@ -44,7 +44,9 @@ fn vec_to_map_with_warn<'a, T, K: Eq + Hash + Display, V: Debug + 'a>(
     for item in items {
         let (key, value) = extract_entry(item);
         if let Some(old_value) = ans.get(&key) {
-            debug!("Same key={key} has multiple values: {old_value:?} (thrown away) and {value:?} (used). This may or may not be a problem.");
+            debug!(
+                "Same key={key} has multiple values: {old_value:?} (thrown away) and {value:?} (used). This may or may not be a problem."
+            );
         }
         ans.insert(key, value);
     }

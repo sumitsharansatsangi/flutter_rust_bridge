@@ -242,6 +242,7 @@
         }
       },
       "owner": "Function",
+      "oxidized": null,
       "rust_aop_after": null,
       "rust_async": false,
       "rust_call_code": null,
@@ -323,6 +324,7 @@
         }
       },
       "owner": "Function",
+      "oxidized": null,
       "rust_aop_after": null,
       "rust_async": false,
       "rust_call_code": null,
@@ -404,6 +406,7 @@
         }
       },
       "owner": "Function",
+      "oxidized": null,
       "rust_aop_after": null,
       "rust_async": false,
       "rust_call_code": null,
@@ -485,6 +488,7 @@
         }
       },
       "owner": "Function",
+      "oxidized": null,
       "rust_aop_after": null,
       "rust_async": false,
       "rust_call_code": null,
@@ -566,6 +570,7 @@
         }
       },
       "owner": "Function",
+      "oxidized": null,
       "rust_aop_after": null,
       "rust_async": false,
       "rust_call_code": null,

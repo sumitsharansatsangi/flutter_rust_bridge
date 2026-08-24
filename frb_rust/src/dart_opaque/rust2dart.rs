@@ -24,11 +24,13 @@ pub unsafe fn frb_dart_opaque_rust2dart_decode(ptr: usize) -> GeneralizedDartHan
 
 #[cfg(not(target_family = "wasm"))]
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn frb_dart_opaque_rust2dart_decode(ptr: usize) -> GeneralizedDartHandle { unsafe {
-    frb_dart_opaque_rust2dart_decode_inner(ptr)
-}}
+pub unsafe extern "C" fn frb_dart_opaque_rust2dart_decode(ptr: usize) -> GeneralizedDartHandle {
+    unsafe { frb_dart_opaque_rust2dart_decode_inner(ptr) }
+}
 
-unsafe fn frb_dart_opaque_rust2dart_decode_inner(ptr: usize) -> GeneralizedDartHandle { unsafe {
-    let opaque = DartOpaque::from_raw(ptr as _);
-    opaque.create_dart_handle()
-}}
+unsafe fn frb_dart_opaque_rust2dart_decode_inner(ptr: usize) -> GeneralizedDartHandle {
+    unsafe {
+        let opaque = DartOpaque::from_raw(ptr as _);
+        opaque.create_dart_handle()
+    }
+}

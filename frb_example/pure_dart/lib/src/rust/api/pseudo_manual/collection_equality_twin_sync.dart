@@ -10,18 +10,20 @@ import '../collection_equality.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 StructWithDeepCollectionEqualityTwinSync
-    echoStructWithDeepCollectionEqualityTwinSync(
-            {required StructWithDeepCollectionEqualityTwinSync value}) =>
-        RustLib.instance.api
-            .crateApiPseudoManualCollectionEqualityTwinSyncEchoStructWithDeepCollectionEqualityTwinSync(
-                value: value);
+echoStructWithDeepCollectionEqualityTwinSync({
+  required StructWithDeepCollectionEqualityTwinSync value,
+}) => RustLib.instance.api
+    .crateApiPseudoManualCollectionEqualityTwinSyncEchoStructWithDeepCollectionEqualityTwinSync(
+      value: value,
+    );
 
 StructWithShallowCollectionEqualityTwinSync
-    echoStructWithShallowCollectionEqualityTwinSync(
-            {required StructWithShallowCollectionEqualityTwinSync value}) =>
-        RustLib.instance.api
-            .crateApiPseudoManualCollectionEqualityTwinSyncEchoStructWithShallowCollectionEqualityTwinSync(
-                value: value);
+echoStructWithShallowCollectionEqualityTwinSync({
+  required StructWithShallowCollectionEqualityTwinSync value,
+}) => RustLib.instance.api
+    .crateApiPseudoManualCollectionEqualityTwinSyncEchoStructWithShallowCollectionEqualityTwinSync(
+      value: value,
+    );
 
 class StructWithDeepCollectionEqualityTwinSync {
   final List<String> list;
@@ -57,8 +59,10 @@ class StructWithDeepCollectionEqualityTwinSync {
           const DeepCollectionEquality().equals(list, other.list) &&
           const DeepCollectionEquality().equals(map, other.map) &&
           const DeepCollectionEquality().equals(setValues, other.setValues) &&
-          const DeepCollectionEquality()
-              .equals(optionalList, other.optionalList) &&
+          const DeepCollectionEquality().equals(
+            optionalList,
+            other.optionalList,
+          ) &&
           const DeepCollectionEquality().equals(bytes, other.bytes) &&
           const DeepCollectionEquality().equals(fixedBytes, other.fixedBytes);
 }

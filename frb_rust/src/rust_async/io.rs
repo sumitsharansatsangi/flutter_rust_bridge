@@ -2,8 +2,8 @@ use std::future::Future;
 use std::panic::AssertUnwindSafe;
 pub use tokio::spawn;
 pub use tokio::sync::{RwLock, RwLockReadGuard, RwLockWriteGuard};
-pub use tokio::task::spawn_local;
 pub use tokio::task::JoinHandle;
+pub use tokio::task::spawn_local;
 
 pub trait BaseAsyncRuntime {
     fn spawn<F>(&self, future: F) -> JoinHandle<F::Output>

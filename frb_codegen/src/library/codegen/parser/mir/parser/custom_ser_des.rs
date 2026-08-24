@@ -1,11 +1,11 @@
 use crate::codegen::generator::codec::structs::CodecMode;
 use crate::codegen::ir::hir::flat::function::HirFlatFunction;
 use crate::codegen::ir::mir::custom_ser_des::{MirCustomSerDes, MirCustomSerDesHalf};
-use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::parser::attribute::{FrbAttributeSerDes, FrbAttributes};
 use crate::codegen::parser::mir::parser::ty::{TypeParser, TypeParserParsingContext};
-use crate::codegen::parser::mir::ParseMode;
 use crate::if_then_some;
 use crate::utils::namespace::{Namespace, NamespacedName};
 use anyhow::ensure;

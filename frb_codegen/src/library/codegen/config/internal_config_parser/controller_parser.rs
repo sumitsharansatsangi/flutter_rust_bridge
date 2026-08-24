@@ -1,5 +1,5 @@
-use crate::codegen::config::internal_config::ControllerInternalConfig;
 use crate::codegen::MetaConfig;
+use crate::codegen::config::internal_config::ControllerInternalConfig;
 use std::path::Path;
 
 pub(super) fn parse(

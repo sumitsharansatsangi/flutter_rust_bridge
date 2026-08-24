@@ -17,39 +17,33 @@ part 'misc_example_twin_sync.freezed.dart';
 
 MyTreeNodeTwinSync handleComplexStructTwinSync({
   required MyTreeNodeTwinSync s,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncHandleComplexStructTwinSync(
-            s: s);
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncHandleComplexStructTwinSync(s: s);
 
 List<WeekdaysTwinSync> listOfPrimitiveEnumsTwinSync({
   required List<WeekdaysTwinSync> weekdays,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncListOfPrimitiveEnumsTwinSync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncListOfPrimitiveEnumsTwinSync(
       weekdays: weekdays,
     );
 
 MyNestedStructTwinSync handleNestedStructTwinSync({
   required MyNestedStructTwinSync s,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncHandleNestedStructTwinSync(
-            s: s);
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncHandleNestedStructTwinSync(s: s);
 
 BigBuffersTwinSync handleBigBuffersTwinSync() => RustLib.instance.api
     .crateApiPseudoManualMiscExampleTwinSyncHandleBigBuffersTwinSync();
 
-AbcTwinSync testAbcEnumTwinSync({required AbcTwinSync abc}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncTestAbcEnumTwinSync(abc: abc);
+AbcTwinSync testAbcEnumTwinSync({required AbcTwinSync abc}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualMiscExampleTwinSyncTestAbcEnumTwinSync(abc: abc);
 
 StructWithEnumTwinSync testStructWithEnumTwinSync({
   required StructWithEnumTwinSync se,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncTestStructWithEnumTwinSync(
-            se: se);
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncTestStructWithEnumTwinSync(se: se);
 
 String handleStringTwinSync({required String s}) => RustLib.instance.api
     .crateApiPseudoManualMiscExampleTwinSyncHandleStringTwinSync(s: s);
@@ -63,12 +57,12 @@ Uint8List handleVecU8TwinSync({required List<int> v}) => RustLib.instance.api
 MySize handleStructTwinSync({required MySize arg, required MySize boxed}) =>
     RustLib.instance.api
         .crateApiPseudoManualMiscExampleTwinSyncHandleStructTwinSync(
-      arg: arg,
-      boxed: boxed,
-    );
+          arg: arg,
+          boxed: boxed,
+        );
 
 int positionalArgumentsTwinSync(int a, int b) => RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncPositionalArgumentsTwinSync(
+    .crateApiPseudoManualMiscExampleTwinSyncPositionalArgumentsTwinSync(
       a: a,
       b: b,
     );
@@ -179,7 +173,7 @@ class MyTreeNodeTwinSync {
       valueI32.hashCode ^
       valueVecU8.hashCode ^
       valueBoolean.hashCode ^
-      const DeepCollectionEquality().hash(children);
+      children.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -189,7 +183,7 @@ class MyTreeNodeTwinSync {
           valueI32 == other.valueI32 &&
           valueVecU8 == other.valueVecU8 &&
           valueBoolean == other.valueBoolean &&
-          const DeepCollectionEquality().equals(children, other.children);
+          children == other.children;
 }
 
 class StructWithEnumTwinSync {

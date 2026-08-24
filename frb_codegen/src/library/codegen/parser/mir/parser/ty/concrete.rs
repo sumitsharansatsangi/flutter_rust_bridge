@@ -1,5 +1,7 @@
 use crate::codegen::generator::codec::structs::CodecMode;
 use crate::codegen::ir::mir::func::MirFuncOwnerInfo;
+use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::MirType::{Boxed, DartOpaque, Delegate, Dynamic};
 use crate::codegen::ir::mir::ty::boxed::MirTypeBoxed;
 use crate::codegen::ir::mir::ty::dart_opaque::MirTypeDartOpaque;
 use crate::codegen::ir::mir::ty::delegate::{
@@ -8,15 +10,13 @@ use crate::codegen::ir::mir::ty::delegate::{
 };
 use crate::codegen::ir::mir::ty::dynamic::MirTypeDynamic;
 use crate::codegen::ir::mir::ty::general_list::mir_list;
-use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::ir::mir::ty::MirType::{Boxed, DartOpaque, Delegate, Dynamic};
-use crate::codegen::parser::mir::parser::ty::path_data::extract_path_data;
-use crate::codegen::parser::mir::parser::ty::unencodable::{splay_segments, SplayedSegment};
 use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
+use crate::codegen::parser::mir::parser::ty::path_data::extract_path_data;
+use crate::codegen::parser::mir::parser::ty::unencodable::{SplayedSegment, splay_segments};
 use crate::if_then_some;
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use itertools::Itertools;
-use syn::{parse_str, Type};
+use syn::{Type, parse_str};
 
 impl TypeParserWithContext<'_, '_, '_> {
     pub(crate) fn parse_type_path_data_concrete(
@@ -33,13 +33,21 @@ impl TypeParserWithContext<'_, '_, '_> {
         Ok(Some(match last_segment {
             ("Self", []) => self.parse_type_self()?,
 
-            ("Duration", []) if check_prefix("chrono") => Delegate(MirTypeDelegate::Time(MirTypeDelegateTime::Duration)),
-            ("NaiveDate", []) if check_prefix("chrono") => Delegate(MirTypeDelegate::Time(MirTypeDelegateTime::NaiveDate)),
-            ("NaiveDateTime", []) if check_prefix("chrono") => Delegate(MirTypeDelegate::Time(MirTypeDelegateTime::NaiveDateTime)),
+            ("Duration", []) if check_prefix("chrono") => {
+                Delegate(MirTypeDelegate::Time(MirTypeDelegateTime::Duration))
+            }
+            ("NaiveDate", []) if check_prefix("chrono") => {
+                Delegate(MirTypeDelegate::Time(MirTypeDelegateTime::NaiveDate))
+            }
+            ("NaiveDateTime", []) if check_prefix("chrono") => {
+                Delegate(MirTypeDelegate::Time(MirTypeDelegateTime::NaiveDateTime))
+            }
             ("DateTime", args) if check_prefix("chrono") => self.parse_datetime(args)?,
 
             ("Uuid", []) if check_prefix("uuid") => Delegate(MirTypeDelegate::Uuid),
-            ("Value", []) if check_prefix("serde_json") => Delegate(MirTypeDelegate::SerdeJsonValue),
+            ("Value", []) if check_prefix("serde_json") => {
+                Delegate(MirTypeDelegate::SerdeJsonValue)
+            }
             ("String", []) | ("str", []) => Delegate(MirTypeDelegate::String),
             ("char", []) => Delegate(MirTypeDelegate::Char),
             ("Backtrace", []) => Delegate(MirTypeDelegate::Backtrace),
@@ -49,49 +57,51 @@ impl TypeParserWithContext<'_, '_, '_> {
 
             ("DartOpaque", []) => DartOpaque(MirTypeDartOpaque {}),
 
-            ("ZeroCopyBuffer", _) => bail!("`ZeroCopyBuffer<T>` is no longer needed, since zero-copy is automatically utilized, just directly use `T` instead."),
+            ("ZeroCopyBuffer", _) => bail!(
+                "`ZeroCopyBuffer<T>` is no longer needed, since zero-copy is automatically utilized, just directly use `T` instead."
+            ),
             // (
             //     "ZeroCopyBuffer",
             //     Some(Generic([PrimitiveList(MirTypePrimitiveList { primitive })])),
             // ) => Delegate(MirTypeDelegate::ZeroCopyBufferVecPrimitive(
             //     primitive.clone(),
             // )),
-
             ("Box", [inner]) => {
                 let inner = self.parse_type(inner)?;
                 match inner {
-                    MirType::RustAutoOpaqueImplicit(ty_raw) => self.transform_rust_auto_opaque(
-                        &ty_raw,
-                        |raw| format!("Box<{raw}>"),
-                    )?,
+                    MirType::RustAutoOpaqueImplicit(ty_raw) => {
+                        self.transform_rust_auto_opaque(&ty_raw, |raw| format!("Box<{raw}>"))?
+                    }
                     _ => Boxed(MirTypeBoxed {
                         exist_in_real_api: true,
                         inner: Box::new(inner),
-                    })
+                    }),
                 }
-            },
+            }
 
             ("Vec", [element]) => mir_list(self.parse_type(element)?, true),
 
-            ("HashMap", [key, value]) => {
-                self.parse_mir_hash_map(key, value, None)?
-            },
+            ("HashMap", [key, value]) => self.parse_mir_hash_map(key, value, None)?,
             ("HashMap", [key, value, hasher]) => {
                 self.parse_mir_hash_map(key, value, Some(hasher))?
-            },
+            }
             ("HashSet", [inner]) => self.parse_mir_hash_set(inner, None)?,
             ("HashSet", [inner, hasher]) => self.parse_mir_hash_set(inner, Some(hasher))?,
 
-            ("StreamSink", [inner ]) => Delegate(MirTypeDelegate::StreamSink(MirTypeDelegateStreamSink {
-                inner_ok: Box::new(self.parse_type(inner)?),
-                inner_err: stream_sink_err_type(),
-                codec: self.context.default_stream_sink_codec,
-            })),
-            ("StreamSink", [inner, codec ]) => Delegate(MirTypeDelegate::StreamSink(MirTypeDelegateStreamSink {
-                inner_ok: Box::new(self.parse_type(inner)?),
-                inner_err: stream_sink_err_type(),
-                codec: parse_stream_sink_codec(codec)?,
-            })),
+            ("StreamSink", [inner]) => {
+                Delegate(MirTypeDelegate::StreamSink(MirTypeDelegateStreamSink {
+                    inner_ok: Box::new(self.parse_type(inner)?),
+                    inner_err: stream_sink_err_type(),
+                    codec: self.context.default_stream_sink_codec,
+                }))
+            }
+            ("StreamSink", [inner, codec]) => {
+                Delegate(MirTypeDelegate::StreamSink(MirTypeDelegateStreamSink {
+                    inner_ok: Box::new(self.parse_type(inner)?),
+                    inner_err: stream_sink_err_type(),
+                    codec: parse_stream_sink_codec(codec)?,
+                }))
+            }
 
             _ => return Ok(None),
         }))

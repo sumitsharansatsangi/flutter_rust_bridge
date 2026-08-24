@@ -1,5 +1,5 @@
 use crate::codegen::parser::mir::parser::lifetime_extractor::{
-    Lifetime, LifetimeExtractor, LIFETIME_STATIC,
+    LIFETIME_STATIC, Lifetime, LifetimeExtractor,
 };
 use regex::Regex;
 use syn::Type;

@@ -12,14 +12,14 @@ use crate::codegen::ir::early_generator::pack::IrEarlyGeneratorPack;
 use crate::codegen::ir::hir::flat::struct_or_enum::{HirFlatEnum, HirFlatStruct};
 use crate::codegen::ir::mir::pack::MirPack;
 use crate::codegen::ir::misc::skip::{IrSkip, IrSkipReason};
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::internal_config::{
     ParserMirInternalConfig, RustInputNamespacePack,
 };
 use crate::codegen::parser::mir::parser::ty::TypeParser;
 use crate::codegen::parser::mir::sanity_checker::opaque_inside_translatable_checker::check_opaque_inside_translatable;
 use crate::codegen::parser::mir::sanity_checker::unused_checker::get_unused_types;
-use crate::codegen::parser::mir::ParseMode;
-use itertools::{concat, Itertools};
+use itertools::{Itertools, concat};
 use std::collections::HashMap;
 
 pub(crate) fn parse(

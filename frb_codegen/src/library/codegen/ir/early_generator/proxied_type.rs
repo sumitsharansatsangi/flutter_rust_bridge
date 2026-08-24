@@ -1,5 +1,5 @@
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegateProxyVariant;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegateProxyVariant;
 use crate::utils::namespace::Namespace;
 
 #[derive(Debug, Clone, serde::Serialize, PartialEq, Eq, Hash)]

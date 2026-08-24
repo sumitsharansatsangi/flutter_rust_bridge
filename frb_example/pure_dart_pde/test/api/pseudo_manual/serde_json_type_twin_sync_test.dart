@@ -49,8 +49,9 @@ Future<void> main({bool skipRustLibInit = false}) async {
   });
 
   test('Option<serde_json::Value> some', () async {
-    final output =
-        await handleOptionSerdeJsonValueTwinSync(val: {'key': 'value'});
+    final output = await handleOptionSerdeJsonValueTwinSync(
+      val: {'key': 'value'},
+    );
     expect(output, {'key': 'value'});
   });
 
@@ -63,7 +64,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
     final input = [
       42,
       'hello',
-      {'nested': true}
+      {'nested': true},
     ];
     final output = await handleVecSerdeJsonValueTwinSync(val: input);
     expect(output, input);
@@ -82,7 +83,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
   test('serde_json::Value nested struct', () async {
     final data = {
       'key': 'value',
-      'nested': {'a': 1}
+      'nested': {'a': 1},
     };
     final wrapper = FeatureSerdeJsonTwinSync(data: data);
     final output = await handleNestedSerdeJsonValueTwinSync(wrapper: wrapper);

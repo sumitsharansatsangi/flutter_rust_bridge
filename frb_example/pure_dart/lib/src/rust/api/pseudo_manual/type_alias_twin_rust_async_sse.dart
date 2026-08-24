@@ -11,25 +11,22 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<BigInt> handleTypeAliasIdTwinRustAsyncSse({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncSseHandleTypeAliasIdTwinRustAsyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncSseHandleTypeAliasIdTwinRustAsyncSse(
       input: input,
     );
 
 Future<BigInt> handleTypeNestAliasIdTwinRustAsyncSse({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncSseHandleTypeNestAliasIdTwinRustAsyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncSseHandleTypeNestAliasIdTwinRustAsyncSse(
       input: input,
     );
 
 Future<TestModelTwinRustAsyncSse> handleTypeAliasModelTwinRustAsyncSse({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncSseHandleTypeAliasModelTwinRustAsyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncSseHandleTypeAliasModelTwinRustAsyncSse(
       input: input,
     );
 
@@ -40,35 +37,40 @@ Future<int> genericResultAliasErrTwinRustAsyncSse() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericResultAliasErrTwinRustAsyncSse();
 
 Future<int> genericResultAliasChainedOkTwinRustAsyncSse() => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericResultAliasChainedOkTwinRustAsyncSse();
 
 Future<int> genericResultAliasChainedErrTwinRustAsyncSse() => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericResultAliasChainedErrTwinRustAsyncSse();
 
 Future<int> genericResultAliasTwoParamsOkTwinRustAsyncSse() => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericResultAliasTwoParamsOkTwinRustAsyncSse();
 
 Future<int> genericResultAliasTwoParamsErrTwinRustAsyncSse() => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericResultAliasTwoParamsErrTwinRustAsyncSse();
 
-Future<int?> genericOptionAliasReturnTwinRustAsyncSse({required int input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericOptionAliasReturnTwinRustAsyncSse(
-            input: input);
+Future<int?> genericOptionAliasReturnTwinRustAsyncSse({
+  required int input,
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericOptionAliasReturnTwinRustAsyncSse(
+      input: input,
+    );
 
 Future<int> genericOptionAliasArgTwinRustAsyncSse({int? input}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncSseGenericOptionAliasArgTwinRustAsyncSse(
-        input: input);
+      input: input,
+    );
 
-enum GenericAliasErrorTwinRustAsyncSse {
-  deliberate,
-  ;
-}
+enum GenericAliasErrorTwinRustAsyncSse { deliberate }
 
 class TestModelTwinRustAsyncSse {
   final BigInt id;

@@ -300,7 +300,9 @@ pub(crate) fn rust_decode_primitive_enum(
 }
 
 pub(crate) fn generate_unimplemented_in_sse_message(mir: &MirType) -> String {
-    format!("The type {mir:?} is not yet supported in serialized mode, please use full_dep mode, and feel free to create an issue")
+    format!(
+        "The type {mir:?} is not yet supported in serialized mode, please use full_dep mode, and feel free to create an issue"
+    )
 }
 
 pub(crate) fn generate_set_to_list(

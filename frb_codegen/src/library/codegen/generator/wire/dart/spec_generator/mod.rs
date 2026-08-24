@@ -1,3 +1,4 @@
+use crate::codegen::ConfigDumpContent::GeneratorInfo;
 use crate::codegen::dumper::Dumper;
 use crate::codegen::generator::acc::Acc;
 use crate::codegen::generator::codec::structs::EncodeOrDecode::{Decode, Encode};
@@ -13,7 +14,6 @@ use crate::codegen::generator::wire::dart::spec_generator::output_code::{
 use crate::codegen::generator::wire::rust::spec_generator::extern_func::ExternFunc;
 use crate::codegen::ir::mir::pack::MirPackComputedCache;
 use crate::codegen::misc::GeneratorProgressBarPack;
-use crate::codegen::ConfigDumpContent::GeneratorInfo;
 use itertools::Itertools;
 use serde::Serialize;
 use std::path::PathBuf;

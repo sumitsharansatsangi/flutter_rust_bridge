@@ -42,8 +42,8 @@ fn generate_rust_arc_modify_strong_count(
     let safe_ident = mir.safe_ident();
 
     let definition = format!(
-            "RustArc{op_name_pascal}StrongCountFnType get rust_arc_{op_name}_strong_count_{ty_dart_api_type}"
-        );
+        "RustArc{op_name_pascal}StrongCountFnType get rust_arc_{op_name}_strong_count_{ty_dart_api_type}"
+    );
 
     Acc {
         common: WireDartOutputCode {

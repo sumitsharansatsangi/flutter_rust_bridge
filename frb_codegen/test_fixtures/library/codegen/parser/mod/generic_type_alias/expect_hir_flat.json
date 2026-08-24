@@ -30,7 +30,7 @@
   "extra_rust_output_code": "",
   "functions": [
     {
-      "item_fn": "GeneralizedItemFn(name=generic_alias_named_result, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=generic_alias_named_result, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=generic_alias_option, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=generic_alias_option, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=generic_alias_result, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=generic_alias_result, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [

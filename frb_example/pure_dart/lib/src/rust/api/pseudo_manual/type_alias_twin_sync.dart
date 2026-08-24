@@ -9,23 +9,25 @@ import '../../auxiliary/sample_types.dart';
 import '../../frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
-BigInt handleTypeAliasIdTwinSync({required BigInt input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSyncHandleTypeAliasIdTwinSync(
+BigInt handleTypeAliasIdTwinSync({required BigInt input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSyncHandleTypeAliasIdTwinSync(
       input: input,
     );
 
-BigInt handleTypeNestAliasIdTwinSync({required BigInt input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSyncHandleTypeNestAliasIdTwinSync(
+BigInt handleTypeNestAliasIdTwinSync({required BigInt input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSyncHandleTypeNestAliasIdTwinSync(
       input: input,
     );
 
 TestModelTwinSync handleTypeAliasModelTwinSync({required BigInt input}) =>
     RustLib.instance.api
         .crateApiPseudoManualTypeAliasTwinSyncHandleTypeAliasModelTwinSync(
-      input: input,
-    );
+          input: input,
+        );
 
 int genericResultAliasOkTwinSync() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSyncGenericResultAliasOkTwinSync();
@@ -45,19 +47,19 @@ int genericResultAliasTwoParamsOkTwinSync() => RustLib.instance.api
 int genericResultAliasTwoParamsErrTwinSync() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSyncGenericResultAliasTwoParamsErrTwinSync();
 
-int? genericOptionAliasReturnTwinSync({required int input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSyncGenericOptionAliasReturnTwinSync(
-            input: input);
+int? genericOptionAliasReturnTwinSync({required int input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSyncGenericOptionAliasReturnTwinSync(
+      input: input,
+    );
 
 int genericOptionAliasArgTwinSync({int? input}) => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSyncGenericOptionAliasArgTwinSync(
-        input: input);
+      input: input,
+    );
 
-enum GenericAliasErrorTwinSync {
-  deliberate,
-  ;
-}
+enum GenericAliasErrorTwinSync { deliberate }
 
 class TestModelTwinSync {
   final BigInt id;

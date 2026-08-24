@@ -5,9 +5,9 @@ use crate::codegen::ir::mir::func::{
     OwnershipMode,
 };
 use crate::codegen::ir::mir::ident::MirIdent;
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::structure::MirStruct;
-use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::function::auto_accessor::MirFuncAndSanityCheckInfo;

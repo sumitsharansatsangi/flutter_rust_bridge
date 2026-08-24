@@ -3,8 +3,8 @@ use crate::codegen::generator::api_dart::spec_generator::base::ApiDartGenerator;
 use crate::codegen::generator::api_dart::spec_generator::info::ApiDartGeneratorInfoTrait;
 use crate::codegen::generator::misc::target::Target;
 use crate::codegen::generator::wire::dart::spec_generator::codec::cst::base::*;
-use crate::codegen::generator::wire::dart::spec_generator::codec::cst::encoder::ty::rust_opaque::rust_opaque_dart_wire_type;
 use crate::codegen::generator::wire::dart::spec_generator::codec::cst::encoder::ty::WireDartCodecCstGeneratorEncoderTrait;
+use crate::codegen::generator::wire::dart::spec_generator::codec::cst::encoder::ty::rust_opaque::rust_opaque_dart_wire_type;
 
 impl WireDartCodecCstGeneratorEncoderTrait for RustAutoOpaqueImplicitWireDartCodecCstGenerator<'_> {
     fn generate_encode_func_body(&self) -> Acc<Option<String>> {

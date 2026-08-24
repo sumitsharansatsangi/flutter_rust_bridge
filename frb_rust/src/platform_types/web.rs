@@ -1,9 +1,9 @@
 use crate::generalized_isolate::PortLike;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use wasm_bindgen::JsCast;
 use wasm_bindgen::closure::Closure;
 use wasm_bindgen::prelude::*;
-use wasm_bindgen::JsCast;
 use web_sys::BroadcastChannel;
 
 pub type WireSyncRust2DartDco = wasm_bindgen::JsValue;

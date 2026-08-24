@@ -111,7 +111,19 @@ pub fn integrate(config: IntegrateConfig) -> Result<()> {
 }
 
 fn maybe_refresh_cargo_lock_ordering(dart_root: &Path, rust_crate_dir: &str) -> Result<()> {
-    if !should_refresh_cargo_lock_ordering() {
+    maybe_refresh_cargo_lock_ordering_if(
+        dart_root,
+        rust_crate_dir,
+        should_refresh_cargo_lock_ordering(),
+    )
+}
+
+fn maybe_refresh_cargo_lock_ordering_if(
+    dart_root: &Path,
+    rust_crate_dir: &str,
+    enabled: bool,
+) -> Result<()> {
+    if !enabled {
         debug!(
             "Skip Cargo.lock ordering refresh; set {REFRESH_CARGO_LOCK_ORDERING_ENV_VAR}=1 to enable"
         );
@@ -122,7 +134,13 @@ fn maybe_refresh_cargo_lock_ordering(dart_root: &Path, rust_crate_dir: &str) -> 
 }
 
 fn should_refresh_cargo_lock_ordering() -> bool {
-    env::var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR).unwrap_or_default() == "1"
+    should_refresh_cargo_lock_ordering_value(
+        &env::var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR).unwrap_or_default(),
+    )
+}
+
+fn should_refresh_cargo_lock_ordering_value(value: &str) -> bool {
+    value == "1"
 }
 
 fn refresh_cargo_lock_ordering(dart_root: &Path, rust_crate_dir: &str) -> Result<()> {
@@ -133,10 +151,9 @@ fn refresh_cargo_lock_ordering(dart_root: &Path, rust_crate_dir: &str) -> Result
 #[cfg(test)]
 mod tests {
     use super::{
-        maybe_refresh_cargo_lock_ordering, refresh_cargo_lock_ordering,
-        should_refresh_cargo_lock_ordering, REFRESH_CARGO_LOCK_ORDERING_ENV_VAR,
+        maybe_refresh_cargo_lock_ordering_if, refresh_cargo_lock_ordering,
+        should_refresh_cargo_lock_ordering_value,
     };
-    use serial_test::serial;
     use std::fs;
 
     #[test]
@@ -146,7 +163,7 @@ mod tests {
         fs::create_dir_all(rust_dir.join("src")).unwrap();
         fs::write(
             rust_dir.join("Cargo.toml"),
-            "[package]\nname = \"integrator_refresh_test\"\nversion = \"0.1.0\"\nedition = \"2021\"\n",
+            "[package]\nname = \"integrator_refresh_test\"\nversion = \"0.1.0\"\nedition = \"2024\"\n",
         )
         .unwrap();
         fs::write(
@@ -159,31 +176,16 @@ mod tests {
     }
 
     #[test]
-    #[serial]
     fn test_should_refresh_cargo_lock_ordering_only_when_env_var_is_one() {
-        std::env::remove_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR);
-        assert!(!should_refresh_cargo_lock_ordering());
-
-        std::env::set_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR, "true");
-        assert!(!should_refresh_cargo_lock_ordering());
-
-        std::env::set_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR, "1");
-        assert!(should_refresh_cargo_lock_ordering());
-
-        std::env::remove_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR);
+        assert!(!should_refresh_cargo_lock_ordering_value(""));
+        assert!(!should_refresh_cargo_lock_ordering_value("true"));
+        assert!(should_refresh_cargo_lock_ordering_value("1"));
     }
 
     #[test]
-    #[serial]
     fn test_maybe_refresh_cargo_lock_ordering_skips_when_env_var_is_not_one() {
-        std::env::remove_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR);
-
         let temp_dir = tempfile::tempdir().unwrap();
-        maybe_refresh_cargo_lock_ordering(temp_dir.path(), "does-not-need-to-exist").unwrap();
-
-        std::env::set_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR, "0");
-        maybe_refresh_cargo_lock_ordering(temp_dir.path(), "still-not-used").unwrap();
-
-        std::env::remove_var(REFRESH_CARGO_LOCK_ORDERING_ENV_VAR);
+        maybe_refresh_cargo_lock_ordering_if(temp_dir.path(), "does-not-need-to-exist", false)
+            .unwrap();
     }
 }

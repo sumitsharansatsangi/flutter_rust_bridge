@@ -8,8 +8,8 @@ use crate::handler::handler::{TaskContext, TaskInfo, TaskRetFutTrait};
 use crate::handler::implementation::error_listener::handle_non_sync_panic_error;
 use crate::misc::panic_backtrace::{CatchUnwindWithBacktrace, PanicBacktrace};
 use crate::platform_types::MessagePort;
-use crate::rust2dart::sender::Rust2DartSender;
 use crate::rust_async::BaseAsyncRuntime;
+use crate::rust2dart::sender::Rust2DartSender;
 use crate::thread_pool::BaseThreadPool;
 use crate::transfer;
 #[cfg(feature = "rust-async")]

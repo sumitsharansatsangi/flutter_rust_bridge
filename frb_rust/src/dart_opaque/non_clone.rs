@@ -6,7 +6,7 @@ use crate::for_generated::{box_from_leak_ptr, new_leak_box_ptr};
 use crate::generalized_isolate::Channel;
 use crate::generalized_isolate::IntoDart;
 use crate::misc::logs::log_warn_or_println;
-use crate::platform_types::{handle_to_message_port, SendableMessagePortHandle};
+use crate::platform_types::{SendableMessagePortHandle, handle_to_message_port};
 #[cfg(target_family = "wasm")]
 use wasm_bindgen::prelude::*;
 
@@ -93,9 +93,9 @@ fn drop_thread_box_persistent_handle_via_port(
 
 #[cfg(not(target_family = "wasm"))]
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn frb_dart_opaque_drop_thread_box_persistent_handle(ptr: usize) { unsafe {
-    frb_dart_opaque_drop_thread_box_persistent_handle_inner(ptr)
-}}
+pub unsafe extern "C" fn frb_dart_opaque_drop_thread_box_persistent_handle(ptr: usize) {
+    unsafe { frb_dart_opaque_drop_thread_box_persistent_handle_inner(ptr) }
+}
 
 #[cfg(target_family = "wasm")]
 #[wasm_bindgen]
@@ -103,8 +103,10 @@ pub unsafe extern "C" fn frb_dart_opaque_drop_thread_box_persistent_handle(ptr: 
     frb_dart_opaque_drop_thread_box_persistent_handle_inner(ptr)
 }
 
-unsafe fn frb_dart_opaque_drop_thread_box_persistent_handle_inner(ptr: usize) { unsafe {
-    let value: GeneralizedDartHandleBox<GeneralizedAutoDropDartPersistentHandle> =
-        *box_from_leak_ptr(ptr as _);
-    drop(value);
-}}
+unsafe fn frb_dart_opaque_drop_thread_box_persistent_handle_inner(ptr: usize) {
+    unsafe {
+        let value: GeneralizedDartHandleBox<GeneralizedAutoDropDartPersistentHandle> =
+            *box_from_leak_ptr(ptr as _);
+        drop(value);
+    }
+}

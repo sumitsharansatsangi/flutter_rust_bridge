@@ -1,6 +1,6 @@
 use crate::codegen::ir::mir::func::{MirFunc, MirFuncInput};
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use itertools::Itertools;
 
 pub(super) fn generate_code_inner_decode(func: &MirFunc, inner: &str) -> String {

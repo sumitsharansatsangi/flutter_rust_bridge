@@ -28,8 +28,8 @@ pub struct MoreThanJustOneRawStringStructTwinNormal {
     pub another: String,
 }
 
-pub fn test_more_than_just_one_raw_string_struct_twin_normal(
-) -> MoreThanJustOneRawStringStructTwinNormal {
+pub fn test_more_than_just_one_raw_string_struct_twin_normal()
+-> MoreThanJustOneRawStringStructTwinNormal {
     MoreThanJustOneRawStringStructTwinNormal {
         regular: "regular".to_owned(),
         r#type: "type".to_owned(),

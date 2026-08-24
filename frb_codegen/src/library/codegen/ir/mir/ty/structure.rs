@@ -104,9 +104,5 @@ impl From<NamespacedName> for MirStructIdent {
 }
 
 pub fn rust_brackets_pair(keyword_arg: bool) -> (char, char) {
-    if keyword_arg {
-        ('{', '}')
-    } else {
-        ('(', ')')
-    }
+    if keyword_arg { ('{', '}') } else { ('(', ')') }
 }

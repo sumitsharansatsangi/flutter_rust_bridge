@@ -1,7 +1,7 @@
 use crate::codegen::generator::wire::dart::spec_generator::codec::dco::base::*;
 use crate::codegen::generator::wire::dart::spec_generator::codec::dco::decoder::ty::WireDartCodecDcoGeneratorDecoderTrait;
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 
 impl WireDartCodecDcoGeneratorDecoderTrait for GeneralListWireDartCodecDcoGenerator<'_> {

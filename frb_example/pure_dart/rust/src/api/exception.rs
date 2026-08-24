@@ -1,5 +1,5 @@
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use backtrace::Backtrace;
 use flutter_rust_bridge::frb;
 
@@ -161,8 +161,8 @@ pub fn return_custom_nested_error_1_twin_normal() -> Result<(), CustomNestedErro
     ))
 }
 
-pub fn return_custom_nested_error_1_variant1_twin_normal(
-) -> Result<(), CustomNestedError1TwinNormal> {
+pub fn return_custom_nested_error_1_variant1_twin_normal()
+-> Result<(), CustomNestedError1TwinNormal> {
     Err(CustomNestedError1TwinNormal::CustomNested1(
         "custom".to_string(),
     ))
@@ -196,15 +196,15 @@ impl CustomStructTwinNormal {
         CustomStructTwinNormal { message }
     }
 
-    pub fn static_return_custom_struct_error_twin_normal(
-    ) -> Result<(), CustomStructErrorAnotherTwinNormal> {
+    pub fn static_return_custom_struct_error_twin_normal()
+    -> Result<(), CustomStructErrorAnotherTwinNormal> {
         Err(CustomStructErrorAnotherTwinNormal {
             message: "error message".to_string(),
         })
     }
 
-    pub fn static_return_custom_struct_ok_twin_normal(
-    ) -> Result<u32, CustomStructErrorAnotherTwinNormal> {
+    pub fn static_return_custom_struct_ok_twin_normal()
+    -> Result<u32, CustomStructErrorAnotherTwinNormal> {
         Ok(3)
     }
 

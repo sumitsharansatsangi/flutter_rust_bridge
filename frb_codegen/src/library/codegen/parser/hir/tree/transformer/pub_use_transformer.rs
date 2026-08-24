@@ -130,7 +130,9 @@ fn transform_module_by_pub_use_single(
         // frb-coverage:ignore-end
 
         if src_mod.meta.is_public() {
-            log::debug!("transform_module_by_pub_use_single skip `{pub_use_info:?}` since src mod already public");
+            log::debug!(
+                "transform_module_by_pub_use_single skip `{pub_use_info:?}` since src mod already public"
+            );
             return Ok(());
         }
 

@@ -4,6 +4,7 @@ use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatStruct;
 use crate::codegen::ir::mir::func::{MirFunc, MirFuncAccessorMode, OwnershipMode};
 use crate::codegen::ir::mir::ty::{MirContext, MirType};
 use crate::codegen::ir::misc::skip::{IrValueOrSkip, MirFuncOrSkip};
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::misc::extract_src_types_in_paths;
@@ -13,7 +14,6 @@ use crate::codegen::parser::mir::parser::ty::{
     TypeParser, TypeParserParsingContext, TypeParserWithContext,
 };
 use crate::codegen::parser::mir::sanity_checker::auto_accessor_checker;
-use crate::codegen::parser::mir::ParseMode;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 use crate::utils::namespace::{Namespace, NamespacedName};
 use field::parse_auto_accessor_of_field;

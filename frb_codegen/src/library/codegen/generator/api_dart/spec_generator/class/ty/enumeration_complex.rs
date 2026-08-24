@@ -39,12 +39,13 @@ impl EnumRefApiDartGenerator<'_> {
 
         let json_serializable_extra_code =
             compute_json_serializable_extra_code(src.needs_json_serializable, name);
+        let freezed_annotation = generate_freezed_annotation(src.variants().len());
 
         Some(ApiDartGeneratedClass {
             namespace: src.name.namespace.clone(),
             class_name: name.clone(),
             code: format!(
-                "@freezed
+                "{freezed_annotation}
                 {sealed} class {name} with _${name} {maybe_implements_exception} {{
                     const {name}._();
 
@@ -143,6 +144,28 @@ impl EnumRefApiDartGenerator<'_> {
         } else {
             ""
         }
+    }
+}
+
+fn generate_freezed_annotation(variant_count: usize) -> &'static str {
+    // Freezed 4 generates a base `copyWith` implementation that tries to
+    // instantiate the abstract union when every field is common to all
+    // variants. That is always the case for a single-variant union.
+    if variant_count == 1 {
+        "@Freezed(copyWith: false)"
+    } else {
+        "@freezed"
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::generate_freezed_annotation;
+
+    #[test]
+    fn single_variant_enum_disables_freezed_copy_with() {
+        assert_eq!(generate_freezed_annotation(1), "@Freezed(copyWith: false)");
+        assert_eq!(generate_freezed_annotation(2), "@freezed");
     }
 }
 

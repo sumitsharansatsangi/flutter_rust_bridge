@@ -22,7 +22,7 @@
   "extra_rust_output_code": "",
   "functions": [
     {
-      "item_fn": "GeneralizedItemFn(name=example_instance_method, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=example_instance_method, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": {
         "StructOrEnum": {
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=example_static_method, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=example_static_method, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": {
         "StructOrEnum": {
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=example_instance_method, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=example_instance_method, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": {
         "StructOrEnum": {
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=example_static_method, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=example_static_method, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": {
         "StructOrEnum": {

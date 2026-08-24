@@ -5,7 +5,7 @@
 // AUTO-GENERATED FROM frb_example/pure_dart, DO NOT EDIT
 
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use backtrace::Backtrace;
 use flutter_rust_bridge::frb;
 
@@ -48,8 +48,8 @@ pub enum CustomEnumErrorTwinRustAsync {
     },
 }
 
-pub async fn custom_enum_error_return_error_twin_rust_async(
-) -> Result<u32, CustomEnumErrorTwinRustAsync> {
+pub async fn custom_enum_error_return_error_twin_rust_async()
+-> Result<u32, CustomEnumErrorTwinRustAsync> {
     Err(CustomEnumErrorTwinRustAsync::One {
         message: "deliberate error".into(),
         backtrace: Backtrace::new(),
@@ -129,16 +129,16 @@ impl SomeStructTwinRustAsync {
         SomeStructTwinRustAsync { value }
     }
 
-    pub async fn static_return_err_custom_error_twin_rust_async(
-    ) -> Result<u32, CustomErrorTwinRustAsync> {
+    pub async fn static_return_err_custom_error_twin_rust_async()
+    -> Result<u32, CustomErrorTwinRustAsync> {
         Err(CustomErrorTwinRustAsync::Error1 {
             e: 3,
             backtrace: Backtrace::new(),
         })
     }
 
-    pub async fn static_return_ok_custom_error_twin_rust_async(
-    ) -> Result<u32, CustomErrorTwinRustAsync> {
+    pub async fn static_return_ok_custom_error_twin_rust_async()
+    -> Result<u32, CustomErrorTwinRustAsync> {
         Ok(3)
     }
 
@@ -168,22 +168,22 @@ pub enum CustomNestedError2TwinRustAsync {
     CustomNested2Number(u32),
 }
 
-pub async fn return_custom_nested_error_1_twin_rust_async(
-) -> Result<(), CustomNestedError1TwinRustAsync> {
+pub async fn return_custom_nested_error_1_twin_rust_async()
+-> Result<(), CustomNestedError1TwinRustAsync> {
     Err(CustomNestedError1TwinRustAsync::ErrorNested(
         CustomNestedError2TwinRustAsync::CustomNested2Number(3),
     ))
 }
 
-pub async fn return_custom_nested_error_1_variant1_twin_rust_async(
-) -> Result<(), CustomNestedError1TwinRustAsync> {
+pub async fn return_custom_nested_error_1_variant1_twin_rust_async()
+-> Result<(), CustomNestedError1TwinRustAsync> {
     Err(CustomNestedError1TwinRustAsync::CustomNested1(
         "custom".to_string(),
     ))
 }
 
-pub async fn return_custom_nested_error_2_twin_rust_async(
-) -> Result<(), CustomNestedError2TwinRustAsync> {
+pub async fn return_custom_nested_error_2_twin_rust_async()
+-> Result<(), CustomNestedError2TwinRustAsync> {
     Err(CustomNestedError2TwinRustAsync::CustomNested2(
         "custom".to_string(),
     ))
@@ -192,15 +192,15 @@ pub struct CustomStructErrorAnotherTwinRustAsync {
     pub message: String,
 }
 
-pub async fn return_custom_struct_error_twin_rust_async(
-) -> Result<(), CustomStructErrorAnotherTwinRustAsync> {
+pub async fn return_custom_struct_error_twin_rust_async()
+-> Result<(), CustomStructErrorAnotherTwinRustAsync> {
     Err(CustomStructErrorAnotherTwinRustAsync {
         message: "error message".to_string(),
     })
 }
 
-pub async fn return_custom_struct_ok_twin_rust_async(
-) -> Result<u32, CustomStructErrorAnotherTwinRustAsync> {
+pub async fn return_custom_struct_ok_twin_rust_async()
+-> Result<u32, CustomStructErrorAnotherTwinRustAsync> {
     Ok(3)
 }
 
@@ -213,15 +213,15 @@ impl CustomStructTwinRustAsync {
         CustomStructTwinRustAsync { message }
     }
 
-    pub async fn static_return_custom_struct_error_twin_rust_async(
-    ) -> Result<(), CustomStructErrorAnotherTwinRustAsync> {
+    pub async fn static_return_custom_struct_error_twin_rust_async()
+    -> Result<(), CustomStructErrorAnotherTwinRustAsync> {
         Err(CustomStructErrorAnotherTwinRustAsync {
             message: "error message".to_string(),
         })
     }
 
-    pub async fn static_return_custom_struct_ok_twin_rust_async(
-    ) -> Result<u32, CustomStructErrorAnotherTwinRustAsync> {
+    pub async fn static_return_custom_struct_ok_twin_rust_async()
+    -> Result<u32, CustomStructErrorAnotherTwinRustAsync> {
         Ok(3)
     }
 

@@ -58,29 +58,35 @@ mod tests {
     #[test]
     fn skips_alias_with_const_generic() {
         // `N` would be silently dropped during substitution, so it must be skipped.
-        assert!(parse_syn_item_type(parse_quote!(
-            pub type Fixed<T, const N: usize> = [T; N];
-        ))
-        .is_none());
+        assert!(
+            parse_syn_item_type(parse_quote!(
+                pub type Fixed<T, const N: usize> = [T; N];
+            ))
+            .is_none()
+        );
     }
 
     #[test]
     fn skips_alias_with_lifetime() {
-        assert!(parse_syn_item_type(parse_quote!(
-            pub type Borrowed<'a, T> = &'a T;
-        ))
-        .is_none());
+        assert!(
+            parse_syn_item_type(parse_quote!(
+                pub type Borrowed<'a, T> = &'a T;
+            ))
+            .is_none()
+        );
     }
 
     #[test]
     fn skips_alias_with_where_clause() {
         // `where` clauses are not supported yet, so such aliases are skipped.
-        assert!(parse_syn_item_type(parse_quote!(
-            pub type Aliased<T>
-            where
-                T: Clone,
-            = Vec<T>;
-        ))
-        .is_none());
+        assert!(
+            parse_syn_item_type(parse_quote!(
+                pub type Aliased<T>
+                where
+                    T: Clone,
+                = Vec<T>;
+            ))
+            .is_none()
+        );
     }
 }

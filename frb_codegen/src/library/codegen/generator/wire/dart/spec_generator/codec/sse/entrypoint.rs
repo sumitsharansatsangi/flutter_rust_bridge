@@ -1,5 +1,5 @@
-use crate::codegen::generator::codec::sse::lang::dart::DartLang;
 use crate::codegen::generator::codec::sse::lang::LangTrait;
+use crate::codegen::generator::codec::sse::lang::dart::DartLang;
 use crate::codegen::generator::codec::structs::{BaseCodecEntrypointTrait, EncodeOrDecode};
 use crate::codegen::generator::wire::dart::spec_generator::base::WireDartGeneratorContext;
 use crate::codegen::generator::wire::dart::spec_generator::codec::base::{

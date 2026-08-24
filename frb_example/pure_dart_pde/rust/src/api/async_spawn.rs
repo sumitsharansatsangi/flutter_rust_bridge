@@ -2,7 +2,7 @@
 
 // FRB_INTERNAL_GENERATOR: {"forbiddenDuplicatorModes": ["sync", "rustAsync", "sse", "sync sse", "rustAsync sse"]}
 
-use crate::frb_generated::{StreamSink, FLUTTER_RUST_BRIDGE_HANDLER};
+use crate::frb_generated::{FLUTTER_RUST_BRIDGE_HANDLER, StreamSink};
 
 pub async fn simple_use_async_spawn(arg: String) -> String {
     // ref demo in https://docs.rs/tokio/latest/tokio/task/fn.spawn.html

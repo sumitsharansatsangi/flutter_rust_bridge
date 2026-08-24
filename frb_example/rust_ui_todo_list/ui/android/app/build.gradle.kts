@@ -1,22 +1,17 @@
 plugins {
-    id "com.android.application"
-    id "kotlin-android"
+    id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id "dev.flutter.flutter-gradle-plugin"
+    id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
     namespace = "com.example.frb_example_rust_ui_todo_list"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "30.0.14904198"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_21.toString()
     }
 
     defaultConfig {
@@ -34,13 +29,15 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 }
 
 kotlin {
-    jvmToolchain(21)
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+    }
 }
 
 flutter {

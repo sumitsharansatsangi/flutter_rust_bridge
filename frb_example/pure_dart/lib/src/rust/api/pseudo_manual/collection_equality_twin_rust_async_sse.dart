@@ -10,20 +10,20 @@ import '../collection_equality.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<StructWithDeepCollectionEqualityTwinRustAsyncSse>
-    echoStructWithDeepCollectionEqualityTwinRustAsyncSse(
-            {required StructWithDeepCollectionEqualityTwinRustAsyncSse
-                value}) =>
-        RustLib.instance.api
-            .crateApiPseudoManualCollectionEqualityTwinRustAsyncSseEchoStructWithDeepCollectionEqualityTwinRustAsyncSse(
-                value: value);
+echoStructWithDeepCollectionEqualityTwinRustAsyncSse({
+  required StructWithDeepCollectionEqualityTwinRustAsyncSse value,
+}) => RustLib.instance.api
+    .crateApiPseudoManualCollectionEqualityTwinRustAsyncSseEchoStructWithDeepCollectionEqualityTwinRustAsyncSse(
+      value: value,
+    );
 
 Future<StructWithShallowCollectionEqualityTwinRustAsyncSse>
-    echoStructWithShallowCollectionEqualityTwinRustAsyncSse(
-            {required StructWithShallowCollectionEqualityTwinRustAsyncSse
-                value}) =>
-        RustLib.instance.api
-            .crateApiPseudoManualCollectionEqualityTwinRustAsyncSseEchoStructWithShallowCollectionEqualityTwinRustAsyncSse(
-                value: value);
+echoStructWithShallowCollectionEqualityTwinRustAsyncSse({
+  required StructWithShallowCollectionEqualityTwinRustAsyncSse value,
+}) => RustLib.instance.api
+    .crateApiPseudoManualCollectionEqualityTwinRustAsyncSseEchoStructWithShallowCollectionEqualityTwinRustAsyncSse(
+      value: value,
+    );
 
 class StructWithDeepCollectionEqualityTwinRustAsyncSse {
   final List<String> list;
@@ -59,8 +59,10 @@ class StructWithDeepCollectionEqualityTwinRustAsyncSse {
           const DeepCollectionEquality().equals(list, other.list) &&
           const DeepCollectionEquality().equals(map, other.map) &&
           const DeepCollectionEquality().equals(setValues, other.setValues) &&
-          const DeepCollectionEquality()
-              .equals(optionalList, other.optionalList) &&
+          const DeepCollectionEquality().equals(
+            optionalList,
+            other.optionalList,
+          ) &&
           const DeepCollectionEquality().equals(bytes, other.bytes) &&
           const DeepCollectionEquality().equals(fixedBytes, other.fixedBytes);
 }

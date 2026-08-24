@@ -1,17 +1,13 @@
 use crate::codegen::ir::mir::default::MirDefaultValue;
 use crate::codegen::ir::mir::field::MirField;
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::utils::dart_keywords;
 use convert_case::{Case, Casing};
 use std::borrow::Cow;
 
 pub(crate) fn generate_field_required_modifier(field: &MirField) -> &str {
-    if field.is_optional() {
-        ""
-    } else {
-        "required "
-    }
+    if field.is_optional() { "" } else { "required " }
 }
 
 // the function signature is not covered while the whole body is covered - looks like a bug in coverage tool

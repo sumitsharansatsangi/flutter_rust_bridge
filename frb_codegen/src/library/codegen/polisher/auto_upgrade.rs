@@ -4,9 +4,9 @@ use crate::integration::integrator::pub_add_dependency_frb;
 use crate::library::commands::cargo::cargo_add;
 use crate::misc::FvmInstallMode;
 use crate::utils::dart_repository::dart_repo::{DartDependencyMode, DartRepository};
-use anyhow::{anyhow, Result};
-use cargo_metadata::VersionReq;
+use anyhow::{Result, anyhow};
 use cargo_toml::{Dependency, Manifest};
+use semver::VersionReq;
 use std::path::Path;
 use std::str::FromStr;
 
@@ -29,7 +29,9 @@ trait Upgrader {
             if config.enable_auto_upgrade {
                 self.upgrade(config.fvm_install_mode)?;
             } else {
-                log::warn!("Auto upgrader find wrong Dart/Rust flutter_rust_bridge dependency version, please enable `auto_upgrade_dependencies` flag or upgrade manually.");
+                log::warn!(
+                    "Auto upgrader find wrong Dart/Rust flutter_rust_bridge dependency version, please enable `auto_upgrade_dependencies` flag or upgrade manually."
+                );
             }
         }
         Ok(())
@@ -116,7 +118,7 @@ impl<'a> RustUpgrader<'a> {
 
 impl Upgrader for RustUpgrader<'_> {
     fn check(&self) -> Result<bool> {
-        Ok(self.dependency.req() == concat!("=", env!("CARGO_PKG_VERSION")))
+        Ok(self.dependency.req() == &VersionReq::parse(concat!("=", env!("CARGO_PKG_VERSION")))?)
     }
 
     fn upgrade(&self, _fvm_install_mode: FvmInstallMode) -> Result<()> {
@@ -211,7 +213,7 @@ mod tests {
             RustUpgrader::get_dependency(manifest, "flutter_rust_bridge").unwrap();
 
         assert_eq!(target_name.as_deref(), Some("x86_64-unknown-linux-gnu"));
-        assert_eq!(dependency.req(), "=1.0.0");
+        assert_eq!(dependency.req(), &VersionReq::parse("=1.0.0").unwrap());
     }
 
     #[test]
@@ -235,6 +237,6 @@ mod tests {
             RustUpgrader::get_dependency(manifest, "flutter_rust_bridge").unwrap();
 
         assert_eq!(target_name, None);
-        assert_eq!(dependency.req(), "=2.0.0");
+        assert_eq!(dependency.req(), &VersionReq::parse("=2.0.0").unwrap());
     }
 }

@@ -9,7 +9,7 @@ pub use crate::auxiliary::sample_types::{HideDataRaw, NonCloneDataRaw};
 use crate::frb_generated::{RustOpaque, RustOpaqueMoi};
 use anyhow::Result;
 #[allow(unused_imports)]
-use flutter_rust_bridge::{opaque_dyn, RustOpaqueNom};
+use flutter_rust_bridge::{RustOpaqueNom, opaque_dyn};
 use std::fmt::Debug;
 use std::ops::Deref;
 pub use std::sync::{Mutex, RwLock};
@@ -203,7 +203,7 @@ pub fn unwrap_rust_opaque_twin_sse_moi(
 /// FrbOpaqueReturn must not be used as an argument.
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
-pub fn frb_generator_test_twin_sse_moi(
-) -> crate::frb_generated::RustOpaqueMoi<FrbOpaqueReturnTwinSseMoi> {
+pub fn frb_generator_test_twin_sse_moi()
+-> crate::frb_generated::RustOpaqueMoi<FrbOpaqueReturnTwinSseMoi> {
     panic!("dummy code");
 }

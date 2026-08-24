@@ -35,41 +35,48 @@ Future<void> main({bool skipRustLibInit = false}) async {
     expect(value, 42);
   });
 
-  test('generic type alias Err translates to a Dart exception (#3071)',
-      () async {
-    await expectLater(
-      () async => genericResultAliasErrTwinSync(),
-      throwsA(isA<GenericAliasErrorTwinSync>()),
-    );
-  });
+  test(
+    'generic type alias Err translates to a Dart exception (#3071)',
+    () async {
+      await expectLater(
+        () async => genericResultAliasErrTwinSync(),
+        throwsA(isA<GenericAliasErrorTwinSync>()),
+      );
+    },
+  );
 
   test('chained generic type alias resolves to Ok value (#3071)', () async {
     final value = await genericResultAliasChainedOkTwinSync();
     expect(value, 43);
   });
 
-  test('chained generic type alias Err translates to a Dart exception (#3071)',
-      () async {
-    await expectLater(
-      () async => genericResultAliasChainedErrTwinSync(),
-      throwsA(isA<GenericAliasErrorTwinSync>()),
-    );
-  });
-
-  test('two-parameter generic type alias resolves to Ok value (#3071)',
-      () async {
-    final value = await genericResultAliasTwoParamsOkTwinSync();
-    expect(value, 44);
-  });
+  test(
+    'chained generic type alias Err translates to a Dart exception (#3071)',
+    () async {
+      await expectLater(
+        () async => genericResultAliasChainedErrTwinSync(),
+        throwsA(isA<GenericAliasErrorTwinSync>()),
+      );
+    },
+  );
 
   test(
-      'two-parameter generic type alias Err translates to a Dart exception (#3071)',
-      () async {
-    await expectLater(
-      () async => genericResultAliasTwoParamsErrTwinSync(),
-      throwsA(isA<GenericAliasErrorTwinSync>()),
-    );
-  });
+    'two-parameter generic type alias resolves to Ok value (#3071)',
+    () async {
+      final value = await genericResultAliasTwoParamsOkTwinSync();
+      expect(value, 44);
+    },
+  );
+
+  test(
+    'two-parameter generic type alias Err translates to a Dart exception (#3071)',
+    () async {
+      await expectLater(
+        () async => genericResultAliasTwoParamsErrTwinSync(),
+        throwsA(isA<GenericAliasErrorTwinSync>()),
+      );
+    },
+  );
 
   test('generic Option alias resolves in return position (#3071)', () async {
     expect(await genericOptionAliasReturnTwinSync(input: 45), 45);

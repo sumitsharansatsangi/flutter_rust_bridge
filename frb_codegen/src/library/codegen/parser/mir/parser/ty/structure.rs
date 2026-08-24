@@ -1,13 +1,13 @@
 use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatStruct;
 use crate::codegen::ir::mir::field::{MirField, MirFieldSettings};
 use crate::codegen::ir::mir::ident::MirIdent;
-use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicitReason;
-use crate::codegen::ir::mir::ty::structure::{MirStruct, MirStructIdent, MirTypeStructRef};
 use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::MirType::StructRef;
+use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicitReason;
+use crate::codegen::ir::mir::ty::structure::{MirStruct, MirStructIdent, MirTypeStructRef};
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::ty::enum_or_struct::{
-    parse_struct_or_enum_should_ignore, EnumOrStructParser, EnumOrStructParserInfo,
+    EnumOrStructParser, EnumOrStructParserInfo, parse_struct_or_enum_should_ignore,
 };
 use crate::codegen::parser::mir::parser::ty::misc::parse_comments;
 use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
@@ -44,7 +44,10 @@ impl TypeParserWithContext<'_, '_, '_> {
             Fields::Unnamed(FieldsUnnamed { unnamed, .. }) => (false, unnamed),
             // This will stop the whole generator and tell the users, so we do not care about testing it
             // frb-coverage:ignore-start
-            Fields::Unit => bail!("struct with unit fields are not supported yet, what about using `struct {name} {{}}` or `#[frb(opaque)] struct {name};` instead", name = src_struct.name.name),
+            Fields::Unit => bail!(
+                "struct with unit fields are not supported yet, what about using `struct {name} {{}}` or `#[frb(opaque)] struct {name};` instead",
+                name = src_struct.name.name
+            ),
             // frb-coverage:ignore-end
         };
 

@@ -20,10 +20,9 @@ Future<ApplicationSettings> getFallibleAppSettingsTwinNormal() =>
 
 Future<bool> isAppEmbeddedTwinNormal({
   required ApplicationSettings appSettings,
-}) =>
-    RustLib.instance.api.crateApiMirrorIsAppEmbeddedTwinNormal(
-      appSettings: appSettings,
-    );
+}) => RustLib.instance.api.crateApiMirrorIsAppEmbeddedTwinNormal(
+  appSettings: appSettings,
+);
 
 Stream<ApplicationSettings> appSettingsStreamTwinNormal() =>
     RustLib.instance.api.crateApiMirrorAppSettingsStreamTwinNormal();
@@ -35,8 +34,8 @@ Stream<MirrorStructTwinNormal> mirrorStructStreamTwinNormal() =>
     RustLib.instance.api.crateApiMirrorMirrorStructStreamTwinNormal();
 
 Stream<(ApplicationSettings, RawStringEnumMirrored)>
-    mirrorTupleStreamTwinNormal() =>
-        RustLib.instance.api.crateApiMirrorMirrorTupleStreamTwinNormal();
+mirrorTupleStreamTwinNormal() =>
+    RustLib.instance.api.crateApiMirrorMirrorTupleStreamTwinNormal();
 
 Future<ApplicationMessage> getMessageTwinNormal() =>
     RustLib.instance.api.crateApiMirrorGetMessageTwinNormal();
@@ -44,20 +43,18 @@ Future<ApplicationMessage> getMessageTwinNormal() =>
 Future<Numbers> repeatNumberTwinNormal({
   required int num,
   required BigInt times,
-}) =>
-    RustLib.instance.api.crateApiMirrorRepeatNumberTwinNormal(
-      num: num,
-      times: times,
-    );
+}) => RustLib.instance.api.crateApiMirrorRepeatNumberTwinNormal(
+  num: num,
+  times: times,
+);
 
 Future<Sequences> repeatSequenceTwinNormal({
   required int seq,
   required BigInt times,
-}) =>
-    RustLib.instance.api.crateApiMirrorRepeatSequenceTwinNormal(
-      seq: seq,
-      times: times,
-    );
+}) => RustLib.instance.api.crateApiMirrorRepeatSequenceTwinNormal(
+  seq: seq,
+  times: times,
+);
 
 Future<int?> firstNumberTwinNormal({required Numbers nums}) =>
     RustLib.instance.api.crateApiMirrorFirstNumberTwinNormal(nums: nums);
@@ -73,14 +70,13 @@ Future<NestedRawStringMirrored> testNestedRawStringMirroredTwinNormal() =>
 
 Future<RawStringEnumMirrored> testRawStringEnumMirroredTwinNormal({
   required bool nested,
-}) =>
-    RustLib.instance.api.crateApiMirrorTestRawStringEnumMirroredTwinNormal(
-      nested: nested,
-    );
+}) => RustLib.instance.api.crateApiMirrorTestRawStringEnumMirroredTwinNormal(
+  nested: nested,
+);
 
 Future<ListOfNestedRawStringMirrored>
-    testListOfRawNestedStringMirroredTwinNormal() => RustLib.instance.api
-        .crateApiMirrorTestListOfRawNestedStringMirroredTwinNormal();
+testListOfRawNestedStringMirroredTwinNormal() => RustLib.instance.api
+    .crateApiMirrorTestListOfRawNestedStringMirroredTwinNormal();
 
 Future<List<RawStringMirrored>> testFallibleOfRawStringMirroredTwinNormal() =>
     RustLib.instance.api
@@ -91,8 +87,8 @@ Future<List<RawStringEnumMirrored>> testListOfNestedEnumsMirroredTwinNormal() =>
         .crateApiMirrorTestListOfNestedEnumsMirroredTwinNormal();
 
 Future<ContainsMirroredSubStructTwinNormal>
-    testContainsMirroredSubStructTwinNormal() => RustLib.instance.api
-        .crateApiMirrorTestContainsMirroredSubStructTwinNormal();
+testContainsMirroredSubStructTwinNormal() => RustLib.instance.api
+    .crateApiMirrorTestContainsMirroredSubStructTwinNormal();
 
 Future<StructWithHashMap> testHashmapWithMirroredValueTwinNormal() =>
     RustLib.instance.api.crateApiMirrorTestHashmapWithMirroredValueTwinNormal();
@@ -137,14 +133,14 @@ class ApplicationEnv {
   const ApplicationEnv({required this.vars});
 
   @override
-  int get hashCode => const DeepCollectionEquality().hash(vars);
+  int get hashCode => vars.hashCode;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is ApplicationEnv &&
           runtimeType == other.runtimeType &&
-          const DeepCollectionEquality().equals(vars, other.vars);
+          vars == other.vars;
 }
 
 class ApplicationEnvVar {
@@ -188,11 +184,11 @@ class ApplicationModeArray2 extends NonGrowableListView<ApplicationMode> {
   final List<ApplicationMode> _inner;
 
   ApplicationModeArray2(this._inner)
-      : assert(_inner.length == arraySize),
-        super(_inner);
+    : assert(_inner.length == arraySize),
+      super(_inner);
 
   ApplicationModeArray2.init(ApplicationMode fill)
-      : this(List<ApplicationMode>.filled(arraySize, fill));
+    : this(List<ApplicationMode>.filled(arraySize, fill));
 }
 
 class ApplicationSettings {
@@ -273,14 +269,14 @@ class ListOfNestedRawStringMirrored {
   const ListOfNestedRawStringMirrored({required this.raw});
 
   @override
-  int get hashCode => const DeepCollectionEquality().hash(raw);
+  int get hashCode => raw.hashCode;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is ListOfNestedRawStringMirrored &&
           runtimeType == other.runtimeType &&
-          const DeepCollectionEquality().equals(raw, other.raw);
+          raw == other.raw;
 }
 
 class MirrorStructTwinNormal {
@@ -297,11 +293,7 @@ class MirrorStructTwinNormal {
   });
 
   @override
-  int get hashCode =>
-      a.hashCode ^
-      b.hashCode ^
-      const DeepCollectionEquality().hash(c) ^
-      const DeepCollectionEquality().hash(d);
+  int get hashCode => a.hashCode ^ b.hashCode ^ c.hashCode ^ d.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -310,8 +302,8 @@ class MirrorStructTwinNormal {
           runtimeType == other.runtimeType &&
           a == other.a &&
           b == other.b &&
-          const DeepCollectionEquality().equals(c, other.c) &&
-          const DeepCollectionEquality().equals(d, other.d);
+          c == other.c &&
+          d == other.d;
 }
 
 class NestedRawStringMirrored {
@@ -399,12 +391,12 @@ class StructWithHashMap {
   const StructWithHashMap({required this.map});
 
   @override
-  int get hashCode => const DeepCollectionEquality().hash(map);
+  int get hashCode => map.hashCode;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is StructWithHashMap &&
           runtimeType == other.runtimeType &&
-          const DeepCollectionEquality().equals(map, other.map);
+          map == other.map;
 }

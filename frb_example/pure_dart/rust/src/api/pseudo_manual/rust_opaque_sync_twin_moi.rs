@@ -21,8 +21,8 @@ pub struct FrbOpaqueSyncReturnTwinMoi;
 
 #[frb(sync)]
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
-pub fn sync_option_rust_opaque_twin_moi(
-) -> Result<Option<crate::frb_generated::RustOpaqueMoi<HideDataAnotherTwinMoi>>> {
+pub fn sync_option_rust_opaque_twin_moi()
+-> Result<Option<crate::frb_generated::RustOpaqueMoi<HideDataAnotherTwinMoi>>> {
     Ok(Some(crate::frb_generated::RustOpaqueMoi::new(
         HideDataAnotherTwinMoi(HideDataRaw::new()),
     )))
@@ -53,7 +53,7 @@ pub fn sync_create_non_clone_twin_moi() -> crate::frb_generated::RustOpaqueMoi<N
 /// FrbOpaqueSyncReturn must be without wrapper like Option<> Vec<> etc.
 #[frb(sync)]
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
-pub fn frb_sync_generator_test_twin_moi(
-) -> crate::frb_generated::RustOpaqueMoi<FrbOpaqueSyncReturnTwinMoi> {
+pub fn frb_sync_generator_test_twin_moi()
+-> crate::frb_generated::RustOpaqueMoi<FrbOpaqueSyncReturnTwinMoi> {
     crate::frb_generated::RustOpaqueMoi::new(FrbOpaqueSyncReturnTwinMoi)
 }

@@ -2,7 +2,7 @@ use crate::codec::BaseCodec;
 use crate::for_generated::{BaseArc, StreamSinkBase};
 use crate::generalized_isolate::{IntoDart, ZeroCopyBuffer};
 #[cfg(feature = "rust-async")]
-use crate::rust_auto_opaque::{inner::RustAutoOpaqueInner, RustAutoOpaqueBase};
+use crate::rust_auto_opaque::{RustAutoOpaqueBase, inner::RustAutoOpaqueInner};
 use crate::rust_opaque::RustOpaqueBase;
 use std::collections::{HashMap, HashSet};
 

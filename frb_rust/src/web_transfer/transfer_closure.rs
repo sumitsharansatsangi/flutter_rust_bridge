@@ -1,4 +1,4 @@
-use js_sys::{global, Array};
+use js_sys::{Array, global};
 use std::iter::FromIterator;
 use wasm_bindgen::prelude::*;
 use web_sys::{DedicatedWorkerGlobalScope, Worker};

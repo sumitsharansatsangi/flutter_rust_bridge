@@ -4,7 +4,7 @@ use crate::codegen::ir::hir::flat::struct_or_enum::{
 use crate::codegen::ir::hir::misc::syn_item_struct_or_enum::SynItemStructOrEnum;
 use crate::codegen::ir::hir::naive_flat::item::HirNaiveFlatItemMeta;
 use crate::codegen::parser::hir::flat::parser::mirror_ident::{
-    parse_mirror_ident, ParseMirrorIdentOutput,
+    ParseMirrorIdentOutput, parse_mirror_ident,
 };
 use crate::utils::namespace::NamespacedName;
 use itertools::Itertools;

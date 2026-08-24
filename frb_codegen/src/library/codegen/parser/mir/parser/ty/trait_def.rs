@@ -1,5 +1,5 @@
-use crate::codegen::ir::mir::ty::trait_def::MirTypeTraitDef;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::trait_def::MirTypeTraitDef;
 use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
 use crate::codegen::parser::mir::parser::ty::{TypeParser, TypeParserWithContext};
 

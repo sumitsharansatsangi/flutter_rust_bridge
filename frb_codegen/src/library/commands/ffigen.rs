@@ -221,10 +221,12 @@ mod tests {
     #[test]
     pub fn test_handle_output_when_has_severe_should_warn() {
         let result = handle_output(true, "One line\n[SEVERE] Something\nAnother line", "");
-        assert!(result
-            .unwrap()
-            .unwrap()
-            .contains("The `ffigen` command emitted a SEVERE error."));
+        assert!(
+            result
+                .unwrap()
+                .unwrap()
+                .contains("The `ffigen` command emitted a SEVERE error.")
+        );
     }
 
     #[test]
@@ -248,10 +250,12 @@ Another line", "");
 Another line"#,
             "",
         );
-        assert!(result
-            .unwrap()
-            .unwrap()
-            .contains("The `ffigen` command emitted a SEVERE error."));
+        assert!(
+            result
+                .unwrap()
+                .unwrap()
+                .contains("The `ffigen` command emitted a SEVERE error.")
+        );
     }
 
     #[test]
@@ -261,10 +265,12 @@ Another line"#,
             "One line\nCouldn't find dynamic library in default locations.\nAnother line",
             "",
         );
-        assert!(result
-            .err()
-            .unwrap()
-            .to_string()
-            .contains("ffigen could not find LLVM"));
+        assert!(
+            result
+                .err()
+                .unwrap()
+                .to_string()
+                .contains("ffigen could not find LLVM")
+        );
     }
 }

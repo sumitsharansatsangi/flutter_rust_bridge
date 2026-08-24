@@ -1,6 +1,6 @@
 use crate::codegen::ir::mir::func::{MirFunc, MirFuncInput, OwnershipMode};
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use convert_case::{Case, Casing};
 use itertools::Itertools;
 
@@ -76,7 +76,11 @@ fn generate_decode_statement(
         name = get_variable_name(field),
         syncness = if func.rust_async { "async" } else { "sync" },
         maybe_await = if func.rust_async { ".await" } else { "" },
-        maybe_illegal_static_ref = if field.needs_extend_lifetime { "_illegal_static_ref" } else { "" },
+        maybe_illegal_static_ref = if field.needs_extend_lifetime {
+            "_illegal_static_ref"
+        } else {
+            ""
+        },
     )
 }
 

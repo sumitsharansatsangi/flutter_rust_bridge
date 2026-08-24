@@ -10,85 +10,105 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 // These functions are ignored because they are not marked as `pub`: `yield_once`
 
-Future<RustOpaqueWebLockingDataTwinNormal> rustOpaqueWebLockingCreateTwinNormal(
-        {required int initial}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustOpaqueWebLockingCreateTwinNormal(
-            initial: initial);
+Future<RustOpaqueWebLockingDataTwinNormal>
+rustOpaqueWebLockingCreateTwinNormal({required int initial}) => RustLib
+    .instance
+    .api
+    .crateApiRustOpaqueWebLockingRustOpaqueWebLockingCreateTwinNormal(
+      initial: initial,
+    );
 
-Future<int> rustOpaqueWebLockingGetTwinNormal(
-        {required RustOpaqueWebLockingDataTwinNormal arg}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustOpaqueWebLockingGetTwinNormal(
-            arg: arg);
+Future<int> rustOpaqueWebLockingGetTwinNormal({
+  required RustOpaqueWebLockingDataTwinNormal arg,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustOpaqueWebLockingGetTwinNormal(arg: arg);
 
-int rustOpaqueWebLockingSyncAddTwinNormal(
-        {required RustOpaqueWebLockingDataTwinNormal arg,
-        required int adder}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustOpaqueWebLockingSyncAddTwinNormal(
-            arg: arg, adder: adder);
+int rustOpaqueWebLockingSyncAddTwinNormal({
+  required RustOpaqueWebLockingDataTwinNormal arg,
+  required int adder,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustOpaqueWebLockingSyncAddTwinNormal(
+      arg: arg,
+      adder: adder,
+    );
 
-Future<int> rustOpaqueWebLockingWorkerAddTwinNormal(
-        {required RustOpaqueWebLockingDataTwinNormal arg,
-        required int adder,
-        required int delayMillis}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustOpaqueWebLockingWorkerAddTwinNormal(
-            arg: arg, adder: adder, delayMillis: delayMillis);
+Future<int> rustOpaqueWebLockingWorkerAddTwinNormal({
+  required RustOpaqueWebLockingDataTwinNormal arg,
+  required int adder,
+  required int delayMillis,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustOpaqueWebLockingWorkerAddTwinNormal(
+      arg: arg,
+      adder: adder,
+      delayMillis: delayMillis,
+    );
 
-Future<int> rustOpaqueWebLockingAsyncAddTwinNormal(
-        {required RustOpaqueWebLockingDataTwinNormal arg,
-        required int adder}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustOpaqueWebLockingAsyncAddTwinNormal(
-            arg: arg, adder: adder);
+Future<int> rustOpaqueWebLockingAsyncAddTwinNormal({
+  required RustOpaqueWebLockingDataTwinNormal arg,
+  required int adder,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustOpaqueWebLockingAsyncAddTwinNormal(
+      arg: arg,
+      adder: adder,
+    );
 
-Future<void> rustOpaqueWebLockingHoldMutBorrowForeverTwinNormal(
-        {required RustOpaqueWebLockingDataTwinNormal arg}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustOpaqueWebLockingHoldMutBorrowForeverTwinNormal(
-            arg: arg);
+Future<void> rustOpaqueWebLockingHoldMutBorrowForeverTwinNormal({
+  required RustOpaqueWebLockingDataTwinNormal arg,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustOpaqueWebLockingHoldMutBorrowForeverTwinNormal(
+      arg: arg,
+    );
 
 Future<RustAutoOpaqueWebLockingDataTwinNormal>
-    rustAutoOpaqueWebLockingCreateTwinNormal({required int initial}) => RustLib
-        .instance.api
-        .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingCreateTwinNormal(
-            initial: initial);
+rustAutoOpaqueWebLockingCreateTwinNormal({required int initial}) => RustLib
+    .instance
+    .api
+    .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingCreateTwinNormal(
+      initial: initial,
+    );
 
-Future<int> rustAutoOpaqueWebLockingGetTwinNormal(
-        {required RustAutoOpaqueWebLockingDataTwinNormal arg}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingGetTwinNormal(
-            arg: arg);
+Future<int> rustAutoOpaqueWebLockingGetTwinNormal({
+  required RustAutoOpaqueWebLockingDataTwinNormal arg,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingGetTwinNormal(
+      arg: arg,
+    );
 
-int rustAutoOpaqueWebLockingSyncAddTwinNormal(
-        {required RustAutoOpaqueWebLockingDataTwinNormal arg,
-        required int adder}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingSyncAddTwinNormal(
-            arg: arg, adder: adder);
+int rustAutoOpaqueWebLockingSyncAddTwinNormal({
+  required RustAutoOpaqueWebLockingDataTwinNormal arg,
+  required int adder,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingSyncAddTwinNormal(
+      arg: arg,
+      adder: adder,
+    );
 
-Future<int> rustAutoOpaqueWebLockingWorkerAddTwinNormal(
-        {required RustAutoOpaqueWebLockingDataTwinNormal arg,
-        required int adder,
-        required int delayMillis}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingWorkerAddTwinNormal(
-            arg: arg, adder: adder, delayMillis: delayMillis);
+Future<int> rustAutoOpaqueWebLockingWorkerAddTwinNormal({
+  required RustAutoOpaqueWebLockingDataTwinNormal arg,
+  required int adder,
+  required int delayMillis,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingWorkerAddTwinNormal(
+      arg: arg,
+      adder: adder,
+      delayMillis: delayMillis,
+    );
 
-Future<int> rustAutoOpaqueWebLockingAsyncAddTwinNormal(
-        {required RustAutoOpaqueWebLockingDataTwinNormal arg,
-        required int adder}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingAsyncAddTwinNormal(
-            arg: arg, adder: adder);
+Future<int> rustAutoOpaqueWebLockingAsyncAddTwinNormal({
+  required RustAutoOpaqueWebLockingDataTwinNormal arg,
+  required int adder,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingAsyncAddTwinNormal(
+      arg: arg,
+      adder: adder,
+    );
 
-Future<void> rustAutoOpaqueWebLockingHoldMutBorrowForeverTwinNormal(
-        {required RustAutoOpaqueWebLockingDataTwinNormal arg}) =>
-    RustLib.instance.api
-        .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingHoldMutBorrowForeverTwinNormal(
-            arg: arg);
+Future<void> rustAutoOpaqueWebLockingHoldMutBorrowForeverTwinNormal({
+  required RustAutoOpaqueWebLockingDataTwinNormal arg,
+}) => RustLib.instance.api
+    .crateApiRustOpaqueWebLockingRustAutoOpaqueWebLockingHoldMutBorrowForeverTwinNormal(
+      arg: arg,
+    );
 
 // Rust type: RustOpaqueNom<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<RustAutoOpaqueWebLockingDataTwinNormal>>
 abstract class RustAutoOpaqueWebLockingDataTwinNormal

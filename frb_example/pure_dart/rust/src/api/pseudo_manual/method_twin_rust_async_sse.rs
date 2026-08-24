@@ -2,8 +2,8 @@
 // and is auto-generated from `method.rs` by frb_internal
 // Please do not modify manually, but modify the origin and re-run frb_internal generator
 
-use crate::frb_generated::StreamSink;
 use crate::frb_generated::FLUTTER_RUST_BRIDGE_HANDLER;
+use crate::frb_generated::StreamSink;
 use flutter_rust_bridge::for_generated::BaseThreadPool;
 use flutter_rust_bridge::{frb, transfer};
 

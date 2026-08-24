@@ -11,7 +11,7 @@ pub use crate::auxiliary::sample_types::{HideDataRaw, NonCloneDataRaw};
 use crate::frb_generated::{RustOpaque, RustOpaqueMoi};
 use anyhow::Result;
 #[allow(unused_imports)]
-use flutter_rust_bridge::{opaque_dyn, RustOpaqueNom};
+use flutter_rust_bridge::{RustOpaqueNom, opaque_dyn};
 use std::fmt::Debug;
 use std::ops::Deref;
 pub use std::sync::{Mutex, RwLock};

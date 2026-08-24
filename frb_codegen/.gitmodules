@@ -1,7 +1,7 @@
-[submodule "assets/integration_template/plugin/cargokit"]
-	path = assets/integration_template/plugin/cargokit
+[submodule "assets/integration_template/cargokit/plugin/cargokit"]
+	path = assets/integration_template/cargokit/plugin/cargokit
 	url = https://github.com/sumitsharansatsangi/cargokit.git
 
-[submodule "assets/integration_template/app/rust_builder/cargokit"]
-	path = assets/integration_template/app/rust_builder/cargokit
+[submodule "assets/integration_template/cargokit/app/rust_builder/cargokit"]
+	path = assets/integration_template/cargokit/app/rust_builder/cargokit
 	url = https://github.com/sumitsharansatsangi/cargokit.git

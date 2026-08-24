@@ -98,8 +98,8 @@ pub async fn rust_auto_opaque_plus_sign_arg_twin_rust_async(
     assert_eq!(arg.f(), "hello");
 }
 
-pub async fn rust_auto_opaque_plus_sign_return_twin_rust_async(
-) -> Box<dyn MyTraitTwinRustAsync + Send + Sync> {
+pub async fn rust_auto_opaque_plus_sign_return_twin_rust_async()
+-> Box<dyn MyTraitTwinRustAsync + Send + Sync> {
     Box::new("hello".to_owned())
 }
 
@@ -109,8 +109,8 @@ pub async fn rust_auto_opaque_callable_arg_twin_rust_async(
     assert_eq!(&arg("hello".into()), "hellohello");
 }
 
-pub async fn rust_auto_opaque_callable_return_twin_rust_async(
-) -> Box<dyn Fn(String) -> String + Send + Sync> {
+pub async fn rust_auto_opaque_callable_return_twin_rust_async()
+-> Box<dyn Fn(String) -> String + Send + Sync> {
     Box::new(|x: String| x.repeat(2))
 }
 
@@ -258,8 +258,8 @@ pub async fn rust_auto_opaque_struct_with_good_and_opaque_field_arg_own_twin_rus
     assert_eq!(arg.option_opaque.unwrap().inner, 42);
 }
 
-pub async fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_rust_async(
-) -> StructWithGoodAndOpaqueFieldTwinRustAsync {
+pub async fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_rust_async()
+-> StructWithGoodAndOpaqueFieldTwinRustAsync {
     StructWithGoodAndOpaqueFieldTwinRustAsync {
         good: "hello".to_string(),
         opaque: NonCloneSimpleTwinRustAsync { inner: 42 },
@@ -284,13 +284,13 @@ pub async fn rust_auto_opaque_enum_with_good_and_opaque_arg_own_twin_rust_async(
     }
 }
 
-pub async fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_rust_async(
-) -> EnumWithGoodAndOpaqueTwinRustAsync {
+pub async fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_rust_async()
+-> EnumWithGoodAndOpaqueTwinRustAsync {
     EnumWithGoodAndOpaqueTwinRustAsync::Good("hello".to_owned())
 }
 
-pub async fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_rust_async(
-) -> EnumWithGoodAndOpaqueTwinRustAsync {
+pub async fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_rust_async()
+-> EnumWithGoodAndOpaqueTwinRustAsync {
     EnumWithGoodAndOpaqueTwinRustAsync::Opaque(NonCloneSimpleTwinRustAsync { inner: 42 })
 }
 
@@ -372,8 +372,8 @@ pub async fn rust_auto_opaque_explicit_struct_twin_rust_async(
     assert_eq!(arg.auto_opaque.try_read().unwrap().inner, arg.normal);
 }
 
-pub async fn rust_auto_opaque_explicit_return_struct_twin_rust_async(
-) -> StructWithExplicitAutoOpaqueFieldTwinRustAsync {
+pub async fn rust_auto_opaque_explicit_return_struct_twin_rust_async()
+-> StructWithExplicitAutoOpaqueFieldTwinRustAsync {
     StructWithExplicitAutoOpaqueFieldTwinRustAsync {
         normal: 100,
         auto_opaque: RustAutoOpaque::new(NonCloneSimpleTwinRustAsync { inner: 100 }),
@@ -410,8 +410,8 @@ pub struct OpaqueOneTwinRustAsync(PathBuf);
 #[frb(opaque)]
 pub struct OpaqueTwoTwinRustAsync(PathBuf);
 
-pub async fn rust_auto_opaque_return_opaque_one_and_two_twin_rust_async(
-) -> (OpaqueOneTwinRustAsync, OpaqueTwoTwinRustAsync) {
+pub async fn rust_auto_opaque_return_opaque_one_and_two_twin_rust_async()
+-> (OpaqueOneTwinRustAsync, OpaqueTwoTwinRustAsync) {
     unimplemented!()
 }
 pub async fn rust_auto_opaque_return_opaque_two_twin_rust_async() -> OpaqueTwoTwinRustAsync {

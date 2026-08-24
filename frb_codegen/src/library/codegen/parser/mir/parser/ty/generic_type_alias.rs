@@ -34,7 +34,10 @@ pub(crate) fn substitute_type_params(
 /// path type, e.g. `[MyDto]` for `AppResult<MyDto>`. Returns `None` if the type
 /// is not a path or has no angle-bracketed arguments.
 pub(crate) fn extract_generic_type_args(ty: &Type) -> Option<Vec<Type>> {
-    if let Type::Path(TypePath { qself: None, path }) = ty {
+    if let Type::Path(TypePath {
+        qself: None, path, ..
+    }) = ty
+    {
         if let Some(segment) = path.segments.last() {
             if let PathArguments::AngleBracketed(angle_bracketed) = &segment.arguments {
                 let types = (angle_bracketed.args.iter())
@@ -59,7 +62,10 @@ impl VisitMut for ParamSubstitutor {
         // Replace a bare identifier (e.g. `T`) that matches a type parameter with
         // the concrete argument. Only single-segment paths without their own
         // generic arguments are considered type-parameter references.
-        if let Type::Path(TypePath { qself: None, path }) = node {
+        if let Type::Path(TypePath {
+            qself: None, path, ..
+        }) = node
+        {
             if path.segments.len() == 1 {
                 let segment = &path.segments[0];
                 if matches!(segment.arguments, PathArguments::None) {

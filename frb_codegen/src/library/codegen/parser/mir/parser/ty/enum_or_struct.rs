@@ -1,12 +1,12 @@
 use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatStructOrEnum;
 use crate::codegen::ir::hir::misc::syn_item_struct_or_enum::SynItemStructOrEnum;
 use crate::codegen::ir::hir::misc::visibility::HirVisibility;
-use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicitReason;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicitReason;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
+use crate::codegen::parser::mir::parser::ty::TypeParserParsingContext;
 use crate::codegen::parser::mir::parser::ty::generics::should_ignore_because_generics;
 use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
-use crate::codegen::parser::mir::parser::ty::TypeParserParsingContext;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 use crate::utils::basic_code::general_code::GeneralDartCode;
 use crate::utils::basic_code::parser::parse_dart_code;
@@ -131,6 +131,7 @@ where
         self.parse_type_rust_auto_opaque_implicit(
             Some(namespaced_name.namespace.clone()),
             &Type::Path(TypePath {
+                attrs: vec![],
                 path: path.to_owned(),
                 qself: None,
             }),

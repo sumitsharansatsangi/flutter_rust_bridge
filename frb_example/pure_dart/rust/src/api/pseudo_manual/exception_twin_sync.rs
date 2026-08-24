@@ -3,7 +3,7 @@
 // Please do not modify manually, but modify the origin and re-run frb_internal generator
 
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use backtrace::Backtrace;
 use flutter_rust_bridge::frb;
 
@@ -218,16 +218,16 @@ impl CustomStructTwinSync {
     }
 
     #[flutter_rust_bridge::frb(sync)]
-    pub fn static_return_custom_struct_error_twin_sync(
-    ) -> Result<(), CustomStructErrorAnotherTwinSync> {
+    pub fn static_return_custom_struct_error_twin_sync()
+    -> Result<(), CustomStructErrorAnotherTwinSync> {
         Err(CustomStructErrorAnotherTwinSync {
             message: "error message".to_string(),
         })
     }
 
     #[flutter_rust_bridge::frb(sync)]
-    pub fn static_return_custom_struct_ok_twin_sync(
-    ) -> Result<u32, CustomStructErrorAnotherTwinSync> {
+    pub fn static_return_custom_struct_ok_twin_sync()
+    -> Result<u32, CustomStructErrorAnotherTwinSync> {
         Ok(3)
     }
 

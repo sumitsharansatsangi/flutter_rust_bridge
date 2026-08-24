@@ -6,7 +6,7 @@ use crate::library::commands::fvm::command_arg_maybe_fvm;
 use crate::misc::FvmInstallMode;
 use crate::utils::dart_repository::dart_repo::DartRepository;
 use crate::utils::path_utils::{find_dart_package_dir, path_to_string};
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use itertools::Itertools;
 use log::debug;
 use std::path::{Path, PathBuf};

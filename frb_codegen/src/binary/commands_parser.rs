@@ -89,8 +89,8 @@ mod tests {
     // need to run serially, otherwise working directory will override each other
     #[test]
     #[serial]
-    fn test_compute_codegen_config_mode_from_files_auto_flutter_rust_bridge_yaml(
-    ) -> anyhow::Result<()> {
+    fn test_compute_codegen_config_mode_from_files_auto_flutter_rust_bridge_yaml()
+    -> anyhow::Result<()> {
         configure_opinionated_test_logging();
         set_cwd_test_fixture("binary/commands_parser/flutter_rust_bridge_yaml")?;
 
@@ -123,12 +123,14 @@ mod tests {
 
         let result = run_command_line(vec!["", "generate"]);
         assert!(result.is_err());
-        assert!(result
-            .unwrap_err()
-            .source()
-            .unwrap()
-            .to_string()
-            .contains("misspelled_dart3"));
+        assert!(
+            result
+                .unwrap_err()
+                .source()
+                .unwrap()
+                .to_string()
+                .contains("misspelled_dart3")
+        );
 
         Ok(())
     }
@@ -158,12 +160,14 @@ mod tests {
             "faulty_flutter_rust_bridge.yaml",
         ]);
         assert!(result.is_err());
-        assert!(result
-            .unwrap_err()
-            .source()
-            .unwrap()
-            .to_string()
-            .contains("misspelled_dart3"));
+        assert!(
+            result
+                .unwrap_err()
+                .source()
+                .unwrap()
+                .to_string()
+                .contains("misspelled_dart3")
+        );
         Ok(())
     }
 

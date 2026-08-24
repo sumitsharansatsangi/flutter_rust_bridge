@@ -8,15 +8,15 @@ use crate::codegen::ir::misc::skip::IrSkipReason::{
     IgnoreBecauseExplicitAttribute, IgnoreBecauseFunctionNotPub,
 };
 use crate::codegen::ir::misc::skip::{IrSkip, IrSkipReason, IrValueOrSkip, MirFuncOrSkip};
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::function::auto_accessor::create_simplified_parsing_context;
 use crate::codegen::parser::mir::parser::function::real::compute_codec_mode_pack;
 use crate::codegen::parser::mir::parser::ty::TypeParser;
-use crate::codegen::parser::mir::ParseMode;
 use crate::utils::namespace::NamespacedName;
-use syn::spanned::Spanned;
 use syn::Visibility;
+use syn::spanned::Spanned;
 
 pub(crate) fn parse(
     config: &ParserMirInternalConfig,

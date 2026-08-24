@@ -6,10 +6,10 @@ use crate::misc::FvmInstallMode;
 use crate::utils::dart_repository::dart_repo::DartRepository;
 use crate::utils::dart_repository::get_dart_package_name;
 use crate::utils::path_utils::path_to_string;
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use log::debug;
 use std::collections::HashMap;
-use std::path::{Path, MAIN_SEPARATOR};
+use std::path::{MAIN_SEPARATOR, Path};
 
 pub fn dart_build_runner(
     dart_root: &Path,
@@ -202,7 +202,9 @@ mod tests {
                 false,
             )
             .unwrap(),
-            vec!["--build-filter=package:example/generated%5C%5Bfoo%5C%5D%20%23bar%5C%3F/**.freezed.dart"]
+            vec![
+                "--build-filter=package:example/generated%5C%5Bfoo%5C%5D%20%23bar%5C%3F/**.freezed.dart"
+            ]
         );
     }
 

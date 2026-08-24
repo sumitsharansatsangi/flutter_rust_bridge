@@ -22,11 +22,13 @@ pub unsafe extern "C" fn frb_rust_vec_u8_resize(
     ptr: *mut u8,
     old_len: i32,
     new_len: i32,
-) -> *mut u8 { unsafe {
-    let mut vec = vec_from_leak_ptr(ptr, old_len);
-    vec_resize(&mut vec, new_len);
-    into_leak_vec_ptr(vec).0
-}}
+) -> *mut u8 {
+    unsafe {
+        let mut vec = vec_from_leak_ptr(ptr, old_len);
+        vec_resize(&mut vec, new_len);
+        into_leak_vec_ptr(vec).0
+    }
+}
 
 fn vec_resize(vec: &mut Vec<u8>, new_len: i32) {
     let new_len = new_len as usize;
@@ -41,6 +43,8 @@ fn vec_resize(vec: &mut Vec<u8>, new_len: i32) {
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn frb_rust_vec_u8_free(ptr: *mut u8, len: i32) { unsafe {
-    vec_from_leak_ptr(ptr, len);
-}}
+pub unsafe extern "C" fn frb_rust_vec_u8_free(ptr: *mut u8, len: i32) {
+    unsafe {
+        vec_from_leak_ptr(ptr, len);
+    }
+}

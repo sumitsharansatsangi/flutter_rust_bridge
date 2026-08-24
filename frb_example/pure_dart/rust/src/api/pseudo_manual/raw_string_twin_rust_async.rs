@@ -30,8 +30,8 @@ pub struct MoreThanJustOneRawStringStructTwinRustAsync {
     pub another: String,
 }
 
-pub async fn test_more_than_just_one_raw_string_struct_twin_rust_async(
-) -> MoreThanJustOneRawStringStructTwinRustAsync {
+pub async fn test_more_than_just_one_raw_string_struct_twin_rust_async()
+-> MoreThanJustOneRawStringStructTwinRustAsync {
     MoreThanJustOneRawStringStructTwinRustAsync {
         regular: "regular".to_owned(),
         r#type: "type".to_owned(),

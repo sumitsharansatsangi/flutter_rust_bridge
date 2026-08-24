@@ -1,6 +1,6 @@
-use crate::codec::sse::Dart2RustMessageSse;
 use crate::codec::BaseCodec;
 use crate::codec::Rust2DartMessageTrait;
+use crate::codec::sse::Dart2RustMessageSse;
 use crate::platform_types::DartAbi;
 use crate::platform_types::MessagePort;
 use std::future::Future;

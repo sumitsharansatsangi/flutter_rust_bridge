@@ -3,7 +3,7 @@
 // Please do not modify manually, but modify the origin and re-run frb_internal generator
 
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use backtrace::Backtrace;
 use flutter_rust_bridge::frb;
 
@@ -203,8 +203,8 @@ pub fn return_custom_nested_error_1_twin_sync_sse() -> Result<(), CustomNestedEr
 
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn return_custom_nested_error_1_variant1_twin_sync_sse(
-) -> Result<(), CustomNestedError1TwinSyncSse> {
+pub fn return_custom_nested_error_1_variant1_twin_sync_sse()
+-> Result<(), CustomNestedError1TwinSyncSse> {
     Err(CustomNestedError1TwinSyncSse::CustomNested1(
         "custom".to_string(),
     ))
@@ -249,8 +249,8 @@ impl CustomStructTwinSyncSse {
 
     #[flutter_rust_bridge::frb(serialize)]
     #[flutter_rust_bridge::frb(sync)]
-    pub fn static_return_custom_struct_error_twin_sync_sse(
-    ) -> Result<(), CustomStructErrorAnotherTwinSyncSse> {
+    pub fn static_return_custom_struct_error_twin_sync_sse()
+    -> Result<(), CustomStructErrorAnotherTwinSyncSse> {
         Err(CustomStructErrorAnotherTwinSyncSse {
             message: "error message".to_string(),
         })
@@ -258,8 +258,8 @@ impl CustomStructTwinSyncSse {
 
     #[flutter_rust_bridge::frb(serialize)]
     #[flutter_rust_bridge::frb(sync)]
-    pub fn static_return_custom_struct_ok_twin_sync_sse(
-    ) -> Result<u32, CustomStructErrorAnotherTwinSyncSse> {
+    pub fn static_return_custom_struct_ok_twin_sync_sse()
+    -> Result<u32, CustomStructErrorAnotherTwinSyncSse> {
         Ok(3)
     }
 

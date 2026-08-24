@@ -3,7 +3,7 @@ use crate::utils::path_utils::path_to_string;
 use itertools::Itertools;
 use log::{debug, warn};
 use notify::{RecommendedWatcher, RecursiveMode};
-use notify_debouncer_mini::{new_debouncer, DebounceEventResult, Debouncer};
+use notify_debouncer_mini::{DebounceEventResult, Debouncer, new_debouncer};
 use std::path::PathBuf;
 use std::sync::mpsc::Receiver;
 use std::time::Duration;

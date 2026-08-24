@@ -13,10 +13,10 @@ repositories {
 android {
     namespace = "com.flutter_rust_bridge.REPLACE_ME_DART_PACKAGE_NAME"
 
-    compileSdk = 37
+    compileSdk = 36
 
     // Uses the NDK version supplied by the consuming Flutter app.
-    ndkVersion = android.ndkVersion
+    ndkVersion = "30.0.14904198"
 
     defaultConfig {
         minSdk = 24

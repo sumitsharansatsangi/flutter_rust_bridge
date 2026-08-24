@@ -9,9 +9,9 @@ use crate::codegen::generator::wire::rust::spec_generator::extern_func::{
     ExternFunc, ExternFuncParam,
 };
 use crate::codegen::generator::wire::rust::spec_generator::output_code::WireRustOutputCode;
+use crate::codegen::ir::mir::ty::MirType::{Delegate, Optional};
 use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::general_list::MirTypeGeneralList;
-use crate::codegen::ir::mir::ty::MirType::{Delegate, Optional};
 use crate::codegen::ir::mir::ty::{MirType, MirTypeTrait};
 
 impl WireRustCodecCstGeneratorDecoderTrait for GeneralListWireRustCodecCstGenerator<'_> {
@@ -89,8 +89,7 @@ const DECODE_BODY_IO: &str = "
     };
     vec.into_iter().map(CstDecode::cst_decode).collect()
 ";
-const DECODE_BODY_WEB: &str =
-    "self.dyn_into::<flutter_rust_bridge::for_generated::js_sys::Array>().unwrap().iter().map(CstDecode::cst_decode).collect()";
+const DECODE_BODY_WEB: &str = "self.dyn_into::<flutter_rust_bridge::for_generated::js_sys::Array>().unwrap().iter().map(CstDecode::cst_decode).collect()";
 
 pub(crate) fn generate_list_generate_allocate_func(
     safe_ident: &str,

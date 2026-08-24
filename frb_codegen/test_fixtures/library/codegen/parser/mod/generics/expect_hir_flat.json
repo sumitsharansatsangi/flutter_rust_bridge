@@ -22,7 +22,7 @@
   "extra_rust_output_code": "",
   "functions": [
     {
-      "item_fn": "GeneralizedItemFn(name=func_enum_bool, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_enum_bool, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=func_enum_string, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_enum_string, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=func_struct_bool, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_struct_bool, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=func_struct_string, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_struct_string, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=func_struct_string_repeated, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_struct_string_repeated, vis=public, attrs=[])",
       "namespace": "crate::api",
       "owner": "Function",
       "sources": [

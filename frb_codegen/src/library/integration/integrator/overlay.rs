@@ -2,7 +2,7 @@ use super::IntegrateConfig;
 use crate::integration::utils::{overlay_dir, replace_file_content};
 use crate::misc::{IntegrationBackend, Template};
 use anyhow::Result;
-use include_dir::{include_dir, Dir};
+use include_dir::{Dir, include_dir};
 use itertools::Itertools;
 use log::warn;
 use std::collections::HashMap;

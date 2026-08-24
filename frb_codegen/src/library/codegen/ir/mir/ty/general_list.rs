@@ -1,6 +1,6 @@
+use crate::codegen::ir::mir::ty::MirType::{GeneralList, PrimitiveList};
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::primitive_list::MirTypePrimitiveList;
-use crate::codegen::ir::mir::ty::MirType::{GeneralList, PrimitiveList};
 use crate::codegen::ir::mir::ty::{MirContext, MirType, MirTypeTrait};
 
 crate::mir! {

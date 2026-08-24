@@ -5320,7 +5320,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         },
         codec: SseCodec(
           decodeSuccessData:
-              sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id,
+              sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id,
           decodeErrorData: null,
         ),
         constMeta: kWebAudioApiContextAudioContextCreateAudioParamConstMeta,
@@ -11146,7 +11146,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         },
         codec: SseCodec(
           decodeSuccessData:
-              sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id,
+              sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id,
           decodeErrorData: null,
         ),
         constMeta:
@@ -18110,7 +18110,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         },
         codec: SseCodec(
           decodeSuccessData:
-              sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id,
+              sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id,
           decodeErrorData: null,
         ),
         constMeta:
@@ -26418,26 +26418,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  (AudioParam, AudioParamId)
-  dco_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    final arr = raw as List<dynamic>;
-    if (arr.length != 2) {
-      throw Exception('Expected 2 elements, got ${arr.length}');
-    }
-    return (
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParam(
-        arr[0],
-      ),
-      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamId(
-        arr[1],
-      ),
-    );
-  }
-
-  @protected
   AnalyserOptions dco_decode_analyser_options(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
@@ -27378,6 +27358,26 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       real: dco_decode_opt_list_prim_f_32_strict(arr[0]),
       imag: dco_decode_opt_list_prim_f_32_strict(arr[1]),
       disableNormalization: dco_decode_bool(arr[2]),
+    );
+  }
+
+  @protected
+  (AudioParam, AudioParamId)
+  dco_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2) {
+      throw Exception('Expected 2 elements, got ${arr.length}');
+    }
+    return (
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParam(
+        arr[0],
+      ),
+      dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamId(
+        arr[1],
+      ),
     );
   }
 
@@ -29778,23 +29778,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  (AudioParam, AudioParamId)
-  sse_decode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    var var_field0 =
-        sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParam(
-          deserializer,
-        );
-    var var_field1 =
-        sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamId(
-          deserializer,
-        );
-    return (var_field0, var_field1);
-  }
-
-  @protected
   AnalyserOptions sse_decode_analyser_options(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_fftSize = sse_decode_CastedPrimitive_usize(deserializer);
@@ -30919,6 +30902,23 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       imag: var_imag,
       disableNormalization: var_disableNormalization,
     );
+  }
+
+  @protected
+  (AudioParam, AudioParamId)
+  sse_decode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_field0 =
+        sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParam(
+          deserializer,
+        );
+    var var_field1 =
+        sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamId(
+          deserializer,
+        );
+    return (var_field0, var_field1);
   }
 
   @protected
@@ -33842,23 +33842,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  void
-  sse_encode___record__auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
-    (AudioParam, AudioParamId) self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParam(
-      self.$1,
-      serializer,
-    );
-    sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamId(
-      self.$2,
-      serializer,
-    );
-  }
-
-  @protected
   void sse_encode_analyser_options(
     AnalyserOptions self,
     SseSerializer serializer,
@@ -34930,6 +34913,23 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void
+  sse_encode_record_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_auto_owned_rust_opaque_flutter_rust_bridgefor_generated_rust_auto_opaque_inner_audio_param_id(
+    (AudioParam, AudioParamId) self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParam(
+      self.$1,
+      serializer,
+    );
+    sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamId(
+      self.$2,
+      serializer,
+    );
+  }
+
+  @protected
   void sse_encode_stereo_panner_options(
     StereoPannerOptions self,
     SseSerializer serializer,
@@ -35128,7 +35128,7 @@ sealed class Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueI
   ) = Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAudioParamProxyEnum_Variant31;
 }
 
-@freezed
+@Freezed(copyWith: false)
 sealed class Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerMediaStreamProxyEnum
     with
         _$Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerMediaStreamProxyEnum {

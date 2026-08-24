@@ -1,8 +1,8 @@
 use crate::codegen::ir::mir::custom_ser_des::MirCustomSerDes;
-use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegateCustomSerDes};
 use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
+use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegateCustomSerDes};
 use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
+use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 
 impl TypeParserWithContext<'_, '_, '_> {

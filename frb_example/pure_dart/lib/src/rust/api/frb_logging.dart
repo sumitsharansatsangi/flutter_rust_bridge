@@ -13,8 +13,9 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `enabled`, `flush`, `fmt`, `log`
 
 Stream<FrbLogRecord> frbInternalInitLogger({required String maxLevel}) =>
-    RustLib.instance.api
-        .crateApiFrbLoggingFrbInternalInitLogger(maxLevel: maxLevel);
+    RustLib.instance.api.crateApiFrbLoggingFrbInternalInitLogger(
+      maxLevel: maxLevel,
+    );
 
 void frbInternalDisposeLogger() =>
     RustLib.instance.api.crateApiFrbLoggingFrbInternalDisposeLogger();

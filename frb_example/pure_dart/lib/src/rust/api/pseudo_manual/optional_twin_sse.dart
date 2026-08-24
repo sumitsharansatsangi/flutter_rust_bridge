@@ -15,9 +15,8 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 Future<double?> handleOptionalReturnTwinSse({
   required double left,
   required double right,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualOptionalTwinSseHandleOptionalReturnTwinSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualOptionalTwinSseHandleOptionalReturnTwinSse(
       left: left,
       right: right,
     );
@@ -25,20 +24,20 @@ Future<double?> handleOptionalReturnTwinSse({
 Future<ElementTwinSse?> handleOptionalStructTwinSse({String? document}) =>
     RustLib.instance.api
         .crateApiPseudoManualOptionalTwinSseHandleOptionalStructTwinSse(
-      document: document,
-    );
+          document: document,
+        );
 
 Future<ExoticOptionalsTwinSse?> handleOptionalIncrementTwinSse({
   ExoticOptionalsTwinSse? opt,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualOptionalTwinSseHandleOptionalIncrementTwinSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualOptionalTwinSseHandleOptionalIncrementTwinSse(
       opt: opt,
     );
 
-Future<double> handleIncrementBoxedOptionalTwinSse({double? opt}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualOptionalTwinSseHandleIncrementBoxedOptionalTwinSse(
+Future<double> handleIncrementBoxedOptionalTwinSse({double? opt}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualOptionalTwinSseHandleIncrementBoxedOptionalTwinSse(
       opt: opt,
     );
 
@@ -54,9 +53,8 @@ Future<String> handleOptionBoxArgumentsTwinSse({
   double? f64Box,
   bool? boolbox,
   ExoticOptionalsTwinSse? structbox,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualOptionalTwinSseHandleOptionBoxArgumentsTwinSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualOptionalTwinSseHandleOptionBoxArgumentsTwinSse(
       i8Box: i8Box,
       u8Box: u8Box,
       i32Box: i32Box,
@@ -97,10 +95,7 @@ class ElementTwinSse {
 
   @override
   int get hashCode =>
-      tag.hashCode ^
-      text.hashCode ^
-      const DeepCollectionEquality().hash(attributes) ^
-      const DeepCollectionEquality().hash(children);
+      tag.hashCode ^ text.hashCode ^ attributes.hashCode ^ children.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -109,8 +104,8 @@ class ElementTwinSse {
           runtimeType == other.runtimeType &&
           tag == other.tag &&
           text == other.text &&
-          const DeepCollectionEquality().equals(attributes, other.attributes) &&
-          const DeepCollectionEquality().equals(children, other.children);
+          attributes == other.attributes &&
+          children == other.children;
 }
 
 class ExoticOptionalsTwinSse {
@@ -158,9 +153,9 @@ class ExoticOptionalsTwinSse {
       int32List.hashCode ^
       float32List.hashCode ^
       float64List.hashCode ^
-      const DeepCollectionEquality().hash(attributes) ^
-      const DeepCollectionEquality().hash(attributesNullable) ^
-      const DeepCollectionEquality().hash(nullableAttributes) ^
+      attributes.hashCode ^
+      attributesNullable.hashCode ^
+      nullableAttributes.hashCode ^
       newtypeint.hashCode;
 
   @override
@@ -178,15 +173,9 @@ class ExoticOptionalsTwinSse {
           int32List == other.int32List &&
           float32List == other.float32List &&
           float64List == other.float64List &&
-          const DeepCollectionEquality().equals(attributes, other.attributes) &&
-          const DeepCollectionEquality().equals(
-            attributesNullable,
-            other.attributesNullable,
-          ) &&
-          const DeepCollectionEquality().equals(
-            nullableAttributes,
-            other.nullableAttributes,
-          ) &&
+          attributes == other.attributes &&
+          attributesNullable == other.attributesNullable &&
+          nullableAttributes == other.nullableAttributes &&
           newtypeint == other.newtypeint;
 }
 
@@ -205,18 +194,15 @@ class OptVecsTwinSse {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(i32) ^
-      const DeepCollectionEquality().hash(enums) ^
-      const DeepCollectionEquality().hash(strings) ^
-      const DeepCollectionEquality().hash(buffers);
+      i32.hashCode ^ enums.hashCode ^ strings.hashCode ^ buffers.hashCode;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is OptVecsTwinSse &&
           runtimeType == other.runtimeType &&
-          const DeepCollectionEquality().equals(i32, other.i32) &&
-          const DeepCollectionEquality().equals(enums, other.enums) &&
-          const DeepCollectionEquality().equals(strings, other.strings) &&
-          const DeepCollectionEquality().equals(buffers, other.buffers);
+          i32 == other.i32 &&
+          enums == other.enums &&
+          strings == other.strings &&
+          buffers == other.buffers;
 }

@@ -10,18 +10,20 @@ import 'package:collection/collection.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<StructWithDeepCollectionEqualityTwinNormal>
-    echoStructWithDeepCollectionEqualityTwinNormal(
-            {required StructWithDeepCollectionEqualityTwinNormal value}) =>
-        RustLib.instance.api
-            .crateApiCollectionEqualityEchoStructWithDeepCollectionEqualityTwinNormal(
-                value: value);
+echoStructWithDeepCollectionEqualityTwinNormal({
+  required StructWithDeepCollectionEqualityTwinNormal value,
+}) => RustLib.instance.api
+    .crateApiCollectionEqualityEchoStructWithDeepCollectionEqualityTwinNormal(
+      value: value,
+    );
 
 Future<StructWithShallowCollectionEqualityTwinNormal>
-    echoStructWithShallowCollectionEqualityTwinNormal(
-            {required StructWithShallowCollectionEqualityTwinNormal value}) =>
-        RustLib.instance.api
-            .crateApiCollectionEqualityEchoStructWithShallowCollectionEqualityTwinNormal(
-                value: value);
+echoStructWithShallowCollectionEqualityTwinNormal({
+  required StructWithShallowCollectionEqualityTwinNormal value,
+}) => RustLib.instance.api
+    .crateApiCollectionEqualityEchoStructWithShallowCollectionEqualityTwinNormal(
+      value: value,
+    );
 
 class StructWithDeepCollectionEqualityTwinNormal {
   final List<String> list;
@@ -57,8 +59,10 @@ class StructWithDeepCollectionEqualityTwinNormal {
           const DeepCollectionEquality().equals(list, other.list) &&
           const DeepCollectionEquality().equals(map, other.map) &&
           const DeepCollectionEquality().equals(setValues, other.setValues) &&
-          const DeepCollectionEquality()
-              .equals(optionalList, other.optionalList) &&
+          const DeepCollectionEquality().equals(
+            optionalList,
+            other.optionalList,
+          ) &&
           const DeepCollectionEquality().equals(bytes, other.bytes) &&
           const DeepCollectionEquality().equals(fixedBytes, other.fixedBytes);
 }
@@ -109,9 +113,7 @@ class U8Array3 extends NonGrowableListView<int> {
   Uint8List get inner => _inner;
   final Uint8List _inner;
 
-  U8Array3(this._inner)
-      : assert(_inner.length == arraySize),
-        super(_inner);
+  U8Array3(this._inner) : assert(_inner.length == arraySize), super(_inner);
 
   U8Array3.init() : this(Uint8List(arraySize));
 }

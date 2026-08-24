@@ -2,8 +2,8 @@ pub(crate) mod internal_config;
 mod spec_generator;
 mod text_generator;
 
-use crate::codegen::dumper::internal_config::ConfigDumpContent;
 use crate::codegen::dumper::Dumper;
+use crate::codegen::dumper::internal_config::ConfigDumpContent;
 use crate::codegen::generator::misc::path_texts::{PathText, PathTexts};
 use crate::codegen::generator::wire::c::internal_config::GeneratorWireCInternalConfig;
 use crate::codegen::misc::GeneratorProgressBarPack;

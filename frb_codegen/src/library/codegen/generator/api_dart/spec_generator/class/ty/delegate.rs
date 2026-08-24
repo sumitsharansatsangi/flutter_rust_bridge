@@ -1,15 +1,15 @@
 use crate::codegen::generator::api_dart::spec_generator::class::method::{
-    generate_api_methods, GenerateApiMethodConfig, GenerateApiMethodMode,
+    GenerateApiMethodConfig, GenerateApiMethodMode, generate_api_methods,
 };
 use crate::codegen::generator::api_dart::spec_generator::class::ty::ApiDartGeneratorClassTrait;
 use crate::codegen::generator::api_dart::spec_generator::class::{
-    proxy_variant, ApiDartGeneratedClass,
+    ApiDartGeneratedClass, proxy_variant,
 };
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::delegate::{
     MirTypeDelegate, MirTypeDelegateArray, MirTypeDelegateArrayMode, MirTypeDelegatePrimitiveEnum,
     MirTypeDelegateProxyVariant,
 };
-use crate::codegen::ir::mir::ty::MirType;
 use crate::library::codegen::generator::api_dart::spec_generator::base::*;
 use crate::library::codegen::generator::api_dart::spec_generator::info::ApiDartGeneratorInfoTrait;
 use crate::utils::basic_code::dart_header_code::DartHeaderCode;
@@ -45,13 +45,13 @@ fn generate_array(
     let array_length = array.length;
 
     let dart_init_method = match array.mode {
-            MirTypeDelegateArrayMode::General(..) => format!(
-                "{self_dart_api_type}.init({inner_dart_api_type} fill): this(List<{inner_dart_api_type}>.filled(arraySize,fill));",
-            ),
-            MirTypeDelegateArrayMode::Primitive(..) => format!(
-                "{self_dart_api_type}.init(): this({delegate_dart_api_type}(arraySize));",
-            ),
-        };
+        MirTypeDelegateArrayMode::General(..) => format!(
+            "{self_dart_api_type}.init({inner_dart_api_type} fill): this(List<{inner_dart_api_type}>.filled(arraySize,fill));",
+        ),
+        MirTypeDelegateArrayMode::Primitive(..) => {
+            format!("{self_dart_api_type}.init(): this({delegate_dart_api_type}(arraySize));",)
+        }
+    };
     let equality = if context.config.dart_collection_deep_equality {
         generate_array_equality(&self_dart_api_type)
     } else {

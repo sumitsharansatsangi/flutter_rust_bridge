@@ -27,9 +27,9 @@ Future<void> main({bool skipRustLibInit = false}) async {
             () => rustOpaqueWebLockingSyncAddTwinNormal(arg: obj, adder: 1),
             throwsA(
               predicate(
-                (Object error) => error
-                    .toString()
-                    .contains('cannot synchronously write rust opaque objects'),
+                (Object error) => error.toString().contains(
+                  'cannot synchronously write rust opaque objects',
+                ),
               ),
             ),
           );
@@ -85,9 +85,9 @@ Future<void> main({bool skipRustLibInit = false}) async {
             () => rustAutoOpaqueWebLockingSyncAddTwinNormal(arg: obj, adder: 1),
             throwsA(
               predicate(
-                (Object error) => error
-                    .toString()
-                    .contains('cannot synchronously write rust opaque objects'),
+                (Object error) => error.toString().contains(
+                  'cannot synchronously write rust opaque objects',
+                ),
               ),
             ),
           );

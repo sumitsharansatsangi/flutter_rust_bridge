@@ -65,14 +65,14 @@ pub fn generic_result_alias_chained_err_twin_sse() -> ChainedAppResultTwinSse<i3
 pub type FlexibleResultTwinSse<T, E> = std::result::Result<T, E>;
 
 #[flutter_rust_bridge::frb(serialize)]
-pub fn generic_result_alias_two_params_ok_twin_sse(
-) -> FlexibleResultTwinSse<i32, GenericAliasErrorTwinSse> {
+pub fn generic_result_alias_two_params_ok_twin_sse()
+-> FlexibleResultTwinSse<i32, GenericAliasErrorTwinSse> {
     Ok(44)
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub fn generic_result_alias_two_params_err_twin_sse(
-) -> FlexibleResultTwinSse<i32, GenericAliasErrorTwinSse> {
+pub fn generic_result_alias_two_params_err_twin_sse()
+-> FlexibleResultTwinSse<i32, GenericAliasErrorTwinSse> {
     Err(GenericAliasErrorTwinSse::Deliberate)
 }
 
@@ -80,11 +80,7 @@ pub type OptionalAliasTwinSse<T> = Option<T>;
 
 #[flutter_rust_bridge::frb(serialize)]
 pub fn generic_option_alias_return_twin_sse(input: i32) -> OptionalAliasTwinSse<i32> {
-    if input >= 0 {
-        Some(input)
-    } else {
-        None
-    }
+    if input >= 0 { Some(input) } else { None }
 }
 
 #[flutter_rust_bridge::frb(serialize)]

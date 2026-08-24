@@ -1,7 +1,7 @@
 use crate::codegen::generator::codec::sse::lang::LangTrait;
 use crate::codegen::ir::mir::ty::MirType;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
-use itertools::{multizip, Itertools};
+use itertools::{Itertools, multizip};
 
 #[derive(Clone, Copy, Debug)]
 pub(crate) struct DartLang;

@@ -59,13 +59,13 @@ pub async fn generic_result_alias_chained_err_twin_rust_async() -> ChainedAppRes
 
 pub type FlexibleResultTwinRustAsync<T, E> = std::result::Result<T, E>;
 
-pub async fn generic_result_alias_two_params_ok_twin_rust_async(
-) -> FlexibleResultTwinRustAsync<i32, GenericAliasErrorTwinRustAsync> {
+pub async fn generic_result_alias_two_params_ok_twin_rust_async()
+-> FlexibleResultTwinRustAsync<i32, GenericAliasErrorTwinRustAsync> {
     Ok(44)
 }
 
-pub async fn generic_result_alias_two_params_err_twin_rust_async(
-) -> FlexibleResultTwinRustAsync<i32, GenericAliasErrorTwinRustAsync> {
+pub async fn generic_result_alias_two_params_err_twin_rust_async()
+-> FlexibleResultTwinRustAsync<i32, GenericAliasErrorTwinRustAsync> {
     Err(GenericAliasErrorTwinRustAsync::Deliberate)
 }
 
@@ -74,11 +74,7 @@ pub type OptionalAliasTwinRustAsync<T> = Option<T>;
 pub async fn generic_option_alias_return_twin_rust_async(
     input: i32,
 ) -> OptionalAliasTwinRustAsync<i32> {
-    if input >= 0 {
-        Some(input)
-    } else {
-        None
-    }
+    if input >= 0 { Some(input) } else { None }
 }
 
 pub async fn generic_option_alias_arg_twin_rust_async(

@@ -7,10 +7,10 @@ use crate::library::commands::dart_fix::dart_fix;
 use crate::library::commands::dart_format::dart_format;
 use crate::utils::dart_repository::dart_repo::{DartDependencyMode, DartRepository};
 use anyhow::Context;
-use cargo_metadata::VersionReq;
 use itertools::Itertools;
 use lazy_static::lazy_static;
 use log::warn;
+use semver::VersionReq;
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -205,8 +205,8 @@ fn execute_duplicate_c_output(config: &PolisherInternalConfig) -> anyhow::Result
 
 #[cfg(test)]
 mod tests {
-    use super::{build_runner_requirement, BUILD_RUNNER_REQUIREMENT};
-    use cargo_metadata::Version;
+    use super::{BUILD_RUNNER_REQUIREMENT, build_runner_requirement};
+    use semver::Version;
 
     /// Requires the first build_runner release that supports output filters.
     #[test]

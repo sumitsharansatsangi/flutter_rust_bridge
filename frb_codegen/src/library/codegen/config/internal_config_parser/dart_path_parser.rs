@@ -61,11 +61,13 @@ mod tests {
     fn test_compute_path_map_faulty() -> anyhow::Result<()> {
         let result = super::compute_path_map(&PathBuf::from("src/api"));
         assert!(result.is_err());
-        assert!(result
-            .err()
-            .unwrap()
-            .to_string()
-            .contains("Cannot use the path configuration"));
+        assert!(
+            result
+                .err()
+                .unwrap()
+                .to_string()
+                .contains("Cannot use the path configuration")
+        );
         Ok(())
     }
 }

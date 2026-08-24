@@ -1,10 +1,10 @@
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::delegate::{
     MirTypeDelegate, MirTypeDelegateDynTrait, MirTypeDelegateDynTraitData,
 };
-use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::parser::mir::parser::ty::trait_def::parse_type_trait;
-use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
 use crate::codegen::parser::mir::ParseMode;
+use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
+use crate::codegen::parser::mir::parser::ty::trait_def::parse_type_trait;
 use crate::if_then_some;
 use crate::utils::syn_utils::ty_to_string;
 use anyhow::Context;

@@ -3,11 +3,11 @@ use crate::codegen::ir::early_generator::trait_def_info::IrEarlyGeneratorTraitDe
 use crate::codegen::ir::hir::flat::traits::HirFlatTrait;
 use crate::codegen::ir::mir::pack::MirPack;
 use crate::codegen::ir::mir::trait_impl::MirTraitImpl;
-use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegateDynTraitVariant};
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegateDynTraitVariant};
 use crate::codegen::parser::early_generator::utils::lockable;
 use crate::codegen::parser::hir::flat::extra_code_injector::{
-    inject_extra_codes, InjectExtraCodeBlock,
+    InjectExtraCodeBlock, inject_extra_codes,
 };
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::if_then_some;

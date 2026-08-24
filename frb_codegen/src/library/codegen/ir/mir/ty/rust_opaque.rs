@@ -156,6 +156,12 @@ mod tests {
             ),
             "AnotherOpaqueType"
         );
-        assert_eq!(&rust_type_to_sanitized_type("flutter_rust_bridge::for_generated::rust_async::RwLock<(crate::api::simple::MyOpaqueType,crate::api::simple::AnotherOpaqueType,)>", true), "MyOpaqueTypeAnotherOpaqueType");
+        assert_eq!(
+            &rust_type_to_sanitized_type(
+                "flutter_rust_bridge::for_generated::rust_async::RwLock<(crate::api::simple::MyOpaqueType,crate::api::simple::AnotherOpaqueType,)>",
+                true
+            ),
+            "MyOpaqueTypeAnotherOpaqueType"
+        );
     }
 }

@@ -1,6 +1,6 @@
 use crate::codec::BaseCodec;
 use crate::codec::Rust2DartMessageTrait;
-use crate::generalized_isolate::{release_channel_handle, SendableChannelHandle};
+use crate::generalized_isolate::{SendableChannelHandle, release_channel_handle};
 use std::marker::PhantomData;
 
 // *NOT* cloneable, since it invokes stream-close when dropped

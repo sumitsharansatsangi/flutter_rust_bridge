@@ -1,10 +1,10 @@
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::delegate::{
     MirTypeDelegate, MirTypeDelegateRustAutoOpaqueExplicit,
 };
 use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
-use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
 use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
+use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
 use crate::utils::namespace::Namespace;
 use syn::Type;
 

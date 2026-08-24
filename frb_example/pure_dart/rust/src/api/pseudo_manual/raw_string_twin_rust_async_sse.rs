@@ -34,8 +34,8 @@ pub struct MoreThanJustOneRawStringStructTwinRustAsyncSse {
 }
 
 #[flutter_rust_bridge::frb(serialize)]
-pub async fn test_more_than_just_one_raw_string_struct_twin_rust_async_sse(
-) -> MoreThanJustOneRawStringStructTwinRustAsyncSse {
+pub async fn test_more_than_just_one_raw_string_struct_twin_rust_async_sse()
+-> MoreThanJustOneRawStringStructTwinRustAsyncSse {
     MoreThanJustOneRawStringStructTwinRustAsyncSse {
         regular: "regular".to_owned(),
         r#type: "type".to_owned(),

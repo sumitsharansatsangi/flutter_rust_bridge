@@ -1,15 +1,15 @@
 use super::DartFnFuture;
+use crate::DartOpaque;
 use crate::codec::sse::Dart2RustMessageSse;
 use crate::dart_opaque::action::DartHandlerPortAction;
 use crate::generalized_isolate::{Channel, IntoDart};
 use crate::misc::atomic::{AtomicI32, Ordering};
 use crate::misc::logs::log_warn_or_println;
-use crate::platform_types::{handle_to_message_port, DartAbi};
+use crate::platform_types::{DartAbi, handle_to_message_port};
 use crate::rust2dart::sender::Rust2DartSender;
-use crate::DartOpaque;
+use futures::FutureExt;
 use futures::channel::oneshot;
 use futures::channel::oneshot::Sender;
-use futures::FutureExt;
 use std::collections::HashMap;
 use std::panic;
 use std::sync::Mutex;

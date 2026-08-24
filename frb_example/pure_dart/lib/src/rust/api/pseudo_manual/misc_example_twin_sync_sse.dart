@@ -17,25 +17,22 @@ part 'misc_example_twin_sync_sse.freezed.dart';
 
 MyTreeNodeTwinSyncSse handleComplexStructTwinSyncSse({
   required MyTreeNodeTwinSyncSse s,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncSseHandleComplexStructTwinSyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncSseHandleComplexStructTwinSyncSse(
       s: s,
     );
 
 List<WeekdaysTwinSyncSse> listOfPrimitiveEnumsTwinSyncSse({
   required List<WeekdaysTwinSyncSse> weekdays,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncSseListOfPrimitiveEnumsTwinSyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncSseListOfPrimitiveEnumsTwinSyncSse(
       weekdays: weekdays,
     );
 
 MyNestedStructTwinSyncSse handleNestedStructTwinSyncSse({
   required MyNestedStructTwinSyncSse s,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncSseHandleNestedStructTwinSyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncSseHandleNestedStructTwinSyncSse(
       s: s,
     );
 
@@ -43,14 +40,14 @@ BigBuffersTwinSyncSse handleBigBuffersTwinSyncSse() => RustLib.instance.api
     .crateApiPseudoManualMiscExampleTwinSyncSseHandleBigBuffersTwinSyncSse();
 
 AbcTwinSyncSse testAbcEnumTwinSyncSse({required AbcTwinSyncSse abc}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualMiscExampleTwinSyncSseTestAbcEnumTwinSyncSse(abc: abc);
 
 StructWithEnumTwinSyncSse testStructWithEnumTwinSyncSse({
   required StructWithEnumTwinSyncSse se,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncSseTestStructWithEnumTwinSyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinSyncSseTestStructWithEnumTwinSyncSse(
       se: se,
     );
 
@@ -66,12 +63,12 @@ Uint8List handleVecU8TwinSyncSse({required List<int> v}) => RustLib.instance.api
 MySize handleStructTwinSyncSse({required MySize arg, required MySize boxed}) =>
     RustLib.instance.api
         .crateApiPseudoManualMiscExampleTwinSyncSseHandleStructTwinSyncSse(
-      arg: arg,
-      boxed: boxed,
-    );
+          arg: arg,
+          boxed: boxed,
+        );
 
 int positionalArgumentsTwinSyncSse(int a, int b) => RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinSyncSsePositionalArgumentsTwinSyncSse(
+    .crateApiPseudoManualMiscExampleTwinSyncSsePositionalArgumentsTwinSyncSse(
       a: a,
       b: b,
     );
@@ -185,7 +182,7 @@ class MyTreeNodeTwinSyncSse {
       valueI32.hashCode ^
       valueVecU8.hashCode ^
       valueBoolean.hashCode ^
-      const DeepCollectionEquality().hash(children);
+      children.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -195,7 +192,7 @@ class MyTreeNodeTwinSyncSse {
           valueI32 == other.valueI32 &&
           valueVecU8 == other.valueVecU8 &&
           valueBoolean == other.valueBoolean &&
-          const DeepCollectionEquality().equals(children, other.children);
+          children == other.children;
 }
 
 class StructWithEnumTwinSyncSse {

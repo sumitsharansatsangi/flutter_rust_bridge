@@ -17,77 +17,76 @@ part 'misc_example_twin_rust_async.freezed.dart';
 
 Future<MyTreeNodeTwinRustAsync> handleComplexStructTwinRustAsync({
   required MyTreeNodeTwinRustAsync s,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncHandleComplexStructTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncHandleComplexStructTwinRustAsync(
       s: s,
     );
 
 Future<List<WeekdaysTwinRustAsync>> listOfPrimitiveEnumsTwinRustAsync({
   required List<WeekdaysTwinRustAsync> weekdays,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncListOfPrimitiveEnumsTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncListOfPrimitiveEnumsTwinRustAsync(
       weekdays: weekdays,
     );
 
 Future<MyNestedStructTwinRustAsync> handleNestedStructTwinRustAsync({
   required MyNestedStructTwinRustAsync s,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncHandleNestedStructTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncHandleNestedStructTwinRustAsync(
       s: s,
     );
 
 Future<BigBuffersTwinRustAsync> handleBigBuffersTwinRustAsync() => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualMiscExampleTwinRustAsyncHandleBigBuffersTwinRustAsync();
 
 Future<AbcTwinRustAsync> testAbcEnumTwinRustAsync({
   required AbcTwinRustAsync abc,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncTestAbcEnumTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncTestAbcEnumTwinRustAsync(
       abc: abc,
     );
 
 Future<StructWithEnumTwinRustAsync> testStructWithEnumTwinRustAsync({
   required StructWithEnumTwinRustAsync se,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncTestStructWithEnumTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncTestStructWithEnumTwinRustAsync(
       se: se,
     );
 
-Future<String> handleStringTwinRustAsync({required String s}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncHandleStringTwinRustAsync(
+Future<String> handleStringTwinRustAsync({required String s}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncHandleStringTwinRustAsync(
       s: s,
     );
 
-Future<String> handleCharTwinRustAsync({required String arg}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncHandleCharTwinRustAsync(
+Future<String> handleCharTwinRustAsync({required String arg}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncHandleCharTwinRustAsync(
       arg: arg,
     );
 
 Future<Uint8List> handleVecU8TwinRustAsync({required List<int> v}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualMiscExampleTwinRustAsyncHandleVecU8TwinRustAsync(v: v);
 
 Future<MySize> handleStructTwinRustAsync({
   required MySize arg,
   required MySize boxed,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncHandleStructTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncHandleStructTwinRustAsync(
       arg: arg,
       boxed: boxed,
     );
 
-Future<int> positionalArgumentsTwinRustAsync(int a, int b) =>
-    RustLib.instance.api
-        .crateApiPseudoManualMiscExampleTwinRustAsyncPositionalArgumentsTwinRustAsync(
+Future<int> positionalArgumentsTwinRustAsync(int a, int b) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualMiscExampleTwinRustAsyncPositionalArgumentsTwinRustAsync(
       a: a,
       b: b,
     );
@@ -207,7 +206,7 @@ class MyTreeNodeTwinRustAsync {
       valueI32.hashCode ^
       valueVecU8.hashCode ^
       valueBoolean.hashCode ^
-      const DeepCollectionEquality().hash(children);
+      children.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -217,7 +216,7 @@ class MyTreeNodeTwinRustAsync {
           valueI32 == other.valueI32 &&
           valueVecU8 == other.valueVecU8 &&
           valueBoolean == other.valueBoolean &&
-          const DeepCollectionEquality().equals(children, other.children);
+          children == other.children;
 }
 
 class StructWithEnumTwinRustAsync {

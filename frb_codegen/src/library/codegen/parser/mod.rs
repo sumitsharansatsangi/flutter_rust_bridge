@@ -1,10 +1,10 @@
+use crate::codegen::ConfigDumpContent;
+use crate::codegen::ConfigDumpContent::Hir;
 use crate::codegen::dumper::Dumper;
 use crate::codegen::ir::hir::flat::pack::HirFlatPack;
 use crate::codegen::ir::mir::pack::MirPack;
 use crate::codegen::misc::GeneratorProgressBarPack;
 use crate::codegen::parser::internal_config::ParserInternalConfig;
-use crate::codegen::ConfigDumpContent;
-use crate::codegen::ConfigDumpContent::Hir;
 use ConfigDumpContent::Mir;
 
 pub(crate) mod early_generator;
@@ -70,7 +70,7 @@ mod tests {
     use crate::codegen::parser::mir::internal_config::{
         ParserMirInternalConfig, RustInputNamespacePack,
     };
-    use crate::codegen::parser::{parse_inner, MirPack};
+    use crate::codegen::parser::{MirPack, parse_inner};
     use crate::utils::logs::configure_opinionated_test_logging;
     use crate::utils::namespace::Namespace;
     use crate::utils::test_utils::{

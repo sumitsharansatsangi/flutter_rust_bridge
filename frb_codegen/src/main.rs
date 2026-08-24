@@ -73,7 +73,9 @@ fn compute_rust_crate_dir(config: &CreateOrIntegrateCommandCommonArgs) -> String
     let rust_crate_dir = config.rust_crate_dir.clone().unwrap_or("rust".to_owned());
     let path = Path::new(&rust_crate_dir);
     if path.is_absolute() {
-        warn!("Argument given to --rust-crate-dir was an absolute Path. It will still be interpreted as relative to the new project root.")
+        warn!(
+            "Argument given to --rust-crate-dir was an absolute Path. It will still be interpreted as relative to the new project root."
+        )
     }
     rust_crate_dir
 }

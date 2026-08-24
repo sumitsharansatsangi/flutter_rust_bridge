@@ -9,7 +9,7 @@ pub use crate::auxiliary::sample_types::{HideDataRaw, NonCloneDataRaw};
 use crate::frb_generated::{RustOpaque, RustOpaqueMoi};
 use anyhow::Result;
 #[allow(unused_imports)]
-use flutter_rust_bridge::{opaque_dyn, RustOpaqueNom};
+use flutter_rust_bridge::{RustOpaqueNom, opaque_dyn};
 use std::fmt::Debug;
 use std::ops::Deref;
 pub use std::sync::{Mutex, RwLock};
@@ -45,8 +45,8 @@ pub struct OpaqueNestedTwinSyncSseMoi {
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn create_opaque_twin_sync_sse_moi(
-) -> crate::frb_generated::RustOpaqueMoi<HideDataTwinSyncSseMoi> {
+pub fn create_opaque_twin_sync_sse_moi()
+-> crate::frb_generated::RustOpaqueMoi<HideDataTwinSyncSseMoi> {
     crate::frb_generated::RustOpaqueMoi::new(HideDataTwinSyncSseMoi(HideDataRaw::new()))
 }
 
@@ -127,8 +127,8 @@ pub fn run_opaque_with_delay_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn opaque_array_twin_sync_sse_moi(
-) -> [crate::frb_generated::RustOpaqueMoi<HideDataTwinSyncSseMoi>; 2] {
+pub fn opaque_array_twin_sync_sse_moi()
+-> [crate::frb_generated::RustOpaqueMoi<HideDataTwinSyncSseMoi>; 2] {
     [
         crate::frb_generated::RustOpaqueMoi::new(HideDataTwinSyncSseMoi(HideDataRaw::new())),
         crate::frb_generated::RustOpaqueMoi::new(HideDataTwinSyncSseMoi(HideDataRaw::new())),
@@ -166,8 +166,8 @@ pub fn opaque_array_run_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn opaque_vec_twin_sync_sse_moi(
-) -> Vec<crate::frb_generated::RustOpaqueMoi<HideDataTwinSyncSseMoi>> {
+pub fn opaque_vec_twin_sync_sse_moi()
+-> Vec<crate::frb_generated::RustOpaqueMoi<HideDataTwinSyncSseMoi>> {
     vec![
         crate::frb_generated::RustOpaqueMoi::new(HideDataTwinSyncSseMoi(HideDataRaw::new())),
         crate::frb_generated::RustOpaqueMoi::new(HideDataTwinSyncSseMoi(HideDataRaw::new())),
@@ -223,7 +223,7 @@ pub fn unwrap_rust_opaque_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn frb_generator_test_twin_sync_sse_moi(
-) -> crate::frb_generated::RustOpaqueMoi<FrbOpaqueReturnTwinSyncSseMoi> {
+pub fn frb_generator_test_twin_sync_sse_moi()
+-> crate::frb_generated::RustOpaqueMoi<FrbOpaqueReturnTwinSyncSseMoi> {
     panic!("dummy code");
 }

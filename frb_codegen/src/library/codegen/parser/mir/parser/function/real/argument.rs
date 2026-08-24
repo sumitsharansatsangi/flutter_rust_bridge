@@ -2,10 +2,10 @@ use crate::codegen::ir::mir::field::{MirField, MirFieldSettings};
 use crate::codegen::ir::mir::func::{MirFuncInput, MirFuncOwnerInfo};
 use crate::codegen::ir::mir::func::{MirFuncOwnerInfoMethod, OwnershipMode};
 use crate::codegen::ir::mir::ident::MirIdent;
-use crate::codegen::ir::mir::ty::boxed::MirTypeBoxed;
-use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegateProxyEnum};
 use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::MirType::Boxed;
+use crate::codegen::ir::mir::ty::boxed::MirTypeBoxed;
+use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegateProxyEnum};
 use crate::codegen::ir::misc::skip::IrSkipReason;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::function::real::{FunctionParser, FunctionPartialInfo};
@@ -132,18 +132,20 @@ fn syntheize_receiver_type(
     receiver: &Receiver,
     method: &MirFuncOwnerInfoMethod,
 ) -> anyhow::Result<Type> {
+    if let ReceiverKind::Typed(_, ty) = &receiver.kind {
+        return Ok((**ty).clone());
+    }
+
     let mut ty_str = "".to_owned();
 
-    // The new syn API: receiver.reference is Option<(And, Option<Lifetime>)>
-    if let Some((_, lifetime_opt)) = &receiver.reference {
+    if let ReceiverKind::Reference(_, lifetime_opt, mutability) = &receiver.kind {
         ty_str += "&";
         if let Some(lifetime) = lifetime_opt {
             ty_str += &lifetime.to_string();
         }
-    }
-
-    if receiver.mutability.is_some() {
-        ty_str += " mut";
+        if mutability.is_some() {
+            ty_str += " mut";
+        }
     }
 
     ty_str += " ";

@@ -1,9 +1,9 @@
+use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::MirType::Primitive;
 use crate::codegen::ir::mir::ty::delegate::{
     MirTypeDelegate, MirTypeDelegateBigPrimitive, MirTypeDelegateCastedPrimitive,
 };
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
-use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::ir::mir::ty::MirType::Primitive;
 use crate::codegen::parser::mir::parser::ty::unencodable::SplayedSegment;
 use crate::codegen::parser::mir::parser::ty::{TypeParserParsingContext, TypeParserWithContext};
 
@@ -64,7 +64,7 @@ fn transform_primitive(inner: MirTypePrimitive, context: &TypeParserParsingConte
             | MirTypePrimitive::Isize => {
                 return MirType::Delegate(MirTypeDelegate::CastedPrimitive(
                     MirTypeDelegateCastedPrimitive { inner },
-                ))
+                ));
             }
             _ => {}
         }

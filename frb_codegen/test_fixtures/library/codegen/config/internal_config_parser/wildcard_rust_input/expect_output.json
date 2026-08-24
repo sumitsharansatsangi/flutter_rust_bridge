@@ -26,7 +26,8 @@
         "web": "{the-working-directory}/my_dart_folder/frb_generated.web.dart"
       },
       "dart_preamble": "",
-      "dart_type_rename": {}
+      "dart_type_rename": {},
+      "use_oxidized": false
     },
     "wire": {
       "c": {

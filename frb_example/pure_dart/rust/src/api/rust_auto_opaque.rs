@@ -236,8 +236,8 @@ pub fn rust_auto_opaque_struct_with_good_and_opaque_field_arg_own_twin_normal(
     assert_eq!(arg.option_opaque.unwrap().inner, 42);
 }
 
-pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_normal(
-) -> StructWithGoodAndOpaqueFieldTwinNormal {
+pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_normal()
+-> StructWithGoodAndOpaqueFieldTwinNormal {
     StructWithGoodAndOpaqueFieldTwinNormal {
         good: "hello".to_string(),
         opaque: NonCloneSimpleTwinNormal { inner: 42 },
@@ -262,13 +262,13 @@ pub fn rust_auto_opaque_enum_with_good_and_opaque_arg_own_twin_normal(
     }
 }
 
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_normal(
-) -> EnumWithGoodAndOpaqueTwinNormal {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_normal()
+-> EnumWithGoodAndOpaqueTwinNormal {
     EnumWithGoodAndOpaqueTwinNormal::Good("hello".to_owned())
 }
 
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_normal(
-) -> EnumWithGoodAndOpaqueTwinNormal {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_normal()
+-> EnumWithGoodAndOpaqueTwinNormal {
     EnumWithGoodAndOpaqueTwinNormal::Opaque(NonCloneSimpleTwinNormal { inner: 42 })
 }
 
@@ -346,8 +346,8 @@ pub fn rust_auto_opaque_explicit_struct_twin_normal(
     assert_eq!(arg.auto_opaque.try_read().unwrap().inner, arg.normal);
 }
 
-pub fn rust_auto_opaque_explicit_return_struct_twin_normal(
-) -> StructWithExplicitAutoOpaqueFieldTwinNormal {
+pub fn rust_auto_opaque_explicit_return_struct_twin_normal()
+-> StructWithExplicitAutoOpaqueFieldTwinNormal {
     StructWithExplicitAutoOpaqueFieldTwinNormal {
         normal: 100,
         auto_opaque: RustAutoOpaque::new(NonCloneSimpleTwinNormal { inner: 100 }),
@@ -384,8 +384,8 @@ pub struct OpaqueOneTwinNormal(PathBuf);
 #[frb(opaque)]
 pub struct OpaqueTwoTwinNormal(PathBuf);
 
-pub fn rust_auto_opaque_return_opaque_one_and_two_twin_normal(
-) -> (OpaqueOneTwinNormal, OpaqueTwoTwinNormal) {
+pub fn rust_auto_opaque_return_opaque_one_and_two_twin_normal()
+-> (OpaqueOneTwinNormal, OpaqueTwoTwinNormal) {
     unimplemented!()
 }
 pub fn rust_auto_opaque_return_opaque_two_twin_normal() -> OpaqueTwoTwinNormal {

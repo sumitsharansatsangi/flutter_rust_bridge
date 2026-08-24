@@ -1,5 +1,5 @@
 use crate::codegen::generator::codec::sse::ty::general_list::{
-    general_list_generate_decode, general_list_generate_encode, list_len_method, LEN_TYPE,
+    LEN_TYPE, general_list_generate_decode, general_list_generate_encode, list_len_method,
 };
 use crate::codegen::generator::codec::sse::ty::primitive::get_serializer_dart_postfix;
 use crate::codegen::generator::codec::sse::ty::*;

@@ -1,18 +1,18 @@
+use crate::codegen::generator::api_dart::spec_generator::class::ApiDartGeneratedClass;
 use crate::codegen::generator::api_dart::spec_generator::class::method::{
-    generate_api_methods, GenerateApiMethodConfig, GenerateApiMethodMode, GeneratedApiMethods,
+    GenerateApiMethodConfig, GenerateApiMethodMode, GeneratedApiMethods, generate_api_methods,
 };
 use crate::codegen::generator::api_dart::spec_generator::class::misc::generate_class_extra_body;
 use crate::codegen::generator::api_dart::spec_generator::class::ty::ApiDartGeneratorClassTrait;
-use crate::codegen::generator::api_dart::spec_generator::class::ApiDartGeneratedClass;
 use crate::codegen::generator::api_dart::spec_generator::misc::generate_imports_which_types_and_funcs_use;
 use crate::codegen::ir::mir::trait_impl::MirTraitImpl;
-use crate::codegen::ir::mir::ty::rust_opaque::MirTypeRustOpaque;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::rust_opaque::MirTypeRustOpaque;
 use crate::library::codegen::generator::api_dart::spec_generator::base::*;
 use crate::library::codegen::generator::api_dart::spec_generator::info::ApiDartGeneratorInfoTrait;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 use crate::utils::basic_code::dart_header_code::DartHeaderCode;
-use itertools::{concat, Itertools};
+use itertools::{Itertools, concat};
 
 impl ApiDartGeneratorClassTrait for RustOpaqueApiDartGenerator<'_> {
     fn generate_class(&self) -> Option<ApiDartGeneratedClass> {

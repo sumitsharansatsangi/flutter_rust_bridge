@@ -1,11 +1,11 @@
 use crate::codegen::ir::mir::field::MirField;
 use crate::codegen::ir::mir::func::MirFuncInput;
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::primitive_list::MirTypePrimitiveList;
-use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::parser::mir::parser::function::real::{FunctionParser, FunctionPartialInfo};
+use MirTypePrimitive::{I64, Isize, U64, Usize};
 use itertools::Itertools;
-use MirTypePrimitive::{Isize, Usize, I64, U64};
 
 impl FunctionParser<'_, '_> {
     pub(super) fn transform_fn_info(&mut self, info: FunctionPartialInfo) -> FunctionPartialInfo {

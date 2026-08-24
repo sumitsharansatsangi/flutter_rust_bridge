@@ -1,7 +1,7 @@
 [package]
 name = "frb_example_pure_dart_pde"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib"]
@@ -9,7 +9,7 @@ crate-type = ["cdylib"]
 [dependencies]
 anyhow = { version = "1.0.64", features = ["backtrace"] }
 flutter_rust_bridge = { path = "../../../frb_rust", features = ["chrono", "uuid", "serde_json", "backtrace"] }
-log = "0.4.19"
+log = "0.4.34"
 backtrace = "0.3.68"
 chrono = "0.4.26"
 uuid = "1.4.1"
@@ -17,7 +17,7 @@ frb_example_pure_dart_example_external_lib = { path = "./example_external_lib" }
 wasm-bindgen = "0.2.88" # TODO temp experiment
 byteorder = "1.5.0"
 lazy_static = "1.4.0"
-tempfile = "3.8.1"
+tempfile = "3.27.0"
 futures = "0.3.29"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0" # Only used for comparison test

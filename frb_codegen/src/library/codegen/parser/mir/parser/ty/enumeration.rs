@@ -1,6 +1,8 @@
 use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatEnum;
 use crate::codegen::ir::mir::field::{MirField, MirFieldSettings};
 use crate::codegen::ir::mir::ident::MirIdent;
+use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::MirType::{Delegate, EnumRef};
 use crate::codegen::ir::mir::ty::boxed::MirTypeBoxed;
 use crate::codegen::ir::mir::ty::delegate::{MirTypeDelegate, MirTypeDelegatePrimitiveEnum};
 use crate::codegen::ir::mir::ty::enumeration::{
@@ -9,11 +11,9 @@ use crate::codegen::ir::mir::ty::enumeration::{
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicitReason;
 use crate::codegen::ir::mir::ty::structure::MirStruct;
-use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::ir::mir::ty::MirType::{Delegate, EnumRef};
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::ty::enum_or_struct::{
-    parse_struct_or_enum_should_ignore, EnumOrStructParser, EnumOrStructParserInfo,
+    EnumOrStructParser, EnumOrStructParserInfo, parse_struct_or_enum_should_ignore,
 };
 use crate::codegen::parser::mir::parser::ty::misc::parse_comments;
 use crate::codegen::parser::mir::parser::ty::structure::structure_compute_default_opaque;

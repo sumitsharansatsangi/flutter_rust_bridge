@@ -9,23 +9,24 @@ import '../../auxiliary/sample_types.dart';
 import '../../frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
-BigInt handleTypeAliasIdTwinSyncSse({required BigInt input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSyncSseHandleTypeAliasIdTwinSyncSse(
+BigInt handleTypeAliasIdTwinSyncSse({required BigInt input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSyncSseHandleTypeAliasIdTwinSyncSse(
       input: input,
     );
 
-BigInt handleTypeNestAliasIdTwinSyncSse({required BigInt input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSyncSseHandleTypeNestAliasIdTwinSyncSse(
+BigInt handleTypeNestAliasIdTwinSyncSse({required BigInt input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSyncSseHandleTypeNestAliasIdTwinSyncSse(
       input: input,
     );
 
 TestModelTwinSyncSse handleTypeAliasModelTwinSyncSse({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSyncSseHandleTypeAliasModelTwinSyncSse(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinSyncSseHandleTypeAliasModelTwinSyncSse(
       input: input,
     );
 
@@ -48,18 +49,18 @@ int genericResultAliasTwoParamsErrTwinSyncSse() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSyncSseGenericResultAliasTwoParamsErrTwinSyncSse();
 
 int? genericOptionAliasReturnTwinSyncSse({required int input}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinSyncSseGenericOptionAliasReturnTwinSyncSse(
-        input: input);
+      input: input,
+    );
 
 int genericOptionAliasArgTwinSyncSse({int? input}) => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSyncSseGenericOptionAliasArgTwinSyncSse(
-        input: input);
+      input: input,
+    );
 
-enum GenericAliasErrorTwinSyncSse {
-  deliberate,
-  ;
-}
+enum GenericAliasErrorTwinSyncSse { deliberate }
 
 class TestModelTwinSyncSse {
   final BigInt id;

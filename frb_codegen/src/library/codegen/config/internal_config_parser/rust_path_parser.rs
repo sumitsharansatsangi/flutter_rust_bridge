@@ -49,7 +49,8 @@ fn sanity_check_rust_input_namespace_prefixes(rust_input_namespace_prefixes_raw:
         // frb-coverage:ignore-start
         log::warn!(
             "Reminder: `rust_input` field usually looks like `crate::api`, but no `crate` word is detected. \
-            This is not a problem if the first-party crate is really not scanned.");
+            This is not a problem if the first-party crate is really not scanned."
+        );
         // frb-coverage:ignore-end
     }
 }

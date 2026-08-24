@@ -1,6 +1,6 @@
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::MirType::{EnumRef, StructRef};
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::parser::mir::parser::ty::unencodable::splay_segments;
 use crate::codegen::parser::mir::parser::ty::{TypeParser, TypeParserParsingContext};
 use anyhow::Context;
@@ -65,10 +65,10 @@ pub(crate) struct ResultTypeInfo {
 
 fn set_is_exception_flag(mut ty: MirType) -> MirType {
     match &mut ty {
-        StructRef(ref mut inner) => {
+        StructRef(inner) => {
             inner.is_exception = true;
         }
-        EnumRef(ref mut inner) => {
+        EnumRef(inner) => {
             inner.is_exception = true;
         }
         _ => {}

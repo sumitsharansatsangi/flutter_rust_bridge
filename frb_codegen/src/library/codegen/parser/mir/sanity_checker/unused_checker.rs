@@ -1,8 +1,8 @@
 use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatEnum;
 use crate::codegen::ir::hir::flat::struct_or_enum::HirFlatStruct;
 use crate::codegen::ir::mir::pack::MirPack;
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::parser::mir::internal_config::RustInputNamespacePack;
 use crate::codegen::parser::mir::parser::misc::extract_src_types_in_paths;
 use crate::codegen::parser::mir::parser::ty::path_data::extract_path_data;

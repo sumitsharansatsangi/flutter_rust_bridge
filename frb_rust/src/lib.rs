@@ -48,15 +48,15 @@ pub use crate::misc::user_utils::setup_default_user_utils;
 #[cfg(all(feature = "user-utils", feature = "log"))]
 pub use crate::misc::user_utils::setup_log_to_console;
 pub use crate::platform_types::DartAbi;
-pub use crate::rust2dart::sender::Rust2DartSendError;
 #[cfg(all(feature = "rust-async", feature = "thread-pool"))]
 pub use crate::rust_async::spawn_blocking_with;
 #[cfg(feature = "rust-async")]
-pub use crate::rust_async::{spawn, spawn_local, BaseAsyncRuntime, JoinHandle, SimpleAsyncRuntime};
+pub use crate::rust_async::{BaseAsyncRuntime, JoinHandle, SimpleAsyncRuntime, spawn, spawn_local};
 #[cfg(feature = "rust-async")]
 pub use crate::rust_auto_opaque::RustAutoOpaqueNom;
 #[allow(deprecated)]
 pub use crate::rust_opaque::{DartSafe, RustOpaqueNom};
+pub use crate::rust2dart::sender::Rust2DartSendError;
 #[cfg(feature = "thread-pool")]
 pub use crate::thread_pool::{BaseThreadPool, SimpleThreadPool};
 pub use flutter_rust_bridge_macros::frb;

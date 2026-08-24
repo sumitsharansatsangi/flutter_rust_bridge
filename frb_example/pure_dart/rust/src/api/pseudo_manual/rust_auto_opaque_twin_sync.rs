@@ -261,8 +261,8 @@ pub fn rust_auto_opaque_struct_with_good_and_opaque_field_arg_own_twin_sync(
 }
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_sync(
-) -> StructWithGoodAndOpaqueFieldTwinSync {
+pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_sync()
+-> StructWithGoodAndOpaqueFieldTwinSync {
     StructWithGoodAndOpaqueFieldTwinSync {
         good: "hello".to_string(),
         opaque: NonCloneSimpleTwinSync { inner: 42 },
@@ -289,14 +289,14 @@ pub fn rust_auto_opaque_enum_with_good_and_opaque_arg_own_twin_sync(
 }
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_sync(
-) -> EnumWithGoodAndOpaqueTwinSync {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_sync()
+-> EnumWithGoodAndOpaqueTwinSync {
     EnumWithGoodAndOpaqueTwinSync::Good("hello".to_owned())
 }
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_sync(
-) -> EnumWithGoodAndOpaqueTwinSync {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_sync()
+-> EnumWithGoodAndOpaqueTwinSync {
     EnumWithGoodAndOpaqueTwinSync::Opaque(NonCloneSimpleTwinSync { inner: 42 })
 }
 
@@ -378,8 +378,8 @@ pub fn rust_auto_opaque_explicit_struct_twin_sync(arg: StructWithExplicitAutoOpa
 }
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_explicit_return_struct_twin_sync(
-) -> StructWithExplicitAutoOpaqueFieldTwinSync {
+pub fn rust_auto_opaque_explicit_return_struct_twin_sync()
+-> StructWithExplicitAutoOpaqueFieldTwinSync {
     StructWithExplicitAutoOpaqueFieldTwinSync {
         normal: 100,
         auto_opaque: RustAutoOpaque::new(NonCloneSimpleTwinSync { inner: 100 }),
@@ -419,8 +419,8 @@ pub struct OpaqueOneTwinSync(PathBuf);
 pub struct OpaqueTwoTwinSync(PathBuf);
 
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_return_opaque_one_and_two_twin_sync(
-) -> (OpaqueOneTwinSync, OpaqueTwoTwinSync) {
+pub fn rust_auto_opaque_return_opaque_one_and_two_twin_sync()
+-> (OpaqueOneTwinSync, OpaqueTwoTwinSync) {
     unimplemented!()
 }
 #[flutter_rust_bridge::frb(sync)]

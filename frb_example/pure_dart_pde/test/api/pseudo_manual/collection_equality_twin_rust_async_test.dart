@@ -23,22 +23,24 @@ Future<void> main({bool skipRustLibInit = false}) async {
     expect(first.hashCode, second.hashCode);
   });
 
-  test('struct_with_deep_collection_equality_compares_each_collection_field',
-      () {
-    final original = _makeDeepCollectionStruct();
-    final variants = [
-      _makeDeepCollectionStruct(list: ['changed']),
-      _makeDeepCollectionStruct(map: {'k': 'changed'}),
-      _makeDeepCollectionStruct(setValues: {'changed'}),
-      _makeDeepCollectionStruct(optionalList: ['changed']),
-      _makeDeepCollectionStruct(bytes: Uint8List.fromList([9, 2, 3])),
-      _makeDeepCollectionStruct(fixedBytes: _makeFixedBytes([9, 2, 3])),
-    ];
+  test(
+    'struct_with_deep_collection_equality_compares_each_collection_field',
+    () {
+      final original = _makeDeepCollectionStruct();
+      final variants = [
+        _makeDeepCollectionStruct(list: ['changed']),
+        _makeDeepCollectionStruct(map: {'k': 'changed'}),
+        _makeDeepCollectionStruct(setValues: {'changed'}),
+        _makeDeepCollectionStruct(optionalList: ['changed']),
+        _makeDeepCollectionStruct(bytes: Uint8List.fromList([9, 2, 3])),
+        _makeDeepCollectionStruct(fixedBytes: _makeFixedBytes([9, 2, 3])),
+      ];
 
-    for (final variant in variants) {
-      expect(original == variant, isFalse);
-    }
-  });
+      for (final variant in variants) {
+        expect(original == variant, isFalse);
+      }
+    },
+  );
 
   test('struct_without_deep_collection_equality_uses_collection_identity', () {
     final first = _makeShallowCollectionStruct();
@@ -71,26 +73,25 @@ StructWithDeepCollectionEqualityTwinRustAsync _makeDeepCollectionStruct({
   List<String>? optionalList,
   Uint8List? bytes,
   U8Array3? fixedBytes,
-}) =>
-    StructWithDeepCollectionEqualityTwinRustAsync(
-      list: list ?? ['a'],
-      map: map ?? {'k': 'v'},
-      setValues: setValues ?? {'x'},
-      optionalList: optionalList ?? ['optional'],
-      bytes: bytes ?? Uint8List.fromList([1, 2, 3]),
-      fixedBytes: fixedBytes ?? _makeFixedBytes([1, 2, 3]),
-    );
+}) => StructWithDeepCollectionEqualityTwinRustAsync(
+  list: list ?? ['a'],
+  map: map ?? {'k': 'v'},
+  setValues: setValues ?? {'x'},
+  optionalList: optionalList ?? ['optional'],
+  bytes: bytes ?? Uint8List.fromList([1, 2, 3]),
+  fixedBytes: fixedBytes ?? _makeFixedBytes([1, 2, 3]),
+);
 
 StructWithShallowCollectionEqualityTwinRustAsync
-    _makeShallowCollectionStruct() =>
-        StructWithShallowCollectionEqualityTwinRustAsync(
-          list: ['a'],
-          map: {'k': 'v'},
-          setValues: {'x'},
-          optionalList: ['optional'],
-          bytes: Uint8List.fromList([1, 2, 3]),
-          fixedBytes: _makeFixedBytes([1, 2, 3]),
-        );
+_makeShallowCollectionStruct() =>
+    StructWithShallowCollectionEqualityTwinRustAsync(
+      list: ['a'],
+      map: {'k': 'v'},
+      setValues: {'x'},
+      optionalList: ['optional'],
+      bytes: Uint8List.fromList([1, 2, 3]),
+      fixedBytes: _makeFixedBytes([1, 2, 3]),
+    );
 
 U8Array3 _makeFixedBytes(List<int> values) =>
     U8Array3(Uint8List.fromList(values));

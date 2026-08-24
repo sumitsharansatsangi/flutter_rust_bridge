@@ -9,12 +9,12 @@ mod cast;
 mod misc_rust_async;
 mod pointer;
 
-pub use crate::codec::dco::{transform_result_dco, Rust2DartMessageDco};
+pub use crate::codec::Rust2DartMessageTrait;
+pub use crate::codec::dco::{Rust2DartMessageDco, transform_result_dco};
 pub use crate::codec::sse::{
     Dart2RustMessageSse, Rust2DartMessageSse, SseDeserializer, SseSerializer,
 };
-pub use crate::codec::Rust2DartMessageTrait;
-pub use crate::codec::{cst::CstCodec, dco::DcoCodec, sse::SseCodec, BaseCodec};
+pub use crate::codec::{BaseCodec, cst::CstCodec, dco::DcoCodec, sse::SseCodec};
 #[cfg(feature = "dart-opaque")]
 pub use crate::dart_opaque::dart2rust::{cst_decode_dart_opaque, sse_decode_dart_opaque};
 pub use crate::generalized_arc::base_arc::BaseArc;
@@ -32,7 +32,7 @@ pub use crate::handler::implementation::handler::SimpleHandler;
 pub use crate::lifetimeable::lifetime_changer::{
     ouroboros_change_lifetime, ouroboros_change_lifetime_mut,
 };
-pub use crate::lifetimeable::{dependency::LifetimeableDependency, Lifetimeable};
+pub use crate::lifetimeable::{Lifetimeable, dependency::LifetimeableDependency};
 #[cfg(feature = "rust-async")]
 pub use crate::lockable::{
     base::Lockable, order::LockableOrder, order_computer::lockable_compute_decode_order,
@@ -48,7 +48,6 @@ pub use crate::platform_types::{
     DartAbi, MessagePort, PlatformGeneralizedUint8ListPtr, WireSyncRust2DartDco,
     WireSyncRust2DartSse,
 };
-pub use crate::rust2dart::action::Rust2DartAction;
 pub use crate::rust_async;
 pub use crate::rust_async::{BaseAsyncRuntime, SimpleAsyncRuntime};
 #[cfg(feature = "rust-async")]
@@ -60,8 +59,9 @@ pub use crate::rust_auto_opaque::dart2rust_implicit::{
 #[cfg(feature = "rust-async")]
 pub use crate::rust_auto_opaque::rust2dart_explicit::rust_auto_opaque_explicit_encode;
 #[cfg(feature = "rust-async")]
-pub use crate::rust_auto_opaque::{inner::RustAutoOpaqueInner, RustAutoOpaqueBase};
-pub use crate::rust_opaque::{dart2rust::decode_rust_opaque_nom, RustOpaqueBase};
+pub use crate::rust_auto_opaque::{RustAutoOpaqueBase, inner::RustAutoOpaqueInner};
+pub use crate::rust_opaque::{RustOpaqueBase, dart2rust::decode_rust_opaque_nom};
+pub use crate::rust2dart::action::Rust2DartAction;
 pub use crate::stream::stream_sink::StreamSinkBase;
 pub use crate::thread_pool::{BaseThreadPool, SimpleThreadPool};
 #[cfg(target_family = "wasm")]

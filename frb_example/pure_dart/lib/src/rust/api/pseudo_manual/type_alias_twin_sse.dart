@@ -10,20 +10,22 @@ import '../../frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<BigInt> handleTypeAliasIdTwinSse({required BigInt input}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinSseHandleTypeAliasIdTwinSse(input: input);
 
-Future<BigInt> handleTypeNestAliasIdTwinSse({required BigInt input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSseHandleTypeNestAliasIdTwinSse(
+Future<BigInt> handleTypeNestAliasIdTwinSse({required BigInt input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSseHandleTypeNestAliasIdTwinSse(
       input: input,
     );
 
 Future<TestModelTwinSse> handleTypeAliasModelTwinSse({required BigInt input}) =>
     RustLib.instance.api
         .crateApiPseudoManualTypeAliasTwinSseHandleTypeAliasModelTwinSse(
-      input: input,
-    );
+          input: input,
+        );
 
 Future<int> genericResultAliasOkTwinSse() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSseGenericResultAliasOkTwinSse();
@@ -43,19 +45,19 @@ Future<int> genericResultAliasTwoParamsOkTwinSse() => RustLib.instance.api
 Future<int> genericResultAliasTwoParamsErrTwinSse() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSseGenericResultAliasTwoParamsErrTwinSse();
 
-Future<int?> genericOptionAliasReturnTwinSse({required int input}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinSseGenericOptionAliasReturnTwinSse(
-            input: input);
+Future<int?> genericOptionAliasReturnTwinSse({required int input}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTypeAliasTwinSseGenericOptionAliasReturnTwinSse(
+      input: input,
+    );
 
 Future<int> genericOptionAliasArgTwinSse({int? input}) => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinSseGenericOptionAliasArgTwinSse(
-        input: input);
+      input: input,
+    );
 
-enum GenericAliasErrorTwinSse {
-  deliberate,
-  ;
-}
+enum GenericAliasErrorTwinSse { deliberate }
 
 class TestModelTwinSse {
   final BigInt id;

@@ -1,10 +1,10 @@
 use crate::codegen::generator::wire::rust::spec_generator::codec::pde::entrypoint::{
-    generate_ffi_dispatcher_raw, FfiDispatcherMode,
+    FfiDispatcherMode, generate_ffi_dispatcher_raw,
 };
 use crate::library::commands::cargo_metadata::execute_cargo_metadata;
 use crate::library::commands::cbindgen::{cbindgen_raw, default_cbindgen_config};
 use crate::library::commands::ffigen::{
-    ffigen_raw, FfigenCommandConfig, FfigenCommandConfigHeaders,
+    FfigenCommandConfig, FfigenCommandConfigHeaders, ffigen_raw,
 };
 use crate::utils::file_utils::temp_change_file;
 use crate::utils::path_utils::path_to_string;

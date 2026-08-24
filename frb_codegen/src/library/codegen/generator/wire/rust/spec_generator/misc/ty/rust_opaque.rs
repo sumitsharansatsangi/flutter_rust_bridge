@@ -7,8 +7,8 @@ use crate::codegen::generator::wire::rust::spec_generator::extern_func::{
 };
 use crate::codegen::generator::wire::rust::spec_generator::misc::ty::WireRustGeneratorMiscTrait;
 use crate::codegen::generator::wire::rust::spec_generator::output_code::WireRustOutputCode;
-use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
 use crate::codegen::ir::mir::ty::MirTypeTrait;
+use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
 use crate::utils::namespace::Namespace;
 use itertools::Itertools;
 
@@ -27,12 +27,14 @@ impl WireRustGeneratorMiscTrait for RustOpaqueWireRustGenerator<'_> {
                         "rust_arc_{op}_strong_count_{}",
                         self.mir.safe_ident()
                     ),
-                    params: vec![ExternFuncParam {
-                        name: "ptr".to_owned(),
-                        rust_type: "*const std::ffi::c_void".to_owned(),
-                        dart_type: "int".into(),
-                    }
-                    .clone()],
+                    params: vec![
+                        ExternFuncParam {
+                            name: "ptr".to_owned(),
+                            rust_type: "*const std::ffi::c_void".to_owned(),
+                            dart_type: "int".into(),
+                        }
+                        .clone(),
+                    ],
                     return_type: None,
                     body: generate_maybe_unsafe(
                         &format!(

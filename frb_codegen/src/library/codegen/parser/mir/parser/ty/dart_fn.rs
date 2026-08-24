@@ -1,11 +1,11 @@
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::dart_fn::MirDartFnOutput;
 use crate::codegen::ir::mir::ty::dart_fn::MirTypeDartFn;
 use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
-use crate::codegen::ir::mir::ty::MirType;
-use crate::codegen::parser::mir::parser::ty::result::{parse_type_maybe_result, ResultTypeInfo};
 use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
+use crate::codegen::parser::mir::parser::ty::result::{ResultTypeInfo, parse_type_maybe_result};
 use crate::if_then_some;
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use syn::{
     AngleBracketedGenericArguments, GenericArgument, PathArguments, PathSegment, ReturnType, Type,
     TypeImplTrait, TypeParamBound, TypePath,
@@ -38,7 +38,7 @@ impl TypeParserWithContext<'_, '_, '_> {
 
         if let PathArguments::Parenthesized(arguments) = &segment.arguments {
             let inputs = (arguments.inputs.iter())
-                .map(|x| self.parse_type(x))
+                .map(|x| self.parse_type(&x.ty))
                 .collect::<anyhow::Result<Vec<_>>>()?;
 
             let output = self.parse_dart_fn_output(&arguments.output)?;

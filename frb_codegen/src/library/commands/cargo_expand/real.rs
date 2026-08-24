@@ -1,11 +1,11 @@
-use crate::codegen::dumper::Dumper;
 use crate::codegen::ConfigDumpContent;
+use crate::codegen::dumper::Dumper;
 use crate::command_args;
 use crate::library::commands::command_runner::{
-    check_exit_code, execute_command, ExecuteCommandOptions,
+    ExecuteCommandOptions, check_exit_code, execute_command,
 };
 use crate::utils::crate_name::CrateName;
-use anyhow::{bail, Context, Result};
+use anyhow::{Context, Result, bail};
 use itertools::Itertools;
 use lazy_static::lazy_static;
 use log::{debug, info};

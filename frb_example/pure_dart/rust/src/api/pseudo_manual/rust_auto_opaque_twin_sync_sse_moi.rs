@@ -120,8 +120,8 @@ pub fn rust_auto_opaque_plus_sign_arg_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_plus_sign_return_twin_sync_sse_moi(
-) -> Box<dyn MyTraitTwinSyncSseMoi + Send + Sync> {
+pub fn rust_auto_opaque_plus_sign_return_twin_sync_sse_moi()
+-> Box<dyn MyTraitTwinSyncSseMoi + Send + Sync> {
     Box::new("hello".to_owned())
 }
 
@@ -137,8 +137,8 @@ pub fn rust_auto_opaque_callable_arg_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_callable_return_twin_sync_sse_moi(
-) -> Box<dyn Fn(String) -> String + Send + Sync> {
+pub fn rust_auto_opaque_callable_return_twin_sync_sse_moi()
+-> Box<dyn Fn(String) -> String + Send + Sync> {
     Box::new(|x: String| x.repeat(2))
 }
 
@@ -326,8 +326,8 @@ pub fn rust_auto_opaque_struct_with_good_and_opaque_field_arg_own_twin_sync_sse_
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_sync_sse_moi(
-) -> StructWithGoodAndOpaqueFieldTwinSyncSseMoi {
+pub fn rust_auto_opaque_struct_with_good_and_opaque_field_return_own_twin_sync_sse_moi()
+-> StructWithGoodAndOpaqueFieldTwinSyncSseMoi {
     StructWithGoodAndOpaqueFieldTwinSyncSseMoi {
         good: "hello".to_string(),
         opaque: NonCloneSimpleTwinSyncSseMoi { inner: 42 },
@@ -358,16 +358,16 @@ pub fn rust_auto_opaque_enum_with_good_and_opaque_arg_own_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_sync_sse_moi(
-) -> EnumWithGoodAndOpaqueTwinSyncSseMoi {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_good_twin_sync_sse_moi()
+-> EnumWithGoodAndOpaqueTwinSyncSseMoi {
     EnumWithGoodAndOpaqueTwinSyncSseMoi::Good("hello".to_owned())
 }
 
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_sync_sse_moi(
-) -> EnumWithGoodAndOpaqueTwinSyncSseMoi {
+pub fn rust_auto_opaque_enum_with_good_and_opaque_return_own_opaque_twin_sync_sse_moi()
+-> EnumWithGoodAndOpaqueTwinSyncSseMoi {
     EnumWithGoodAndOpaqueTwinSyncSseMoi::Opaque(NonCloneSimpleTwinSyncSseMoi { inner: 42 })
 }
 
@@ -475,8 +475,8 @@ pub fn rust_auto_opaque_explicit_struct_twin_sync_sse_moi(
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_explicit_return_struct_twin_sync_sse_moi(
-) -> StructWithExplicitAutoOpaqueFieldTwinSyncSseMoi {
+pub fn rust_auto_opaque_explicit_return_struct_twin_sync_sse_moi()
+-> StructWithExplicitAutoOpaqueFieldTwinSyncSseMoi {
     StructWithExplicitAutoOpaqueFieldTwinSyncSseMoi {
         normal: 100,
         auto_opaque: crate::frb_generated::RustAutoOpaqueMoi::new(NonCloneSimpleTwinSyncSseMoi {
@@ -524,8 +524,8 @@ pub struct OpaqueTwoTwinSyncSseMoi(PathBuf);
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn rust_auto_opaque_return_opaque_one_and_two_twin_sync_sse_moi(
-) -> (OpaqueOneTwinSyncSseMoi, OpaqueTwoTwinSyncSseMoi) {
+pub fn rust_auto_opaque_return_opaque_one_and_two_twin_sync_sse_moi()
+-> (OpaqueOneTwinSyncSseMoi, OpaqueTwoTwinSyncSseMoi) {
     unimplemented!()
 }
 #[flutter_rust_bridge::frb(rust_opaque_codec_moi)]

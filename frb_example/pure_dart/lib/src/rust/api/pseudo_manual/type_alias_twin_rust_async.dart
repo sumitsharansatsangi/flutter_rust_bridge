@@ -11,25 +11,22 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<BigInt> handleTypeAliasIdTwinRustAsync({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncHandleTypeAliasIdTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncHandleTypeAliasIdTwinRustAsync(
       input: input,
     );
 
 Future<BigInt> handleTypeNestAliasIdTwinRustAsync({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncHandleTypeNestAliasIdTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncHandleTypeNestAliasIdTwinRustAsync(
       input: input,
     );
 
 Future<TestModelTwinRustAsync> handleTypeAliasModelTwinRustAsync({
   required BigInt input,
-}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTypeAliasTwinRustAsyncHandleTypeAliasModelTwinRustAsync(
+}) => RustLib.instance.api
+    .crateApiPseudoManualTypeAliasTwinRustAsyncHandleTypeAliasModelTwinRustAsync(
       input: input,
     );
 
@@ -49,23 +46,25 @@ Future<int> genericResultAliasTwoParamsOkTwinRustAsync() => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinRustAsyncGenericResultAliasTwoParamsOkTwinRustAsync();
 
 Future<int> genericResultAliasTwoParamsErrTwinRustAsync() => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncGenericResultAliasTwoParamsErrTwinRustAsync();
 
-Future<int?> genericOptionAliasReturnTwinRustAsync({required int input}) => RustLib
-    .instance.api
+Future<int?> genericOptionAliasReturnTwinRustAsync({
+  required int input,
+}) => RustLib.instance.api
     .crateApiPseudoManualTypeAliasTwinRustAsyncGenericOptionAliasReturnTwinRustAsync(
-        input: input);
+      input: input,
+    );
 
 Future<int> genericOptionAliasArgTwinRustAsync({int? input}) => RustLib
-    .instance.api
+    .instance
+    .api
     .crateApiPseudoManualTypeAliasTwinRustAsyncGenericOptionAliasArgTwinRustAsync(
-        input: input);
+      input: input,
+    );
 
-enum GenericAliasErrorTwinRustAsync {
-  deliberate,
-  ;
-}
+enum GenericAliasErrorTwinRustAsync { deliberate }
 
 class TestModelTwinRustAsync {
   final BigInt id;

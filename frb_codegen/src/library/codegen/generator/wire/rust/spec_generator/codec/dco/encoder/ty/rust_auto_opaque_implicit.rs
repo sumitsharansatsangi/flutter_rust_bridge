@@ -5,8 +5,8 @@ use crate::codegen::generator::wire::rust::spec_generator::codec::dco::encoder::
 };
 use crate::codegen::generator::wire::rust::spec_generator::codec::dco::encoder::ty::WireRustCodecDcoGeneratorEncoderTrait;
 use crate::codegen::ir::mir::func::OwnershipMode;
-use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicit;
 use crate::codegen::ir::mir::ty::MirTypeTrait;
+use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicit;
 
 impl WireRustCodecDcoGeneratorEncoderTrait for RustAutoOpaqueImplicitWireRustCodecDcoGenerator<'_> {
     fn generate_impl_into_dart(&self) -> Option<String> {

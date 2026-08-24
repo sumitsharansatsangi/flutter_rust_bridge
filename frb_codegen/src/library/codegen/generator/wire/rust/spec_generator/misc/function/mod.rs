@@ -12,8 +12,8 @@ use crate::codegen::generator::wire::rust::spec_generator::extern_func::{
 };
 use crate::codegen::generator::wire::rust::spec_generator::output_code::WireRustOutputCode;
 use crate::codegen::ir::mir::func::{MirFunc, MirFuncMode, MirFuncOwnerInfo};
-use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 use crate::misc::consts::HANDLER_NAME;
 use convert_case::{Case, Casing};

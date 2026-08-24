@@ -10,9 +10,8 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 Future<VecOfPrimitivePackTwinNormal> handleVecOfPrimitiveTwinNormal({
   required int n,
-}) =>
-    RustLib.instance.api
-        .crateApiPrimitiveListMiscHandleVecOfPrimitiveTwinNormal(n: n);
+}) => RustLib.instance.api
+    .crateApiPrimitiveListMiscHandleVecOfPrimitiveTwinNormal(n: n);
 
 class VecOfPrimitivePackTwinNormal {
   final Int8List int8List;
@@ -53,7 +52,7 @@ class VecOfPrimitivePackTwinNormal {
       int64List.hashCode ^
       float32List.hashCode ^
       float64List.hashCode ^
-      const DeepCollectionEquality().hash(boolList);
+      boolList.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -70,5 +69,5 @@ class VecOfPrimitivePackTwinNormal {
           int64List == other.int64List &&
           float32List == other.float32List &&
           float64List == other.float64List &&
-          const DeepCollectionEquality().equals(boolList, other.boolList);
+          boolList == other.boolList;
 }

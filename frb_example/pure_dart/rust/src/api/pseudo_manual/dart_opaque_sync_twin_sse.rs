@@ -4,7 +4,7 @@
 
 // FRB_INTERNAL_GENERATOR: {"forbiddenDuplicatorModes": ["sync", "rustAsync", "sync sse", "rustAsync sse"]}
 
-use flutter_rust_bridge::{frb, DartOpaque};
+use flutter_rust_bridge::{DartOpaque, frb};
 
 #[frb(sync)]
 #[flutter_rust_bridge::frb(serialize)]

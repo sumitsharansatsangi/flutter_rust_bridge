@@ -22,8 +22,8 @@ pub type RustOpaqueNom<T> = RustOpaqueBase<T, StdArc<T>>;
 #[macro_export]
 macro_rules! frb_generated_rust_opaque_def {
     (default_rust_opaque = $default_rust_opaque:ident) => {
-        use $crate::for_generated::StdArc;
         use $crate::RustOpaqueNom;
+        use $crate::for_generated::StdArc;
 
         /// Please refer to `RustOpaque` for doc.
         pub type RustOpaqueMoi<T> = $crate::for_generated::RustOpaqueBase<T, MoiArc<T>>;

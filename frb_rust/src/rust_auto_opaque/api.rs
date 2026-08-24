@@ -1,11 +1,11 @@
 use crate::generalized_arc::base_arc::BaseArc;
 use crate::rust_async::{RwLockReadGuard, RwLockWriteGuard};
+use crate::rust_auto_opaque::RustAutoOpaqueBase;
 use crate::rust_auto_opaque::inner::RustAutoOpaqueInner;
 #[cfg(target_family = "wasm")]
 use crate::rust_auto_opaque::web_is_dedicated_worker_context;
 #[cfg(target_family = "wasm")]
 use crate::rust_auto_opaque::web_throw_lock_error;
-use crate::rust_auto_opaque::RustAutoOpaqueBase;
 use crate::rust_opaque::RustOpaqueBase;
 use tokio::sync::{RwLock, TryLockError};
 

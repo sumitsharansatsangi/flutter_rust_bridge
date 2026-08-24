@@ -3,7 +3,7 @@
 // Please do not modify manually, but modify the origin and re-run frb_internal generator
 
 use crate::frb_generated::StreamSink;
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use backtrace::Backtrace;
 use flutter_rust_bridge::frb;
 
@@ -218,8 +218,8 @@ impl CustomStructTwinSse {
     }
 
     #[flutter_rust_bridge::frb(serialize)]
-    pub fn static_return_custom_struct_error_twin_sse(
-    ) -> Result<(), CustomStructErrorAnotherTwinSse> {
+    pub fn static_return_custom_struct_error_twin_sse()
+    -> Result<(), CustomStructErrorAnotherTwinSse> {
         Err(CustomStructErrorAnotherTwinSse {
             message: "error message".to_string(),
         })

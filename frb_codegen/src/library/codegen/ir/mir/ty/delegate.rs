@@ -1,7 +1,7 @@
 use crate::codegen::generator::codec::structs::CodecMode;
 use crate::codegen::ir::mir::custom_ser_des::MirCustomSerDes;
 use crate::codegen::ir::mir::ty::enumeration::{MirEnumIdent, MirTypeEnumRef};
-use crate::codegen::ir::mir::ty::general_list::{mir_list, MirTypeGeneralList};
+use crate::codegen::ir::mir::ty::general_list::{MirTypeGeneralList, mir_list};
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::primitive_list::MirTypePrimitiveList;
 use crate::codegen::ir::mir::ty::record::MirTypeRecord;

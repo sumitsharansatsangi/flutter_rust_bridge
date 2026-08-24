@@ -1,12 +1,12 @@
-use crate::codec::sse::Dart2RustMessageSse;
 use crate::codec::BaseCodec;
 use crate::codec::Rust2DartMessageTrait;
+use crate::codec::sse::Dart2RustMessageSse;
 use crate::handler::error::Error;
 use crate::handler::error_listener::ErrorListener;
 use crate::handler::executor::Executor;
 use crate::handler::handler::{Handler, TaskContext, TaskInfo, TaskRetFutTrait};
 use crate::handler::implementation::error_listener::{
-    handle_non_sync_panic_error, NoOpErrorListener,
+    NoOpErrorListener, handle_non_sync_panic_error,
 };
 use crate::handler::implementation::executor::SimpleExecutor;
 use crate::misc::panic_backtrace::PanicBacktrace;

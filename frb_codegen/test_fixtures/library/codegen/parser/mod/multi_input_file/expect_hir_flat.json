@@ -13,7 +13,7 @@
   "extra_rust_output_code": "",
   "functions": [
     {
-      "item_fn": "GeneralizedItemFn(name=func_one, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_one, vis=public, attrs=[])",
       "namespace": "crate::api_one",
       "owner": "Function",
       "sources": [
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "item_fn": "GeneralizedItemFn(name=func_two, vis=Some(Visibility::Public(Pub)), attrs=[])",
+      "item_fn": "GeneralizedItemFn(name=func_two, vis=public, attrs=[])",
       "namespace": "crate::api_two",
       "owner": "Function",
       "sources": [

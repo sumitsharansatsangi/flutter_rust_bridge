@@ -3,7 +3,7 @@ use crate::codec::Rust2DartMessageTrait;
 use crate::for_generated::DartAbi;
 use crate::generalized_isolate::IntoDart;
 use crate::generalized_isolate::{
-    channel_to_handle, handle_to_channel, Channel, SendableChannelHandle,
+    Channel, SendableChannelHandle, channel_to_handle, handle_to_channel,
 };
 use crate::platform_types::{deserialize_sendable_message_port_handle, handle_to_message_port};
 use crate::rust2dart::sender::{Rust2DartSendError, Rust2DartSender};

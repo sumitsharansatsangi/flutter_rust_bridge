@@ -204,8 +204,8 @@ fn text_contains_platform_token(text: &str, platform: &str) -> bool {
 #[cfg(test)]
 mod tests {
     use super::{
-        default_flutter_platforms, flutter_create_help_supports_platform,
-        flutter_create_template_arg, platform_list_contains_ohos, FlutterCreateTemplateArg,
+        FlutterCreateTemplateArg, default_flutter_platforms, flutter_create_help_supports_platform,
+        flutter_create_template_arg, platform_list_contains_ohos,
     };
     use crate::misc::{IntegrationBackend, Template};
 

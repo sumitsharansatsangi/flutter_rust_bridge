@@ -2,17 +2,17 @@ use crate::codegen::ir::hir::flat::function::{HirFlatFunction, HirFlatFunctionOw
 use crate::codegen::ir::mir::func::{
     MirFuncOwnerInfo, MirFuncOwnerInfoMethod, MirFuncOwnerInfoMethodMode,
 };
-use crate::codegen::ir::mir::ty::trait_def::MirTypeTraitDef;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::trait_def::MirTypeTraitDef;
 use crate::codegen::ir::misc::skip::IrSkipReason::IgnoreBecauseOwnerTyShouldIgnore;
 use crate::codegen::ir::misc::skip::{IrSkipReason, IrValueOrSkip};
 use crate::codegen::parser::hir::flat::transformer::remove_not_defined_trait_transformer::WHITELIST_TRAIT_NAMES;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::function::real::{
-    is_struct_or_enum_or_opaque_from_them, FunctionParser,
+    FunctionParser, is_struct_or_enum_or_opaque_from_them,
 };
-use crate::codegen::parser::mir::parser::ty::trait_def::parse_type_trait;
 use crate::codegen::parser::mir::parser::ty::TypeParserParsingContext;
+use crate::codegen::parser::mir::parser::ty::trait_def::parse_type_trait;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 use crate::utils::syn_utils::ty_to_string;
 use syn::{FnArg, Type};

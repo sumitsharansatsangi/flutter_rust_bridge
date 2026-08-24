@@ -1,5 +1,5 @@
 use crate::if_then_some;
-use itertools::{concat, Itertools};
+use itertools::{Itertools, concat};
 use syn::{GenericArgument, Type};
 
 pub(crate) struct LifetimeExtractor;

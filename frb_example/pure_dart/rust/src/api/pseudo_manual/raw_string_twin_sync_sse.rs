@@ -36,8 +36,8 @@ pub struct MoreThanJustOneRawStringStructTwinSyncSse {
 
 #[flutter_rust_bridge::frb(serialize)]
 #[flutter_rust_bridge::frb(sync)]
-pub fn test_more_than_just_one_raw_string_struct_twin_sync_sse(
-) -> MoreThanJustOneRawStringStructTwinSyncSse {
+pub fn test_more_than_just_one_raw_string_struct_twin_sync_sse()
+-> MoreThanJustOneRawStringStructTwinSyncSse {
     MoreThanJustOneRawStringStructTwinSyncSse {
         regular: "regular".to_owned(),
         r#type: "type".to_owned(),

@@ -1,5 +1,5 @@
-use crate::codegen::generator::codec::sse::lang::rust::RustLang;
 use crate::codegen::generator::codec::sse::lang::Lang;
+use crate::codegen::generator::codec::sse::lang::rust::RustLang;
 use crate::codegen::generator::codec::sse::ty::enumeration::generate_enum_encode_rust_general;
 use crate::codegen::generator::wire::rust::spec_generator::codec::dco::base::*;
 use crate::codegen::generator::wire::rust::spec_generator::codec::dco::encoder::misc::{

@@ -1,7 +1,7 @@
 use crate::codegen::generator::api_dart;
 use crate::codegen::generator::api_dart::spec_generator::base::ApiDartGenerator;
 use crate::codegen::generator::api_dart::spec_generator::function::{
-    compute_params_str, ApiDartGeneratedFunction,
+    ApiDartGeneratedFunction, compute_params_str,
 };
 use crate::codegen::generator::wire::dart::spec_generator::base::WireDartGeneratorContext;
 use crate::codegen::generator::wire::dart::spec_generator::codec::base::WireDartCodecEntrypoint;

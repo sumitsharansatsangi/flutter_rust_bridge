@@ -2,16 +2,16 @@ use crate::codegen::generator::acc::Acc;
 use crate::codegen::generator::codec::structs::CodecMode;
 use crate::codegen::generator::misc::generate_code_header;
 use crate::codegen::generator::misc::target::TargetOrCommon;
+use crate::codegen::generator::wire::rust::MirPackComputedCache;
 use crate::codegen::generator::wire::rust::spec_generator::base::{
     WireRustGenerator, WireRustGeneratorContext,
 };
 use crate::codegen::generator::wire::rust::spec_generator::misc::function::generate_wire_func;
 use crate::codegen::generator::wire::rust::spec_generator::output_code::WireRustOutputCode;
-use crate::codegen::generator::wire::rust::MirPackComputedCache;
 use crate::codegen::ir::mir::func::MirFuncOwnerInfo;
 use crate::codegen::ir::mir::pack::MirPack;
-use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
 use crate::if_then_some;
 use crate::library::codegen::generator::wire::rust::spec_generator::misc::ty::WireRustGeneratorMiscTrait;
 use crate::utils::namespace::Namespace;
@@ -58,11 +58,9 @@ pub(crate) fn generate(
             .map(|f| generate_wire_func(f, context))
             .collect(),
         wrapper_structs: Acc::default(),
-        static_checks: Acc::new_common(vec![generate_static_checks(
-            &cache.distinct_types,
-            context,
-        )
-        .into()]),
+        static_checks: Acc::new_common(vec![
+            generate_static_checks(&cache.distinct_types, context).into(),
+        ]),
         related_funcs: cache
             .distinct_types
             .iter()
@@ -145,11 +143,13 @@ use flutter_rust_bridge::for_generated::byteorder::{NativeEndian, WriteBytesExt,
             _ => "",
         };
 
-        vec![(imports_from_types.clone()
-            + &imports_from_functions
-            + static_imports
-            + platform_imports)
-            .into()]
+        vec![
+            (imports_from_types.clone()
+                + &imports_from_functions
+                + static_imports
+                + platform_imports)
+                .into(),
+        ]
     })
 }
 
@@ -196,8 +196,9 @@ fn generate_boilerplate(
                     .into(),
                 ]
             }
-            TargetOrCommon::Common => vec![format!(
-                r#"{rust_preamble_formatted}flutter_rust_bridge::frb_generated_boilerplate!(
+            TargetOrCommon::Common => vec![
+                format!(
+                    r#"{rust_preamble_formatted}flutter_rust_bridge::frb_generated_boilerplate!(
                     default_stream_sink_codec = {default_stream_sink_codec}Codec,
                     default_rust_opaque = RustOpaque{default_rust_opaque_codec},
                     default_rust_auto_opaque = RustAutoOpaque{default_rust_opaque_codec},
@@ -205,9 +206,10 @@ fn generate_boilerplate(
                 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "{version}";
                 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = {content_hash};
             "#,
-                version = env!("CARGO_PKG_VERSION"),
-            )
-            .into()],
+                    version = env!("CARGO_PKG_VERSION"),
+                )
+                .into(),
+            ],
         }
     })
 }

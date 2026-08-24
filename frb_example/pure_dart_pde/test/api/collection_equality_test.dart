@@ -19,22 +19,24 @@ Future<void> main({bool skipRustLibInit = false}) async {
     expect(first.hashCode, second.hashCode);
   });
 
-  test('struct_with_deep_collection_equality_compares_each_collection_field',
-      () {
-    final original = _makeDeepCollectionStruct();
-    final variants = [
-      _makeDeepCollectionStruct(list: ['changed']),
-      _makeDeepCollectionStruct(map: {'k': 'changed'}),
-      _makeDeepCollectionStruct(setValues: {'changed'}),
-      _makeDeepCollectionStruct(optionalList: ['changed']),
-      _makeDeepCollectionStruct(bytes: Uint8List.fromList([9, 2, 3])),
-      _makeDeepCollectionStruct(fixedBytes: _makeFixedBytes([9, 2, 3])),
-    ];
+  test(
+    'struct_with_deep_collection_equality_compares_each_collection_field',
+    () {
+      final original = _makeDeepCollectionStruct();
+      final variants = [
+        _makeDeepCollectionStruct(list: ['changed']),
+        _makeDeepCollectionStruct(map: {'k': 'changed'}),
+        _makeDeepCollectionStruct(setValues: {'changed'}),
+        _makeDeepCollectionStruct(optionalList: ['changed']),
+        _makeDeepCollectionStruct(bytes: Uint8List.fromList([9, 2, 3])),
+        _makeDeepCollectionStruct(fixedBytes: _makeFixedBytes([9, 2, 3])),
+      ];
 
-    for (final variant in variants) {
-      expect(original == variant, isFalse);
-    }
-  });
+      for (final variant in variants) {
+        expect(original == variant, isFalse);
+      }
+    },
+  );
 
   test('struct_without_deep_collection_equality_uses_collection_identity', () {
     final first = _makeShallowCollectionStruct();
@@ -67,15 +69,14 @@ StructWithDeepCollectionEqualityTwinNormal _makeDeepCollectionStruct({
   List<String>? optionalList,
   Uint8List? bytes,
   U8Array3? fixedBytes,
-}) =>
-    StructWithDeepCollectionEqualityTwinNormal(
-      list: list ?? ['a'],
-      map: map ?? {'k': 'v'},
-      setValues: setValues ?? {'x'},
-      optionalList: optionalList ?? ['optional'],
-      bytes: bytes ?? Uint8List.fromList([1, 2, 3]),
-      fixedBytes: fixedBytes ?? _makeFixedBytes([1, 2, 3]),
-    );
+}) => StructWithDeepCollectionEqualityTwinNormal(
+  list: list ?? ['a'],
+  map: map ?? {'k': 'v'},
+  setValues: setValues ?? {'x'},
+  optionalList: optionalList ?? ['optional'],
+  bytes: bytes ?? Uint8List.fromList([1, 2, 3]),
+  fixedBytes: fixedBytes ?? _makeFixedBytes([1, 2, 3]),
+);
 
 StructWithShallowCollectionEqualityTwinNormal _makeShallowCollectionStruct() =>
     StructWithShallowCollectionEqualityTwinNormal(

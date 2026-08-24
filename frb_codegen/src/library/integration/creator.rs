@@ -197,7 +197,11 @@ fn remove_files_in_dir(dir: &Path) -> anyhow::Result<()> {
         if path.is_file() {
             fs::remove_file(&path)?;
         } else if path.is_dir() {
-            bail!("Directory '{:?}' was expected to contain only files but directory '{:?}' was encountered", dir.display(), path.display());
+            bail!(
+                "Directory '{:?}' was expected to contain only files but directory '{:?}' was encountered",
+                dir.display(),
+                path.display()
+            );
         }
     }
     Ok(())
@@ -256,7 +260,7 @@ dev_dependencies:
   ffi: ^2.1.4
   ffigen: ^20.1.1
   flutter_lints: ^6.0.0
-  test: ^1.28.0
+  test: ^1.31.0
 "#,
         )
         .unwrap();
@@ -333,8 +337,8 @@ dev_dependencies:
             dart_root.join("pubspec.yaml"),
             r#"name: sample
 dependencies:
-  code_assets: ^1.0.0
-  hooks: ^1.0.0
+  code_assets: ^1.2.1
+  hooks: ^2.2.0
   native_toolchain_c: ^0.17.4
   keep_me: ^1.0.0
 
@@ -352,11 +356,13 @@ dev_dependencies:
         assert!(!dart_root.join("src").exists());
         assert!(dart_root.join("hook").join("build.dart").exists());
         assert!(dart_root.join("test").join("sample_test.dart").exists());
-        assert!(dart_root
-            .join("example")
-            .join("web")
-            .join("index.html")
-            .exists());
+        assert!(
+            dart_root
+                .join("example")
+                .join("web")
+                .join("index.html")
+                .exists()
+        );
         assert!(dart_root.join("README.md").exists());
         let pubspec = fs::read_to_string(dart_root.join("pubspec.yaml")).unwrap();
         assert!(pubspec.contains("code_assets:"));

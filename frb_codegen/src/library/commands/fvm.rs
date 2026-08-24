@@ -1,5 +1,5 @@
 use crate::command_run;
-use crate::library::commands::command_runner::{call_shell, ExecuteCommandOptions};
+use crate::library::commands::command_runner::{ExecuteCommandOptions, call_shell};
 use crate::misc::FvmInstallMode;
 use std::path::Path;
 

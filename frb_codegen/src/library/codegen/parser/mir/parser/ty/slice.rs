@@ -1,5 +1,5 @@
-use crate::codegen::ir::mir::ty::general_list::mir_list;
 use crate::codegen::ir::mir::ty::MirType;
+use crate::codegen::ir::mir::ty::general_list::mir_list;
 use crate::codegen::parser::mir::parser::ty::TypeParserWithContext;
 
 impl TypeParserWithContext<'_, '_, '_> {

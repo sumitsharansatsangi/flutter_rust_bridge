@@ -2,7 +2,7 @@ use crate::for_generated::BaseArc;
 use crate::generalized_isolate::ZeroCopyBuffer;
 use crate::platform_types::DartAbi;
 #[cfg(feature = "rust-async")]
-use crate::rust_auto_opaque::{inner::RustAutoOpaqueInner, RustAutoOpaqueBase};
+use crate::rust_auto_opaque::{RustAutoOpaqueBase, inner::RustAutoOpaqueInner};
 use crate::rust_opaque::RustOpaqueBase;
 use js_sys::Array;
 use std::collections::{HashMap, HashSet};

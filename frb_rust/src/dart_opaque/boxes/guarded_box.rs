@@ -37,7 +37,8 @@ impl<T: Debug, C: GuardedBoxContext> GuardedBox<T, C> {
     fn panic_because_context_failed(&self) -> ! {
         panic!(
             "GuardedBox can only be used when the context is the same as the context when it is created. current={:?} creation={:?}",
-            C::current(), self.context,
+            C::current(),
+            self.context,
         )
     }
 

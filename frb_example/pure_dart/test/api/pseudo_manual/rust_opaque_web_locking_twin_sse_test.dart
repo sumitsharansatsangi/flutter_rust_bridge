@@ -20,18 +20,16 @@ Future<void> main({bool skipRustLibInit = false}) async {
         () async {
           final obj = await rustOpaqueWebLockingCreateTwinSse(initial: 100);
 
-          final _ = rustOpaqueWebLockingHoldMutBorrowForeverTwinSse(
-            arg: obj,
-          );
+          final _ = rustOpaqueWebLockingHoldMutBorrowForeverTwinSse(arg: obj);
           await Future<void>.delayed(const Duration(milliseconds: 100));
 
           expect(
             () => rustOpaqueWebLockingSyncAddTwinSse(arg: obj, adder: 1),
             throwsA(
               predicate(
-                (Object error) => error
-                    .toString()
-                    .contains('cannot synchronously write rust opaque objects'),
+                (Object error) => error.toString().contains(
+                  'cannot synchronously write rust opaque objects',
+                ),
               ),
             ),
           );
@@ -74,9 +72,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
       test(
         'browser event-loop sync call fails fast instead of deadlocking',
         () async {
-          final obj = await rustAutoOpaqueWebLockingCreateTwinSse(
-            initial: 100,
-          );
+          final obj = await rustAutoOpaqueWebLockingCreateTwinSse(initial: 100);
 
           final _ = rustAutoOpaqueWebLockingHoldMutBorrowForeverTwinSse(
             arg: obj,
@@ -87,9 +83,9 @@ Future<void> main({bool skipRustLibInit = false}) async {
             () => rustAutoOpaqueWebLockingSyncAddTwinSse(arg: obj, adder: 1),
             throwsA(
               predicate(
-                (Object error) => error
-                    .toString()
-                    .contains('cannot synchronously write rust opaque objects'),
+                (Object error) => error.toString().contains(
+                  'cannot synchronously write rust opaque objects',
+                ),
               ),
             ),
           );
@@ -98,9 +94,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
       );
 
       test('worker-pool calls can wait for the same object lock', () async {
-        final obj = await rustAutoOpaqueWebLockingCreateTwinSse(
-          initial: 100,
-        );
+        final obj = await rustAutoOpaqueWebLockingCreateTwinSse(initial: 100);
 
         await Future.wait([
           rustAutoOpaqueWebLockingWorkerAddTwinSse(
@@ -119,9 +113,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
       });
 
       test('async calls can wait for the same object lock', () async {
-        final obj = await rustAutoOpaqueWebLockingCreateTwinSse(
-          initial: 100,
-        );
+        final obj = await rustAutoOpaqueWebLockingCreateTwinSse(initial: 100);
 
         await Future.wait([
           rustAutoOpaqueWebLockingAsyncAddTwinSse(arg: obj, adder: 1),

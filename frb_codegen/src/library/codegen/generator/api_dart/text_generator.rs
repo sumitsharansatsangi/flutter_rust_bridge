@@ -11,7 +11,7 @@ use crate::utils::basic_code::dart_header_code::DartHeaderCode;
 use crate::utils::basic_code::general_code::{GeneralCode, GeneralDartCode};
 use crate::utils::path_utils::path_to_string;
 use anyhow::Context;
-use itertools::{concat, Itertools};
+use itertools::{Itertools, concat};
 use pathdiff::diff_paths;
 use std::path::{Path, PathBuf};
 
@@ -76,7 +76,8 @@ fn generate_end_api_text(
     let preamble = &item.preamble.as_str();
     let mut header = DartHeaderCode {
         file_top: generate_code_header().to_string()
-            + if !preamble.is_empty() {"\n\n"} else {""} + preamble
+            + if !preamble.is_empty() { "\n\n" } else { "" }
+            + preamble
             + "\n\n// ignore_for_file: invalid_use_of_internal_member, unused_import, unnecessary_import\n",
         import: format!(
             "

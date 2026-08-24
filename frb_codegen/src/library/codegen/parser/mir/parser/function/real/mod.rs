@@ -6,16 +6,17 @@ use crate::codegen::ir::mir::func::{
     MirFuncOutput, MirFuncOwnerInfo, MirFuncOwnerInfoMethod,
 };
 use crate::codegen::ir::mir::ident::MirIdent;
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::rust_auto_opaque_implicit::MirTypeRustAutoOpaqueImplicitReason;
 use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
-use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::misc::skip::IrSkipReason::{
     IgnoreBecauseExplicitAttribute, IgnoreBecauseFunctionGeneric, IgnoreBecauseSelfTypeNotAllowed,
     IgnoreSilently,
 };
 use crate::codegen::ir::misc::skip::{IrSkip, IrSkipReason, IrValueOrSkip, MirFuncOrSkip};
+use crate::codegen::parser::mir::ParseMode;
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::codegen::parser::mir::parser::attribute::FrbAttributes;
 use crate::codegen::parser::mir::parser::function::real::lifetime::parse_function_lifetime;
@@ -24,15 +25,14 @@ use crate::codegen::parser::mir::parser::ty::concrete::ERROR_MESSAGE_FORBID_TYPE
 use crate::codegen::parser::mir::parser::ty::generics::should_ignore_because_generics;
 use crate::codegen::parser::mir::parser::ty::misc::parse_comments;
 use crate::codegen::parser::mir::parser::ty::{TypeParser, TypeParserParsingContext};
-use crate::codegen::parser::mir::ParseMode;
 use crate::library::codegen::ir::mir::ty::MirTypeTrait;
 use crate::utils::namespace::{Namespace, NamespacedName};
-use anyhow::{bail, Context};
+use IrSkipReason::IgnoreBecauseFunctionNotPub;
+use MirType::Primitive;
+use anyhow::{Context, bail};
 use itertools::concat;
 use log::{debug, warn};
 use std::fmt::Debug;
-use IrSkipReason::IgnoreBecauseFunctionNotPub;
-use MirType::Primitive;
 
 pub(crate) mod argument;
 pub(super) mod lifetime;

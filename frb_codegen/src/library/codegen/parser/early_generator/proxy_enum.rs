@@ -1,13 +1,13 @@
 use crate::codegen::ir::early_generator::pack::IrEarlyGeneratorPack;
 use crate::codegen::ir::early_generator::proxied_type::IrEarlyGeneratorProxiedType;
 use crate::codegen::ir::mir::pack::MirPack;
+use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::ir::mir::ty::delegate::{
     MirTypeDelegate, MirTypeDelegateProxyEnum, MirTypeDelegateProxyVariant,
 };
-use crate::codegen::ir::mir::ty::MirType;
 use crate::codegen::parser::early_generator::utils::lockable;
 use crate::codegen::parser::hir::flat::extra_code_injector::{
-    inject_extra_codes, InjectExtraCodeBlock,
+    InjectExtraCodeBlock, inject_extra_codes,
 };
 use crate::codegen::parser::mir::internal_config::ParserMirInternalConfig;
 use crate::if_then_some;

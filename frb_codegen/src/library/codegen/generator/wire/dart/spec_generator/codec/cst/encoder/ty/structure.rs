@@ -1,6 +1,6 @@
 use crate::codegen::generator::acc::Acc;
-use crate::codegen::generator::codec::sse::lang::dart::DartLang;
 use crate::codegen::generator::codec::sse::lang::Lang;
+use crate::codegen::generator::codec::sse::lang::dart::DartLang;
 use crate::codegen::generator::misc::struct_or_record::StructOrRecord;
 use crate::codegen::generator::misc::struct_or_record::StructOrRecord::Struct;
 use crate::codegen::generator::misc::target::Target;

@@ -1,3 +1,4 @@
+use crate::codegen::Config;
 use crate::codegen::config::internal_config::{
     GeneratorInternalConfig, GeneratorWireInternalConfig,
 };
@@ -11,13 +12,13 @@ use crate::codegen::generator::wire::dart::internal_config::{
 };
 use crate::codegen::generator::wire::rust::internal_config::GeneratorWireRustInternalConfig;
 use crate::codegen::ir::mir::ty::rust_opaque::RustOpaqueCodecMode;
-use crate::codegen::Config;
 use crate::library::commands::cargo_metadata::execute_cargo_metadata;
 use crate::utils::dart_repository::dart_repo::DartRepository;
 use crate::utils::dart_repository::get_dart_package_name;
 use crate::utils::path_utils::path_to_string;
 use crate::utils::syn_utils::canonicalize_rust_type;
 use anyhow::Context;
+use cargo_metadata::TargetKind;
 use itertools::Itertools;
 use log::debug;
 use pathdiff::diff_paths;
@@ -186,7 +187,18 @@ fn compute_default_external_library_stem(rust_crate_dir: &Path) -> anyhow::Resul
         .root_package()
         .context("cannot find root package")?;
     let target = (package.targets.iter())
-        .find(|target| target.kind.iter().any(|kind| kind.contains("lib")))
+        .find(|target| {
+            target.kind.iter().any(|kind| {
+                matches!(
+                    kind,
+                    TargetKind::Lib
+                        | TargetKind::RLib
+                        | TargetKind::DyLib
+                        | TargetKind::CDyLib
+                        | TargetKind::StaticLib
+                )
+            })
+        })
         .context("cannot find target")?;
     Ok(target.name.replace('-', "_"))
 }

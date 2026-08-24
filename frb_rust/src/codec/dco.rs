@@ -41,13 +41,15 @@ impl Rust2DartMessageTrait for Rust2DartMessageDco {
         self.0
     }
 
-    unsafe fn from_raw_wire_sync(raw: Self::WireSyncRust2DartType) -> Self { unsafe {
-        #[cfg(not(target_family = "wasm"))]
-        return Self(*crate::for_generated::box_from_leak_ptr(raw));
+    unsafe fn from_raw_wire_sync(raw: Self::WireSyncRust2DartType) -> Self {
+        unsafe {
+            #[cfg(not(target_family = "wasm"))]
+            return Self(*crate::for_generated::box_from_leak_ptr(raw));
 
-        #[cfg(target_family = "wasm")]
-        return Self(raw);
-    }}
+            #[cfg(target_family = "wasm")]
+            return Self(raw);
+        }
+    }
 
     fn into_raw_wire_sync(self) -> Self::WireSyncRust2DartType {
         #[cfg(not(target_family = "wasm"))]

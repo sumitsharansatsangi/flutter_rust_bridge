@@ -2,16 +2,16 @@ use crate::codegen::generator::acc::Acc;
 use crate::codegen::generator::misc::target::Target;
 use crate::codegen::generator::wire::rust::spec_generator::codec::cst::base::*;
 use crate::codegen::generator::wire::rust::spec_generator::codec::cst::decoder::misc::{
-    generate_class_from_fields, JS_VALUE,
+    JS_VALUE, generate_class_from_fields,
 };
 use crate::codegen::generator::wire::rust::spec_generator::codec::cst::decoder::ty::WireRustCodecCstGeneratorDecoderTrait;
 use crate::codegen::generator::wire::rust::spec_generator::extern_func::{
     ExternFunc, ExternFuncParam,
 };
 use crate::codegen::generator::wire::rust::spec_generator::output_code::WireRustOutputCode;
+use crate::codegen::ir::mir::ty::MirTypeTrait;
 use crate::codegen::ir::mir::ty::primitive::MirTypePrimitive;
 use crate::codegen::ir::mir::ty::primitive_list::MirTypePrimitiveList;
-use crate::codegen::ir::mir::ty::MirTypeTrait;
 
 impl WireRustCodecCstGeneratorDecoderTrait for PrimitiveListWireRustCodecCstGenerator<'_> {
     fn generate_decoder_class(&self) -> Option<WireRustOutputCode> {

@@ -1,8 +1,8 @@
 use crate::components::encoder::create_frb_encoded_comment;
 use md5::{Digest, Md5};
 use proc_macro2::TokenStream;
-use quote::quote;
 use quote::ToTokens;
+use quote::quote;
 use syn::{ImplItem, Item, ItemImpl};
 
 // This is surely executed - otherwise how can one use any `#[frb]` macro

@@ -11,9 +11,10 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 (String, int) testTupleTwinSync({(String, int)? value}) => RustLib.instance.api
     .crateApiPseudoManualTupleTwinSyncTestTupleTwinSync(value: value);
 
-void testTuple2TwinSync({required List<(String, int)> value}) =>
-    RustLib.instance.api
-        .crateApiPseudoManualTupleTwinSyncTestTuple2TwinSync(value: value);
+void testTuple2TwinSync({required List<(String, int)> value}) => RustLib
+    .instance
+    .api
+    .crateApiPseudoManualTupleTwinSyncTestTuple2TwinSync(value: value);
 
 (double, double)? returnOptionalF32TupleTwinSync() => RustLib.instance.api
     .crateApiPseudoManualTupleTwinSyncReturnOptionalF32TupleTwinSync();

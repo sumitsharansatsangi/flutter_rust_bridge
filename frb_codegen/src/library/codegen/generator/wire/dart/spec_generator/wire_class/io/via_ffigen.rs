@@ -4,7 +4,7 @@ use crate::codegen::generator::wire::dart::internal_config::{
 use crate::codegen::generator::wire::dart::spec_generator::output_code::WireDartOutputCode;
 use crate::codegen::generator::wire::dart::spec_generator::wire_class::io::common::generate_wire_class_header;
 use crate::codegen::misc::GeneratorProgressBarPack;
-use crate::library::commands::ffigen::{ffigen, FfigenArgs};
+use crate::library::commands::ffigen::{FfigenArgs, ffigen};
 use anyhow::ensure;
 
 pub(crate) fn generate(

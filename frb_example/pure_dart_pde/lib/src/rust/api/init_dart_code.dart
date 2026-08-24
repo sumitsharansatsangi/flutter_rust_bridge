@@ -11,9 +11,10 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 Future<void> requestInitDartCodeMessage() =>
     RustLib.instance.api.crateApiInitDartCodeRequestInitDartCodeMessage();
 
-void recordInitDartCodeMessage({required String message}) =>
-    RustLib.instance.api
-        .crateApiInitDartCodeRecordInitDartCodeMessage(message: message);
+void recordInitDartCodeMessage({required String message}) => RustLib
+    .instance
+    .api
+    .crateApiInitDartCodeRecordInitDartCodeMessage(message: message);
 
 List<String> getInitDartCodeMessages() =>
     RustLib.instance.api.crateApiInitDartCodeGetInitDartCodeMessages();

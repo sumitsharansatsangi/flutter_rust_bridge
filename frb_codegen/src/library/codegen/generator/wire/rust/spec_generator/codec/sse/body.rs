@@ -1,6 +1,6 @@
 use crate::codegen::generator::acc::Acc;
-use crate::codegen::generator::codec::sse::lang::rust::RustLang;
 use crate::codegen::generator::codec::sse::lang::Lang;
+use crate::codegen::generator::codec::sse::lang::rust::RustLang;
 use crate::codegen::generator::codec::sse::misc::with_sse_extra_types;
 use crate::codegen::generator::codec::sse::ty::{CodecSseTy, CodecSseTyContext};
 use crate::codegen::generator::codec::structs::{CodecMode, EncodeOrDecode};

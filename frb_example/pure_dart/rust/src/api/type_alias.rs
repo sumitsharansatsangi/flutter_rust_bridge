@@ -53,24 +53,20 @@ pub fn generic_result_alias_chained_err_twin_normal() -> ChainedAppResultTwinNor
 
 pub type FlexibleResultTwinNormal<T, E> = std::result::Result<T, E>;
 
-pub fn generic_result_alias_two_params_ok_twin_normal(
-) -> FlexibleResultTwinNormal<i32, GenericAliasErrorTwinNormal> {
+pub fn generic_result_alias_two_params_ok_twin_normal()
+-> FlexibleResultTwinNormal<i32, GenericAliasErrorTwinNormal> {
     Ok(44)
 }
 
-pub fn generic_result_alias_two_params_err_twin_normal(
-) -> FlexibleResultTwinNormal<i32, GenericAliasErrorTwinNormal> {
+pub fn generic_result_alias_two_params_err_twin_normal()
+-> FlexibleResultTwinNormal<i32, GenericAliasErrorTwinNormal> {
     Err(GenericAliasErrorTwinNormal::Deliberate)
 }
 
 pub type OptionalAliasTwinNormal<T> = Option<T>;
 
 pub fn generic_option_alias_return_twin_normal(input: i32) -> OptionalAliasTwinNormal<i32> {
-    if input >= 0 {
-        Some(input)
-    } else {
-        None
-    }
+    if input >= 0 { Some(input) } else { None }
 }
 
 pub fn generic_option_alias_arg_twin_normal(input: OptionalAliasTwinNormal<i32>) -> i32 {

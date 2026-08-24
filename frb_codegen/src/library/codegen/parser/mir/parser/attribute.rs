@@ -393,8 +393,8 @@ enum FrbAttribute {
 
 impl Parse for FrbAttribute {
     fn parse(input: ParseStream<'_>) -> Result<Self> {
-        use frb_keyword::*;
         use FrbAttribute::*;
+        use frb_keyword::*;
 
         let lookahead = input.lookahead1();
 
@@ -462,9 +462,7 @@ impl Parse for FrbAttribute {
                 parse_keyword::<semi_serialize, _>(input, &lookahead, semi_serialize, SemiSerialize)
             })
             .or_else(|| parse_keyword::<ui_state, _>(input, &lookahead, ui_state, UiState))
-            .or_else(|| {
-                parse_keyword::<ui_mutation, _>(input, &lookahead, ui_mutation, UiMutation)
-            })
+            .or_else(|| parse_keyword::<ui_mutation, _>(input, &lookahead, ui_mutation, UiMutation))
             .or_else(|| parse_keyword::<oxidized, _>(input, &lookahead, oxidized, Oxidized));
         if let Some(keyword_output) = keyword_output {
             return keyword_output;

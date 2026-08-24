@@ -2,11 +2,11 @@ use crate::codegen::generator::acc::Acc;
 use crate::codegen::generator::misc::is_js_value;
 use crate::codegen::generator::misc::target::Target;
 use crate::codegen::generator::wire::dart::spec_generator::codec::cst::base::*;
-use crate::codegen::generator::wire::dart::spec_generator::codec::cst::encoder::ty::primitive::dart_native_type_of_primitive;
 use crate::codegen::generator::wire::dart::spec_generator::codec::cst::encoder::ty::WireDartCodecCstGeneratorEncoderTrait;
+use crate::codegen::generator::wire::dart::spec_generator::codec::cst::encoder::ty::primitive::dart_native_type_of_primitive;
 use crate::codegen::generator::wire::rust::spec_generator::codec::cst::base::WireRustCodecCstGenerator;
-use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::MirType::StructRef;
+use crate::codegen::ir::mir::ty::delegate::MirTypeDelegate;
 use crate::codegen::ir::mir::ty::{MirType, MirTypeTrait};
 use crate::library::codegen::generator::wire::rust::spec_generator::codec::cst::decoder::ty::WireRustCodecCstGeneratorDecoderTrait;
 
