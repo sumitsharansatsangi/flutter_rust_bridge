@@ -8,6 +8,7 @@ import 'package:flutter_rust_bridge_internal/src/makefile_dart/consts.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/generate.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/misc.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/post_release.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/quickstart_smoke.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/release.dart';
 import 'package:flutter_rust_bridge_internal/src/misc/dart_sanitizer_tester.dart'
     as dart_sanitizer_tester;
@@ -22,7 +23,12 @@ part 'test.g.dart';
 
 List<Command<void>> createCommands() {
   return [
-    SimpleCommand('test-mimic-quickstart', testMimicQuickstart),
+    SimpleConfigCommand(
+      'test-mimic-quickstart',
+      testMimicQuickstart,
+      _$populateTestMimicQuickstartConfigParser,
+      _$parseTestMimicQuickstartConfigResult,
+    ),
     SimpleCommand('test-upgrade', testUpgrade),
     SimpleConfigCommand(
       'test-rust',
@@ -72,12 +78,26 @@ List<Command<void>> createCommands() {
       _$populateTestFlutterWebConfigParser,
       _$parseTestFlutterWebConfigResult,
     ),
+    SimpleConfigCommand(
+      'test-flutter-quickstart-smoke',
+      testFlutterQuickstartSmoke,
+      _$populateTestFlutterQuickstartSmokeConfigParser,
+      _$parseTestFlutterQuickstartSmokeConfigResult,
+    ),
   ];
 }
 
 @CliOptions()
 class TestConfig {
   const TestConfig();
+}
+
+@CliOptions()
+class TestMimicQuickstartConfig {
+  @CliOption(defaultsTo: IntegrateExampleBackend.cargokit)
+  final IntegrateExampleBackend integrationBackend;
+
+  const TestMimicQuickstartConfig({required this.integrationBackend});
 }
 
 @CliOptions()
@@ -158,16 +178,35 @@ class TestFlutterWebConfig {
   const TestFlutterWebConfig({required this.package, required this.coverage});
 }
 
-Future<void> testMimicQuickstart() async =>
-    await const MimicQuickstartTester(postRelease: false).test();
+@CliOptions()
+class TestFlutterQuickstartSmokeConfig {
+  @CliOption(convert: convertConfigPackage)
+  final String package;
+  final QuickstartSmokeTarget target;
+  final String? deviceId;
+
+  const TestFlutterQuickstartSmokeConfig({
+    required this.package,
+    required this.target,
+    this.deviceId,
+  });
+}
+
+Future<void> testMimicQuickstart(TestMimicQuickstartConfig config) =>
+    MimicQuickstartTester(
+      postRelease: false,
+      integrationBackend: config.integrationBackend,
+    ).test();
 
 class MimicQuickstartTester {
   final bool postRelease;
   final bool coverage;
+  final IntegrateExampleBackend integrationBackend;
 
   const MimicQuickstartTester({
     required this.postRelease,
     this.coverage = false,
+    this.integrationBackend = IntegrateExampleBackend.cargokit,
   });
 
   Future<void> test() async {
@@ -199,7 +238,12 @@ class MimicQuickstartTester {
 
   Future<void> _quickstartStepCreate() async {
     await executeFrbCodegen(
-      'create $_kMimicQuickstartPackageName ${postRelease ? "" : "--local"}',
+      [
+        'create',
+        _kMimicQuickstartPackageName,
+        if (!postRelease) '--local',
+        if (_mimicQuickstartBackendArg.isNotEmpty) _mimicQuickstartBackendArg,
+      ].join(' '),
       relativePwd: 'frb_example',
       coverage: coverage,
       postRelease: postRelease,
@@ -272,6 +316,14 @@ class MimicQuickstartTester {
       coverageName: 'MimicQuickstartStepGenerate',
       postRelease: postRelease,
     );
+  }
+
+  String get _mimicQuickstartBackendArg {
+    return switch (integrationBackend) {
+      IntegrateExampleBackend.cargokit => '',
+      IntegrateExampleBackend.nativeAssets =>
+        '--integration-backend native-assets',
+    };
   }
 }
 
@@ -370,6 +422,7 @@ Future<void> testDartNative(TestDartNativeConfig config) async {
       config.coverage &&
       !const [
         'frb_dart',
+        'frb_hooks',
         'frb_utils',
         'tools/frb_internal',
       ].contains(config.package);
@@ -390,7 +443,7 @@ Future<void> testDartNative(TestDartNativeConfig config) async {
       // extra check for e.g. #1807
       await wrapMaybeSetExitIfChangedRaw(config.checkClean, () async {
         await exec(
-          '${dartMode.name} $extraFlags test ${config.coverage ? ' --coverage="coverage"' : ""}',
+          '${_testCommand(dartMode)} $extraFlags ${config.coverage ? ' --coverage="coverage"' : ""}',
           relativePwd: config.package,
           extraEnv: {
             // Deliberately do not provide backtrace env to see whether the test_utils work
@@ -406,6 +459,10 @@ Future<void> testDartNative(TestDartNativeConfig config) async {
     await _formatDartCoverage(package: config.package);
   }
 }
+
+String _testCommand(DartMode mode) => mode == DartMode.dart
+    ? 'dart --enable-vm-service=0 run test'
+    : 'flutter test';
 
 // Follow steps in https://github.com/taiki-e/cargo-llvm-cov#get-coverage-of-external-tests
 Future<T> withLlvmCovReport<T>(
@@ -466,7 +523,7 @@ Future<void> _formatDartCoverage({required String package}) async {
 
   final reportOn = '${exec.pwd}/frb_dart';
   await exec(
-    'format_coverage --check-ignore --lcov --in=coverage --out=${getCoverageDir('dart')}/lcov.info --packages=.dart_tool/package_config.json --report-on=$reportOn',
+    'dart pub global run coverage:format_coverage --check-ignore --lcov --in=coverage --out=${getCoverageDir('dart')}/lcov.info --packages=.dart_tool/package_config.json --report-on=$reportOn',
     relativePwd: package,
   );
 }
@@ -595,10 +652,12 @@ Future<void> flutterIntegrationTestRaw({
   String flutterTestArgs = '',
   required String relativePwd,
 }) async {
+  const timeout = Duration(minutes: 20);
   await retry(
     () async => await exec(
       'flutter test integration_test/simple_test.dart --verbose --reporter=expanded $flutterTestArgs',
       relativePwd: relativePwd,
+      timeout: timeout,
     ),
     maxAttempts: 3,
     onRetry: (e) => print(
@@ -612,8 +671,7 @@ Future<void> testFlutterWeb(TestFlutterWebConfig config) async {
   await runPubGetIfNotRunYet(config.package);
   await _installDartCoverage();
 
-  final buildWebPackage =
-      kBuildWebPackageReplacer[config.package] ?? config.package;
+  final buildWebPackage = resolveBuildWebPackage(config.package);
   await executeFrbCodegen(
     'build-web --dart-coverage',
     relativePwd: buildWebPackage,
@@ -631,10 +689,54 @@ Future<void> testFlutterWeb(TestFlutterWebConfig config) async {
   );
 
   if (config.coverage) {
-    await _formatDartCoverage(package: config.package);
+    await _formatDartCoverage(package: buildWebPackage);
   }
 }
 
-Future<void> _runFlutterDoctor() async => await exec('flutter doctor -v');
+@visibleForTesting
+String resolveBuildWebPackage(String package) =>
+    kBuildWebPackageReplacer[package] ?? package;
+
+Future<void> testFlutterQuickstartSmoke(
+  TestFlutterQuickstartSmokeConfig config,
+) async {
+  const supportedPackages = {
+    'frb_example/flutter_via_create',
+    'frb_example/flutter_via_create_native_assets',
+  };
+  if (!supportedPackages.contains(config.package)) {
+    throw Exception(
+      'test-flutter-quickstart-smoke currently supports only '
+      '${supportedPackages.map((package) => '`$package`').join(', ')}, '
+      'but got `${config.package}`',
+    );
+  }
+
+  await _runFlutterDoctor();
+  await runPubGetIfNotRunYet(config.package);
+  if (config.target == QuickstartSmokeTarget.web) {
+    print('Building web wasm artifacts before quickstart smoke');
+    await executeFrbCodegen(
+      'build-web',
+      relativePwd: config.package,
+      coverage: false,
+      coverageName: 'TestFlutterQuickstartSmoke',
+    );
+  }
+  await runFlutterViaCreateQuickstartSmokeTest(
+    package: config.package,
+    target: config.target,
+    deviceId: config.deviceId,
+  );
+}
+
+Future<void> _runFlutterDoctor() async {
+  if (Platform.environment['FRB_SKIP_FLUTTER_DOCTOR'] == '1') {
+    print('Skip flutter doctor because FRB_SKIP_FLUTTER_DOCTOR=1');
+    return;
+  }
+
+  await exec('flutter doctor -v');
+}
 
 const kEnvEnableRustBacktrace = {'RUST_BACKTRACE': 'full'};

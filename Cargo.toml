@@ -8,6 +8,9 @@ exclude = [
     "frb_example/flutter_via_create/rust",
     "frb_example/flutter_via_integrate/rust",
     "frb_example/flutter_package/rust",
+    "frb_example/flutter_via_create_native_assets/rust",
+    "frb_example/flutter_via_integrate_native_assets/rust",
+    "frb_example/flutter_package_native_assets/rust",
     "frb_example/dart_build_rs/rust",
     "frb_example/gallery/rust",
     "frb_example/pure_dart/rust",
@@ -20,7 +23,7 @@ resolver = "2"
 
 [workspace.package]
 version = "2.13.0"
-edition = "2024"
+edition = "2021"
 license = "MIT"
 description = "Flutter/Dart <-> Rust binding generator, feature-rich, but seamless and simple"
 repository = "https://github.com/fzyzcjy/flutter_rust_bridge"

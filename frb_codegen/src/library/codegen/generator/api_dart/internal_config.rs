@@ -5,6 +5,7 @@ use std::path::PathBuf;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub(crate) struct GeneratorApiDartInternalConfig {
+    pub dart_collection_deep_equality: bool,
     pub dart_enums_style: bool,
     pub dart3: bool,
     pub dart_decl_base_output_path: PathBuf,
@@ -12,8 +13,6 @@ pub(crate) struct GeneratorApiDartInternalConfig {
     pub dart_entrypoint_class_name: String,
     pub dart_preamble: String,
     pub dart_type_rename: HashMap<String, String>,
-    /// Whether oxidized package is available (auto-detected from pubspec.yaml).
-    /// When true, fallible functions return Result<T, E> instead of throwing.
+    /// Whether fallible functions use oxidized `Result` values.
     pub use_oxidized: bool,
-    pub dart_collection_deep_equality: bool,
 }

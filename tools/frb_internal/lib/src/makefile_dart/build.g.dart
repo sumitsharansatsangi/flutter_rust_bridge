@@ -21,6 +21,7 @@ T _$enumValueHelper<T>(Map<T, String> enumValues, String source) => enumValues
 
 BuildFlutterConfig _$parseBuildFlutterConfigResult(ArgResults result) =>
     BuildFlutterConfig(
+      package: convertConfigPackage(result['package'] as String),
       target: _$enumValueHelper(
         _$BuildTargetEnumMapBuildCli,
         result['target'] as String,
@@ -34,12 +35,22 @@ const _$BuildTargetEnumMapBuildCli = <BuildTarget, String>{
   BuildTarget.androidAab: 'android-aab',
   BuildTarget.androidApk: 'android-apk',
   BuildTarget.ios: 'ios',
+  BuildTarget.ohos: 'ohos',
 };
 
 ArgParser _$populateBuildFlutterConfigParser(ArgParser parser) => parser
+  ..addOption('package', defaultsTo: 'frb_example/flutter_via_create')
   ..addOption(
     'target',
-    allowed: ['windows', 'macos', 'linux', 'android-aab', 'android-apk', 'ios'],
+    allowed: [
+      'windows',
+      'macos',
+      'linux',
+      'android-aab',
+      'android-apk',
+      'ios',
+      'ohos',
+    ],
   );
 
 final _$parserForBuildFlutterConfig = _$populateBuildFlutterConfigParser(

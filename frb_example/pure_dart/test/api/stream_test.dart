@@ -47,7 +47,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
 
   Future<void> testHandleStream(
     Stream<LogTwinNormal> Function({required int key, required int max})
-    handleStreamFunction,
+        handleStreamFunction,
   ) async {
     final max = 5;
     final key = 8;
@@ -61,21 +61,21 @@ Future<void> main({bool skipRustLibInit = false}) async {
     expect(cnt, max);
   }
 
-  test('dart call handle_stream_sink_at_1', () {
-    testHandleStream(handleStreamSinkAt1TwinNormal);
+  test('dart call handle_stream_sink_at_1', () async {
+    await testHandleStream(handleStreamSinkAt1TwinNormal);
   });
 
-  test('dart call handle_stream_sink_at_2', () {
-    testHandleStream(handleStreamSinkAt2TwinNormal);
+  test('dart call handle_stream_sink_at_2', () async {
+    await testHandleStream(handleStreamSinkAt2TwinNormal);
   });
 
-  test('dart call handle_stream_sink_at_3', () {
-    testHandleStream(handleStreamSinkAt3TwinNormal);
+  test('dart call handle_stream_sink_at_3', () async {
+    await testHandleStream(handleStreamSinkAt3TwinNormal);
   });
 
   test('stream_sink_fixed_sized_primitive_array_twin_normal', () async {
-    final output = await streamSinkFixedSizedPrimitiveArrayTwinNormal()
-        .toList();
+    final output =
+        await streamSinkFixedSizedPrimitiveArrayTwinNormal().toList();
     expect(output, [
       orderedEquals([1, 2]),
       orderedEquals([3, 4]),

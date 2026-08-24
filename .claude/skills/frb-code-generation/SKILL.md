@@ -27,9 +27,32 @@ flutter_rust_bridge requires code generation when Rust APIs change. This skill m
 | `frb_rust/src/` core API | `./frb_internal generate-internal-rust` |
 | `frb_example/pure_dart` generator | `./frb_internal generate-internal-frb-example-pure-dart` |
 | CLI help documentation | `./frb_internal generate-internal-book-help` |
-| Non-generated (docs, comments, tests, `frb_dart/`) | No generation needed |
+| Root `README.md` or `CHANGELOG.md` | `./frb_internal generate-internal-readme` |
+| Other non-generated docs, comments, tests, or `frb_dart/` source | No generation needed |
 
 ## Important Rules
+
+### Root Documentation Fan-Out
+
+Treat the root `README.md` and `CHANGELOG.md` as sources of truth. After changing either file, run:
+
+```bash
+./frb_internal generate-internal-readme
+```
+
+Commit the generated package documentation in the same change. Do not manually edit `frb_dart/README.md`, `frb_dart/CHANGELOG.md`, or `frb_hooks/CHANGELOG.md`.
+
+### Integrate Template Drift
+
+If a diff touches Flutter integrate example outputs, platform scaffolds, or copied `cargokit` files under `frb_example/**`, check whether the real source of truth should also change under `frb_codegen/assets/integration_template/`.
+
+Do not submit only downstream integrate output changes when the behavior belongs in the template. Update the template first, then run:
+
+```bash
+./frb_internal precommit-integrate
+```
+
+Treat `frb_codegen/assets/integration_template/**/cargokit` as the source of truth for copied `cargokit` output. If the actual bug belongs inside the external `cargokit` submodule, read the `frb-cargokit` skill before deciding whether to patch the submodule and update its pointer.
 
 For CI diagnosis rules about generated-file format/lint failures, repeated package-level `Generate` drift, or `Generate :: FRB Codegen :: Command Integrate` failures, you MUST read `frb-fix-ci` first. This skill is for command selection, not CI failure-propagation diagnosis.
 

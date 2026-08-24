@@ -3,35 +3,85 @@ import 'package:test/test.dart';
 
 void main() {
   test('integrate extra args are explicit for flutter_via_create', () {
+    const package = 'frb_example/flutter_via_create';
     expect(
-      integrateDiffExclusionArgsForTesting('frb_example/flutter_via_create'),
-      "':(exclude)frb_example/flutter_via_create/macos/Flutter/Flutter-Debug.xcconfig' "
-      "':(exclude)frb_example/flutter_via_create/macos/Flutter/Flutter-Release.xcconfig' "
-      "':(exclude)frb_example/flutter_via_create/rust/Cargo.lock'",
+      integrateDiffExclusionArgsForTesting(package, needCompareOhos: false),
+      "':(exclude)$package/macos/Flutter/Flutter-Debug.xcconfig' "
+      "':(exclude)$package/macos/Flutter/Flutter-Release.xcconfig' "
+      "':(exclude)$package/pubspec.lock' "
+      "':(exclude)$package/pubspec.yaml' "
+      "':(exclude)$package/ohos/' "
+      "':(exclude)$package/rust_builder/ohos/' "
+      "':(exclude)$package/rust_builder/pubspec.yaml'",
     );
   });
 
+  test(
+    'integrate extra args are explicit for flutter_via_create_native_assets',
+    () {
+      const package = 'frb_example/flutter_via_create_native_assets';
+      expect(
+        integrateDiffExclusionArgsForTesting(package, needCompareOhos: false),
+        "':(exclude)$package/macos/Flutter/Flutter-Debug.xcconfig' "
+        "':(exclude)$package/macos/Flutter/Flutter-Release.xcconfig' "
+        "':(exclude)$package/pubspec.lock' "
+        "':(exclude)$package/pubspec.yaml' "
+        "':(exclude)$package/ohos/'",
+      );
+    },
+  );
+
+  test(
+    'integrate extra args compare ohos for flutter_via_create when requested',
+    () {
+      const package = 'frb_example/flutter_via_create';
+      expect(
+        integrateDiffExclusionArgsForTesting(package, needCompareOhos: true),
+        "':(exclude)$package/macos/Flutter/Flutter-Debug.xcconfig' "
+        "':(exclude)$package/macos/Flutter/Flutter-Release.xcconfig' "
+        "':(exclude)$package/pubspec.lock' "
+        "':(exclude)$package/pubspec.yaml' "
+        "':(exclude)$package/android/' "
+        "':(exclude)$package/macos/' "
+        "':(exclude)$package/windows/'",
+      );
+    },
+  );
+
   test('integrate extra args are explicit for flutter_via_integrate', () {
-    expect(
-      integrateDiffExclusionArgsForTesting('frb_example/flutter_via_integrate'),
-      "':(exclude)frb_example/flutter_via_integrate/macos/Flutter/Flutter-Debug.xcconfig' "
-      "':(exclude)frb_example/flutter_via_integrate/macos/Flutter/Flutter-Release.xcconfig' "
-      "':(exclude)frb_example/flutter_via_integrate/rust/Cargo.lock'",
-    );
+    for (final package in [
+      'frb_example/flutter_via_integrate',
+      'frb_example/flutter_via_integrate_native_assets',
+    ]) {
+      expect(
+        integrateDiffExclusionArgsForTesting(package, needCompareOhos: false),
+        "':(exclude)$package/macos/Flutter/Flutter-Debug.xcconfig' "
+        "':(exclude)$package/macos/Flutter/Flutter-Release.xcconfig'",
+        reason: package,
+      );
+    }
   });
 
   test('integrate extra args are explicit for flutter_package', () {
-    expect(
-      integrateDiffExclusionArgsForTesting('frb_example/flutter_package'),
-      "':(exclude)frb_example/flutter_package/example/macos/Flutter/Flutter-Debug.xcconfig' "
-      "':(exclude)frb_example/flutter_package/example/macos/Flutter/Flutter-Release.xcconfig' "
-      "':(exclude)frb_example/flutter_package/rust/Cargo.lock'",
-    );
+    for (final package in [
+      'frb_example/flutter_package',
+      'frb_example/flutter_package_native_assets',
+    ]) {
+      expect(
+        integrateDiffExclusionArgsForTesting(package, needCompareOhos: false),
+        "':(exclude)$package/example/macos/Flutter/Flutter-Debug.xcconfig' "
+        "':(exclude)$package/example/macos/Flutter/Flutter-Release.xcconfig'",
+        reason: package,
+      );
+    }
   });
 
   test('integrate extra args are empty for unrelated package', () {
     expect(
-      integrateDiffExclusionArgsForTesting('frb_example/gallery'),
+      integrateDiffExclusionArgsForTesting(
+        'frb_example/gallery',
+        needCompareOhos: false,
+      ),
       isEmpty,
     );
   });

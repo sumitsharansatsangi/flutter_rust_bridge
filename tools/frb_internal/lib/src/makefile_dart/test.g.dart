@@ -19,6 +19,47 @@ TestConfig parseTestConfig(List<String> args) {
   return _$parseTestConfigResult(result);
 }
 
+T _$enumValueHelper<T>(Map<T, String> enumValues, String source) => enumValues
+    .entries
+    .singleWhere(
+      (e) => e.value == source,
+      orElse: () => throw ArgumentError(
+        '`$source` is not one of the supported values: '
+        '${enumValues.values.join(', ')}',
+      ),
+    )
+    .key;
+
+TestMimicQuickstartConfig _$parseTestMimicQuickstartConfigResult(
+  ArgResults result,
+) => TestMimicQuickstartConfig(
+  integrationBackend: _$enumValueHelper(
+    _$IntegrateExampleBackendEnumMapBuildCli,
+    result['integration-backend'] as String,
+  ),
+);
+
+const _$IntegrateExampleBackendEnumMapBuildCli =
+    <IntegrateExampleBackend, String>{
+      IntegrateExampleBackend.cargokit: 'cargokit',
+      IntegrateExampleBackend.nativeAssets: 'native-assets',
+    };
+
+ArgParser _$populateTestMimicQuickstartConfigParser(ArgParser parser) => parser
+  ..addOption(
+    'integration-backend',
+    defaultsTo: 'cargokit',
+    allowed: ['cargokit', 'native-assets'],
+  );
+
+final _$parserForTestMimicQuickstartConfig =
+    _$populateTestMimicQuickstartConfigParser(ArgParser());
+
+TestMimicQuickstartConfig parseTestMimicQuickstartConfig(List<String> args) {
+  final result = _$parserForTestMimicQuickstartConfig.parse(args);
+  return _$parseTestMimicQuickstartConfigResult(result);
+}
+
 TestRustConfig _$parseTestRustConfigResult(ArgResults result) => TestRustConfig(
   updateGoldens: result['update-goldens'] as bool,
   coverage: result['coverage'] as bool,
@@ -90,17 +131,6 @@ TestDartNativeConfig parseTestDartNativeConfig(List<String> args) {
   return _$parseTestDartNativeConfigResult(result);
 }
 
-T _$enumValueHelper<T>(Map<T, String> enumValues, String source) => enumValues
-    .entries
-    .singleWhere(
-      (e) => e.value == source,
-      orElse: () => throw ArgumentError(
-        '`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}',
-      ),
-    )
-    .key;
-
 TestDartSanitizerConfig _$parseTestDartSanitizerConfigResult(
   ArgResults result,
 ) => TestDartSanitizerConfig(
@@ -169,4 +199,38 @@ final _$parserForTestFlutterWebConfig = _$populateTestFlutterWebConfigParser(
 TestFlutterWebConfig parseTestFlutterWebConfig(List<String> args) {
   final result = _$parserForTestFlutterWebConfig.parse(args);
   return _$parseTestFlutterWebConfigResult(result);
+}
+
+TestFlutterQuickstartSmokeConfig _$parseTestFlutterQuickstartSmokeConfigResult(
+  ArgResults result,
+) => TestFlutterQuickstartSmokeConfig(
+  package: convertConfigPackage(result['package'] as String),
+  target: _$enumValueHelper(
+    _$QuickstartSmokeTargetEnumMapBuildCli,
+    result['target'] as String,
+  ),
+  deviceId: result['device-id'] as String?,
+);
+
+const _$QuickstartSmokeTargetEnumMapBuildCli = <QuickstartSmokeTarget, String>{
+  QuickstartSmokeTarget.web: 'web',
+  QuickstartSmokeTarget.desktop: 'desktop',
+  QuickstartSmokeTarget.android: 'android',
+  QuickstartSmokeTarget.ios: 'ios',
+};
+
+ArgParser _$populateTestFlutterQuickstartSmokeConfigParser(ArgParser parser) =>
+    parser
+      ..addOption('package')
+      ..addOption('target', allowed: ['web', 'desktop', 'android', 'ios'])
+      ..addOption('device-id');
+
+final _$parserForTestFlutterQuickstartSmokeConfig =
+    _$populateTestFlutterQuickstartSmokeConfigParser(ArgParser());
+
+TestFlutterQuickstartSmokeConfig parseTestFlutterQuickstartSmokeConfig(
+  List<String> args,
+) {
+  final result = _$parserForTestFlutterQuickstartSmokeConfig.parse(args);
+  return _$parseTestFlutterQuickstartSmokeConfigResult(result);
 }

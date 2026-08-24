@@ -10,19 +10,25 @@ import 'package:build_cli_annotations/build_cli_annotations.dart';
 import 'package:flutter_rust_bridge/src/cli/run_command.dart';
 import 'package:flutter_rust_bridge_internal/src/frb_example_pure_dart_generator/generator.dart'
     as frb_example_pure_dart_generator;
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/cargokit_sync.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/consts.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/generate_from_scratch.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/integrate_apple_scaffold.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/integrate_diff_exclusions.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/pubspec_normalizer.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/misc.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/release.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/test.dart';
 import 'package:flutter_rust_bridge_internal/src/utils/codecov_transformer.dart';
 import 'package:flutter_rust_bridge_internal/src/utils/execute_process.dart';
 import 'package:flutter_rust_bridge_internal/src/utils/makefile_dart_infra.dart';
+import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 import 'package:yaml/yaml.dart';
 
 part 'generate.g.dart';
+
+const _kRefreshCargoLockOrderingEnv = 'FRB_REFRESH_CARGO_LOCK_ORDERING';
 
 List<Command<void>> createCommands() {
   return [
@@ -38,11 +44,15 @@ List<Command<void>> createCommands() {
       _$populateGeneratePackageConfigParser,
       _$parseGeneratePackageConfigResult,
     ),
+    SimpleCommand(
+      'generate-run-frb-codegen-command-generate-from-scratch',
+      generateRunFrbCodegenCommandGenerateFromScratch,
+    ),
     SimpleConfigCommand(
       'generate-run-frb-codegen-command-integrate',
       generateRunFrbCodegenCommandIntegrate,
-      _$populateGeneratePackageConfigParser,
-      _$parseGeneratePackageConfigResult,
+      _$populateGenerateIntegratePackageConfigParser,
+      _$parseGenerateIntegratePackageConfigResult,
     ),
     // more detailed command, can be used to execute just a portion of the main command
     SimpleConfigCommand(
@@ -95,13 +105,16 @@ List<Command<void>> createCommands() {
     ),
     SimpleCommand('generate-website-merge', generateWebsiteMerge),
     SimpleCommand('generate-website-serve', generateWebsiteServe),
+    SimpleCommand('generate-apple-scaffold', generateAppleScaffold),
   ];
 }
 
 @CliOptions()
-class GenerateConfig {
+class GenerateConfig implements _GenerateCommonConfig {
+  @override
   @CliOption(defaultsTo: false)
   final bool setExitIfChanged;
+  @override
   final bool coverage;
 
   const GenerateConfig({
@@ -111,7 +124,7 @@ class GenerateConfig {
 }
 
 @CliOptions()
-class GeneratePackageConfig implements GenerateConfig {
+class GeneratePackageConfig implements _GenerateCommonConfig {
   @override
   @CliOption(defaultsTo: false)
   final bool setExitIfChanged;
@@ -119,7 +132,6 @@ class GeneratePackageConfig implements GenerateConfig {
   final String package;
   @override
   final bool coverage;
-
   const GeneratePackageConfig({
     required this.setExitIfChanged,
     required this.package,
@@ -128,10 +140,38 @@ class GeneratePackageConfig implements GenerateConfig {
 }
 
 @CliOptions()
+class GenerateIntegratePackageConfig implements _GenerateCommonConfig {
+  @override
+  @CliOption(defaultsTo: false)
+  final bool setExitIfChanged;
+  @CliOption(convert: convertConfigPackage)
+  final String package;
+  @override
+  final bool coverage;
+  @CliOption(defaultsTo: false)
+  final bool includeOhos;
+  @CliOption(defaultsTo: false)
+  final bool skipCheckedInAppleScaffold;
+
+  const GenerateIntegratePackageConfig({
+    required this.setExitIfChanged,
+    required this.package,
+    required this.coverage,
+    required this.includeOhos,
+    required this.skipCheckedInAppleScaffold,
+  });
+}
+
+@CliOptions()
 class GenerateWebsiteConfig {
   final bool coverage;
 
   const GenerateWebsiteConfig({required this.coverage});
+}
+
+abstract interface class _GenerateCommonConfig {
+  bool get setExitIfChanged;
+  bool get coverage;
 }
 
 Future<void> generateInternal(
@@ -147,6 +187,11 @@ Future<void> generateInternal(
     await generateInternalContributor(config);
   });
   await generateInternalReadme(config);
+  await generateInternalCargokitCopies(config);
+}
+
+Future<void> generateInternalCargokitCopies(GenerateConfig config) async {
+  await _wrapMaybeSetExitIfChanged(config, syncCargokitCopies);
 }
 
 Future<void> generateInternalFrbExamplePureDart(GenerateConfig config) async {
@@ -206,9 +251,16 @@ Future<void> generateInternalBookHelp(GenerateConfig config) async {
       );
       File(
         '${exec.pwd}website/docs/generated/_frb-codegen-command-${cmd.isEmpty ? "main" : cmd}.mdx',
-      ).writeAsStringSync('```\n${resp.stdout}```');
+      ).writeAsStringSync(
+        '```\n${normalizeBookHelpForTesting(resp.stdout)}```\n',
+      );
     }
   });
+}
+
+String normalizeBookHelpForTesting(String text) {
+  final lines = text.split('\n');
+  return lines.map((line) => line.trimRight()).join('\n');
 }
 
 Future<void> generateInternalContributor(GenerateConfig config) async {
@@ -289,7 +341,21 @@ void _replaceCustomMessageText(String customMessageText) {
 
 Future<void> generateInternalReadme(GenerateConfig config) async {
   await _wrapMaybeSetExitIfChanged(config, () async {
-    final readmeText = File('${exec.pwd}README.md').readAsStringSync();
+    final rootPath = exec.pwd;
+    final readmeText = File('${rootPath}README.md').readAsStringSync();
+
+    _writeGeneratedDocumentationFile(
+      path: '${rootPath}frb_dart/README.md',
+      text: readmeText,
+    );
+
+    final changelogText = File('${rootPath}CHANGELOG.md').readAsStringSync();
+    for (final package in kDartPublishedPackages) {
+      _writeGeneratedDocumentationFile(
+        path: '$rootPath$package/CHANGELOG.md',
+        text: changelogText,
+      );
+    }
 
     {
       const kPrelude = '''---
@@ -315,14 +381,26 @@ hide_title: true
       //   inside: kShowMeTheCode,
       // );
 
-      File('${exec.pwd}/website/docs/index.md').writeAsStringSync(text);
+      File('${rootPath}website/docs/index.md').writeAsStringSync(text);
     }
   });
 }
 
+void _writeGeneratedDocumentationFile({
+  required String path,
+  required String text,
+}) {
+  if (FileSystemEntity.typeSync(path, followLinks: false) ==
+      FileSystemEntityType.link) {
+    Link(path).deleteSync();
+  }
+
+  File(path).writeAsStringSync(text);
+}
+
 Future<void> generateInternalBuildRunner(GenerateConfig config) async {
   await _wrapMaybeSetExitIfChanged(config, () async {
-    for (final package in kDartNonExamplePackages) {
+    for (final package in kDartBuildRunnerPackages) {
       await runPubGetIfNotRunYet(package);
       await exec(
         'dart run build_runner build --delete-conflicting-outputs',
@@ -357,12 +435,42 @@ Future<void> _formatPackageAfterGenerate(String package) async {
   }
 }
 
+Future<void> generateAppleScaffold() async {
+  if (!Platform.isMacOS) {
+    throw StateError(
+      'generate-apple-scaffold requires macOS because Flutter only generates Apple scaffolds on macOS.',
+    );
+  }
+
+  await wrapMaybeSetExitIfChangedRaw(true, () async {
+    for (final package in integrateAppleScaffoldSourceOfTruthPackages()) {
+      await generateRunFrbCodegenCommandIntegrate(
+        generateAppleScaffoldPackageConfigForTesting(package),
+      );
+    }
+  });
+}
+
+@visibleForTesting
+GenerateIntegratePackageConfig generateAppleScaffoldPackageConfigForTesting(
+  String package,
+) => GenerateIntegratePackageConfig(
+  setExitIfChanged: false,
+  package: package,
+  coverage: false,
+  includeOhos: false,
+  skipCheckedInAppleScaffold: true,
+);
+
 Future<void> generateRunFrbCodegenCommandIntegrate(
-  GeneratePackageConfig config,
+  GenerateIntegratePackageConfig config,
 ) async {
   await _wrapMaybeSetExitIfChanged(
     config,
-    extraArgs: integrateDiffExclusionArgs(config.package),
+    extraArgs: integrateDiffExclusionArgs(
+      config.package,
+      needCompareOhos: config.includeOhos,
+    ),
     () async {
       final dirPackage = path.join(exec.pwd!, config.package);
 
@@ -377,49 +485,59 @@ Future<void> generateRunFrbCodegenCommandIntegrate(
       );
       print('Pick temporary directory: $dirTemp');
       await Directory(dirTemp).create(recursive: true);
+      final dirTempOriginal = path.join(dirTemp, 'original');
 
       // We move instead of delete folder for extra safety of this script
       if (await Directory(dirPackage).exists()) {
-        await Directory(dirPackage).rename(path.join(dirTemp, 'original'));
+        await Directory(dirPackage).rename(dirTempOriginal);
       }
 
-      switch (config.package) {
-        case 'frb_example/flutter_via_create':
+      final recipe = _integrateRecipeForPackage(config.package);
+      final packageName = path.basename(config.package);
+      final backendArgs = _integrateBackendArgs(recipe.backend);
+
+      switch (recipe.recipe) {
+        case IntegrateExampleRecipe.createApp:
           await executeFrbCodegen(
-            'create flutter_via_create --local',
+            'create $packageName --local$backendArgs',
             relativePwd: 'frb_example',
             coverage: config.coverage,
             coverageName: 'GenerateRunFrbCodegenCommandIntegrate',
+            extraEnv: {_kRefreshCargoLockOrderingEnv: '1'},
           );
 
-        case 'frb_example/flutter_via_integrate':
-          await exec(
-            'flutter create flutter_via_integrate',
-            relativePwd: 'frb_example',
-          );
+        case IntegrateExampleRecipe.integrateApp:
+          await exec('flutter create $packageName', relativePwd: 'frb_example');
           await executeFrbCodegen(
-            'integrate --local',
+            'integrate --local$backendArgs',
             relativePwd: config.package,
             coverage: config.coverage,
             coverageName: 'GenerateRunFrbCodegenCommandIntegrate',
+            extraEnv: {_kRefreshCargoLockOrderingEnv: '1'},
           );
-        case 'frb_example/flutter_package':
+        case IntegrateExampleRecipe.createPlugin:
           await executeFrbCodegen(
-            'create --local --template plugin flutter_package',
+            'create --local --template plugin $packageName$backendArgs',
             relativePwd: 'frb_example',
             coverage: config.coverage,
             coverageName: 'GenerateRunFrbCodegenCommandIntegrate',
-          );
-        default:
-          throw Exception(
-            'Do not know how to handle package ${config.package}',
+            extraEnv: {_kRefreshCargoLockOrderingEnv: '1'},
           );
       }
 
-      await applyCheckedInAppleScaffoldSourceOfTruth(
-        package: config.package,
-        generatedPackageDir: dirPackage,
-      );
+      if (!config.skipCheckedInAppleScaffold) {
+        await applyCheckedInAppleScaffoldSourceOfTruth(
+          package: config.package,
+          generatedPackageDir: dirPackage,
+        );
+      }
+      if (!config.includeOhos) {
+        await preserveCheckedInOhosScaffold(
+          package: config.package,
+          originalPackageDir: dirTempOriginal,
+          generatedPackageDir: dirPackage,
+        );
+      }
 
       // move back compilation cache to speed up future usage
       // for (final subPath in ['build', 'rust/target']) {
@@ -428,6 +546,22 @@ Future<void> generateRunFrbCodegenCommandIntegrate(
       // }
     },
   );
+}
+
+IntegrateExamplePackage _integrateRecipeForPackage(String package) {
+  for (final config in kDartExampleIntegratePackageConfigs) {
+    if (config.package == package) return config;
+  }
+
+  throw Exception('Do not know how to handle package $package');
+}
+
+String _integrateBackendArgs(IntegrateExampleBackend backend) {
+  return switch (backend) {
+    IntegrateExampleBackend.cargokit => '',
+    IntegrateExampleBackend.nativeAssets =>
+      ' --integration-backend native-assets',
+  };
 }
 
 Future<RunCommandOutput> executeFrbCodegen(
@@ -465,7 +599,7 @@ Future<RunCommandOutput> executeFrbCodegen(
 // }
 
 Future<void> _wrapMaybeSetExitIfChanged(
-  GenerateConfig config,
+  _GenerateCommonConfig config,
   Future<void> Function() inner, {
   String? extraArgs,
 }) async {
@@ -476,23 +610,117 @@ Future<void> _wrapMaybeSetExitIfChanged(
   );
 }
 
+Future<void> _normalizeGeneratedOutputBeforeDiff() async {
+  normalizePubspecs(repoRootPath: exec.pwd!, packages: kDartModeOfPackage.keys);
+}
+
 Future<void> wrapMaybeSetExitIfChangedRaw(
   bool enable,
   Future<void> Function() inner, {
   String? extraArgs,
 }) async {
   // Before actually executing anything, check whether git repository is already dirty
-  await _maybeSetExitIfChanged(enable, extraArgs: extraArgs);
+  await _maybeSetExitIfChanged(
+    enable,
+    extraArgs: extraArgs,
+    phase: _GitDiffPhase.before,
+  );
   await inner();
+  await _normalizeGeneratedOutputBeforeDiff();
   // The real check
-  await _maybeSetExitIfChanged(enable, extraArgs: extraArgs);
+  await _maybeSetExitIfChanged(
+    enable,
+    extraArgs: extraArgs,
+    phase: _GitDiffPhase.after,
+  );
 }
 
-Future<void> _maybeSetExitIfChanged(bool enable, {String? extraArgs}) async {
+Future<void> _maybeSetExitIfChanged(
+  bool enable, {
+  String? extraArgs,
+  required _GitDiffPhase phase,
+}) async {
   if (enable) {
-    await exec('git diff --exit-code ${extraArgs ?? ""}');
+    final command = 'git diff --exit-code ${extraArgs ?? ""}';
+    final output = await _executeGitDiff(command);
+    _handleGitDiffResult(
+      command: command,
+      output: output,
+      phase: phase,
+      isCi: _isCi(),
+    );
   }
 }
+
+void _handleGitDiffResult({
+  required String command,
+  required RunCommandOutput output,
+  required _GitDiffPhase phase,
+  required bool isCi,
+}) {
+  switch (_classifyGitDiffExitCode(output.exitCode)) {
+    case _GitDiffResult.clean:
+      return;
+    case _GitDiffResult.dirty:
+      if (phase == _GitDiffPhase.before) {
+        print(
+          'Warning: working tree is already dirty before running the command; continuing anyway.',
+        );
+        return;
+      }
+      throw Exception(
+        'Failed to check working tree after command: `$command` exited with ${output.exitCode}. Working tree changed.',
+      );
+    case _GitDiffResult.unavailable:
+      if (!isCi) {
+        print(
+          'Warning: cannot check working tree cleanliness because git metadata is unavailable; continuing anyway.',
+        );
+        return;
+      }
+      throw Exception(
+        'Failed to check working tree cleanliness: `$command` exited with ${output.exitCode}.',
+      );
+  }
+}
+
+Future<RunCommandOutput> _executeGitDiff(String command) =>
+    exec(command, checkExitCode: false);
+
+_GitDiffResult _classifyGitDiffExitCode(int exitCode) {
+  if (exitCode == 0) return _GitDiffResult.clean;
+  if (exitCode == 1) return _GitDiffResult.dirty;
+  return _GitDiffResult.unavailable;
+}
+
+bool _isCi({Map<String, String>? environment}) {
+  final effectiveEnvironment = environment ?? Platform.environment;
+  final ciRaw = effectiveEnvironment['CI']?.toLowerCase();
+  return effectiveEnvironment['GITHUB_ACTIONS'] == 'true' ||
+      (ciRaw != null && ciRaw != 'false' && ciRaw != '0');
+}
+
+enum _GitDiffPhase { before, after }
+
+enum _GitDiffResult { clean, dirty, unavailable }
+
+String classifyGitDiffExitCodeForTesting(int exitCode) =>
+    _classifyGitDiffExitCode(exitCode).name;
+
+void handleGitDiffResultForTesting({
+  String command = 'git diff --exit-code',
+  required int exitCode,
+  required bool isBefore,
+  required bool isCi,
+}) => _handleGitDiffResult(
+  command: command,
+  output: RunCommandOutput(stdout: '', stderr: '', exitCode: exitCode),
+  phase: isBefore ? _GitDiffPhase.before : _GitDiffPhase.after,
+  isCi: isCi,
+);
+
+bool isCiForTesting(Map<String, String> environment) =>
+    _isCi(environment: environment);
 
 Future<void> generateWebsite(GenerateWebsiteConfig config) async {
   await generateWebsiteBuild(config);

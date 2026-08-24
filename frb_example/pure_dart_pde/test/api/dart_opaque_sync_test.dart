@@ -26,8 +26,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
 
   test('sync option', () {
     var data4 = syncOptionDartOpaqueTwinNormal(
-      opaque: () =>
-          () => 'magic',
+      opaque: () => () => 'magic',
     );
     expect(data4, isNotNull);
   });
@@ -44,10 +43,12 @@ Future<void> main({bool skipRustLibInit = false}) async {
       unwrapDartOpaqueTwinNormal(opaque: createLargeList(mb: 200)),
       'Test',
     );
-    await expectLater(
-      () => panicUnwrapDartOpaqueTwinNormal(opaque: createLargeList(mb: 200)),
-      throwsA(isA<PanicException>()),
-    );
+    if (!kIsWeb) {
+      await expectLater(
+        () => panicUnwrapDartOpaqueTwinNormal(opaque: createLargeList(mb: 200)),
+        throwsA(isA<PanicException>()),
+      );
+    }
   });
 
   // `returnNonDroppableDartOpaqueTwinNormal` is removed

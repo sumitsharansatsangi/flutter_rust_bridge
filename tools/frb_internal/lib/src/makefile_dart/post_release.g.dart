@@ -25,6 +25,14 @@ PostReleaseConfig _$parsePostReleaseConfigResult(ArgResults result) =>
         _$CodegenInstallModeEnumMapBuildCli,
         result['codegen-install-mode'] as String,
       ),
+      releaseChannel: _$enumValueHelper(
+        _$ReleaseChannelEnumMapBuildCli,
+        result['release-channel'] as String,
+      ),
+      integrationBackend: _$enumValueHelper(
+        _$IntegrateExampleBackendEnumMapBuildCli,
+        result['integration-backend'] as String,
+      ),
     );
 
 const _$CodegenInstallModeEnumMapBuildCli = <CodegenInstallMode, String>{
@@ -34,11 +42,28 @@ const _$CodegenInstallModeEnumMapBuildCli = <CodegenInstallMode, String>{
   CodegenInstallMode.homebrew: 'homebrew',
 };
 
-ArgParser _$populatePostReleaseConfigParser(ArgParser parser) =>
-    parser..addOption(
-      'codegen-install-mode',
-      allowed: ['cargo-install', 'cargo-binstall', 'scoop', 'homebrew'],
-    );
+const _$ReleaseChannelEnumMapBuildCli = <ReleaseChannel, String>{
+  ReleaseChannel.stable: 'stable',
+  ReleaseChannel.unstable: 'unstable',
+};
+
+const _$IntegrateExampleBackendEnumMapBuildCli =
+    <IntegrateExampleBackend, String>{
+      IntegrateExampleBackend.cargokit: 'cargokit',
+      IntegrateExampleBackend.nativeAssets: 'native-assets',
+    };
+
+ArgParser _$populatePostReleaseConfigParser(ArgParser parser) => parser
+  ..addOption(
+    'codegen-install-mode',
+    allowed: ['cargo-install', 'cargo-binstall', 'scoop', 'homebrew'],
+  )
+  ..addOption('release-channel', allowed: ['stable', 'unstable'])
+  ..addOption(
+    'integration-backend',
+    defaultsTo: 'cargokit',
+    allowed: ['cargokit', 'native-assets'],
+  );
 
 final _$parserForPostReleaseConfig = _$populatePostReleaseConfigParser(
   ArgParser(),

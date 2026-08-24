@@ -33,6 +33,7 @@ mod dart_fn;
 mod enum_or_struct;
 pub(crate) mod enumeration;
 pub(crate) mod external_impl;
+pub(crate) mod generic_type_alias;
 pub(crate) mod generics;
 pub(crate) mod lifetimeable;
 pub(crate) mod misc;
@@ -58,9 +59,8 @@ pub(crate) struct TypeParser<'a> {
     src_structs: HashMap<String, &'a HirFlatStruct>,
     src_enums: HashMap<String, &'a HirFlatEnum>,
     pub(super) src_traits: HashMap<String, &'a HirFlatTrait>,
-    pub(super) ignored_trait_names: std::collections::HashSet<String>,
     src_types: HashMap<String, Type>,
-    pub(crate) src_generic_types: HashMap<String, &'a HirFlatTypeAlias>,
+    src_generic_type_aliases: HashMap<String, HirFlatTypeAlias>,
     pub(super) proxied_types: Vec<IrEarlyGeneratorProxiedType>,
     pub(super) trait_def_infos: Vec<IrEarlyGeneratorTraitDefInfo>,
     pub(super) custom_ser_des_infos: Vec<MirCustomSerDes>,
@@ -79,7 +79,6 @@ impl<'a> TypeParser<'a> {
             ir_pack.hir_flat_pack.structs_map(),
             ir_pack.hir_flat_pack.enums_map(),
             ir_pack.hir_flat_pack.traits_map(),
-            ir_pack.hir_flat_pack.ignored_trait_names(),
             ir_pack.hir_flat_pack.types_map(),
             ir_pack.hir_flat_pack.generic_types_map(),
             ir_pack.proxied_types.clone(),
@@ -87,14 +86,12 @@ impl<'a> TypeParser<'a> {
         )
     }
 
-    #[allow(clippy::too_many_arguments)]
     fn new(
         src_structs: HashMap<String, &'a HirFlatStruct>,
         src_enums: HashMap<String, &'a HirFlatEnum>,
         src_traits: HashMap<String, &'a HirFlatTrait>,
-        ignored_trait_names: std::collections::HashSet<String>,
         src_types: HashMap<String, Type>,
-        src_generic_types: HashMap<String, &'a HirFlatTypeAlias>,
+        src_generic_type_aliases: HashMap<String, HirFlatTypeAlias>,
         proxied_types: Vec<IrEarlyGeneratorProxiedType>,
         trait_def_infos: Vec<IrEarlyGeneratorTraitDefInfo>,
     ) -> Self {
@@ -102,9 +99,8 @@ impl<'a> TypeParser<'a> {
             src_structs,
             src_enums,
             src_traits,
-            ignored_trait_names,
             src_types,
-            src_generic_types,
+            src_generic_type_aliases,
             proxied_types,
             trait_def_infos,
             custom_ser_des_infos: Default::default(),

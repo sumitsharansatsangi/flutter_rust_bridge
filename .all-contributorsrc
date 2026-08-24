@@ -369,6 +369,33 @@
       ]
     },
     {
+      "login": "star4277",
+      "name": "Star4277",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54941990?v=4",
+      "profile": "https://github.com/star4277",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nightscape",
+      "name": "Martin Mauch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35170?v=4",
+      "profile": "https://github.com/nightscape",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "TrackerSB",
+      "name": "TrackerSB",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6358523?v=4",
+      "profile": "https://steinbrecher-bayern.de",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "Integral-Tech",
       "name": "Integral",
       "avatar_url": "https://avatars.githubusercontent.com/u/71180087?v=4",
@@ -400,6 +427,15 @@
       "name": "Aadam Zocolo",
       "avatar_url": "https://avatars.githubusercontent.com/u/15809427?v=4",
       "profile": "https://azocolo.dev/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rlch",
+      "name": "Richard Mathieson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35163478?v=4",
+      "profile": "https://www.tutero.com.au/",
       "contributions": [
         "code"
       ]
@@ -478,10 +514,46 @@
       ]
     },
     {
+      "login": "lqjdm",
+      "name": "卢庆杰",
+      "avatar_url": "https://avatars.githubusercontent.com/u/135829137?v=4",
+      "profile": "https://github.com/lqjdm",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "stepangfil",
+      "name": "Stepan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13966310?v=4",
+      "profile": "https://github.com/stepangfil",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ganeshrvel",
+      "name": "Ganesh Rathinavel Medayil",
+      "avatar_url": "https://avatars.githubusercontent.com/u/182092?v=4",
+      "profile": "https://www.ganeshrvel.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "xuxiaocheng0201",
       "name": "XuXiaoCheng",
       "avatar_url": "https://avatars.githubusercontent.com/u/78644225?v=4",
       "profile": "https://github.com/xuxiaocheng0201",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ShuttleSpace",
+      "name": "ShuttleSpace",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6889653?v=4",
+      "profile": "https://github.com/ShuttleSpace",
       "contributions": [
         "code"
       ]
@@ -527,15 +599,6 @@
       "name": "Shadowcat650",
       "avatar_url": "https://avatars.githubusercontent.com/u/64231061?v=4",
       "profile": "https://github.com/Shadowcat650",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "TrackerSB",
-      "name": "TrackerSB",
-      "avatar_url": "https://avatars.githubusercontent.com/u/6358523?v=4",
-      "profile": "https://steinbrecher-bayern.de",
       "contributions": [
         "code"
       ]

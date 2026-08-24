@@ -14,6 +14,8 @@ CI failures in flutter_rust_bridge often have simple fixes. Try the appropriate 
 
 **Core principle:** Start with lazy fixes (re-run, copy diff, --fix) before expensive investigation.
 
+If the CI failure or PR state is caused by merge/rebase conflicts, especially conflicts in generated files after `master` and a PR both added tests or APIs, read the `/frb-fix-merge-conflict` skill before resolving them.
+
 ## Triage Order
 
 Use this order before diving into individual failure types:
@@ -29,6 +31,10 @@ Use this order before diving into individual failure types:
 ### Checking the Right Run
 
 Do not answer from stale CI state. Read the latest relevant run or job information first.
+
+### Temporary CI Narrowing
+
+When CI feedback is slow and only one job family matters for the current investigation, read `frb-ci-filter` before using `ci_filter`, the `ci-manual-dispatch` label, or related workflow configuration.
 
 ## Quick Reference
 
@@ -309,6 +315,7 @@ In that situation:
 - Continuing package-by-package `Generate` sync commits after two similar generated Dart drifts, instead of escalating to clean remote `precommit-generate`
 - Fixing downstream build/test jobs before upstream generate/integrate/high-relevance generate-internal stages are stable
 - Answering from stale CI state instead of reading the latest relevant run or job information first
+- Forgetting to remove `ci-manual-dispatch` and rerun normal CI before treating the PR as ready
 
 ## Related Skills
 

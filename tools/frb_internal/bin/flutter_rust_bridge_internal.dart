@@ -9,10 +9,14 @@ import 'package:flutter_rust_bridge_internal/src/makefile_dart/lint.dart'
     as lint;
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/misc.dart'
     as misc;
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/ohos_device_smoke.dart'
+    as ohos_device_smoke;
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/post_release.dart'
     as post_release;
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/release.dart'
     as release;
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/released_version.dart'
+    as released_version;
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/test.dart'
     as build;
 import 'package:flutter_rust_bridge_internal/src/utils/makefile_dart_infra.dart';
@@ -26,7 +30,9 @@ Future<void> main(List<String> args) async {
         ..addCommands(bench.createCommands())
         ..addCommands(misc.createCommands())
         ..addCommands(release.createCommands())
+        ..addCommands(released_version.createCommands())
         ..addCommands(post_release.createCommands())
+        ..addCommands(ohos_device_smoke.createCommands())
         ..addCommands(build.createCommands());
   await runner.run(args);
 }

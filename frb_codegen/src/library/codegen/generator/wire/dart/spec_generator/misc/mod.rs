@@ -279,6 +279,23 @@ fn generate_import_dart_api_layer(
         .join(""))
 }
 
+#[cfg(test)]
+mod tests {
+    use super::generate_execute_dart_initializers;
+
+    #[test]
+    fn test_generate_execute_dart_initializers() {
+        let actual = generate_execute_dart_initializers(
+            ["api.firstInit();", "api.secondInit(\n  value: 42,\n);"].into_iter(),
+        );
+
+        assert_eq!(
+            actual,
+            "api.firstInit();\napi.secondInit(\n  value: 42,\n);\n"
+        );
+    }
+}
+
 // fn generate_wire_delegate_functions(func: &ExternFunc) -> Acc<Vec<WireDartOutputCode>> {
 //     let wire_func_name = func.func_name("");
 //     let return_type = func.return_type.as_deref().unwrap_or("void");

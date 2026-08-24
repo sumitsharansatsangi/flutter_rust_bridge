@@ -18,7 +18,6 @@ use crate::utils::dart_repository::get_dart_package_name;
 use crate::utils::path_utils::path_to_string;
 use crate::utils::syn_utils::canonicalize_rust_type;
 use anyhow::Context;
-use cargo_metadata::TargetKind;
 use itertools::Itertools;
 use log::debug;
 use pathdiff::diff_paths;
@@ -65,6 +64,7 @@ pub(super) fn parse(args: Args) -> anyhow::Result<GeneratorInternalConfig> {
 
     Ok(GeneratorInternalConfig {
         api_dart: GeneratorApiDartInternalConfig {
+            dart_collection_deep_equality: config.dart_collection_deep_equality.unwrap_or(false),
             dart_enums_style,
             dart3,
             dart_decl_base_output_path: dart_output_path_pack.dart_decl_base_output_path.clone(),
@@ -73,7 +73,6 @@ pub(super) fn parse(args: Args) -> anyhow::Result<GeneratorInternalConfig> {
             dart_preamble: config.dart_preamble.clone().unwrap_or_default(),
             dart_type_rename: compute_dart_type_rename(config)?,
             use_oxidized,
-            dart_collection_deep_equality: config.dart_collection_deep_equality.unwrap_or(false),
         },
         wire: GeneratorWireInternalConfig {
             dart: GeneratorWireDartInternalConfig {
@@ -113,6 +112,20 @@ pub(super) fn parse(args: Args) -> anyhow::Result<GeneratorInternalConfig> {
             },
         },
     })
+}
+
+/// Detect whether the Dart package opted into oxidized result values.
+fn detect_oxidized_dependency(dart_root: &Path) -> bool {
+    match DartRepository::from_path(dart_root) {
+        Ok(repo) => {
+            let has_oxidized = repo.has_dependency("oxidized");
+            if has_oxidized {
+                debug!("Detected oxidized dependency; generating Result return types");
+            }
+            has_oxidized
+        }
+        Err(_) => false,
+    }
 }
 
 fn fallback_llvm_path() -> Vec<String> {
@@ -173,18 +186,7 @@ fn compute_default_external_library_stem(rust_crate_dir: &Path) -> anyhow::Resul
         .root_package()
         .context("cannot find root package")?;
     let target = (package.targets.iter())
-        .find(|target| {
-            target.kind.iter().any(|kind| {
-                matches!(
-                    kind,
-                    TargetKind::Lib
-                        | TargetKind::RLib
-                        | TargetKind::DyLib
-                        | TargetKind::CDyLib
-                        | TargetKind::StaticLib
-                )
-            })
-        })
+        .find(|target| target.kind.iter().any(|kind| kind.contains("lib")))
         .context("cannot find target")?;
     Ok(target.name.replace('-', "_"))
 }
@@ -222,21 +224,4 @@ fn compute_dart_type_rename(config: &Config) -> anyhow::Result<HashMap<String, S
         .into_iter()
         .flatten()
         .collect())
-}
-
-/// Detect if the oxidized package is in the project's dependencies.
-/// When detected, fallible functions will return Result<T, E> instead of throwing.
-fn detect_oxidized_dependency(dart_root: &Path) -> bool {
-    match DartRepository::from_path(dart_root) {
-        Ok(repo) => {
-            let has_oxidized = repo.has_dependency("oxidized");
-            if has_oxidized {
-                debug!(
-                    "Detected oxidized package in dependencies - will generate Result return types"
-                );
-            }
-            has_oxidized
-        }
-        Err(_) => false,
-    }
 }

@@ -1,5 +1,3 @@
-// FRB_INTERNAL_GENERATOR: {"forbiddenDuplicatorModes": ["sync", "rustAsync", "sse", "sync sse", "rustAsync sse"]}
-
 import 'package:frb_example_pure_dart/src/rust/api/serde_json_type.dart';
 import 'package:frb_example_pure_dart/src/rust/frb_generated.dart';
 import 'package:test/test.dart';
@@ -45,9 +43,8 @@ Future<void> main({bool skipRustLibInit = false}) async {
   });
 
   test('Option<serde_json::Value> some', () async {
-    final output = await handleOptionSerdeJsonValueTwinNormal(
-      val: {'key': 'value'},
-    );
+    final output =
+        await handleOptionSerdeJsonValueTwinNormal(val: {'key': 'value'});
     expect(output, {'key': 'value'});
   });
 
@@ -60,7 +57,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
     final input = [
       42,
       'hello',
-      {'nested': true},
+      {'nested': true}
     ];
     final output = await handleVecSerdeJsonValueTwinNormal(val: input);
     expect(output, input);
@@ -79,7 +76,7 @@ Future<void> main({bool skipRustLibInit = false}) async {
   test('serde_json::Value nested struct', () async {
     final data = {
       'key': 'value',
-      'nested': {'a': 1},
+      'nested': {'a': 1}
     };
     final wrapper = FeatureSerdeJsonTwinNormal(data: data);
     final output = await handleNestedSerdeJsonValueTwinNormal(wrapper: wrapper);

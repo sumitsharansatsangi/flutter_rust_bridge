@@ -7,28 +7,26 @@ use syn::Type;
 use topological_sort::TopologicalSort;
 
 pub(crate) fn transform(mut pack: HirFlatPack) -> anyhow::Result<HirFlatPack> {
-    // Separate generic and non-generic type aliases
-    // Generic type aliases (e.g., `type Result<T> = std::result::Result<T, MyError>`)
-    // are kept as-is since resolve_type_aliases doesn't handle generic substitution yet.
-    // TODO: Enhance resolve_type_aliases to handle generic type alias substitution
-    let (generic_aliases, non_generic_aliases): (Vec<_>, Vec<_>) =
-        pack.types.into_iter().partition(|x| x.generics.is_some());
+    // Generic aliases (those with type parameters) are substituted lazily at the
+    // use site in the MIR parser, so their templates must be preserved verbatim.
+    // Only non-generic aliases participate in the eager topological resolution.
+    let (generic, non_generic): (Vec<_>, Vec<_>) =
+        (pack.types.into_iter()).partition(|x| !x.type_params.is_empty());
 
-    let map_raw = non_generic_aliases
-        .iter()
+    let map_raw = (non_generic.iter())
         .map(|x| (x.ident.clone(), x.target.clone()))
         .collect();
     let map_transformed = resolve_type_aliases(map_raw);
-    let vec_transformed = (map_transformed.into_iter())
+    let mut vec_transformed = (map_transformed.into_iter())
         .map(|(ident, target)| HirFlatTypeAlias {
             ident,
             target,
-            generics: None,
+            type_params: vec![],
         })
         .collect_vec();
+    vec_transformed.extend(generic);
 
-    // Combine resolved non-generic aliases with the original generic aliases
-    pack.types = vec_transformed.into_iter().chain(generic_aliases).collect();
+    pack.types = vec_transformed;
 
     Ok(pack)
 }

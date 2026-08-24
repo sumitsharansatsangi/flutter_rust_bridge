@@ -88,6 +88,12 @@ mod tests {
 
     #[test]
     #[serial]
+    fn test_init_dart_code() -> anyhow::Result<()> {
+        body("library/codegen/parser/mod/init_dart_code", None)
+    }
+
+    #[test]
+    #[serial]
     fn test_methods() -> anyhow::Result<()> {
         body("library/codegen/parser/mod/methods", None)
     }
@@ -135,6 +141,12 @@ mod tests {
     #[serial]
     fn test_unused_struct_enum() -> anyhow::Result<()> {
         body("library/codegen/parser/mod/unused_struct_enum", None)
+    }
+
+    #[test]
+    #[serial]
+    fn test_generic_type_alias() -> anyhow::Result<()> {
+        body("library/codegen/parser/mod/generic_type_alias", None)
     }
 
     #[allow(clippy::type_complexity)]

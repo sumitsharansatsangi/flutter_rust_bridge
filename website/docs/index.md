@@ -13,7 +13,7 @@ hide_title: true
 [![CI](https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/ci.yaml/badge.svg)](https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/ci.yaml)
 [![Post-Release](https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/post_release.yaml/badge.svg)](https://github.com/fzyzcjy/flutter_rust_bridge/actions/workflows/ci.yaml)
 [![codecov](https://codecov.io/gh/fzyzcjy/flutter_rust_bridge/graph/badge.svg?token=Q7EUTZMDIF)](https://codecov.io/gh/fzyzcjy/flutter_rust_bridge)
-[![All Contributors](https://img.shields.io/badge/all_contributors-133-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-140-orange.svg?style=flat-square)](#contributors-)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6afbdad19e7245adbf9e9771777be3d7)](https://app.codacy.com/gh/fzyzcjy/flutter_rust_bridge?utm_source=github.com&utm_medium=referral&utm_content=fzyzcjy/flutter_rust_bridge&utm_campaign=Badge_Grade_Settings)
 
 [<img src="https://github.com/fzyzcjy/flutter_rust_bridge/raw/master/website/misc/flutter_favorite.png" width="200" />](https://flutter.dev/docs/development/packages-and-plugins/favorites)
@@ -258,31 +258,40 @@ Secondly, thanks goes to these wonderful contributors ([emoji key](https://allco
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/alexlapa"><img src="https://avatars.githubusercontent.com/u/36732824?v=4?s=100" width="100px;" alt="alexlapa"/><br /><sub><b>alexlapa</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=alexlapa" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://remmy.io"><img src="https://avatars.githubusercontent.com/u/2285387?v=4?s=100" width="100px;" alt="Johannes Löthberg"/><br /><sub><b>Johannes Löthberg</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=kyrias" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SilverMira"><img src="https://avatars.githubusercontent.com/u/66930495?v=4?s=100" width="100px;" alt="SilverMira"/><br /><sub><b>SilverMira</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=SilverMira" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/star4277"><img src="https://avatars.githubusercontent.com/u/54941990?v=4?s=100" width="100px;" alt="Star4277"/><br /><sub><b>Star4277</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=star4277" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/nightscape"><img src="https://avatars.githubusercontent.com/u/35170?v=4?s=100" width="100px;" alt="Martin Mauch"/><br /><sub><b>Martin Mauch</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=nightscape" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://steinbrecher-bayern.de"><img src="https://avatars.githubusercontent.com/u/6358523?v=4?s=100" width="100px;" alt="TrackerSB"/><br /><sub><b>TrackerSB</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=TrackerSB" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://blog.i7.homes"><img src="https://avatars.githubusercontent.com/u/71180087?v=4?s=100" width="100px;" alt="Integral"/><br /><sub><b>Integral</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=Integral-Tech" title="Code">💻</a></td>
+    </tr>
+    <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/h3x4d3c1m4l"><img src="https://avatars.githubusercontent.com/u/2611894?v=4?s=100" width="100px;" alt="Sander in 't Hout"/><br /><sub><b>Sander in 't Hout</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=h3x4d3c1m4l" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://tienisto.com"><img src="https://avatars.githubusercontent.com/u/38380847?v=4?s=100" width="100px;" alt="Tien Do Nam"/><br /><sub><b>Tien Do Nam</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=Tienisto" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://azocolo.dev/"><img src="https://avatars.githubusercontent.com/u/15809427?v=4?s=100" width="100px;" alt="Aadam Zocolo"/><br /><sub><b>Aadam Zocolo</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=AadamZ5" title="Code">💻</a></td>
-    </tr>
-    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.tutero.com.au/"><img src="https://avatars.githubusercontent.com/u/35163478?v=4?s=100" width="100px;" alt="Richard Mathieson"/><br /><sub><b>Richard Mathieson</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=rlch" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/dt-iohk"><img src="https://avatars.githubusercontent.com/u/166132265?v=4?s=100" width="100px;" alt="Dominik Toton"/><br /><sub><b>Dominik Toton</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=dt-iohk" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/NathanKolbas"><img src="https://avatars.githubusercontent.com/u/24755493?v=4?s=100" width="100px;" alt="Nathan Kolbas"/><br /><sub><b>Nathan Kolbas</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=NathanKolbas" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://satvikpendem.com"><img src="https://avatars.githubusercontent.com/u/42670561?v=4?s=100" width="100px;" alt="Satvik Pendem"/><br /><sub><b>Satvik Pendem</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=satvikpendem" title="Code">💻</a></td>
+    </tr>
+    <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://monitzer.com"><img src="https://avatars.githubusercontent.com/u/644763?v=4?s=100" width="100px;" alt="Andreas Monitzer"/><br /><sub><b>Andreas Monitzer</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=anlumo" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/temeddix"><img src="https://avatars.githubusercontent.com/u/66480156?v=4?s=100" width="100px;" alt="Kim Dong-Hyun"/><br /><sub><b>Kim Dong-Hyun</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=temeddix" title="Code">💻</a> <a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=temeddix" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://blog.nightfeather.dev/"><img src="https://avatars.githubusercontent.com/u/77222233?v=4?s=100" width="100px;" alt="NightFeather"/><br /><sub><b>NightFeather</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=NightFeather0615" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://alexballmer.dev"><img src="https://avatars.githubusercontent.com/u/4921944?v=4?s=100" width="100px;" alt="Alex Ballmer"/><br /><sub><b>Alex Ballmer</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=fmeef" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ethicnology"><img src="https://avatars.githubusercontent.com/u/25751709?v=4?s=100" width="100px;" alt="J. Azad EMERY"/><br /><sub><b>J. Azad EMERY</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=ethicnology" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lqjdm"><img src="https://avatars.githubusercontent.com/u/135829137?v=4?s=100" width="100px;" alt="卢庆杰"/><br /><sub><b>卢庆杰</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=lqjdm" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/stepangfil"><img src="https://avatars.githubusercontent.com/u/13966310?v=4?s=100" width="100px;" alt="Stepan"/><br /><sub><b>Stepan</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=stepangfil" title="Code">💻</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ethicnology"><img src="https://avatars.githubusercontent.com/u/25751709?v=4?s=100" width="100px;" alt="J. Azad EMERY"/><br /><sub><b>J. Azad EMERY</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=ethicnology" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.ganeshrvel.com"><img src="https://avatars.githubusercontent.com/u/182092?v=4?s=100" width="100px;" alt="Ganesh Rathinavel Medayil"/><br /><sub><b>Ganesh Rathinavel Medayil</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=ganeshrvel" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/xuxiaocheng0201"><img src="https://avatars.githubusercontent.com/u/78644225?v=4?s=100" width="100px;" alt="XuXiaoCheng"/><br /><sub><b>XuXiaoCheng</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=xuxiaocheng0201" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ShuttleSpace"><img src="https://avatars.githubusercontent.com/u/6889653?v=4?s=100" width="100px;" alt="ShuttleSpace"/><br /><sub><b>ShuttleSpace</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=ShuttleSpace" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://shalom92.vercel.app/"><img src="https://avatars.githubusercontent.com/u/45457350?v=4?s=100" width="100px;" alt="pyeongkang kim"/><br /><sub><b>pyeongkang kim</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=ski0090" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/khangah"><img src="https://avatars.githubusercontent.com/u/23744377?v=4?s=100" width="100px;" alt="M Khangah"/><br /><sub><b>M Khangah</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=khangah" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/marcmcd"><img src="https://avatars.githubusercontent.com/u/2797870?v=4?s=100" width="100px;" alt="marcmcd"/><br /><sub><b>marcmcd</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=marcmcd" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/turtletongue"><img src="https://avatars.githubusercontent.com/u/42860321?v=4?s=100" width="100px;" alt="Platon Sterkhov"/><br /><sub><b>Platon Sterkhov</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=turtletongue" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Shadowcat650"><img src="https://avatars.githubusercontent.com/u/64231061?v=4?s=100" width="100px;" alt="Shadowcat650"/><br /><sub><b>Shadowcat650</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=Shadowcat650" title="Code">💻</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://steinbrecher-bayern.de"><img src="https://avatars.githubusercontent.com/u/6358523?v=4?s=100" width="100px;" alt="TrackerSB"/><br /><sub><b>TrackerSB</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=TrackerSB" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Shadowcat650"><img src="https://avatars.githubusercontent.com/u/64231061?v=4?s=100" width="100px;" alt="Shadowcat650"/><br /><sub><b>Shadowcat650</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=Shadowcat650" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/futpib"><img src="https://avatars.githubusercontent.com/u/4330357?v=4?s=100" width="100px;" alt="futpib"/><br /><sub><b>futpib</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=futpib" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://giorgio.azzinna.ro"><img src="https://avatars.githubusercontent.com/u/7715855?v=4?s=100" width="100px;" alt="Giorgio Azzinnaro"/><br /><sub><b>Giorgio Azzinnaro</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=borgoat" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/xuwaters"><img src="https://avatars.githubusercontent.com/u/1222863?v=4?s=100" width="100px;" alt="Wei Xu"/><br /><sub><b>Wei Xu</b></sub></a><br /><a href="https://github.com/fzyzcjy/flutter_rust_bridge/commits?author=xuwaters" title="Code">💻</a></td>
@@ -402,7 +411,7 @@ More specifically, thanks for all these contributions:
 * [sagudev](https://github.com/sagudev): Make code generator a `lib`. Add error types. Depend on `cbindgen`. Fix LLVM paths. Update deps. Fix CI errors.
 * [surban](https://github.com/surban): Support unit return type. Skip unresolvable modules. Ignore prefer_const_constructors. Non-final Dart fields.
 * [Roms1383](https://github.com/Roms1383): Fix build_runner calling bug. Remove global `ffigen` dependency. Improve version check. Fix enum name-variant conflicts. Support Chrono date time and UUID types. Migrate to Rust 1.64 workspace. Update and refactor CI. Update header comments. Code cleanup.
-* [dbsxdbsx](https://github.com/dbsxdbsx): Allow generating multiple Rust and Dart files. Fix lint. Update doc. Add logging. Loosen config. Prefix methods.
+* [dbsxdbsx](https://github.com/dbsxdbsx): Allow generating multiple Rust and Dart files. Fix lint. Update doc. Add logging. Loosen config. Prefix methods. Generic type aliases. Stream cancellation issue.
 * [GregoryConrad](https://github.com/GregoryConrad): Add doc to setup frb inside a Dart/Flutter library.
 * [huang12zheng](https://github.com/huang12zheng): Support type aliases and nested ones. Tweak code generation. Fix rust_build_and_test on Mac. Improve CI logic and cache. Remove bridge field in model.
 * [trobanga](https://github.com/trobanga): Add support for `[T;N]` structs. Add `usize` support. Add a cmd argument. Separate dart tests. Fix fallible list case. Fix test compile. Fix Result + RustAutoOpaque.
@@ -429,10 +438,14 @@ More specifically, thanks for all these contributions:
 * [alexlapa](https://github.com/alexlapa): Fix Dart_PostCObject. Fix DartOpaque.
 * [kyrias](https://github.com/kyrias): Use portable atomic. Ignore accessor fields. Update doc.
 * [SilverMira](https://github.com/SilverMira): Fix StreamSink. Encoded types in DCO.
+* [star4277](https://github.com/star4277): Support OHOS platform.
+* [nightscape](https://github.com/nightscape): Support struct deep equality.
+* [TrackerSB](https://github.com/TrackerSB): Bump allo-isolate. Update CI. Chrono NaiveDate conversion.
 * [Integral-Tech](https://github.com/Integral-Tech): Use concat. Fix lint.
 * [h3x4d3c1m4l](https://github.com/h3x4d3c1m4l): Fix when outside folder. Support publish tag.
 * [Tienisto](https://github.com/Tienisto): Remove default enum case. Add mock init.
 * [AadamZ5](https://github.com/AadamZ5): Workspace root resolution logic.
+* [rlch](https://github.com/rlch): Support serde_json Value.
 * [dt-iohk](https://github.com/dt-iohk): Support multi packages on web.
 * [NathanKolbas](https://github.com/NathanKolbas): Crate name different from plugin. Update CI.
 * [satvikpendem](https://github.com/satvikpendem): Add json_serializable. Update CI. Little co-work #989.
@@ -441,13 +454,16 @@ More specifically, thanks for all these contributions:
 * [NightFeather0615](https://github.com/NightFeather0615): Fix Vec bool.
 * [fmeef](https://github.com/fmeef): Add cargo feature flag.
 * [ethicnology](https://github.com/ethicnology): Fix fvm install.
+* [lqjdm](https://github.com/lqjdm): Enhance HAP testing.
+* [stepangfil](https://github.com/stepangfil): Panic abort doc.
+* [ganeshrvel](https://github.com/ganeshrvel): Fix name conflict.
 * [xuxiaocheng0201](https://github.com/xuxiaocheng0201): Support skipping in integrate.
+* [ShuttleSpace](https://github.com/ShuttleSpace): Stream listen vs await usage.
 * [ski0090](https://github.com/ski0090): Fix folder creation.
 * [khangah](https://github.com/khangah): Dart fn output extra handling.
 * [marcmcd](https://github.com/marcmcd): Windows 10 build-web.
 * [turtletongue](https://github.com/turtletongue): Check deps when upgrading.
 * [Shadowcat650](https://github.com/Shadowcat650): Vec optimization.
-* [TrackerSB](https://github.com/TrackerSB): Bump allo-isolate. Update CI.
 * [futpib](https://github.com/futpib): Configurable log levels.
 * [borgoat](https://github.com/borgoat): Upgrade freezed.
 * [xuwaters](https://github.com/xuwaters): Support edition 2024.

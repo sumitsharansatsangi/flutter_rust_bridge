@@ -169,12 +169,15 @@ impl ApiDartGeneratorInfoTrait for GeneralListApiDartGenerator<'_> {
 impl ApiDartGeneratorInfoTrait for OptionalApiDartGenerator<'_> {
     fn dart_api_type(&self) -> String {
         let inner = ApiDartGenerator::new(self.mir.inner.clone(), self.context);
-        let inner_type = inner.dart_api_type();
-        if inner_type.ends_with('?') {
-            inner_type
-        } else {
-            format!("{inner_type}?")
-        }
+        make_dart_type_nullable(inner.dart_api_type())
+    }
+}
+
+fn make_dart_type_nullable(ty: String) -> String {
+    if ty.ends_with('?') {
+        ty
+    } else {
+        format!("{ty}?")
     }
 }
 

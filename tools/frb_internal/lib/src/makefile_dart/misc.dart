@@ -1,17 +1,24 @@
 // ignore_for_file: avoid_print
 
-import 'dart:io';
-
 import 'package:args/command_runner.dart';
 import 'package:build_cli_annotations/build_cli_annotations.dart';
+// ignore: implementation_imports
+import 'package:flutter_rust_bridge/src/cli/run_command.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/cargokit_sync.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/ci_plan.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/consts.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/generate.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/lint.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/precommit_autofix_in_dev_container.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/precommit_autofix.dart';
+import 'package:flutter_rust_bridge_internal/src/makefile_dart/pubspec_normalizer.dart';
 import 'package:flutter_rust_bridge_internal/src/makefile_dart/test.dart';
 import 'package:flutter_rust_bridge_internal/src/utils/codecov_preaggregator.dart';
 import 'package:flutter_rust_bridge_internal/src/utils/makefile_dart_infra.dart';
 
 part 'misc.g.dart';
+
+const _kCargoExpandFallbackVersion = '1.0.112';
 
 List<Command<void>> createCommands() {
   return [
@@ -22,10 +29,30 @@ List<Command<void>> createCommands() {
       _$populatePrecommitConfigParser,
       _$parsePrecommitConfigResult,
     ),
+    PrecommitAutofixCommand(
+      commandRunner: exec.call,
+      precommitRunner: (mode) async {
+        await precommit(
+          PrecommitConfig(
+            mode: switch (mode) {
+              PrecommitAutofixMode.fast => PrecommitMode.fast,
+              PrecommitAutofixMode.slow => PrecommitMode.slow,
+            },
+          ),
+        );
+      },
+      repoRootPath: exec.pwd!,
+    ),
+    PrecommitAutofixInDevContainerCommand(
+      commandRunner: exec.call,
+      repoRootPath: exec.pwd!,
+    ),
     SimpleCommand('precommit-generate', precommitGenerate),
     SimpleCommand('precommit-integrate', precommitIntegrate),
+    SimpleCommand('sync-cargokit-copies', syncCargokitCopies),
     SimpleCommand('pub-get-all', pubGetAll),
     SimpleCommand('cargo-fetch-all', cargoFetchAll),
+    PlanCiCommand(),
     CodecovPreaggregateCommand(),
   ];
 }
@@ -82,13 +109,7 @@ class CodecovPreaggregateCommand extends Command<void> {
 
 Future<void> miscNormalizePubspec() async {
   print('Execute miscNormalizePubspec');
-  for (final package in kDartPackages) {
-    final file = File('${exec.pwd}$package/pubspec.lock');
-    final original = file.readAsStringSync();
-    final modified = original.replaceAll('pub.flutter-io.cn', 'pub.dev');
-    if (modified == original) continue;
-    file.writeAsStringSync(modified);
-  }
+  normalizePubspecs(repoRootPath: exec.pwd!, packages: kDartModeOfPackage.keys);
 }
 
 enum PrecommitMode { fast, slow }
@@ -133,6 +154,8 @@ Future<void> precommit(PrecommitConfig config) async {
 }
 
 Future<void> precommitGenerate() async {
+  await ensureCargoExpandInstalledForPrecommitGenerate();
+
   await Future.wait([
     for (final package in kDartExamplePackages)
       generateRunFrbCodegenCommandGenerate(
@@ -145,14 +168,43 @@ Future<void> precommitGenerate() async {
   ]);
 }
 
+Future<void> ensureCargoExpandInstalledForPrecommitGenerate() async {
+  final version = await exec('cargo expand --version', checkExitCode: false);
+  if (version.exitCode == 0) return;
+
+  final latest = await exec('cargo install cargo-expand', checkExitCode: false);
+  if (latest.exitCode == 0) return;
+
+  if (_shouldFallbackCargoExpandInstall(latest.stderr)) {
+    await exec(
+      'cargo install cargo-expand --version $_kCargoExpandFallbackVersion --locked',
+    );
+    return;
+  }
+
+  _throwCommandFailed('cargo install cargo-expand', latest);
+}
+
+bool _shouldFallbackCargoExpandInstall(String stderr) =>
+    // Mimic `cargo_expand_fallback_version` in frb_codegen's cargo_expand/real.rs.
+    stderr.contains('requires rustc');
+
+void _throwCommandFailed(String command, RunCommandOutput output) {
+  throw Exception(
+    'Command `$command` failed with exit code ${output.exitCode}. stderr=${output.stderr}',
+  );
+}
+
 Future<void> precommitIntegrate() async {
   await Future.wait([
     for (final package in kDartExampleIntegratePackages)
       generateRunFrbCodegenCommandIntegrate(
-        GeneratePackageConfig(
+        GenerateIntegratePackageConfig(
           setExitIfChanged: false,
           package: package,
           coverage: false,
+          includeOhos: false,
+          skipCheckedInAppleScaffold: false,
         ),
       ),
   ]);

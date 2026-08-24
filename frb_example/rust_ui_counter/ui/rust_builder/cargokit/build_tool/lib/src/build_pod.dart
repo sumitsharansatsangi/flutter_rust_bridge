@@ -1,3 +1,6 @@
+/// This is copied from Cargokit (which is the official way to use it currently)
+/// Details: https://fzyzcjy.github.io/flutter_rust_bridge/manual/integrate/builtin
+
 import 'dart:io';
 
 import 'package:path/path.dart' as path;
@@ -5,7 +8,6 @@ import 'package:path/path.dart' as path;
 import 'artifacts_provider.dart';
 import 'builder.dart';
 import 'environment.dart';
-import 'exceptions.dart';
 import 'options.dart';
 import 'target.dart';
 import 'util.dart';
@@ -20,10 +22,8 @@ class BuildPod {
       final target = Target.forDarwin(
           platformName: Environment.darwinPlatformName, darwinAarch: arch);
       if (target == null) {
-        throw UnsupportedPlatformException(
-          'Darwin build received unsupported platform "${Environment.darwinPlatformName}" '
-          'with architecture "$arch".',
-        );
+        throw Exception(
+            "Unknown darwin target or platform: $arch, ${Environment.darwinPlatformName}");
       }
       return target;
     }).toList();
@@ -46,14 +46,14 @@ class BuildPod {
 
     Directory(outputDir).createSync(recursive: true);
 
-    final staticLibs = ArtifactMaterializer.flattenForType(
-      artifacts,
-      type: ArtifactType.staticlib,
-    );
-    final dynamicLibs = ArtifactMaterializer.flattenForType(
-      artifacts,
-      type: ArtifactType.dylib,
-    );
+    final staticLibs = artifacts.values
+        .expand((element) => element)
+        .where((element) => element.type == AritifactType.staticlib)
+        .toList();
+    final dynamicLibs = artifacts.values
+        .expand((element) => element)
+        .where((element) => element.type == AritifactType.dylib)
+        .toList();
 
     final libName = environment.crateInfo.packageName;
 
@@ -83,10 +83,7 @@ class BuildPod {
           return;
         }
       }
-      throw ArtifactException(
-        'Unable to find an existing framework binary to replace with the built dylib '
-        'in "$outputDir".',
-      );
+      throw Exception('Unable to find bundle for dynamic library');
     }
   }
 }

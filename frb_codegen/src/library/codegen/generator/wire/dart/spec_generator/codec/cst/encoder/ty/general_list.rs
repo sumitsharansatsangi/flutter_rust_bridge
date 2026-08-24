@@ -29,10 +29,10 @@ impl WireDartCodecCstGeneratorEncoderTrait for GeneralListWireDartCodecCstGenera
                             | MirType::DartOpaque(_)
                             | MirType::PrimitiveList(_)
                             | MirType::Delegate(MirTypeDelegate::String)
-                            | MirType::Delegate(MirTypeDelegate::SerdeJsonValue)
                             | MirType::Delegate(MirTypeDelegate::StreamSink(_))
                             | MirType::Delegate(MirTypeDelegate::Time(_))
                             | MirType::Delegate(MirTypeDelegate::Uuid)
+                            | MirType::Delegate(MirTypeDelegate::SerdeJsonValue)
                     )
                 {
                     format!("ans.ref.ptr[i] = cst_encode_{inner}(raw[i]);")

@@ -9,6 +9,7 @@ import 'package:flutter_rust_bridge_internal/src/makefile_dart/misc.dart';
 import 'package:flutter_rust_bridge_internal/src/utils/makefile_dart_infra.dart';
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
+import 'package:meta/meta.dart';
 import 'package:yaml/yaml.dart';
 
 List<Command<void>> createCommands() {
@@ -36,6 +37,7 @@ class VersionInfo {
 
 Future<void> release() async {
   print('Version info: ${computeVersionInfo()}');
+  verifyReleaseSubmodules();
   await releaseUpdateVersion();
   await releaseUpdateCode();
   await releaseUpdateScoop();
@@ -60,6 +62,11 @@ Future<void> releaseUpdateVersion() async {
   );
   simpleReplaceFile(
     '${exec.pwd}frb_dart/pubspec.yaml',
+    '\nversion: ${versionInfo.oldVersion}\n',
+    '\nversion: ${versionInfo.newVersion}\n',
+  );
+  simpleReplaceFile(
+    '${exec.pwd}frb_hooks/pubspec.yaml',
     '\nversion: ${versionInfo.oldVersion}\n',
     '\nversion: ${versionInfo.newVersion}\n',
   );
@@ -90,7 +97,7 @@ void _updateVersionInText() {
 
   for (final package in ['flutter_rust_bridge', 'flutter_rust_bridge_macros']) {
     simpleReplaceFile(
-      '${exec.pwd}frb_codegen/assets/integration_template/shared/REPLACE_ME_RUST_CRATE_DIR/Cargo.lock.template',
+      releaseCargoLockTemplatePathForTesting(),
       '[[package]]\nname = "$package"\nversion = "${versionInfo.oldVersion}"',
       '[[package]]\nname = "$package"\nversion = "${versionInfo.newVersion}"',
     );
@@ -149,25 +156,88 @@ Future<void> releaseUpdateGithub() async {
   File('${exec.pwd}temp.txt').writeAsStringSync(_extractChangelog().$2);
 
   await exec(
-    'gh release create v${versionInfo.newVersion} '
-    '--notes-file temp.txt '
-    '--draft '
-    '--title v${versionInfo.newVersion}',
+    githubReleaseCreateCommand(
+      version: versionInfo.newVersion,
+      notesFile: 'temp.txt',
+    ),
   );
   print(
-    'A *DRAFT* release has been created. Please go to the webpage and really release if you find it correct.',
+    'A GitHub release has been created. Please go to the webpage and check if you find it correct.',
   );
   await exec('open https://github.com/fzyzcjy/flutter_rust_bridge/releases');
 }
 
+@visibleForTesting
+String githubReleaseCreateCommand({
+  required String version,
+  required String notesFile,
+}) {
+  return [
+    'gh release create v$version',
+    '--notes-file $notesFile',
+    '--title v$version',
+  ].join(' ');
+}
+
+@visibleForTesting
+String releaseCargoLockTemplatePathForTesting() =>
+    '${exec.pwd}frb_codegen/assets/integration_template/shared/shared/REPLACE_ME_RUST_CRATE_DIR/Cargo.lock.template';
+
 Future<void> releasePublishAll() async {
+  verifyReleaseSubmodules();
   await exec('cd frb_codegen && cargo publish');
   await exec('cd frb_macros && cargo publish');
   await exec('cd frb_rust && cargo publish');
-  await exec(
-    'cd frb_dart && flutter pub publish --force --server=https://pub.dartlang.org',
-  );
+  for (final package in kDartPublishedPackages) {
+    await exec(dartPublishCommand(package));
+  }
 }
+
+@visibleForTesting
+String dartPublishCommand(String package) => switch (package) {
+  'frb_dart' =>
+    'cd frb_dart && flutter pub publish --force --server=https://pub.dartlang.org',
+  'frb_hooks' =>
+    'cd frb_hooks && dart pub publish --force --server=https://pub.dartlang.org',
+  _ => throw ArgumentError.value(package, 'package'),
+};
+
+void verifyReleaseSubmodules({String? repoRoot, String? submoduleStatus}) {
+  final status =
+      submoduleStatus ?? _gitSubmoduleStatus(repoRoot ?? '${exec.pwd}');
+  final uninitializedPaths = _uninitializedSubmodulePaths(status);
+
+  if (uninitializedPaths.isNotEmpty) {
+    throw Exception(
+      [
+        'Release submodules are uninitialized. Run `git submodule update --init --recursive` before publishing.',
+        ...uninitializedPaths.map((path) => '- $path'),
+      ].join('\n'),
+    );
+  }
+}
+
+String _gitSubmoduleStatus(String repoRoot) {
+  final result = Process.runSync('git', [
+    'submodule',
+    'status',
+    '--recursive',
+  ], workingDirectory: repoRoot);
+  if (result.exitCode != 0) {
+    throw Exception('Failed to check git submodule status: ${result.stderr}');
+  }
+  return result.stdout as String;
+}
+
+@visibleForTesting
+List<String> uninitializedSubmodulePathsForTesting(String status) =>
+    _uninitializedSubmodulePaths(status);
+
+List<String> _uninitializedSubmodulePaths(String status) => status
+    .split('\n')
+    .where((line) => line.startsWith('-'))
+    .map((line) => line.trim().split(RegExp(r'\s+'))[1])
+    .toList();
 
 String getFrbDartVersion() => loadYaml(
   File('${exec.pwd}frb_dart/pubspec.yaml').readAsStringSync(),

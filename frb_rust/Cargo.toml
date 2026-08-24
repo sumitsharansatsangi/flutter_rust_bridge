@@ -5,7 +5,7 @@ rust-version = "1.96.0"
 version = "2.13.0"
 description = "Flutter/Dart <-> Rust binding generator, feature-rich, but seamless and simple"
 license = "MIT"
-repository = "https://github.com/kumsumit/flutter_rust_bridge_rust"
+repository = "https://github.com/fzyzcjy/flutter_rust_bridge"
 keywords = ["flutter", "dart", "ffi", "code-generation", "bindings"]
 categories = ["development-tools::ffi"]
 
@@ -20,8 +20,8 @@ futures = { version = "0.3.31", optional = true }
 lazy_static = "1.5.0"
 log = { version = "0.4", optional = true }
 portable-atomic = { version = "1.11.0", optional = true }
-serde_json = { version = "1.0", optional = true }
-uuid = { version = "1.23.4", optional = true }
+serde_json = { workspace = true, optional = true }
+uuid = { workspace = true, optional = true }
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
 allo-isolate = { version = "0.1.26", features = ["anyhow", "backtrace", "zero-copy"] }
